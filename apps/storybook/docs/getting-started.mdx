@@ -1,0 +1,156 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Getting Started" />
+
+# Getting Started
+
+Faber UI currently runs as a private monorepo. The examples below describe the intended consumer
+API, which is already used by the Storybook workspace. Registry installation will become available
+only after publishing is enabled.
+
+## Local development
+
+From the repository root:
+
+```bash
+bun install
+bun run storybook
+```
+
+Storybook is served at `http://localhost:6006` by default.
+
+## Package installation
+
+The commands below assume an existing React application. Themes and tokens are installed
+automatically by the React package. styled-components remains an explicit peer dependency.
+
+### macOS and Linux
+
+Using Bun:
+
+```bash
+bun add @faber-ui/react styled-components
+```
+
+Using npm:
+
+```bash
+npm install @faber-ui/react styled-components
+```
+
+Using Yarn:
+
+```bash
+yarn add @faber-ui/react styled-components
+```
+
+### Windows
+
+Run one of the following commands in PowerShell or Windows Terminal.
+
+Using Bun:
+
+```powershell
+bun add @faber-ui/react styled-components
+```
+
+Using npm:
+
+```powershell
+npm install @faber-ui/react styled-components
+```
+
+Using Yarn:
+
+```powershell
+yarn add @faber-ui/react styled-components
+```
+
+React and React DOM remain peer dependencies. Faber UI supports React 18 and 19.
+
+## Load styles and fonts
+
+Import the aggregate stylesheet once at the application entry point:
+
+```tsx
+import '@faber-ui/react/styles.css';
+```
+
+This stylesheet includes:
+
+- Plus Jakarta Sans Variable `@font-face` declarations.
+- The overridable `--faber-ui-font-family-base` variable.
+- Light, dark, and system semantic color variables.
+
+If the application wants theme variables without the packaged font, import the narrower entry:
+
+```tsx
+import '@faber-ui/react/theme.css';
+```
+
+## Render the first interface
+
+```tsx
+import '@faber-ui/react/styles.css';
+
+import {
+  Button,
+  BUTTON_VARIANTS,
+  GlobalStyles,
+  Text,
+  THEME_MODES,
+  ThemeProvider,
+  Title,
+} from '@faber-ui/react';
+
+export function App() {
+  return (
+    <ThemeProvider mode={THEME_MODES.LIGHT}>
+      <GlobalStyles />
+      <main>
+        <Title.H1>Account settings</Title.H1>
+        <Text.P tone="secondary">Manage your profile and preferences.</Text.P>
+        <Button variant={BUTTON_VARIANTS.FILLED}>Save changes</Button>
+      </main>
+    </ThemeProvider>
+  );
+}
+```
+
+Components also expose explicit subpaths when a codebase prefers granular imports:
+
+```tsx
+import { Button } from '@faber-ui/react/button';
+import { Text } from '@faber-ui/react/text';
+import { Title } from '@faber-ui/react/title';
+```
+
+Root named exports and component subpaths are equivalent public APIs from the same installed
+package.
+
+Closed component options and theme modes are exported as `CONSTANT_CASE` objects. String literals
+remain fully typed, while constants provide discoverability and a reusable runtime source.
+
+`ThemeProvider` accepts `light` and `dark` modes. CSS-driven system mode is available through
+`data-theme="system"` and follows `prefers-color-scheme`.
+
+## Framework placement
+
+For Vite, place the stylesheet import in the main application entry. For Next.js App Router,
+place it in the root layout or another location where Next.js permits global CSS imports.
+
+`ThemeProvider` uses React context through styled-components, so a Next.js component that renders
+it must be inside a client-component boundary. Static CSS themes can be applied without the React
+provider.
+
+## Quality commands
+
+```bash
+bun run typecheck
+bun run lint
+bun run test
+bun run build
+bun run format:check
+```
+
+The root commands run the corresponding task across all workspaces through Turborepo.

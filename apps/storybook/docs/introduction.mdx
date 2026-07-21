@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Overview" />
+
+# Faber UI
+
+Faber UI is a modular, strongly typed design system for React, Next.js, and Vite. This Storybook
+is its living manual: component APIs are generated from source, while these guides explain the
+decisions and contracts shared across components.
+
+The project is public and under active development. The `@faber-ui` package scope is owned by the
+Faber UI npm organization, but packages are not published yet.
+
+## What is available
+
+- Primitive palette tokens and semantic color tokens.
+- Light, dark, and CSS-driven system themes.
+- An opt-in `GlobalStyles` document baseline, installed globally in Storybook.
+- Plus Jakarta Sans Variable distributed as local package assets.
+- Responsive dimensional, typography, border, radius, and motion tokens.
+- Accessible `Button` and `IconButton` atoms.
+- Semantic `Text.*` and `Title.*` typography atoms.
+- Public `CONSTANT_CASE` objects for closed component options and theme modes.
+- Autodocs, interaction examples, theme previews, and automated accessibility checks.
+
+## Core principles
+
+- Prefer semantic HTML over unnecessary abstractions.
+- Target WCAG 2.2 AA.
+- Provide explicit native props, reliable public types, and correctly forwarded refs.
+- Use semantic tokens and CSS variables as the customization contract.
+- Keep APIs constrained while preserving `className`, `style`, and CSS-variable escape hatches.
+- Keep Radix as an internal implementation detail for complex behavior.
+- Build small, responsive, predictable components documented with realistic examples.
+
+## Documentation map
+
+- **Getting Started** covers styles, fonts, themes, and the first component imports.
+- **Design Tokens** explains the primitive-to-semantic token architecture.
+- **Theming** documents CSS, React provider, system mode, and customization.
+- **Typography** documents semantic `Text.*` and `Title.*` usage.
+- **Atoms** contains interactive component references generated from their stories and types.
+
+## Project status
+
+The foundation is operational and validated through type checking, linting, unit tests, package
+builds, and a static Storybook build. Visual details remain intentionally iterative while the
+component contracts and accessibility behavior stabilize.

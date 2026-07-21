@@ -1,0 +1,117 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Theming Guide" />
+
+# Theming
+
+Faber UI supports a CSS-first theme contract and an optional React provider. Components consume
+semantic CSS variables, so applications can change colors without rewriting component styles or
+depending exclusively on React context.
+
+## Load the default themes
+
+Import styles once at the application entry point:
+
+```tsx
+import '@faber-ui/react/styles.css';
+```
+
+The aggregate stylesheet loads both the packaged font and theme variables. Use
+`@faber-ui/react/theme.css` when only theme variables are desired.
+
+## React provider
+
+```tsx
+import { GlobalStyles, THEME_MODES, ThemeProvider } from '@faber-ui/react';
+
+export function Application() {
+  return (
+    <ThemeProvider mode={THEME_MODES.DARK}>
+      <GlobalStyles />
+      ...
+    </ThemeProvider>
+  );
+}
+```
+
+The provider accepts `THEME_MODES.LIGHT`, `THEME_MODES.DARK`, or their equivalent string literals.
+It supplies the selected theme to styled-components and writes the same semantic CSS variables on
+its boundary. `THEME_MODES.SYSTEM` is reserved for the CSS-only `data-theme` contract.
+
+`GlobalStyles` is optional. When rendered once at the application boundary, it applies Faber UI's
+minimal document baseline without resetting semantic styles for headings, paragraphs, lists,
+links, or buttons. Customize the baseline through themes, semantic CSS variables, or application
+CSS rather than component props.
+
+## CSS-only themes
+
+Theme variables can be activated without React context:
+
+```html
+<html data-theme="light">
+  <!-- application -->
+</html>
+```
+
+Supported CSS values are `light`, `dark`, and `system`. System mode follows the operating-system
+preference:
+
+```html
+<html data-theme="system">
+  <!-- follows prefers-color-scheme -->
+</html>
+```
+
+## Override semantic variables
+
+Customize an application globally:
+
+```css
+:root {
+  --faber-ui-font-family-base: Inter, Arial, sans-serif;
+  --faber-ui-color-primary: hsl(220 80% 48%);
+  --faber-ui-color-primary-hover: hsl(220 80% 40%);
+  --faber-ui-color-primary-active: hsl(220 80% 32%);
+  --faber-ui-color-on-primary: #ffffff;
+}
+```
+
+Or scope a brand variation to one subtree:
+
+```css
+.campaign {
+  --faber-ui-color-accent: hsl(25 90% 48%);
+  --faber-ui-color-accent-hover: hsl(25 90% 40%);
+  --faber-ui-color-accent-active: hsl(25 90% 32%);
+}
+```
+
+## Custom typed theme
+
+The React provider also accepts a complete typed theme object:
+
+```tsx
+import { LIGHT_THEME, ThemeProvider } from '@faber-ui/react';
+import type { TTheme } from '@faber-ui/react';
+
+const BrandTheme = {
+  ...LIGHT_THEME,
+  PRIMARY: 'hsl(220 80% 48%)',
+  PRIMARY_HOVER: 'hsl(220 80% 40%)',
+  PRIMARY_ACTIVE: 'hsl(220 80% 32%)',
+} satisfies TTheme;
+
+export function BrandedArea() {
+  return <ThemeProvider theme={BrandTheme}>...</ThemeProvider>;
+}
+```
+
+A custom theme must satisfy the complete `TTheme` contract. For a small override, CSS variables
+are usually the simpler option.
+
+## Theme responsibilities
+
+- Themes define semantic color decisions.
+- Tokens provide stable component references and fallbacks.
+- Components do not own application-specific brand values.
+- Applications can override semantic variables without using a style-prop system.

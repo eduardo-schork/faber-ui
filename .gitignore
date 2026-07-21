@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+storybook-static/
+out/
+.next/
+*.tgz
+
+# Test outputs
+coverage/
+playwright-report/
+test-results/
+blob-report/
+.nyc_output/
+
+# Tool caches
+.turbo/
+.vite/
+.cache/
+.eslintcache
+.stylelintcache
+*.tsbuildinfo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+bun-error.log*
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.idea/
+.vscode/*
+# !.vscode/extensions.json
+# !.vscode/settings.json
+*.swp
+*.swo
+
+# Hosting and deployment state
+.vercel/
+
+# Contributor documentation is local while its structure is under development.
+/docs/
+
+# Local living project memory; intentionally not committed.
+PROJECT.md

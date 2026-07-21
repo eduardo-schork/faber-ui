@@ -1,0 +1,111 @@
+import js from '@eslint/js';
+import prettier from 'eslint-config-prettier';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import react from 'eslint-plugin-react';
+import reactHooks from 'eslint-plugin-react-hooks';
+import storybook from 'eslint-plugin-storybook';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
+
+import { NO_HARDCODED_DESIGN_VALUES } from './eslint-rules/no-hardcoded-design-values.js';
+
+export default defineConfig(
+  globalIgnores([
+    '**/node_modules/**',
+    '**/dist/**',
+    '**/storybook-static/**',
+    '**/coverage/**',
+    '**/.turbo/**',
+    'PROJECT.md',
+  ]),
+  {
+    files: ['**/*.{js,mjs,cjs}'],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      js.configs.recommended,
+      tseslint.configs.strictTypeChecked,
+      tseslint.configs.stylisticTypeChecked,
+    ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+    },
+    rules: {
+      '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
+      '@typescript-eslint/consistent-type-exports': 'error',
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          fixStyle: 'inline-type-imports',
+          prefer: 'type-imports',
+        },
+      ],
+      '@typescript-eslint/no-confusing-void-expression': [
+        'error',
+        {
+          ignoreArrowShorthand: true,
+        },
+      ],
+      '@typescript-eslint/naming-convention': [
+        'error',
+        {
+          selector: 'typeAlias',
+          format: ['PascalCase'],
+          custom: {
+            regex: '^T[A-Z]',
+            match: true,
+          },
+        },
+      ],
+    },
+  },
+  {
+    files: ['**/*.tsx'],
+    extends: [
+      react.configs.flat.recommended,
+      react.configs.flat['jsx-runtime'],
+      reactHooks.configs.flat.recommended,
+      jsxA11y.flatConfigs.recommended,
+    ],
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    rules: {
+      'react/prop-types': 'off',
+    },
+  },
+  {
+    files: [
+      'packages/react/src/components/**/*.{ts,tsx}',
+      'packages/themes/src/global-styles/**/*.{ts,tsx}',
+    ],
+    ignores: ['**/*.stories.tsx', '**/*.test.tsx'],
+    plugins: {
+      '@faber-ui': {
+        rules: {
+          'no-hardcoded-design-values': NO_HARDCODED_DESIGN_VALUES,
+        },
+      },
+    },
+    rules: {
+      '@faber-ui/no-hardcoded-design-values': 'error',
+    },
+  },
+  ...storybook.configs['flat/recommended'],
+  prettier,
+);

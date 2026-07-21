@@ -1,0 +1,84 @@
+{
+  "name": "@faber-ui/react",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Accessible, strongly typed React components for Faber UI.",
+  "keywords": [
+    "react",
+    "design-system",
+    "ui",
+    "components",
+    "typescript",
+    "styled-components",
+    "accessibility"
+  ],
+  "author": "Eduardo Schork",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo-schork/faber-ui.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/eduardo-schork/faber-ui#readme",
+  "bugs": {
+    "url": "https://github.com/eduardo-schork/faber-ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "styles.css",
+    "theme.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./button": {
+      "types": "./dist/components/button/index.d.ts",
+      "import": "./dist/button.js"
+    },
+    "./icon-button": {
+      "types": "./dist/components/icon-button/index.d.ts",
+      "import": "./dist/icon-button.js"
+    },
+    "./text": {
+      "types": "./dist/components/text/index.d.ts",
+      "import": "./dist/text.js"
+    },
+    "./title": {
+      "types": "./dist/components/title/index.d.ts",
+      "import": "./dist/title.js"
+    },
+    "./styles.css": "./styles.css",
+    "./theme.css": "./theme.css",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@faber-ui/themes": "workspace:*",
+    "@faber-ui/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0",
+    "styled-components": "^6.1.0"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.5.2",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "test": "vitest run --config ../../vitest.config.ts --root .",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

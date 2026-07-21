@@ -1,0 +1,55 @@
+{
+  "name": "@faber-ui/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Strongly typed design tokens and semantic foundations for Faber UI.",
+  "keywords": [
+    "design-system",
+    "ui",
+    "design-tokens",
+    "typescript",
+    "colors",
+    "typography",
+    "spacing"
+  ],
+  "author": "Eduardo Schork",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo-schork/faber-ui.git",
+    "directory": "packages/tokens"
+  },
+  "homepage": "https://github.com/eduardo-schork/faber-ui#readme",
+  "bugs": {
+    "url": "https://github.com/eduardo-schork/faber-ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@faber-ui/utilities": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.5.2",
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7"
+  },
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "test": "vitest run --config ../../vitest.config.ts --root .",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

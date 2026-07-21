@@ -1,0 +1,67 @@
+{
+  "name": "@faber-ui/themes",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Typed themes, CSS variables, and theming utilities for Faber UI.",
+  "keywords": [
+    "react",
+    "design-system",
+    "ui",
+    "themes",
+    "css-variables",
+    "typescript",
+    "styled-components"
+  ],
+  "author": "Eduardo Schork",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo-schork/faber-ui.git",
+    "directory": "packages/themes"
+  },
+  "homepage": "https://github.com/eduardo-schork/faber-ui#readme",
+  "bugs": {
+    "url": "https://github.com/eduardo-schork/faber-ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./theme.css": "./dist/theme.css",
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "@faber-ui/fonts": "workspace:*",
+    "@faber-ui/tokens": "workspace:*"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0 || ^19.0.0",
+    "react-dom": "^18.2.0 || ^19.0.0",
+    "styled-components": "^6.1.0"
+  },
+  "devDependencies": {
+    "@storybook/react-vite": "^10.5.2",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.17",
+    "react": "^19.2.7"
+  },
+  "scripts": {
+    "build": "bun run generate:styles && vite build && node scripts/build-theme-styles.mjs && tsc -p tsconfig.build.json",
+    "generate:styles": "bun scripts/generate-theme-styles.mjs",
+    "lint": "bun scripts/generate-theme-styles.mjs --check && eslint .",
+    "test": "vitest run --config ../../vitest.config.ts --root .",
+    "typecheck": "tsc -p tsconfig.json"
+  }
+}

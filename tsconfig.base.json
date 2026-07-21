@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@faber-ui/fonts": ["packages/fonts/src/index.ts"],
+      "@faber-ui/icons": ["packages/icons/src/index.ts"],
+      "@faber-ui/react": ["packages/react/src/index.ts"],
+      "@faber-ui/themes": ["packages/themes/src/index.ts"],
+      "@faber-ui/tokens": ["packages/tokens/src/index.ts"],
+      "@faber-ui/utilities": ["packages/utilities/src/index.ts"]
+    },
+    "jsx": "react-jsx",
+    "strict": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "noEmitOnError": true,
+    "skipLibCheck": true,
+    "allowJs": false,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "useUnknownInCatchVariables": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}

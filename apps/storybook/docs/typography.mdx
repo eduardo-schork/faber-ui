@@ -1,0 +1,89 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Typography Guide" />
+
+# Typography
+
+Typography uses explicit semantic namespaces. `Text` and `Title` are not directly renderable;
+their members make the resulting HTML element visible at the call site.
+
+## Text elements
+
+```tsx
+import { Text } from '@faber-ui/react';
+
+<Text.P>Paragraph content</Text.P>
+<Text.Span>Inline content</Text.Span>
+<Text.A href="/docs">Documentation</Text.A>
+<Text.Label htmlFor="email">Email</Text.Label>
+<Text.Strong>Important content</Text.Strong>
+<Text.Em>Emphasized content</Text.Em>
+<Text.Small>Supporting information</Text.Small>
+```
+
+Each member accepts the native props and ref for its exact HTML element. For example, `href` is
+available on `Text.A`, while `htmlFor` is available on `Text.Label`.
+
+## Heading hierarchy
+
+```tsx
+import { Title } from '@faber-ui/react';
+
+<Title.H1>Page title</Title.H1>
+<Title.H2>Major section</Title.H2>
+<Title.H3>Section</Title.H3>
+<Title.H4>Subsection</Title.H4>
+<Title.H5>Supporting section</Title.H5>
+<Title.H6>Minor heading</Title.H6>
+```
+
+Choose the heading level from document structure, not visual size. A page should have a clear
+heading hierarchy without skipping levels for appearance alone.
+
+## Visual props
+
+All typography members accept the same controlled visual props:
+
+```tsx
+import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '@faber-ui/react';
+
+<Title.H1 size="medium" tone="accent" weight="semibold">
+  A semantic H1 with a smaller appearance
+</Title.H1>
+
+<Text.P size={TYPOGRAPHY_SIZES.SMALLER} tone={TYPOGRAPHY_TONES.SECONDARY} truncate>
+  Supporting content
+</Text.P>
+```
+
+- `size`: `smallest`, `smaller`, `small`, `medium`, `large`, `larger`, or `largest`.
+- `weight`: `regular`, `medium`, `semibold`, or `bold`.
+- `tone`: `primary`, `secondary`, `disabled`, `accent`, or `inherit`.
+- `truncate`: renders a single line with an ellipsis when the container is constrained.
+
+Visual props never change the semantic element. `Title.H1 size="medium"` remains an `h1`.
+Every closed option set is also available as a public `CONSTANT_CASE` object; equivalent string
+literals remain supported and strongly typed.
+
+## Customization
+
+Defaults can be overridden through visual props, native `style`, `className`, and CSS variables:
+
+```tsx
+<Text.P className="article-introduction" style={{ letterSpacing: '0.01em' }}>
+  Custom introduction
+</Text.P>
+```
+
+Typography components reset browser margins to zero. Layout spacing belongs to the surrounding
+layout and should use `SPACINGS` tokens where possible.
+
+## Font contract
+
+The default family is Plus Jakarta Sans Variable with normal and italic weights from 200 through 800. Override it globally or within a subtree:
+
+```css
+:root {
+  --faber-ui-font-family-base: Inter, Arial, sans-serif;
+}
+```

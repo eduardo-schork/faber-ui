@@ -1,0 +1,8 @@
+bun.lock
+node_modules/
+dist/
+storybook-static/
+coverage/
+.turbo/
+PROJECT.md
+

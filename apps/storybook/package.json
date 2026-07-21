@@ -1,0 +1,28 @@
+{
+  "name": "@faber-ui/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "storybook build --disable-telemetry",
+    "dev": "storybook dev --port 6006 --no-open --disable-telemetry",
+    "lint": "eslint .",
+    "test": "vitest run --config ../../vitest.config.ts --root .",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@faber-ui/icons": "workspace:*",
+    "@faber-ui/react": "workspace:*",
+    "@faber-ui/themes": "workspace:*",
+    "@faber-ui/tokens": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.5.2",
+    "@storybook/addon-docs": "^10.5.2",
+    "@storybook/react-vite": "^10.5.2",
+    "storybook": "^10.5.2"
+  }
+}

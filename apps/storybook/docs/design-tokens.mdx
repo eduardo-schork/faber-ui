@@ -1,0 +1,83 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Design Tokens" />
+
+# Design Tokens
+
+Tokens are strongly typed TypeScript objects with flat uppercase names. Dimensional values use
+pixels, font weights and line heights are unitless, and semantic colors resolve through CSS
+variables with stable fallbacks.
+
+## Architecture
+
+```text
+PALETTE primitives
+  → semantic COLORS
+  → LIGHT_THEME / DARK_THEME
+  → CSS variables
+  → components
+```
+
+Use `PALETTE` when authoring themes or extending the design system. Application interfaces should
+prefer semantic `COLORS`, because semantic tokens adapt automatically to the active theme.
+
+```tsx
+import { COLORS, SPACINGS } from '@faber-ui/react';
+
+const panelStyle = {
+  padding: SPACINGS.LG,
+  color: COLORS.TEXT_PRIMARY,
+  background: COLORS.SURFACE_PRIMARY,
+};
+```
+
+## Current token modules
+
+- `ANIMATIONS`
+- `BORDER_WIDTHS`
+- `BREAKPOINTS`
+- `COLORS` and `PALETTE`
+- `FONT_FAMILIES`
+- `FONT_SIZES`
+- `FONT_WEIGHTS`
+- `FOCUS_RINGS`
+- `LINE_HEIGHTS`
+- `OPACITIES`
+- `RADII`
+- `RELATIVE_SIZES`
+- `SIZES`
+- `SPACINGS`
+- `TEXT_DECORATIONS`
+
+Each module exports the token object plus `T`-prefixed token-name and token-value types.
+
+## Responsive behavior
+
+`BREAKPOINTS` contains mobile-first minimum-width thresholds. Components are fluid by default and
+use media or container queries only for structural changes. The `MOBILE` token represents the base
+range and does not require a media query.
+
+```tsx
+import { BREAKPOINTS } from '@faber-ui/react';
+
+const tabletQuery = `@media (min-width: ${BREAKPOINTS.TABLET})`;
+```
+
+## CSS-variable contract
+
+Semantic colors and the base font include CSS-variable fallbacks:
+
+```ts
+COLORS.PRIMARY;
+// var(--faber-ui-color-primary, hsl(95 46% 26%))
+```
+
+This keeps components functional without a provider while allowing applications to customize the
+system globally or within a subtree.
+
+## Authoring rule
+
+Components must use tokens for visual decisions. Reuse an existing token first and add a semantic
+token when the system does not yet represent the decision. Universal CSS mechanics such as `100%`,
+`auto`, `inherit`, and `transparent` may remain local because they express CSS behavior rather than
+the visual language of Faber UI.
