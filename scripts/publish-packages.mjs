@@ -10,6 +10,9 @@ const dryRun = process.argv.includes('--dry-run');
 const tag = process.argv.find((argument) => argument.startsWith('--tag='))?.slice(6) ?? 'latest';
 // Writes the tarballs to a directory and publishes nothing, for testing them in a consumer.
 const packTo = process.argv.find((argument) => argument.startsWith('--pack-to='))?.slice(10);
+// Sends each version to npm's staging area instead of publishing it. A maintainer then approves it
+// on npmjs.com with two-factor authentication, which is what the automated release uses.
+const stage = process.argv.includes('--stage');
 const otp = process.argv.find((argument) => argument.startsWith('--otp='));
 
 const run = (command, commandArguments, options = {}) =>
@@ -54,6 +57,14 @@ const resolveWorkspaceRanges = (manifestSource) => {
   delete manifest.scripts;
 
   return `${JSON.stringify(manifest, null, 2)}\n`;
+};
+
+const isStaged = (name, version) => {
+  try {
+    return run('npm', ['stage', 'list', name], { stdio: 'pipe' }).includes(version);
+  } catch {
+    return false;
+  }
 };
 
 const isPublished = (name, version) => {
@@ -126,7 +137,19 @@ for (const directoryName of PACKAGES) {
     continue;
   }
 
-  const publishArguments = ['publish', tarball, '--access', 'public', '--tag', tag];
+  if (stage && isStaged(name, version)) {
+    console.log(`skip ${name}@${version}: already staged and waiting for approval`);
+    continue;
+  }
+
+  const publishArguments = [
+    ...(stage ? ['stage', 'publish'] : ['publish']),
+    tarball,
+    '--access',
+    'public',
+    '--tag',
+    tag,
+  ];
 
   if (otp !== undefined) {
     publishArguments.push(otp);
@@ -136,6 +159,6 @@ for (const directoryName of PACKAGES) {
     publishArguments.push('--dry-run');
   }
 
-  console.log(`${dryRun ? 'dry run' : 'publish'} ${name}@${version} (${tag})`);
+  console.log(`${dryRun ? 'dry run' : stage ? 'stage' : 'publish'} ${name}@${version} (${tag})`);
   run('npm', publishArguments, { stdio: 'inherit' });
 }
