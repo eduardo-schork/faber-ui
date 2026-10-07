@@ -1,8 +1,24 @@
 import { fileURLToPath } from 'node:url';
 
+import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  plugins: [
+    react({
+      plugins: [
+        [
+          '@swc/plugin-styled-components',
+          {
+            displayName: true,
+            namespace: 'faber-ui-themes',
+            pure: true,
+            ssr: true,
+          },
+        ],
+      ],
+    }),
+  ],
   build: {
     target: 'baseline-widely-available',
     sourcemap: true,

@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Avatar" />
+
+# Avatar
+
+[Interactive stories and prop reference](?path=/docs/atoms-avatar--docs)
+
+## Purpose and when to use it
+
+Use `Avatar` for a person, organization, or object image with a deterministic fallback.
+
+## Behavioral contract
+
+- Displays `src` as an image and replaces it with `fallback` when absent or when loading fails.
+- Requires `alt` and `fallback`; size values come from `AVATAR_SIZES`.
+- The outer span receives the forwarded ref and native span props.
+- `onImageError` exposes image failures without preventing fallback behavior.
+
+## Accessibility
+
+Use meaningful alt text when the avatar conveys identity. Use `alt=""` when nearby text already
+provides the same identity; the fallback is then hidden from assistive technology.
+
+## Example
+
+```tsx
+import { Avatar } from '@faber-ui/react/avatar';
+
+<Avatar alt="Ada Lovelace" fallback="AL" src="/people/ada.jpg" />;
+```
+
+## Boundaries
+
+Uploading, image optimization, presence indicators, and generated initials remain consumer
+responsibilities.

@@ -1,0 +1,79 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Dialog" />
+
+# Dialog
+
+[Interactive stories and prop reference](?path=/docs/organisms-dialog--docs)
+
+## Purpose and when to use it
+
+Use `Dialog` for a task or decision that must be finished or dismissed before the reader returns
+to the page, such as confirming a deletion.
+
+## Behavioral contract
+
+- Renders a native `dialog` opened as a modal and forwards its ref. The browser provides the top
+  layer, the backdrop, focus containment, and making the rest of the page inert.
+- Controlled: `open` shows it and `onClose` is called when it asks to close, from Escape, the
+  close button, or a backdrop click. Set `closeOnBackdropClick={false}` to ignore the backdrop.
+- `title` is required and names the dialog. `footer` holds the actions.
+- `placement` accepts `DIALOG_PLACEMENTS`; `Drawer` uses the edge placements.
+- `closeLabel` names the close button and defaults to `Close`.
+
+## Accessibility
+
+Focus moves into the dialog when it opens and returns to the trigger when it closes. Keep the
+title specific and put the least destructive action first in the footer.
+
+## Customization
+
+Surface, border, and spacing use tokens, and the backdrop derives from the text color. Because a
+modal dialog renders in the top layer it needs no z-index.
+
+## Example
+
+```tsx
+import { Button, Dialog } from '@faber-ui/react';
+
+<Dialog
+  open={open}
+  title="Delete project"
+  onClose={() => setOpen(false)}
+  footer={<Button onClick={confirm}>Delete</Button>}
+>
+  This cannot be undone.
+</Dialog>;
+```
+
+## Composition
+
+`Dialog` arranges a title, a body, and a footer one way. For another arrangement, assemble the
+parts yourself:
+
+- `DialogRoot` is the native modal on its own. It takes `open`, `onClose`, `placement`, and
+  `closeOnBackdropClick`, and renders whatever children you give it.
+- `DialogTitle` renders the heading and names the dialog. When a composition has no title, pass
+  `aria-label` or `aria-labelledby` to `DialogRoot`.
+- `DialogClose` is an icon button that calls `onClose`. It accepts every `IconButton` prop and
+  custom children.
+- `DialogHeader`, `DialogBody`, and `DialogFooter` are the layout rows of the built-in dialog.
+
+`DialogTitle` and `DialogClose` throw when rendered outside `DialogRoot`.
+
+```tsx
+import { DialogBody, DialogClose, DialogRoot, DialogTitle } from '@faber-ui/react/dialog';
+
+<DialogRoot open={open} onClose={close}>
+  <DialogBody>
+    <DialogTitle>Delete this project?</DialogTitle>
+    Its deployments go with it.
+  </DialogBody>
+  <DialogClose aria-label="Keep it" />
+</DialogRoot>;
+```
+
+## Boundaries
+
+The component does not own its open state, lock page scrolling, or animate. A non-modal dialog is
+not supported.

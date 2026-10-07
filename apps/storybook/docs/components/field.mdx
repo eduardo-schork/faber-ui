@@ -1,0 +1,72 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Field" />
+
+# Field
+
+[Interactive stories and prop reference](?path=/docs/molecules-field--docs)
+
+## Purpose and when to use it
+
+`Field` composes a visible label, one control, optional description, and optional validation
+message. Use it for a control that accepts an `id`, `aria-describedby`, and `aria-invalid` and
+forwards them to its underlying HTML element. `Input`, `Textarea`, and native text controls meet
+this contract.
+
+## Behavioral contract
+
+- The short API is `label`, `description`, `error`, `invalid`, and one child control.
+- A stable control ID is generated unless the child already has one.
+- The label points to the control with `htmlFor`. Description and visible error IDs are appended
+  to the child's existing `aria-describedby` rather than replacing it.
+- An error makes the field invalid by default. `invalid` can override that decision; when
+  `invalid={false}`, the supplied error is not displayed.
+- The child's `name`, value, handlers, native props, and ref remain owned by the child.
+- Content props accept React nodes, so applications can pass already-translated messages.
+
+## Accessibility
+
+The error is connected to the control and uses a polite live region. The control receives
+`aria-invalid` when invalid. Use clear label text even when a placeholder is present. Do not use
+`Field` with a child that discards the injected accessibility attributes. For checkbox/radio
+patterns, review the dedicated components when they are implemented; this guide does not promise
+their layout or group semantics.
+
+## Customization
+
+Label, description, and error styles use semantic typography and color tokens. `COLORS.ERROR`
+provides the error text and control-border role in both themes. The `Field` wrapper accepts native
+div attributes, `className`, and a ref; the child can be styled independently.
+
+## Example
+
+```tsx
+import { Field, Input, INPUT_TYPES } from '@faber-ui/react';
+
+<Field label="Email" description="We will send account updates here." error={errors.email?.message}>
+  <Input type={INPUT_TYPES.EMAIL} {...register('email')} />
+</Field>;
+```
+
+## Composition
+
+`FieldRoot`, `FieldLabel`, `FieldDescription`, and `FieldError` are the parts `Field` is built
+from. They carry the layout and typography only. `Field` generates ids and connects them to the
+control; in a composition you connect them yourself with `htmlFor`, `aria-describedby`, and
+`aria-invalid`.
+
+```tsx
+import { FieldDescription, FieldLabel, FieldRoot } from '@faber-ui/react/field';
+
+<FieldRoot>
+  <FieldLabel htmlFor="note">Release note</FieldLabel>
+  <FieldDescription id="note-hint">Shown on the changelog.</FieldDescription>
+  <Textarea id="note" aria-describedby="note-hint" />
+</FieldRoot>;
+```
+
+## Boundaries
+
+`Field` does not validate values or manage form state. Yup, React Hook Form, and i18n systems
+remain application dependencies; pass their current error or translated content as props. A
+separate [Forms](?path=/docs/introduction-forms--docs) guide shows that integration boundary.

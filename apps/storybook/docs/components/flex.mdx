@@ -1,0 +1,56 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Flex" />
+
+# Flex, HFlex, and VFlex
+
+[Interactive stories and prop reference](?path=/docs/atoms-flex--docs)
+
+## Purpose and when to use them
+
+Use `Flex` for a responsive one-dimensional layout. It defaults to a horizontal row. `HFlex`
+fixes row direction, and `VFlex` fixes column direction while keeping the other Flex options.
+Use `Container` for page width and `CenterFlex` when both axes must be centered.
+
+## Behavioral contract
+
+- `direction`, `align`, `justify`, `wrap`, and `gap` accept a single value or an object keyed by
+  semantic breakpoint names such as `MOBILE` and `TABLET`.
+- `gap` accepts a `SPACINGS` token name or its token value.
+- `inline` switches from block flex to inline flex.
+- `outlineColor` draws a dashed token-width debugging outline without changing layout geometry.
+- Native div props, `className`, `style`, `as`, and a forwarded ref remain available.
+- HFlex and VFlex intentionally omit `direction` from their public props.
+
+## Accessibility
+
+Flexbox changes visual layout, not reading or focus order. Keep DOM order logical, especially
+when a responsive direction changes. Choose an appropriate `as` element when the container has
+semantic meaning; a Flex wrapper does not create semantics on its own.
+
+## Customization
+
+Spacing and breakpoints come from tokens. Consumers may use `className`, `style`, CSS variables,
+or a styled-components wrapper. The layout API is intentionally narrower than an unrestricted
+style-prop system.
+
+## Example
+
+```tsx
+import { Flex, HFlex, SPACINGS } from '@faber-ui/react';
+
+<Flex direction={{ MOBILE: 'column', TABLET: 'row' }} gap={SPACINGS.MD}>
+  <MainContent />
+  <Aside />
+</Flex>;
+
+<HFlex align="center" gap="SM">
+  <Icon />
+  <span>Status</span>
+</HFlex>;
+```
+
+## Boundaries
+
+These are layout primitives, not responsive state hooks. They do not inspect viewport size in
+JavaScript. `Stack` and a general-purpose `Box` are not currently part of the API.

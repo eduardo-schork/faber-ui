@@ -7,3 +7,4 @@ export type TTextLabelProps = TTypographyComponentProps<'label'>;
 export type TTextStrongProps = TTypographyComponentProps<'strong'>;
 export type TTextEmProps = TTypographyComponentProps<'em'>;
 export type TTextSmallProps = TTypographyComponentProps<'small'>;
+export type TTextCodeProps = TTypographyComponentProps<'code'>;

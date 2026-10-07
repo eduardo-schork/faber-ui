@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Drawer" />
+
+# Drawer
+
+[Interactive stories and prop reference](?path=/docs/organisms-drawer--docs)
+
+## Purpose and when to use it
+
+Use `Drawer` for a modal panel docked to the side of the viewport: filters, a detail view, or
+navigation on small screens.
+
+## Behavioral contract
+
+- A `Dialog` with an edge placement. It renders the same native modal `dialog` and has the same
+  `open`, `onClose`, `title`, `footer`, `closeLabel`, and `closeOnBackdropClick` props.
+- `side` accepts `DRAWER_SIDES` (`start` or `end`) and defaults to `end`. Sides are logical, so
+  they mirror in right-to-left layouts.
+
+## Accessibility
+
+Identical to `Dialog`: focus is contained, Escape closes, and the page behind is inert.
+
+## Customization
+
+Shares the `Dialog` tokens. The panel spans the viewport height.
+
+## Example
+
+```tsx
+import { Drawer } from '@faber-ui/react/drawer';
+
+<Drawer open={open} title="Filters" onClose={() => setOpen(false)}>
+  <FilterForm />
+</Drawer>;
+```
+
+## Boundaries
+
+Top and bottom sheets, swipe gestures, and a persistent non-modal drawer are not included.

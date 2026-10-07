@@ -6,6 +6,7 @@ dist/
 storybook-static/
 out/
 .next/
+next-env.d.ts
 *.tgz
 
 # Test outputs

@@ -1,0 +1,73 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Alert" />
+
+# Alert
+
+[Interactive stories and prop reference](?path=/docs/atoms-alert--docs)
+
+## Purpose and when to use it
+
+Use `Alert` for a short message that needs to stand out from the surrounding content: a status
+note, a warning before an action, or an error summary.
+
+## Behavioral contract
+
+- Renders a `div` with an optional `title` above its children and forwards its ref.
+- `color` accepts values from `ALERT_COLORS` (`neutral`, `primary`, `accent`, `error`) and marks
+  the inline-start edge. It defaults to `neutral`.
+- Defaults to `role="note"`, which is static. Pass `role="status"` or `role="alert"` when the
+  message appears in response to something and must be announced.
+
+## Accessibility
+
+Color is never the only signal: state the meaning in the title or text. Reserve `role="alert"` for
+messages that need immediate attention, because it interrupts the screen reader.
+
+## Customization
+
+The alert consumes semantic color and spacing tokens. `className`, `style`, and styled-components
+wrappers remain available.
+
+## Example
+
+```tsx
+import { Alert, ALERT_COLORS } from '@faber-ui/react/alert';
+
+<Alert title="Pre-release" color={ALERT_COLORS.ACCENT}>
+  The packages are not on npm yet.
+</Alert>;
+
+<Alert role="alert" color={ALERT_COLORS.ERROR}>
+  The payment could not be processed.
+</Alert>;
+```
+
+## Composition
+
+`AlertRoot` is the alert surface with the `color` and `role` contract and no fixed content.
+`AlertTitle` and `AlertBody` are the two text parts. Combine them with other components to build
+an alert the base component does not cover, such as one with an action.
+
+```tsx
+import { AlertBody, AlertRoot, AlertTitle } from '@faber-ui/react/alert';
+import { Button } from '@faber-ui/react/button';
+import { HFlex, VFlex } from '@faber-ui/react/flex';
+
+<AlertRoot color="accent">
+  <HFlex align="center" justify="space-between" gap="MD">
+    <VFlex gap="XXS">
+      <AlertTitle>Draft deleted</AlertTitle>
+      <AlertBody>You can bring it back for 30 days.</AlertBody>
+    </VFlex>
+    <Button size="small" variant="outline" onClick={undo}>
+      Undo
+    </Button>
+  </HFlex>
+</AlertRoot>;
+```
+
+## Boundaries
+
+`Alert` has no icon, dismiss button, or timer. Temporary notifications belong to a future toast
+component.

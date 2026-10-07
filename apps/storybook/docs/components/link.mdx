@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Link" />
+
+# Link
+
+[Interactive stories and prop reference](?path=/docs/atoms-link--docs)
+
+## Purpose and when to use it
+
+Use `Link` for navigation when a router component must render the anchor, or when a link stands on
+its own outside a paragraph. `Text.A` remains the plain anchor for links inside running text.
+
+## Behavioral contract
+
+- Renders a native `a` by default, forwards its attributes, events, `className`, and ref.
+- `as` replaces the rendered anchor with a router link component such as the Next.js `Link`. That
+  component receives `href`, `className`, and the remaining props, and must render an anchor.
+- Shares the `Text.A` appearance and the typography `size`, `weight`, `tone`, and `truncate` props.
+  It defaults to the accent tone and medium weight.
+
+## Accessibility
+
+Always provide a real `href`. Use `Button` for an action that does not navigate. Link text should
+describe the destination without relying on the surrounding sentence.
+
+## Customization
+
+The link consumes typography and semantic color tokens. `tone="primary"` gives an ink-colored link
+for navigation lists. `className`, `style`, and styled-components wrappers remain available.
+
+## Example
+
+```tsx
+import { Link } from '@faber-ui/react/link';
+import NextLink from 'next/link';
+
+<Link href="https://example.com">External site</Link>;
+
+<Link as={NextLink} href="/docs">
+  Documentation
+</Link>;
+```
+
+## Boundaries
+
+`Link` does not add `target` or `rel` for external destinations and does not detect the active
+route. Set `aria-current` and those native attributes in the application.

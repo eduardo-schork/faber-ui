@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Checkbox" />
+
+# Checkbox
+
+[Interactive stories and prop reference](?path=/docs/atoms-checkbox--docs)
+
+## Purpose and when to use it
+
+Use `Checkbox` for an independent yes/no choice or one option in a set where several options may
+be selected. Use `Radio` when exactly one option from a named set should be selected.
+
+## Behavioral contract
+
+- Renders a native checkbox with an inline `label`; the input receives the forwarded ref.
+- Preserves native `checked`, `defaultChecked`, `name`, `value`, `required`, events, and disabled
+  behavior, including React Hook Form's `register` props.
+- Optional `description` and `error` are connected with stable IDs and `aria-describedby`.
+- An error sets `aria-invalid` by default; `invalid` can override that decision.
+- `className` and `style` apply to the outer wrapper; other native input props reach the input.
+
+## Accessibility
+
+The label is clickable and supplies the checkbox's accessible name. The native input retains
+keyboard and form semantics. The error uses a polite live region. A required checkbox still needs
+a clear label explaining what is being accepted.
+
+## Customization
+
+The control uses semantic primary, focus, error, disabled, and text color tokens. Dimensions,
+spacing, and typography come from design tokens. Theme CSS variables and wrapper `className` are
+available for customization.
+
+## Example
+
+```tsx
+import { Checkbox } from '@faber-ui/react/checkbox';
+
+<Checkbox label="I accept the terms" error={errors.terms?.message} {...register('terms')} />;
+```
+
+## Boundaries
+
+Validation and translated messages are supplied by the application. This component does not
+manage a checkbox group or provide an indeterminate state yet. Do not wrap it in `Field`, because
+it already owns an inline label.

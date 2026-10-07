@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Progress" />
+
+# Progress
+
+[Interactive stories and prop reference](?path=/docs/atoms-progress--docs)
+
+## Purpose and when to use it
+
+Use `Progress` when the amount of completed work is known, such as an upload. Use `Spinner` for a
+wait that cannot be measured and `Skeleton` when the shape of the coming content is known.
+
+## Behavioral contract
+
+- Renders a native `progress` element, forwards its `value`, `max`, other attributes, and ref.
+- `label` is required and becomes the accessible name.
+- Omitting `value` makes the bar indeterminate, using the platform animation.
+
+## Accessibility
+
+The native element exposes the progressbar role and its value. Announce completion separately
+with a status message when the outcome matters.
+
+## Customization
+
+The track and fill use semantic colors, so theme overrides apply. `className`, `style`, and
+styled-components wrappers remain available.
+
+## Example
+
+```tsx
+import { Progress } from '@faber-ui/react/progress';
+
+<Progress label="Uploading report" value={uploaded} max={total} />;
+<Progress label="Syncing" />;
+```
+
+## Boundaries
+
+There is no visible label, percentage text, or circular variant. Compose text beside the bar.

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { findKebabCasePathViolations } from './kebab-case-paths.js';
 
 describe('findKebabCasePathViolations', () => {
-  it('accepts project conventions and ecosystem exceptions', () => {
+  it('SHOULD accept project conventions and ecosystem exceptions', () => {
     const violations = findKebabCasePathViolations([
       'packages/react/src/components/icon-button/icon-button.ui.tsx',
       'packages/react/src/components/icon-button/icon-button.stories.tsx',
@@ -11,6 +11,7 @@ describe('findKebabCasePathViolations', () => {
       'docs/component-guidelines.md',
       'packages/react/package.json',
       'README.md',
+      'AGENTS.md',
     ]);
 
     expect(violations).toEqual([]);

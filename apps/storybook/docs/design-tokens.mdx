@@ -21,6 +21,12 @@ PALETTE primitives
 Use `PALETTE` when authoring themes or extending the design system. Application interfaces should
 prefer semantic `COLORS`, because semantic tokens adapt automatically to the active theme.
 
+The default brand palette uses `MALACHITE_*` primitives for primary actions and `COPPER_*`
+primitives for accents. Both families run from a light `100` value to a dark `600` value. The
+semantic API keeps components independent from those primitive names. `NEUTRAL_*` is a separate
+gray-first Silver-to-Graphite scale for page backgrounds, surfaces, text, borders, and disabled
+states; brand hues do not tint structural surfaces.
+
 ```tsx
 import { COLORS, SPACINGS } from '@faber-ui/react';
 
@@ -37,6 +43,7 @@ const panelStyle = {
 - `BORDER_WIDTHS`
 - `BREAKPOINTS`
 - `COLORS` and `PALETTE`
+- `CONTAINER_SIZES`
 - `FONT_FAMILIES`
 - `FONT_SIZES`
 - `FONT_WEIGHTS`
@@ -48,6 +55,7 @@ const panelStyle = {
 - `SIZES`
 - `SPACINGS`
 - `TEXT_DECORATIONS`
+- `Z_INDICES`
 
 Each module exports the token object plus `T`-prefixed token-name and token-value types.
 
@@ -57,19 +65,51 @@ Each module exports the token object plus `T`-prefixed token-name and token-valu
 use media or container queries only for structural changes. The `MOBILE` token represents the base
 range and does not require a media query.
 
+`CONTAINER_SIZES` pairs page-content widths with the `TABLET`, `DESKTOP`, `DESKTOP_LARGE`, and
+`DESKTOP_WIDE` thresholds. Breakpoints determine when the layout changes; container sizes preserve
+intentional space around the page content.
+
 ```tsx
 import { BREAKPOINTS } from '@faber-ui/react';
 
 const tabletQuery = `@media (min-width: ${BREAKPOINTS.TABLET})`;
 ```
 
+## Scales and variables
+
+Dimensional and typographic tokens come in pairs. The table a component consumes, such as
+`SPACINGS`, holds CSS variable references; a matching `*_SCALE` object holds the raw values for
+JavaScript.
+
+```ts
+SPACINGS.MD; // 'var(--faber-ui-spacing-md, 16px)'
+SPACING_SCALE.MD; // '16px'
+```
+
+| Consumed in styles | Raw values           | Variable prefix             |
+| ------------------ | -------------------- | --------------------------- |
+| `SPACINGS`         | `SPACING_SCALE`      | `--faber-ui-spacing-*`      |
+| `SIZES`            | `SIZE_SCALE`         | `--faber-ui-size-*`         |
+| `RADII`            | `RADIUS_SCALE`       | `--faber-ui-radius-*`       |
+| `BORDER_WIDTHS`    | `BORDER_WIDTH_SCALE` | `--faber-ui-border-width-*` |
+| `FONT_SIZES`       | `FONT_SIZE_SCALE`    | `--faber-ui-font-size-*`    |
+| `FONT_WEIGHTS`     | `FONT_WEIGHT_SCALE`  | `--faber-ui-font-weight-*`  |
+| `LINE_HEIGHTS`     | `LINE_HEIGHT_SCALE`  | `--faber-ui-line-height-*`  |
+
+The variable name is the prefix plus the token name in lower case: `RADII.MD` reads
+`--faber-ui-radius-md`. The theme stylesheet declares every one of these on `:root`, so plain CSS
+can use them without the React package, and overriding one retunes every component that reads it.
+
+`BREAKPOINTS` stays raw because media queries cannot read custom properties. `Z_INDICES`,
+`OPACITIES`, `ANIMATIONS`, and `CONTAINER_SIZES` are raw values as well.
+
 ## CSS-variable contract
 
-Semantic colors and the base font include CSS-variable fallbacks:
+Semantic colors, the base font, and the scales above include CSS-variable fallbacks:
 
 ```ts
 COLORS.PRIMARY;
-// var(--faber-ui-color-primary, hsl(95 46% 26%))
+// var(--faber-ui-color-primary, hsl(147 57% 33%))
 ```
 
 This keeps components functional without a provider while allowing applications to customize the

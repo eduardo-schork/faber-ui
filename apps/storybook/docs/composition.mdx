@@ -1,0 +1,102 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Composition Guide" />
+
+# Composition
+
+Every Faber UI component is assembled from smaller public pieces. The finished component covers
+the common case; when it does not fit, you can adjust it or build your own from the same parts
+without forking anything.
+
+## Choose the smallest level that works
+
+| You need                             | Reach for                   | Looks like                                  |
+| ------------------------------------ | --------------------------- | ------------------------------------------- |
+| A documented variation               | Typed props                 | `<Button variant="outline" size="small" />` |
+| The look of one part                 | A part class or `styled()`  | `.faber-ui-dialog-header { … }`             |
+| A new component in the same language | Tokens in your own styles   | `border-radius: ${RADII.XL};`               |
+| A different structure                | The parts, assembled by you | `<DialogRoot>…</DialogRoot>`                |
+
+## Props
+
+Variations a component was designed for are typed props with closed value sets, exported as
+`CONSTANT_CASE` objects such as `BUTTON_VARIANTS`. `styled(Component).attrs({ … })` turns a set of
+props into a reusable variation.
+
+```tsx
+const QuietButton = styled(Button).attrs({
+  color: BUTTON_COLORS.NEUTRAL,
+  variant: BUTTON_VARIANTS.SUBTLE,
+})``;
+```
+
+## Part classes
+
+Every styled part carries a stable `faber-ui-<component>-<part>` class, in the built-in component
+and in your compositions alike. See **Theming** for the override rules.
+
+```css
+.checkout .faber-ui-dialog-header {
+  border-bottom: 0;
+}
+```
+
+## Tokens in your own components
+
+Tokens are exported for application code. A component styled with them follows every theme and
+every CSS variable override.
+
+```tsx
+import { Card, COLORS, RADII, SPACINGS } from '@faber-ui/react';
+
+export const PlanCard = styled(Card)`
+  border-color: ${COLORS.PRIMARY};
+  border-radius: ${RADII.XL};
+  padding: ${SPACINGS.LG};
+`;
+```
+
+## Assembling parts
+
+A component that exposes parts has a root, which keeps the behavior and the accessibility
+contract, and parts, which keep the layout and typography. The finished component is the root and
+the parts in the default arrangement.
+
+```tsx
+import { AlertBody, AlertRoot, AlertTitle, Button, HFlex, VFlex } from '@faber-ui/react';
+
+export function ActionAlert({ action, children, title, ...rootProps }) {
+  return (
+    <AlertRoot {...rootProps}>
+      <HFlex align="center" justify="space-between" gap="MD">
+        <VFlex gap="XXS">
+          <AlertTitle>{title}</AlertTitle>
+          <AlertBody>{children}</AlertBody>
+        </VFlex>
+        {action}
+      </HFlex>
+    </AlertRoot>
+  );
+}
+```
+
+| Component        | Parts                                                                                    |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| Dialog           | `DialogRoot`, `DialogHeader`, `DialogTitle`, `DialogClose`, `DialogBody`, `DialogFooter` |
+| Alert            | `AlertRoot`, `AlertTitle`, `AlertBody`                                                   |
+| Toast            | `ToastRoot`, `ToastContent`, `ToastTitle`, `ToastBody`                                   |
+| Field            | `FieldRoot`, `FieldLabel`, `FieldDescription`, `FieldError`                              |
+| Accordion        | `AccordionItemRoot`, `AccordionSummary`, `AccordionContent`                              |
+| Tabs             | `Tabs`, `TabList`, `Tab`, `TabPanel`                                                     |
+| Menu             | `Menu`, `MenuItem`, `MenuLabel`, `MenuSeparator`                                         |
+| Breadcrumb       | `Breadcrumb`, `BreadcrumbItem`                                                           |
+| SegmentedControl | `SegmentedControl`, `Segment`                                                            |
+
+Each component guide has a **Composition** section with the contract of its parts. The remaining
+components are single elements or do not expose parts yet.
+
+## What a composition owns
+
+A root keeps what cannot be rebuilt safely: `DialogRoot` keeps the native modal, `ToastRoot` the
+live role. Wiring that the finished component does for you becomes yours: `Field` generates ids,
+`FieldRoot` does not.

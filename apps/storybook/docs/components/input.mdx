@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Input" />
+
+# Input
+
+[Interactive stories and prop reference](?path=/docs/atoms-input--docs)
+
+## Purpose and when to use it
+
+`Input` is a styled native single-line control for text-like values. Use it for names, email
+addresses, passwords, search terms, phone numbers, URLs, and number input. Use `Textarea` for
+multiline content; Checkbox and Radio will have separate components.
+
+## Behavioral contract
+
+- Renders a native input and forwards native attributes, events, `className`, and ref.
+- Supports controlled `value` and uncontrolled `defaultValue` through native React behavior.
+- `type` is limited to the values in `INPUT_TYPES`: text, email, password, search, tel, url, and
+  number. It is optional and uses the browser's native default when omitted.
+- Supports native `disabled`, `required`, `name`, `autoComplete`, and other input props.
+- An `aria-invalid="true"` attribute applies the semantic error border and focus color.
+
+## Accessibility
+
+Provide a visible label; a placeholder is not a substitute. Compose with `Field` to connect a
+label, description, and validation message automatically. Native input semantics and focus
+behavior are preserved.
+
+## Customization
+
+The visual states use semantic color, spacing, size, radius, border, typography, motion, and focus
+tokens. Applications can override CSS variables or use native `className` and `style`.
+
+## Example
+
+```tsx
+import { Field, Input, INPUT_TYPES } from '@faber-ui/react';
+
+<Field label="Email" error={errors.email?.message}>
+  <Input type={INPUT_TYPES.EMAIL} autoComplete="email" {...register('email')} />
+</Field>;
+```
+
+## Boundaries
+
+`Input` does not own labels, validation, masking, formatting, or application form state. The
+`number` type retains browser-native number-input behavior; a currency-specific field is not
+implemented yet.

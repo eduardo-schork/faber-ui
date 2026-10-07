@@ -2,6 +2,7 @@ import { forwardRef } from 'react';
 
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from '../button/button.constants';
 import { ButtonContent, ButtonIcon, ButtonSpinner } from '../button/button.styles';
+import { SPINNER_SIZES } from '../spinner';
 import { StyledIconButton } from './icon-button.styles';
 import type { TIconButtonProps } from './icon-button.types';
 
@@ -34,7 +35,9 @@ export const IconButton = forwardRef<HTMLButtonElement, TIconButtonProps>(functi
       data-size={size}
       data-variant={variant}
     >
-      {loading ? <ButtonSpinner aria-hidden="true" data-button-spinner /> : null}
+      {loading ? (
+        <ButtonSpinner decorative size={SPINNER_SIZES.CURRENT} data-button-spinner />
+      ) : null}
       <ButtonContent aria-hidden="true" data-button-content>
         <ButtonIcon data-icon-button-icon>{children}</ButtonIcon>
       </ButtonContent>

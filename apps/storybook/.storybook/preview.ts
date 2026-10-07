@@ -20,7 +20,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Introduction', 'Foundations', 'Atoms', 'Molecules', 'Organisms'],
+        order: ['Introduction', 'Foundations', 'Components', 'Atoms', 'Molecules', 'Organisms'],
       },
     },
   },

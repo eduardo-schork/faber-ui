@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/VisuallyHidden" />
+
+# VisuallyHidden
+
+[Interactive stories and prop reference](?path=/docs/atoms-visuallyhidden--docs)
+
+## Purpose and when to use it
+
+Use `VisuallyHidden` for content that must remain available to assistive technology without being
+visually displayed, such as an icon-button label.
+
+## Behavioral contract
+
+- Renders a span, forwards its ref, and preserves its children in the accessibility tree.
+- `focusable` reveals the wrapper when it or a descendant receives focus, enabling skip links.
+- Native span props, `className`, `style`, and styled-components wrappers remain available.
+
+## Accessibility
+
+Do not use this component to hide information that sighted users also need. Prefer a visible label
+when space permits.
+
+## Example
+
+```tsx
+import { VisuallyHidden } from '@faber-ui/react/visually-hidden';
+
+<button type="button">
+  <Icon aria-hidden="true" />
+  <VisuallyHidden>Create item</VisuallyHidden>
+</button>;
+```
+
+## Boundaries
+
+This is not a general display toggle. It exists only for visually hidden accessible content.

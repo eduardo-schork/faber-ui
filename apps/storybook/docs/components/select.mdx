@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Select" />
+
+# Select
+
+[Interactive stories and prop reference](?path=/docs/atoms-select--docs)
+
+## Purpose and when to use it
+
+Use `Select` for choosing one value from a compact native option list. Pair it with `Field` for a
+visible label, description, and error.
+
+## Behavioral contract
+
+- Renders a native `select`, forwards its ref, and accepts native `option` or `optgroup` children.
+- Preserves controlled and uncontrolled values, names, events, required, disabled, multiple, and
+  form-library registration props.
+- Responds visually to `aria-invalid`, focus, hover, and disabled state.
+- Accepts `className`, `style`, and styled-components wrappers.
+
+## Accessibility
+
+Use `Field` or another real label. Native select behavior preserves platform keyboard, touch,
+screen-reader, and form semantics.
+
+## Example
+
+```tsx
+import { Field, Select } from '@faber-ui/react';
+
+<Field label="Material" error={errors.material?.message}>
+  <Select {...register('material')}>
+    <option value="malachite">Malachite</option>
+    <option value="copper">Copper</option>
+  </Select>
+</Field>;
+```
+
+## Boundaries
+
+This first version is deliberately native. Search, async options, virtualization, and custom
+listbox behavior require a separate component contract.

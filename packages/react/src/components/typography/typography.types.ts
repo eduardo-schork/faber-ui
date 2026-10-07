@@ -29,6 +29,7 @@ export type TTypographyComponentProps<TElement extends ElementType> = Omit<
 export type TTypographyDefaults = Required<
   Pick<TTypographyStyleProps, 'size' | 'tone' | 'weight'>
 > & {
+  readonly code?: boolean;
   readonly italic?: boolean;
   readonly lineHeight: TTypographyLineHeight;
   readonly link?: boolean;

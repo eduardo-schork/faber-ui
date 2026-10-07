@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest';
 
-import { FONT_SIZES } from './font-sizes';
+import { FONT_SIZE_SCALE, FONT_SIZES } from './font-sizes';
 
 describe('font size tokens', () => {
-  it('provides the approved font size scale', () => {
-    expect(FONT_SIZES).toEqual({
+  it('SHOULD provide the approved font size scale', () => {
+    expect(FONT_SIZE_SCALE).toEqual({
       XS: '12px',
       SM: '14px',
       MD: '16px',
@@ -13,5 +13,10 @@ describe('font size tokens', () => {
       XXL: '24px',
       XXXL: '32px',
     });
+  });
+
+  it('SHOULD expose every value as an overridable CSS variable with the raw value as fallback', () => {
+    expect(Object.keys(FONT_SIZES)).toEqual(Object.keys(FONT_SIZE_SCALE));
+    expect(FONT_SIZES.XS).toBe('var(--faber-ui-font-size-xs, 12px)');
   });
 });

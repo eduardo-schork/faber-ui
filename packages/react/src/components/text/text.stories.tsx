@@ -54,6 +54,9 @@ export const SemanticElements: TStory = {
       <Text.Strong>Text.Strong renders strong importance.</Text.Strong>
       <Text.Em>Text.Em renders emphasized content.</Text.Em>
       <Text.Small>Text.Small renders secondary small print.</Text.Small>
+      <Text.P>
+        Text.Code renders inline code such as <Text.Code>bun add @faber-ui/react</Text.Code>.
+      </Text.P>
     </div>
   ),
 };

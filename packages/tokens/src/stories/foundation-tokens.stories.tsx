@@ -1,20 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { ANIMATIONS } from '../animations';
-import { BORDER_WIDTHS } from '../border-widths';
+import { BORDER_WIDTH_SCALE, BORDER_WIDTHS } from '../border-widths';
 import { BREAKPOINTS } from '../breakpoints';
 import { PALETTE } from '../colors';
+import { CONTAINER_SIZES } from '../container-sizes';
 import { FOCUS_RINGS } from '../focus-rings';
 import { FONT_FAMILIES } from '../font-families';
-import { FONT_SIZES } from '../font-sizes';
-import { FONT_WEIGHTS } from '../font-weights';
-import { LINE_HEIGHTS } from '../line-heights';
+import { FONT_SIZE_SCALE, FONT_SIZES } from '../font-sizes';
+import { FONT_WEIGHT_SCALE } from '../font-weights';
+import { LINE_HEIGHT_SCALE } from '../line-heights';
 import { OPACITIES } from '../opacities';
-import { RADII } from '../radii';
+import { RADIUS_SCALE, RADII } from '../radii';
 import { RELATIVE_SIZES } from '../relative-sizes';
-import { SIZES } from '../sizes';
-import { SPACINGS } from '../spacings';
+import { SIZE_SCALE, SIZES } from '../sizes';
+import { SPACING_SCALE, SPACINGS } from '../spacings';
 import { TEXT_DECORATIONS } from '../text-decorations';
+import { Z_INDICES } from '../z-indices';
 
 const meta = {
   title: 'Foundations/Tokens',
@@ -44,7 +46,7 @@ const rowStyle = {
 const labelStyle = {
   display: 'inline-block',
   flex: '0 0 160px',
-  fontFamily: 'monospace',
+  fontFamily: FONT_FAMILIES.BASE,
 } as const;
 
 export const Typography: TStory = {
@@ -57,7 +59,7 @@ export const Typography: TStory = {
 
       <hr style={{ width: '100%' }} />
 
-      {Object.entries(FONT_SIZES).map(([name, value]) => (
+      {Object.entries(FONT_SIZE_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <span style={{ fontFamily: FONT_FAMILIES.BASE, fontSize: value }}>
@@ -68,7 +70,7 @@ export const Typography: TStory = {
 
       <hr style={{ width: '100%' }} />
 
-      {Object.entries(FONT_WEIGHTS).map(([name, value]) => (
+      {Object.entries(FONT_WEIGHT_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <span
@@ -81,7 +83,7 @@ export const Typography: TStory = {
 
       <hr style={{ width: '100%' }} />
 
-      {Object.entries(LINE_HEIGHTS).map(([name, value]) => (
+      {Object.entries(LINE_HEIGHT_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <span
@@ -104,15 +106,15 @@ export const Typography: TStory = {
 export const SpacingScale: TStory = {
   render: () => (
     <div style={listStyle}>
-      {Object.entries(SPACINGS).map(([name, value]) => (
+      {Object.entries(SPACING_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <div
             style={{
               width: value,
-              minWidth: value === SPACINGS.NONE ? BORDER_WIDTHS.DEFAULT : value,
+              minWidth: value === SPACING_SCALE.NONE ? BORDER_WIDTHS.DEFAULT : value,
               height: SIZES.XS,
-              background: PALETTE.GREEN_400,
+              background: PALETTE.MALACHITE_400,
             }}
           />
           <span>{value}</span>
@@ -125,14 +127,14 @@ export const SpacingScale: TStory = {
 export const RadiusScale: TStory = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: SPACINGS.LG }}>
-      {Object.entries(RADII).map(([name, value]) => (
+      {Object.entries(RADIUS_SCALE).map(([name, value]) => (
         <div key={name} style={{ textAlign: 'center' }}>
           <div
             style={{
               width: SIZES.XL,
               height: SIZES.XL,
               borderRadius: value,
-              background: PALETTE.PURPLE_400,
+              background: PALETTE.COPPER_400,
             }}
           />
           <code>{name}</code>
@@ -146,10 +148,10 @@ export const RadiusScale: TStory = {
 export const BorderWidthScale: TStory = {
   render: () => (
     <div style={listStyle}>
-      {Object.entries(BORDER_WIDTHS).map(([name, value]) => (
+      {Object.entries(BORDER_WIDTH_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
-          <div style={{ width: 160, borderTop: `${value} solid ${PALETTE.GREEN_400}` }} />
+          <div style={{ width: 160, borderTop: `${value} solid ${PALETTE.MALACHITE_400}` }} />
           <span>{value}</span>
         </div>
       ))}
@@ -160,7 +162,7 @@ export const BorderWidthScale: TStory = {
 export const SizeScale: TStory = {
   render: () => (
     <div style={{ display: 'flex', alignItems: 'end', flexWrap: 'wrap', gap: SPACINGS.LG }}>
-      {Object.entries(SIZES).map(([name, value]) => (
+      {Object.entries(SIZE_SCALE).map(([name, value]) => (
         <div key={name} style={{ textAlign: 'center' }}>
           <div
             style={{
@@ -168,7 +170,7 @@ export const SizeScale: TStory = {
               height: value,
               margin: `${SPACINGS.NONE} auto`,
               borderRadius: RADII.SM,
-              background: PALETTE.GREEN_100,
+              background: PALETTE.MALACHITE_100,
             }}
           />
           <code>{name}</code>
@@ -190,6 +192,32 @@ export const ResponsiveBreakpoints: TStory = {
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <strong>{value}</strong>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const ContainerSizes: TStory = {
+  render: () => (
+    <div style={listStyle}>
+      {Object.entries(CONTAINER_SIZES).map(([name, value]) => (
+        <div key={name} style={rowStyle}>
+          <code style={labelStyle}>{name}</code>
+          <span>{value}</span>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const StackingOrder: TStory = {
+  render: () => (
+    <div style={listStyle}>
+      {Object.entries(Z_INDICES).map(([name, value]) => (
+        <div key={name} style={rowStyle}>
+          <code style={labelStyle}>{name}</code>
+          <span>{value}</span>
         </div>
       ))}
     </div>

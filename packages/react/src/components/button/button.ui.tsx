@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 
+import { SPINNER_SIZES } from '../spinner';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from './button.constants';
 import {
   ButtonContent,
@@ -41,7 +42,9 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(function Butto
       data-size={size}
       data-variant={variant}
     >
-      {loading ? <ButtonSpinner aria-hidden="true" data-button-spinner /> : null}
+      {loading ? (
+        <ButtonSpinner decorative size={SPINNER_SIZES.CURRENT} data-button-spinner />
+      ) : null}
       <ButtonContent data-button-content>
         {startIcon ? (
           <ButtonIcon aria-hidden="true" data-button-icon="start">

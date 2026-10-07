@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Card" />
+
+# Card
+
+[Interactive stories and prop reference](?path=/docs/atoms-card--docs)
+
+## Purpose and when to use it
+
+Use `Card` to group related content on a bordered surface that stands apart from the page
+background.
+
+## Behavioral contract
+
+- Renders a `div`, forwards its native props and ref, and accepts `as` for a semantic element such
+  as `section` or `article`.
+- `padding` accepts values from `CARD_PADDINGS` and defaults to `medium`. Use `none` when the
+  content manages its own edges, such as a table or an image.
+- Sets the surface background, default border, radius, and text color from semantic tokens.
+
+## Accessibility
+
+`Card` adds no role. Choose `as` from the document structure, and label a `section` with a heading
+or `aria-label`. A card is not interactive; put a link or button inside it.
+
+## Customization
+
+The card is a plain styled-components target. Lay out its content with `Flex` or your own CSS.
+
+## Example
+
+```tsx
+import { Card } from '@faber-ui/react/card';
+
+<Card as="section" aria-labelledby="billing-title">
+  <Title.H2 id="billing-title">Billing</Title.H2>
+  <Text.P>Next invoice on the first of the month.</Text.P>
+</Card>;
+```
+
+## Boundaries
+
+There are no header, footer, or media slots, and no elevation. Compose those from other
+components until a concrete need defines them.

@@ -18,8 +18,27 @@ Faber UI npm organization, but packages are not published yet.
 - An opt-in `GlobalStyles` document baseline, installed globally in Storybook.
 - Plus Jakarta Sans Variable distributed as local package assets.
 - Responsive dimensional, typography, border, radius, and motion tokens.
-- Accessible `Button` and `IconButton` atoms.
-- Semantic `Text.*` and `Title.*` typography atoms.
+- Accessible `Button` and `IconButton` atoms, and `LinkButton` and `Link` for navigation.
+- An independent `@faber-ui/icons` package with a first set of outline icons.
+- A native `Input` atom that preserves input attributes, events, and refs.
+- A native `Textarea` atom with rows-based height and vertical resizing.
+- Native `Checkbox`, `Radio`, and `Switch` atoms with inline labels, form props, and validation
+  messages.
+- A native `Select` atom that preserves option children, form props, and refs.
+- A `Field` molecule that associates labels, descriptions, and validation errors with controls.
+- A `RadioGroup` molecule that labels a set of radios with a native `fieldset` and `legend`.
+- A `SegmentedControl` molecule built from native radios.
+- Responsive `Flex`, `HFlex`, and `VFlex` layout atoms with token-aware gaps and optional debug
+  outlines.
+- A responsive page `Container` with automatic breakpoint widths and custom maximum sizes.
+- A constrained `CenterFlex` composition for centering children on both flex axes.
+- Semantic `Text.*` and `Title.*` typography atoms, including inline `Text.Code`.
+- `Divider`, `Badge`, `Avatar`, `Card`, `Table`, and `Alert` display atoms.
+- `Spinner`, `Skeleton`, and `Progress` loading atoms with reduced-motion handling.
+- Native-first `Slider`, `Autocomplete`, `Accordion`, `Breadcrumb`, and `Pagination`.
+- `Tabs`, `Toast`, and a modal `Dialog` and `Drawer` built on the native `dialog` element.
+- `Tooltip`, `Popover`, and `Menu`, with Radix as an internal implementation detail.
+- A `VisuallyHidden` atom for content exposed only to assistive technology.
 - Public `CONSTANT_CASE` objects for closed component options and theme modes.
 - Autodocs, interaction examples, theme previews, and automated accessibility checks.
 
@@ -38,8 +57,14 @@ Faber UI npm organization, but packages are not published yet.
 - **Getting Started** covers styles, fonts, themes, and the first component imports.
 - **Design Tokens** explains the primitive-to-semantic token architecture.
 - **Theming** documents CSS, React provider, system mode, and customization.
+- **Composition** documents props, part classes, tokens, and building components from parts.
 - **Typography** documents semantic `Text.*` and `Title.*` usage.
-- **Atoms** contains interactive component references generated from their stories and types.
+- **Forms** documents Input, Textarea, Select, Field, Checkbox, Radio, RadioGroup, Switch,
+  validation libraries, and translated copy.
+- **Components** contains human-readable guides for every implemented React component. Each guide
+  explains purpose, behavior, accessibility, customization, examples, and boundaries.
+- **Atoms**, **Molecules**, and **Organisms** contain interactive component references generated from their
+  stories and types.
 
 ## Project status
 

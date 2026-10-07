@@ -19,6 +19,11 @@ import '@faber-ui/react/styles.css';
 The aggregate stylesheet loads both the packaged font and theme variables. Use
 `@faber-ui/react/theme.css` when only theme variables are desired.
 
+The packaged themes pair Malachite primary colors with Hot Copper accents. Light mode uses silver
+gray neutrals and white surfaces; dark mode uses graphite and gunmetal neutrals with brighter brand
+steps for readable contrast. Brand hues are reserved for actions, focus, and emphasis instead of
+page backgrounds.
+
 ## React provider
 
 ```tsx
@@ -85,6 +90,59 @@ Or scope a brand variation to one subtree:
   --faber-ui-color-accent-active: hsl(25 90% 32%);
 }
 ```
+
+## Retune dimensions
+
+Spacing, sizes, radii, border widths, font sizes, font weights, and line heights are CSS variables
+too. Override them globally or within a subtree to change the shape of every component that reads
+them:
+
+```css
+:root {
+  --faber-ui-radius-md: 2px;
+  --faber-ui-size-md: 44px;
+}
+
+.compact {
+  --faber-ui-spacing-md: 12px;
+  --faber-ui-font-size-sm: 13px;
+}
+```
+
+See [Design Tokens](?path=/docs/foundations-design-tokens--docs) for the full list.
+
+## Style one part of a component
+
+Every component and every part inside it has a stable class name: `faber-ui-<component>` on the
+root and `faber-ui-<component>-<part>` on each part. They let any stylesheet restyle one part
+without wrapping the component.
+
+```css
+/* Every button icon in the application. */
+.faber-ui-button-icon {
+  opacity: 0.7;
+}
+
+/* Only inside a toolbar. */
+.toolbar .faber-ui-button-label {
+  text-transform: uppercase;
+}
+
+/* The thumb of every switch. */
+.faber-ui-switch .faber-ui-choice-control-input::after {
+  border-radius: 2px;
+}
+```
+
+The names follow the component and part names: `faber-ui-button`, `faber-ui-button-content`,
+`faber-ui-button-icon`, `faber-ui-button-label`, `faber-ui-field-label`, `faber-ui-dialog-header`,
+`faber-ui-tab`, and so on. Typography members are `faber-ui-text-p`, `faber-ui-title-h1`, and
+similar, and icons carry `faber-ui-icon`. `Checkbox`, `Radio`, and `Switch` share their parts
+(`faber-ui-choice-control-*`) under a root class of their own. The class names are part of the
+public contract.
+
+Prefer a theme variable when the change is a color or a dimension that should apply everywhere,
+and a part class when one part needs a rule of its own.
 
 ## Custom typed theme
 

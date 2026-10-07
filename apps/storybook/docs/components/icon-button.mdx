@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/IconButton" />
+
+# IconButton
+
+[Interactive stories and prop reference](?path=/docs/atoms-iconbutton--docs)
+
+## Purpose and when to use it
+
+Use `IconButton` for a compact action whose meaning is conveyed visually by an icon, such as
+closing a dialog. Prefer `Button` when a visible text label would make the action clearer.
+
+## Behavioral contract
+
+- Renders a square native button and forwards native button attributes, handlers, and ref.
+- Requires an `aria-label` string in the public TypeScript API; the caller must make it meaningful
+  and non-empty.
+- Shares the Button color, variant, size, loading, and disabled behavior.
+- Defaults to `type="button"`; form submission requires an explicit `type="submit"`.
+- The icon is provided as `children`; text-and-icon slots and `fullWidth` are intentionally absent.
+
+## Accessibility
+
+The visible icon and loading spinner are decorative; the accessible name comes from `aria-label`.
+Use a label describing the action, such as "Close dialog", not the icon's shape. Native keyboard
+and disabled behavior remain available.
+
+## Customization
+
+The control uses Button's semantic colors and size tokens, with a square footprint. `className`,
+`style`, and theme CSS variables remain available for customization.
+
+## Example
+
+```tsx
+import { IconButton } from '@faber-ui/react/icon-button';
+
+<IconButton aria-label="Close dialog" onClick={onClose}>
+  <CloseIcon />
+</IconButton>;
+```
+
+## Boundaries
+
+The component does not include an icon library or infer an accessible label from the icon. It is
+an action control, not a toggle; pressed state is reserved for a separate future pattern.

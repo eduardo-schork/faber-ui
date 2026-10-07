@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/CenterFlex" />
+
+# CenterFlex
+
+[Interactive stories and prop reference](?path=/docs/atoms-centerflex--docs)
+
+## Purpose and when to use it
+
+Use `CenterFlex` when a flex container should center its children on both axes, such as an
+illustration and label in an empty state. Use `Flex` when alignment or direction should vary.
+
+## Behavioral contract
+
+- Builds on `Flex` with row direction, centered alignment, and centered distribution.
+- Those three settings are fixed and omitted from the public prop contract.
+- Preserves `gap`, `wrap`, `inline`, `outlineColor`, native div attributes, `as`, and ref.
+- Supports the same spacing-token values and CSS-first responsive options for inherited props.
+
+## Accessibility
+
+Centering changes presentation only. Choose a semantic `as` element where needed, keep child
+order meaningful, and give interactive children their own accessible names.
+
+## Customization
+
+Styling follows Flex's tokens and escape hatches: `className`, `style`, and CSS-variable based
+theme customization.
+
+## Example
+
+```tsx
+import { CenterFlex, SPACINGS } from '@faber-ui/react';
+
+<CenterFlex as="section" aria-label="Empty state" gap={SPACINGS.MD}>
+  <EmptyStateIcon />
+  <span>No items yet</span>
+</CenterFlex>;
+```
+
+## Boundaries
+
+`CenterFlex` does not set a height or width, so the parent still determines the area within
+which centering is visible. Use `Flex` if row direction or centered alignment must be changed.

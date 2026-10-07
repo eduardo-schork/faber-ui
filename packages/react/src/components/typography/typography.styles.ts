@@ -1,11 +1,13 @@
 import {
   ANIMATIONS,
+  BORDER_WIDTHS,
   COLORS,
   FOCUS_RINGS,
   FONT_FAMILIES,
   FONT_SIZES,
   FONT_WEIGHTS,
   LINE_HEIGHTS,
+  RADII,
   SPACINGS,
   TEXT_DECORATIONS,
 } from '@faber-ui/tokens';
@@ -18,7 +20,7 @@ import {
   TYPOGRAPHY_WEIGHTS,
 } from './typography.constants';
 
-export const StyledTypography = styled.span`
+export const StyledTypography = styled.span.attrs({ className: 'faber-ui-typography' })`
   --typography-color: ${COLORS.TEXT_PRIMARY};
   --typography-link-hover: var(--typography-color);
   --typography-link-active: var(--typography-color);
@@ -98,6 +100,14 @@ export const StyledTypography = styled.span`
 
   &[data-italic='true'] {
     font-style: italic;
+  }
+
+  &[data-code='true'] {
+    padding: ${SPACINGS.NONE} ${SPACINGS.XXS};
+    border: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
+    border-radius: ${RADII.SM};
+    background-color: ${COLORS.SURFACE_PRIMARY};
+    overflow-wrap: anywhere;
   }
 
   &[data-truncate='true'] {

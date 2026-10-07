@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Text" />
+
+# Text
+
+[Interactive stories and prop reference](?path=/docs/atoms-text--docs)
+
+## Purpose and when to use it
+
+`Text` is a namespace of semantic text elements: `Text.P`, `Text.Span`, `Text.A`, `Text.Label`,
+`Text.Strong`, `Text.Em`, `Text.Small`, and `Text.Code`. Choose the member for its HTML meaning first, then
+adjust its visual appearance. Use `Title` for headings.
+
+## Behavioral contract
+
+- The namespace itself is not rendered; each member renders its named native element.
+- Every member has typed native attributes and a ref for that exact HTML element.
+- `size`, `weight`, and `tone` adjust presentation without changing semantics.
+- `truncate` applies single-line overflow truncation; the parent must constrain width.
+- Defaults are member-specific, such as accent-toned links and smaller labels.
+- `Text.Code` renders an inline `code` element on a bordered surface, in the base family.
+
+## Accessibility
+
+Use `Text.A` with a real `href` for navigation and `Text.Label` with `htmlFor` for a form control.
+`Text.Strong` and `Text.Em` express emphasis, not just a visual weight change. Truncated text may
+hide information visually, so ensure the full content remains available when it matters.
+
+## Customization
+
+The component consumes typography and semantic color tokens. Native `className` and `style`, plus
+theme CSS variables, are escape hatches. Visual props do not replace the underlying element.
+
+## Example
+
+```tsx
+import { Text, TYPOGRAPHY_TONES } from '@faber-ui/react';
+
+<Text.P tone={TYPOGRAPHY_TONES.SECONDARY}>Supporting information.</Text.P>;
+<Text.A href="/guide">Read the guide</Text.A>;
+<Text.Span truncate>{longName}</Text.Span>;
+```
+
+## Boundaries
+
+`Text` does not provide a polymorphic `as` prop. Choose the correct member to preserve element
+semantics; use `Link` when a router component must render the anchor. `Text.Code` is for inline
+fragments and does not highlight syntax or render code blocks. Text does not manage layout
+spacing around paragraphs or links.

@@ -65,6 +65,14 @@ export const TextSmall = createTypographyComponent<'small', HTMLElement>('small'
   weight: TYPOGRAPHY_WEIGHTS.REGULAR,
 });
 
+export const TextCode = createTypographyComponent<'code', HTMLElement>('code', 'Text.Code', {
+  code: true,
+  lineHeight: TYPOGRAPHY_LINE_HEIGHTS.NORMAL,
+  size: TYPOGRAPHY_SIZES.SMALLER,
+  tone: TYPOGRAPHY_TONES.PRIMARY,
+  weight: TYPOGRAPHY_WEIGHTS.REGULAR,
+});
+
 export const Text = {
   P: TextP,
   Span: TextSpan,
@@ -73,4 +81,5 @@ export const Text = {
   Strong: TextStrong,
   Em: TextEm,
   Small: TextSmall,
+  Code: TextCode,
 } as const;

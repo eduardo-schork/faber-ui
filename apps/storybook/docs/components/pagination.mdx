@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Pagination" />
+
+# Pagination
+
+[Interactive stories and prop reference](?path=/docs/molecules-pagination--docs)
+
+## Purpose and when to use it
+
+Use `Pagination` to move between pages of a long list or table.
+
+## Behavioral contract
+
+- Renders a `nav` landmark with a list of native buttons and forwards the `nav` ref.
+- Controlled only: `page` is the current page starting at 1, `count` is the number of pages, and
+  `onPageChange` receives the requested page.
+- Always shows the first and last page and `siblingCount` pages around the current one (default 1),
+  collapsing longer gaps into an ellipsis.
+- Previous and next are disabled on the first and last page.
+- Every piece of built-in copy is replaceable: `aria-label`, `previousLabel`, `nextLabel`, and
+  `getPageLabel`.
+
+## Accessibility
+
+The current page carries `aria-current="page"` and each button has a full name such as "Page 4".
+Ellipses are hidden from assistive technology.
+
+## Customization
+
+Buttons use semantic colors and dimensional tokens; the selected page uses the primary role.
+
+## Example
+
+```tsx
+import { Pagination } from '@faber-ui/react/pagination';
+
+<Pagination count={pageCount} page={page} onPageChange={setPage} />;
+```
+
+## Boundaries
+
+`Pagination` does not fetch or slice data, render links, or offer a page-size selector.

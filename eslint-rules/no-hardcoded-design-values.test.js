@@ -63,7 +63,7 @@ describe('no-hardcoded-design-values', () => {
     ]);
   });
 
-  it('accepts token interpolation and universal CSS mechanics', () => {
+  it('SHOULD accept token interpolation and universal CSS mechanics', () => {
     const messages = lint(
       'const styles = css`width: 100%; min-width: 0; height: auto; color: transparent; font: inherit; padding: ${SPACINGS.MD};`;',
     );

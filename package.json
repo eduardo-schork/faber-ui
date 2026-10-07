@@ -34,6 +34,8 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
+    "website": "turbo run dev --filter=@faber-ui/website",
+    "build:website": "turbo run build --filter=@faber-ui/website",
     "storybook": "turbo run dev --filter=@faber-ui/storybook",
     "build:storybook": "turbo run build --filter=@faber-ui/storybook",
     "lint": "bun run lint:tooling && turbo run lint",
@@ -58,7 +60,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react-swc": "^4.3.1",
-    "@vitest/coverage-v8": "^4.1.10",
+    "@vitest/coverage-v8": "^4.1.11",
     "eslint": "9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -72,6 +74,6 @@
     "typescript": "5.9.3",
     "typescript-eslint": "^8.64.0",
     "vite": "^8.1.5",
-    "vitest": "^4.1.10"
+    "vitest": "^4.1.11"
   }
 }

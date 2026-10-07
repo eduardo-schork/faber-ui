@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Title" />
+
+# Title
+
+[Interactive stories and prop reference](?path=/docs/atoms-title--docs)
+
+## Purpose and when to use it
+
+`Title` provides semantic heading elements from `Title.H1` through `Title.H6`. Pick the level for
+the document outline; use visual props to change appearance without changing that level.
+
+## Behavioral contract
+
+- `Title` is a namespace, not a renderable component.
+- Each member renders its matching native heading element and forwards its native attributes and
+  heading ref.
+- `size`, `weight`, and `tone` adjust appearance without changing the HTML heading level.
+- `truncate` is available when a constrained single-line heading is required.
+- Default sizes descend through the hierarchy; heading line height uses the tight token.
+
+## Accessibility
+
+Maintain a meaningful heading hierarchy based on the page structure. Do not choose `H2` merely
+because its default font size looks right; choose the semantic level, then override `size` if
+needed. Truncation can hide essential context, so use it carefully.
+
+## Customization
+
+Title uses typography and semantic color tokens. Applications may use theme CSS variables,
+`className`, and native `style` without changing the semantic element.
+
+## Example
+
+```tsx
+import { Title, TYPOGRAPHY_SIZES } from '@faber-ui/react';
+
+<Title.H1>Account settings</Title.H1>;
+<Title.H2 size={TYPOGRAPHY_SIZES.LARGE}>Security</Title.H2>;
+```
+
+## Boundaries
+
+Title does not infer heading levels from context or provide a polymorphic `as` prop. The caller
+owns the page outline and surrounding layout spacing.

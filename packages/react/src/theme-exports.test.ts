@@ -9,7 +9,7 @@ import { describe, expect, it } from 'vitest';
 import { GlobalStyles, SPACINGS, THEME_MODES, ThemeProvider } from './index';
 
 describe('theme facade', () => {
-  it('exposes the theme runtime through the React package', () => {
+  it('SHOULD expose the theme runtime through the React package', () => {
     expect(GlobalStyles).toBe(ThemeGlobalStyles);
     expect(ThemeProvider).toBe(PackageThemeProvider);
     expect(THEME_MODES).toBe(THEME_PACKAGE_MODES);

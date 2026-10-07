@@ -14,6 +14,7 @@ export default defineConfig(
   globalIgnores([
     '**/node_modules/**',
     '**/dist/**',
+    '**/.next/**',
     '**/storybook-static/**',
     '**/coverage/**',
     '**/.turbo/**',

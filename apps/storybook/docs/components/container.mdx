@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Container" />
+
+# Container
+
+[Interactive stories and prop reference](?path=/docs/atoms-container--docs)
+
+## Purpose and when to use it
+
+`Container` provides the primary width boundary for a page or large section. It builds on
+`VFlex`, so its children stack vertically. It is not a replacement for `Flex` inside smaller
+component compositions.
+
+## Behavioral contract
+
+- Starts at `width: 100%` with horizontal page padding on narrow screens.
+- Without `size`, applies the `CONTAINER_SIZES` width scale at `TABLET`, `DESKTOP`,
+  `DESKTOP_LARGE`, and `DESKTOP_WIDE` breakpoints, with matching minimum and maximum widths.
+- `size` replaces the automatic breakpoint scale with a responsive maximum width. It accepts a
+  `CONTAINER_SIZES` name or a CSS width string.
+- `center` centers the container itself with automatic inline margins; it does not center children.
+- Inherits VFlex layout props except `inline`, and forwards native props, `as`, and ref.
+
+## Accessibility
+
+The default element is a div. Use `as="main"` for the primary page region when appropriate,
+or another semantic element for a specific section. Container does not change the reading order.
+
+## Customization
+
+Breakpoints, automatic widths, and padding use design tokens. Use `size` for a local maximum;
+change tokens or CSS when altering the system-wide scale. `className` and `style` are available.
+
+## Example
+
+```tsx
+import { Container } from '@faber-ui/react';
+
+<Container as="main" center gap="LG">
+  <PageHeading />
+  <PageContent />
+</Container>;
+
+<Container center size="MEDIUM">
+  <Article />
+</Container>;
+```
+
+## Boundaries
+
+There is no `fullWidth` prop: the narrow-screen base is already full width. Fixed automatic
+minimum widths mean this component is designed for primary page structure, not an arbitrarily
+narrow nested region. The example's `size` prop uses a `CONTAINER_SIZES` key.

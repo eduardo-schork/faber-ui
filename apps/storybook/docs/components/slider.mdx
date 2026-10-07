@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Slider" />
+
+# Slider
+
+[Interactive stories and prop reference](?path=/docs/atoms-slider--docs)
+
+## Purpose and when to use it
+
+Use `Slider` to pick a value from a continuous range where the exact number matters less than the
+position, such as volume. Use `Input` with `type="number"` when precision matters.
+
+## Behavioral contract
+
+- Renders a native `input type="range"` and forwards its ref.
+- Preserves `min`, `max`, `step`, controlled and uncontrolled values, events, `name`, `disabled`,
+  and form-library registration props.
+- Takes its fill color from the primary role through the native `accent-color`.
+
+## Accessibility
+
+Pair it with `Field`, or give it an `aria-label`. The native control keeps arrow, Home, End, and
+Page keys, and touch dragging.
+
+## Customization
+
+Because the platform draws the control, its shape follows the browser while its color follows the
+theme. `className`, `style`, and styled-components wrappers remain available.
+
+## Example
+
+```tsx
+import { Field, Slider } from '@faber-ui/react';
+
+<Field label="Volume">
+  <Slider name="volume" min={0} max={100} defaultValue={40} />
+</Field>;
+```
+
+## Boundaries
+
+Range selection with two thumbs, tick marks, and a value bubble are not included.

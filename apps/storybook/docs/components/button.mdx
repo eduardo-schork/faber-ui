@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Button" />
+
+# Button
+
+[Interactive stories and prop reference](?path=/docs/atoms-button--docs)
+
+## Purpose and when to use it
+
+`Button` is the standard action control for commands such as saving, confirming, or opening a
+dialog. Use it when the action has a visible text label. Use `Link` or `LinkButton` for navigation
+and `IconButton` for an icon-only action.
+
+## Behavioral contract
+
+- Renders a native button, forwards its native attributes, events, `className`, and ref.
+- Defaults to `type="button"`; set `type="submit"` explicitly for form submission.
+- Defaults to `primary`, `filled`, and `medium`. Closed color, variant, and size options are
+  exported as `BUTTON_COLORS`, `BUTTON_VARIANTS`, and `BUTTON_SIZES`. Colors are `primary`,
+  `accent`, and `neutral`; neutral uses the text color for quiet, secondary actions.
+- `fullWidth` fills the available inline space; otherwise width follows content.
+- `startIcon` and `endIcon` are decorative alongside the visible label.
+- `loading` keeps the label's layout space, displays a spinner, sets `aria-busy`, and blocks
+  interaction. Loading preserves the selected variant and color.
+- Disabled controls retain their variant shape but use non-interactive neutral styling.
+
+## Accessibility
+
+Give the button a meaningful visible label. Native button keyboard behavior and disabled behavior
+are retained. Decorative icons and the loading spinner are hidden from assistive technology. Use
+the `loading` state only for an action actually in progress; do not use it as a substitute for a
+status message when the outcome needs to be announced.
+
+## Customization
+
+Styles use semantic color and dimension tokens through CSS variables. Applications can override
+theme variables, and the component accepts native `style` and `className`. The public API does not
+include arbitrary per-property styling props. See the [Theming](?path=/docs/foundations-theming-guide--docs)
+guide for global overrides.
+
+## Example
+
+```tsx
+import { BUTTON_VARIANTS, Button } from '@faber-ui/react/button';
+
+<Button type="submit" loading={isSaving}>
+  Save changes
+</Button>;
+
+<Button variant={BUTTON_VARIANTS.OUTLINE} onClick={onCancel}>
+  Cancel
+</Button>;
+```
+
+## Boundaries
+
+`Button` does not own form state, navigation, or confirmation dialogs. A pressed/toggle state is
+not part of this API; a future toggle control should provide that behavior explicitly.

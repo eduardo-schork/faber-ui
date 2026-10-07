@@ -7,7 +7,7 @@ import { Text } from './text.ui';
 describe('Text', () => {
   afterEach(cleanup);
 
-  it('renders every member with its semantic element', () => {
+  it('SHOULD render every member with its semantic element', () => {
     const { container } = render(
       <div>
         <Text.P>Paragraph</Text.P>
@@ -17,6 +17,7 @@ describe('Text', () => {
         <Text.Strong>Strong</Text.Strong>
         <Text.Em>Emphasis</Text.Em>
         <Text.Small>Small</Text.Small>
+        <Text.Code>Code</Text.Code>
       </div>,
     );
 
@@ -27,9 +28,11 @@ describe('Text', () => {
     expect(container.querySelector('strong')?.textContent).toBe('Strong');
     expect(container.querySelector('em')?.textContent).toBe('Emphasis');
     expect(container.querySelector('small')?.textContent).toBe('Small');
+    expect(container.querySelector('code')?.textContent).toBe('Code');
+    expect(container.querySelector('code')?.getAttribute('data-code')).toBe('true');
   });
 
-  it('applies defaults and visual overrides through data attributes', () => {
+  it('SHOULD apply defaults and visual overrides through data attributes', () => {
     const { getByText } = render(
       <Text.P size="large" tone="accent" truncate weight="bold">
         Custom text
@@ -43,7 +46,7 @@ describe('Text', () => {
     expect(text.getAttribute('data-weight')).toBe('bold');
   });
 
-  it('forwards native props without forwarding custom props', () => {
+  it('SHOULD forward native props without forwarding custom props', () => {
     const { getByRole } = render(
       <Text.A href="/docs" target="_blank" rel="noreferrer" truncate>
         Documentation
@@ -56,7 +59,7 @@ describe('Text', () => {
     expect(link.hasAttribute('truncate')).toBe(false);
   });
 
-  it('forwards the element-specific ref', () => {
+  it('SHOULD forward the element-specific ref', () => {
     const ref = createRef<HTMLAnchorElement>();
 
     render(

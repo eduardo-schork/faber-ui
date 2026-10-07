@@ -1,0 +1,69 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Toast" />
+
+# Toast
+
+[Interactive stories and prop reference](?path=/docs/atoms-toast--docs)
+
+## Purpose and when to use it
+
+Use `Toast` for a brief confirmation or failure that appears after an action and does not need a
+decision. Use `Alert` for a message that belongs to the page.
+
+## Behavioral contract
+
+- `Toast` renders a `div` with an optional `title` and body and forwards its ref.
+- `color` accepts `TOAST_COLORS`. The role defaults to `status`, or `alert` for the error color;
+  pass `role` to override.
+- `onDismiss` adds a dismiss button; `dismissLabel` names it and defaults to `Dismiss`.
+- `ToastViewport` is a fixed, named region in the inline-end bottom corner that stacks the toasts
+  rendered inside it.
+
+## Accessibility
+
+A toast is announced when it is added to the page. Do not put the only copy of important
+information in a toast, and do not auto-dismiss messages that contain actions.
+
+## Customization
+
+Surface and color use semantic tokens; the viewport sits on the `Z_INDICES.TOAST` layer.
+
+## Example
+
+```tsx
+import { Toast, ToastViewport } from '@faber-ui/react/toast';
+
+<ToastViewport>
+  {toasts.map((toast) => (
+    <Toast key={toast.id} title={toast.title} onDismiss={() => dismiss(toast.id)}>
+      {toast.message}
+    </Toast>
+  ))}
+</ToastViewport>;
+```
+
+## Composition
+
+`ToastRoot` is the toast surface: it keeps the `color` contract and the `status` or `alert` role,
+and lays its children out in a row. `ToastContent` stacks `ToastTitle` and `ToastBody`. Add any
+control next to the content, for example a retry action instead of the dismiss button.
+
+```tsx
+import { ToastBody, ToastContent, ToastRoot, ToastTitle } from '@faber-ui/react/toast';
+
+<ToastRoot color="error">
+  <ToastContent>
+    <ToastTitle>Upload failed</ToastTitle>
+    <ToastBody>The file is too large.</ToastBody>
+  </ToastContent>
+  <Button size="small" variant="subtle" onClick={retry}>
+    Retry
+  </Button>
+</ToastRoot>;
+```
+
+## Boundaries
+
+These are the presentational primitives. The queue, timers, and an imperative `toast()` function
+belong to the application, or to a future companion package.

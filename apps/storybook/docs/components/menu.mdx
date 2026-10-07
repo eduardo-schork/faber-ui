@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Menu" />
+
+# Menu
+
+[Interactive stories and prop reference](?path=/docs/molecules-menu--docs)
+
+## Purpose and when to use it
+
+Use `Menu` for a list of actions revealed by a button, such as the options for a table row.
+
+## Behavioral contract
+
+- `Menu` takes the opening button as `trigger`; it must forward its ref and props.
+- `MenuItem` is an action. `onSelect` runs when it is chosen and the menu then closes. `disabled`
+  blocks it, and `color` accepts `MENU_ITEM_COLORS` for a destructive action.
+- `MenuLabel` titles a group and `MenuSeparator` divides groups.
+- `align` accepts `MENU_ALIGNMENTS`. `open`, `defaultOpen`, and `onOpenChange` control it.
+
+## Accessibility
+
+Follows the WAI-ARIA menu button pattern: arrow keys move through items, typing jumps to an item,
+Enter or Space selects, and Escape closes and returns focus to the trigger.
+
+## Customization
+
+Items use semantic colors and dimensional tokens on the `Z_INDICES.OVERLAY` layer.
+
+## Example
+
+```tsx
+import { Button, Menu, MenuItem, MenuSeparator } from '@faber-ui/react';
+
+<Menu trigger={<Button variant="outline">Options</Button>}>
+  <MenuItem onSelect={rename}>Rename</MenuItem>
+  <MenuItem onSelect={duplicate}>Duplicate</MenuItem>
+  <MenuSeparator />
+  <MenuItem color="error" onSelect={remove}>
+    Delete
+  </MenuItem>
+</Menu>;
+```
+
+## Boundaries
+
+Submenus, checkbox and radio items, and context menus are not included. Built on Radix Dropdown
+Menu, which is an implementation detail; the content renders in a portal on the document body.

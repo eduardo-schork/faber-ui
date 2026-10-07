@@ -4,6 +4,7 @@ const ALLOWED_FILE_NAMES = new Set([
   '.env.example',
   '.gitignore',
   '.prettierignore',
+  'AGENTS.md',
   'LICENSE',
   'OFL.txt',
   'PROJECT.md',

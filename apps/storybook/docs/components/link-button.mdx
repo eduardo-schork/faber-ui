@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/LinkButton" />
+
+# LinkButton
+
+[Interactive stories and prop reference](?path=/docs/atoms-linkbutton--docs)
+
+## Purpose and when to use it
+
+Use `LinkButton` when navigation should carry the visual weight of a button, such as the primary
+call to action on a landing page. It is a link: use `Button` for anything that is not navigation.
+
+## Behavioral contract
+
+- Renders a native `a` with the same styles as `Button`, and forwards its attributes and ref.
+- Accepts the Button `color`, `variant`, `size`, `fullWidth`, `startIcon`, and `endIcon` options
+  with the same defaults: `primary`, `filled`, and `medium`.
+- `as` replaces the rendered anchor with a router link component that must render an anchor.
+- Has no `type`, `disabled`, or `loading` props, because a link has none of those states.
+
+## Accessibility
+
+Assistive technology announces a link, and it activates with Enter rather than Space, which is
+correct for navigation. Icons are decorative; keep a visible text label.
+
+## Customization
+
+`LinkButton` reads the same semantic tokens and CSS variables as `Button`, so theme overrides
+apply to both. `className`, `style`, and styled-components wrappers remain available.
+
+## Example
+
+```tsx
+import { LinkButton } from '@faber-ui/react/link-button';
+import NextLink from 'next/link';
+
+<LinkButton as={NextLink} href="/docs">
+  Get started
+</LinkButton>;
+
+<LinkButton href="/pricing" color="neutral" variant="outline">
+  See pricing
+</LinkButton>;
+```
+
+## Boundaries
+
+There is no disabled link. When navigation is unavailable, render explanatory text or a disabled
+`Button` instead of a link that goes nowhere.

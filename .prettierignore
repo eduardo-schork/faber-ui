@@ -5,4 +5,4 @@ storybook-static/
 coverage/
 .turbo/
 PROJECT.md
-
+apps/website/next-env.d.ts

@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Spinner" />
+
+# Spinner
+
+[Interactive stories and prop reference](?path=/docs/atoms-spinner--docs)
+
+## Purpose and when to use it
+
+Use `Spinner` for an indeterminate wait when progress cannot be measured. Prefer preserving the
+content layout while work is running.
+
+## Behavioral contract
+
+- An independent spinner requires a `label` and exposes `role="status"`.
+- A spinner nested in an already-labeled busy control must use `decorative` instead.
+- Size values come from `SPINNER_SIZES`; `current` follows the surrounding font size.
+- Animation stops when the user requests reduced motion.
+
+## Accessibility
+
+The type contract prevents unlabeled meaningful spinners. Add `aria-busy` to the region or control
+whose state is changing, as `Button` does while loading.
+
+## Example
+
+```tsx
+import { Spinner } from '@faber-ui/react/spinner';
+
+<Spinner label="Loading materials" />;
+```
+
+## Boundaries
+
+Use a progress element for measurable progress and `Skeleton` when the future content structure is
+known.

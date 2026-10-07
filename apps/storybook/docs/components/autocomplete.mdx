@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Autocomplete" />
+
+# Autocomplete
+
+[Interactive stories and prop reference](?path=/docs/atoms-autocomplete--docs)
+
+## Purpose and when to use it
+
+Use `Autocomplete` for a text input that suggests values while still accepting anything the reader
+types. Use `Select` when the value must be one of a fixed list.
+
+## Behavioral contract
+
+- Renders the library `Input` connected to a native `datalist` and forwards the input ref.
+- `options` is the list of suggested strings.
+- Keeps every `Input` prop, so it composes with `Field` and form libraries.
+
+## Accessibility
+
+The browser provides the suggestion list, its keyboard handling, and its announcements. Label the
+control with `Field`.
+
+## Customization
+
+The input looks like `Input`. The suggestion list is drawn by the browser and is not styleable.
+
+## Example
+
+```tsx
+import { Autocomplete, Field } from '@faber-ui/react';
+
+<Field label="City">
+  <Autocomplete name="city" options={['Lisbon', 'Porto', 'Braga']} />
+</Field>;
+```
+
+## Boundaries
+
+There is no custom option rendering, async loading, multiple selection, or restriction to the
+listed values. Those need a dedicated combobox.

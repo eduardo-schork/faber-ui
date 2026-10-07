@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Skeleton" />
+
+# Skeleton
+
+[Interactive stories and prop reference](?path=/docs/atoms-skeleton--docs)
+
+## Purpose and when to use it
+
+Use `Skeleton` to reserve the shape of content that is still loading and reduce layout shift.
+
+## Behavioral contract
+
+- Renders a decorative div and is always hidden from assistive technology.
+- Fills the available width with a tokenized minimum height; parent styles define the final shape.
+- `circle` supplies an avatar-like default and `animated={false}` disables pulsing.
+- Reduced-motion preferences disable animation automatically.
+
+## Accessibility
+
+Place accessible loading status on the surrounding region. Do not give skeleton blocks labels or
+expose them as content.
+
+## Example
+
+```tsx
+import { Skeleton } from '@faber-ui/react/skeleton';
+
+<section aria-busy="true">
+  <Skeleton circle />
+  <Skeleton />
+</section>;
+```
+
+## Boundaries
+
+The component does not infer dimensions or loading state. Compose several instances to match the
+real content without reproducing every visual detail.

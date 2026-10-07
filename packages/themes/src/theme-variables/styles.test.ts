@@ -1,6 +1,7 @@
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
+import { createTokenCSSVariables } from '@faber-ui/tokens';
 import { describe, expect, it } from 'vitest';
 
 import { DARK_THEME, LIGHT_THEME } from '../theme';
@@ -16,15 +17,21 @@ function expectThemeValues(theme: TTheme) {
 }
 
 describe('standalone theme styles', () => {
-  it('contains every light theme variable', () => {
+  it('SHOULD contain every light theme variable', () => {
     expectThemeValues(LIGHT_THEME);
   });
 
-  it('contains every dark theme variable', () => {
+  it('SHOULD contain every dark theme variable', () => {
     expectThemeValues(DARK_THEME);
   });
 
-  it('supports explicit and system color modes', () => {
+  it('SHOULD declare every dimensional and typographic token variable', () => {
+    for (const [name, value] of Object.entries(createTokenCSSVariables())) {
+      expect(styles).toContain(`${name}: ${value};`);
+    }
+  });
+
+  it('SHOULD support explicit and system color modes', () => {
     expect(styles).toContain("[data-theme='light']");
     expect(styles).toContain("[data-theme='dark']");
     expect(styles).toContain("[data-theme='system']");

@@ -1,13 +1,19 @@
 import { cleanup, fireEvent, render } from '@testing-library/react';
+import { SPACINGS } from '@faber-ui/tokens';
 import { createRef } from 'react';
+import styled from 'styled-components';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { Button } from './button.ui';
 
+const ConsumerButton = styled(Button)`
+  margin-inline: ${SPACINGS.SM};
+`;
+
 describe('Button', () => {
   afterEach(cleanup);
 
-  it('renders accessible defaults', () => {
+  it('SHOULD render accessible defaults', () => {
     const { getByRole } = render(<Button>Save</Button>);
     const button = getByRole('button', { name: 'Save' });
 
@@ -18,7 +24,7 @@ describe('Button', () => {
     expect(button.hasAttribute('data-full-width')).toBe(false);
   });
 
-  it('forwards native props and click events', () => {
+  it('SHOULD forward native props and click events', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <Button type="submit" aria-label="Submit form" onClick={handleClick}>
@@ -33,7 +39,15 @@ describe('Button', () => {
     expect(handleClick).toHaveBeenCalledOnce();
   });
 
-  it('prevents interaction when disabled', () => {
+  it('SHOULD preserve className composition WHEN wrapped by styled-components', () => {
+    const { getByRole } = render(<ConsumerButton className="consumer-button">Save</ConsumerButton>);
+    const button = getByRole('button', { name: 'Save' });
+
+    expect(button.classList.contains('consumer-button')).toBe(true);
+    expect(button.classList.length).toBeGreaterThan(1);
+  });
+
+  it('SHOULD prevent interaction WHEN disabled', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <Button disabled onClick={handleClick}>
@@ -46,7 +60,28 @@ describe('Button', () => {
     expect(handleClick).not.toHaveBeenCalled();
   });
 
-  it('forwards the button ref', () => {
+  it('SHOULD expose the neutral color through its data attribute', () => {
+    const { getByRole } = render(<Button color="neutral">Cancel</Button>);
+
+    expect(getByRole('button', { name: 'Cancel' }).getAttribute('data-color')).toBe('neutral');
+  });
+
+  it('SHOULD expose stable class names on the root and on each part', () => {
+    const { getByRole } = render(
+      <Button className="consumer" startIcon={<span>icon</span>}>
+        Save
+      </Button>,
+    );
+    const button = getByRole('button', { name: 'Save' });
+
+    expect(button.classList.contains('faber-ui-button')).toBe(true);
+    expect(button.classList.contains('consumer')).toBe(true);
+    expect(button.querySelector('.faber-ui-button-content')).not.toBeNull();
+    expect(button.querySelector('.faber-ui-button-icon')).not.toBeNull();
+    expect(button.querySelector('.faber-ui-button-label')?.textContent).toBe('Save');
+  });
+
+  it('SHOULD forward the button ref', () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(<Button ref={ref}>Save</Button>);
@@ -54,13 +89,13 @@ describe('Button', () => {
     expect(ref.current?.tagName).toBe('BUTTON');
   });
 
-  it('supports full-width layouts', () => {
+  it('SHOULD support full-width layouts', () => {
     const { getByRole } = render(<Button fullWidth>Continue</Button>);
 
     expect(getByRole('button', { name: 'Continue' }).getAttribute('data-full-width')).toBe('true');
   });
 
-  it('renders decorative start and end icons around the label', () => {
+  it('SHOULD render decorative start and end icons around the label', () => {
     const { getByRole } = render(
       <Button startIcon={<span>start</span>} endIcon={<span>end</span>}>
         Continue
@@ -76,7 +111,7 @@ describe('Button', () => {
     expect(endIcon?.previousElementSibling?.textContent).toBe('Continue');
   });
 
-  it('preserves its label and blocks interaction while loading', () => {
+  it('SHOULD preserve its label and block interaction WHEN loading', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <Button loading onClick={handleClick}>

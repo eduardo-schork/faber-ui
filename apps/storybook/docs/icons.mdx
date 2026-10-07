@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Icons Guide" />
+
+# Icons
+
+`@faber-ui/icons` is a small, independent package of outline icons. It has no dependency on the
+React component package and is installed separately.
+
+[Icon catalog and prop reference](?path=/docs/foundations-icons--docs)
+
+## Contract
+
+- Every icon is a React component that renders an inline `svg` and forwards its ref and native
+  SVG props.
+- Icons are drawn on a 16 by 16 grid with a 1.5 stroke and inherit the current text color.
+- `size` accepts values from `ICON_SIZES`: `small` (16px, the default), `medium` (20px), `large`
+  (24px), and `current`, which follows the surrounding font size.
+- Icons are decorative and hidden from assistive technology by default. Pass `label` to expose an
+  icon as a named image.
+
+The current set is `ArrowRightIcon`, `ArrowUpRightIcon`, `CheckIcon`, `CloseIcon`, `CopyIcon`,
+`MonitorIcon`, `MoonIcon`, `PlusIcon`, `SunIcon`, and `TrashIcon`.
+
+## Example
+
+```tsx
+import { CheckIcon, CloseIcon } from '@faber-ui/icons';
+import { Button, IconButton } from '@faber-ui/react';
+
+<Button startIcon={<CheckIcon />}>Save changes</Button>;
+
+<IconButton aria-label="Close dialog">
+  <CloseIcon />
+</IconButton>;
+
+<CheckIcon label="Completed" />;
+```
+
+Inside `Button` and `IconButton` the icon stays decorative: the button already has a name.
+
+## Boundaries
+
+The set covers what the documentation and examples need today and will grow with the component
+catalog. Filled variants, brand logos, and an icon font are not provided.

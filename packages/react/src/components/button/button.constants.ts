@@ -14,4 +14,5 @@ export const BUTTON_SIZES = {
 export const BUTTON_COLORS = {
   PRIMARY: 'primary',
   ACCENT: 'accent',
+  NEUTRAL: 'neutral',
 } as const;

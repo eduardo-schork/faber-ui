@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { BUTTON_SIZES } from '../button/button.constants';
 import { StyledButton } from '../button/button.styles';
 
-export const StyledIconButton = styled(StyledButton)`
+export const StyledIconButton = styled(StyledButton).attrs({ className: 'faber-ui-icon-button' })`
   width: ${SIZES.MD};
   min-width: ${SIZES.MD};
   padding: ${SPACINGS.NONE};

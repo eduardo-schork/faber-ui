@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Badge" />
+
+# Badge
+
+[Interactive stories and prop reference](?path=/docs/atoms-badge--docs)
+
+## Purpose and when to use it
+
+Use `Badge` for short, read-only metadata such as a status, category, or release channel. It is
+not an action control.
+
+## Behavioral contract
+
+- Renders a semantic inline `span` and forwards its ref.
+- Offers neutral, primary, and accent colors through `BADGE_COLORS`.
+- Accepts native span props, `className`, `style`, and styled-components wrappers.
+
+## Accessibility
+
+Badge meaning must not depend on color alone. Keep the text explicit, and use a button or link
+instead when the element is interactive.
+
+## Example
+
+```tsx
+import { Badge, BADGE_COLORS } from '@faber-ui/react/badge';
+
+<Badge color={BADGE_COLORS.PRIMARY}>Stable</Badge>;
+```
+
+## Boundaries
+
+This version intentionally has one compact presentation. Dismissible tags, counters, and richer
+status semantics should be separate contracts.

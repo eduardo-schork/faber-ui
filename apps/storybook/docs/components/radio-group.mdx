@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/RadioGroup" />
+
+# RadioGroup
+
+[Interactive stories and prop reference](?path=/docs/molecules-radiogroup--docs)
+
+## Purpose and when to use it
+
+Use `RadioGroup` to give one related set of `Radio` options a visible group label, description,
+and validation message. Each option must share the same native `name`.
+
+## Behavioral contract
+
+- Renders a native `fieldset` and `legend`; the fieldset receives the forwarded ref.
+- Does not own selection state or clone its children. Each `Radio` preserves its native value,
+  registration props, and events.
+- Optional description and error content are connected to the group with stable IDs.
+- An error makes the group invalid by default; `invalid` can override that decision.
+- Native fieldset props, `className`, and `style` remain available.
+
+## Accessibility
+
+The fieldset and legend give screen-reader users the same context visible users receive. Keep each
+radio label unique and use one shared name for exclusive selection.
+
+## Customization
+
+Spacing, typography, and semantic error colors use design tokens. The group can be wrapped by
+styled-components without changing the radio inputs.
+
+## Example
+
+```tsx
+import { Radio, RadioGroup } from '@faber-ui/react';
+
+<RadioGroup label="Material" error={errors.material?.message}>
+  <Radio label="Malachite" value="malachite" {...register('material')} />
+  <Radio label="Copper" value="copper" {...register('material')} />
+</RadioGroup>;
+```
+
+## Boundaries
+
+Validation, translation, selected value, and form state belong to the application. `RadioGroup`
+provides structure and messages rather than a custom selection state manager.

@@ -7,7 +7,7 @@ import { IconButton } from './icon-button.ui';
 describe('IconButton', () => {
   afterEach(cleanup);
 
-  it('renders accessible defaults and a decorative icon', () => {
+  it('SHOULD render accessible defaults and a decorative icon', () => {
     const { getByRole } = render(<IconButton aria-label="Add item">+</IconButton>);
     const button = getByRole('button', { name: 'Add item' });
 
@@ -18,7 +18,7 @@ describe('IconButton', () => {
     expect(button.querySelector('[data-button-content]')?.getAttribute('aria-hidden')).toBe('true');
   });
 
-  it('forwards native props and click events', () => {
+  it('SHOULD forward native props and click events', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <IconButton aria-label="Add item" name="add-item" onClick={handleClick}>
@@ -33,7 +33,7 @@ describe('IconButton', () => {
     expect(handleClick).toHaveBeenCalledOnce();
   });
 
-  it('blocks interaction while disabled', () => {
+  it('SHOULD block interaction WHEN disabled', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <IconButton aria-label="Delete item" disabled onClick={handleClick}>
@@ -46,7 +46,7 @@ describe('IconButton', () => {
     expect(handleClick).not.toHaveBeenCalled();
   });
 
-  it('exposes its loading state and blocks interaction', () => {
+  it('SHOULD expose its loading state and block interaction WHEN loading', () => {
     const handleClick = vi.fn();
     const { getByRole } = render(
       <IconButton aria-label="Refresh data" loading onClick={handleClick}>
@@ -63,7 +63,7 @@ describe('IconButton', () => {
     expect(handleClick).not.toHaveBeenCalled();
   });
 
-  it('forwards the button ref', () => {
+  it('SHOULD forward the button ref', () => {
     const ref = createRef<HTMLButtonElement>();
 
     render(

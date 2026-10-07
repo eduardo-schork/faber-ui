@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Radio" />
+
+# Radio
+
+[Interactive stories and prop reference](?path=/docs/atoms-radio--docs)
+
+## Purpose and when to use it
+
+Use `Radio` for one option in a mutually exclusive selection. Give all options in a set the same
+`name` and different `value` strings. Use `Checkbox` for independent choices.
+
+## Behavioral contract
+
+- Renders a native radio input with an inline label; the input receives the forwarded ref.
+- `name`, `value`, and `label` are required in the public TypeScript contract.
+- Preserves native `checked`, `defaultChecked`, events, disabled state, and form registration.
+- Optional option-level `description` and `error` connect to the input through stable IDs.
+- `className` and `style` apply to the outer wrapper; other native input props reach the input.
+
+## Accessibility
+
+Wrap a related set in `RadioGroup`, or in a native `fieldset` with a `legend`, so the question is
+announced as a group. The shared `name` provides browser-native exclusivity and keyboard behavior.
+Use the `RadioGroup` error for a question-level validation failure; the `error` prop is for an
+individual option only.
+
+## Customization
+
+Radio shares the token-backed primary, focus, error, and disabled styles with Checkbox. Theme CSS
+variables and wrapper `className` are available.
+
+## Example
+
+```tsx
+import { Radio } from '@faber-ui/react/radio';
+
+<fieldset>
+  <legend>Theme</legend>
+  <Radio label="Light" name="theme" value="light" defaultChecked />
+  <Radio label="Dark" name="theme" value="dark" />
+</fieldset>;
+```
+
+## Boundaries
+
+Radio does not manage the group's selected value or validation message. Use
+[RadioGroup](?path=/docs/components-radiogroup--docs) for the group label, description, and error;
+a native `fieldset` and `legend` remain valid when those messages are not needed.

@@ -1,0 +1,43 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Switch" />
+
+# Switch
+
+[Interactive stories and prop reference](?path=/docs/atoms-switch--docs)
+
+## Purpose and when to use it
+
+Use `Switch` for an immediately applied on/off setting. Use `Checkbox` for agreement, inclusion,
+or choices that are committed with a form.
+
+## Behavioral contract
+
+- Renders a native checkbox with `role="switch"`; the input receives the forwarded ref.
+- Preserves controlled and uncontrolled checked state, native events, `name`, `value`, required,
+  disabled, and React Hook Form registration props.
+- Owns its inline label and can display a connected description or error.
+- `className` and `style` apply to the wrapper; other native input props reach the input.
+
+## Accessibility
+
+The visible label supplies the accessible name and clicking it toggles the control. The native
+checkbox preserves keyboard and form behavior while switch semantics communicate an on/off
+setting.
+
+## Customization
+
+Track, thumb, focus, error, and disabled states consume semantic and dimensional tokens.
+
+## Example
+
+```tsx
+import { Switch } from '@faber-ui/react/switch';
+
+<Switch label="Enable notifications" {...register('notifications')} />;
+```
+
+## Boundaries
+
+The component does not persist a preference or announce a successful server update. Those effects
+remain application responsibilities.

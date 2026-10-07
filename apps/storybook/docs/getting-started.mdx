@@ -68,6 +68,9 @@ yarn add @faber-ui/react styled-components
 
 React and React DOM remain peer dependencies. Faber UI supports React 18 and 19.
 
+Icons are optional and live in a separate package, `@faber-ui/icons`, with no dependency on the
+component package. See the [Icons guide](?path=/docs/foundations-icons-guide--docs).
+
 ## Load styles and fonts
 
 Import the aggregate stylesheet once at the application entry point:
@@ -139,9 +142,13 @@ remain fully typed, while constants provide discoverability and a reusable runti
 For Vite, place the stylesheet import in the main application entry. For Next.js App Router,
 place it in the root layout or another location where Next.js permits global CSS imports.
 
-`ThemeProvider` uses React context through styled-components, so a Next.js component that renders
-it must be inside a client-component boundary. Static CSS themes can be applied without the React
+Components use styled-components at runtime, so in the Next.js App Router the files that render
+them need a client-component boundary, and the application needs the styled-components registry
+to collect styles during server rendering. Static CSS themes can be applied without the React
 provider.
+
+`Tooltip`, `Popover`, and `Menu` render their content in a portal on the document body. That
+content follows the theme set on the root element, not a theme scoped by a nested `ThemeProvider`.
 
 ## Quality commands
 

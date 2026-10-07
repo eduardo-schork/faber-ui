@@ -1,0 +1,50 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Tabs" />
+
+# Tabs
+
+[Interactive stories and prop reference](?path=/docs/molecules-tabs--docs)
+
+## Purpose and when to use it
+
+Use `Tabs` to switch between related views in the same place without leaving the page.
+
+## Behavioral contract
+
+- `Tabs` holds the selected value: uncontrolled with `defaultValue`, or controlled with `value`
+  and `onValueChange`.
+- `TabList` requires an `aria-label`. `Tab` is a native button and `TabPanel` is the content;
+  matching `value` strings connect them. Use simple identifiers without spaces for values.
+- Only the selected panel is displayed; the others stay in the DOM with `hidden`.
+- Each part forwards its ref and native props.
+
+## Accessibility
+
+Follows the WAI-ARIA tabs pattern: one tab is in the tab order, the arrow keys move between tabs
+and select on focus, and Home and End jump to the ends. Panels are focusable and named by their
+tab.
+
+## Customization
+
+Tabs use typography and semantic color tokens; the selected tab is underlined in the primary role.
+
+## Example
+
+```tsx
+import { Tab, TabList, TabPanel, Tabs } from '@faber-ui/react/tabs';
+
+<Tabs defaultValue="overview">
+  <TabList aria-label="Project">
+    <Tab value="overview">Overview</Tab>
+    <Tab value="activity">Activity</Tab>
+  </TabList>
+  <TabPanel value="overview">A summary of the project.</TabPanel>
+  <TabPanel value="activity">Recent deployments.</TabPanel>
+</Tabs>;
+```
+
+## Boundaries
+
+Vertical orientation, manual activation, and lazy mounting of panels are not included. For
+navigation between pages, use links.

@@ -10,6 +10,7 @@ export const THEME_VARIABLE_NAMES = {
   BORDER_STRONG: '--faber-ui-color-border-strong',
   DISABLED_BACKGROUND: '--faber-ui-color-disabled-background',
   FOCUS_RING: '--faber-ui-color-focus-ring',
+  ERROR: '--faber-ui-color-error',
   PRIMARY: '--faber-ui-color-primary',
   PRIMARY_HOVER: '--faber-ui-color-primary-hover',
   PRIMARY_ACTIVE: '--faber-ui-color-primary-active',

@@ -3,9 +3,11 @@ import { describe, expect, it } from 'vitest';
 import { OPACITIES } from './opacities';
 
 describe('opacity tokens', () => {
-  it('provides shared visibility and interaction levels', () => {
+  it('SHOULD provide shared visibility and interaction levels', () => {
     expect(OPACITIES).toEqual({
       HIDDEN: '0%',
+      SKELETON: '55%',
+      VISIBLE: '100%',
       INTERACTION_SUBTLE_HOVER: '10%',
       INTERACTION_LIGHT: '14%',
       INTERACTION_SUBTLE_ACTIVE: '18%',

@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Textarea" />
+
+# Textarea
+
+[Interactive stories and prop reference](?path=/docs/atoms-textarea--docs)
+
+## Purpose and when to use it
+
+Use `Textarea` for free-form multiline content such as notes or messages. Use `Input` for a
+single-line value.
+
+## Behavioral contract
+
+- Renders a native textarea and forwards its native attributes, events, `className`, and ref.
+- Supports controlled `value` and uncontrolled `defaultValue` through native React behavior.
+- Native `rows` sets the initial height; the user can resize the control vertically.
+- Native `name`, `required`, `disabled`, `maxLength`, and similar attributes remain available.
+- `aria-invalid="true"` applies the semantic error border and focus color.
+
+## Accessibility
+
+Provide a visible label. Compose with `Field` for generated label and message relationships.
+The textarea retains native keyboard behavior and its browser-provided multiline semantics.
+
+## Customization
+
+The surface, typography, focus ring, and invalid state use the same token roles as `Input`.
+Theme CSS variables and native `className` and `style` remain available.
+
+## Example
+
+```tsx
+import { Field, Textarea } from '@faber-ui/react';
+
+<Field label="Message" description="Include the details that matter." error={error}>
+  <Textarea name="message" rows={4} />
+</Field>;
+```
+
+## Boundaries
+
+Automatic content-based height growth is not implemented. `Textarea` does not own validation,
+character counting, or form state.

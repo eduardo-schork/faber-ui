@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Divider" />
+
+# Divider
+
+[Interactive stories and prop reference](?path=/docs/atoms-divider--docs)
+
+## Purpose and when to use it
+
+Use `Divider` to represent a meaningful boundary between related regions. It supports horizontal
+and vertical orientation.
+
+## Behavioral contract
+
+- Renders a native `hr`, forwards its ref, and defaults to horizontal orientation.
+- `orientation` accepts values from `DIVIDER_ORIENTATIONS`.
+- Native props, `className`, `style`, and styled-components composition remain available.
+
+## Accessibility
+
+The native separator role is preserved. If a line is purely decorative, pass
+`role="presentation"` so it does not add unnecessary structure.
+
+## Example
+
+```tsx
+import { Divider } from '@faber-ui/react/divider';
+
+<Divider />;
+```
+
+## Boundaries
+
+Spacing around a divider belongs to its parent layout. The component does not render text inside
+the separator.

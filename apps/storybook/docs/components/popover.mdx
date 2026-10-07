@@ -1,0 +1,46 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Popover" />
+
+# Popover
+
+[Interactive stories and prop reference](?path=/docs/molecules-popover--docs)
+
+## Purpose and when to use it
+
+Use `Popover` for a small panel of content or controls anchored to the button that opens it. Use
+`Menu` for a list of actions and `Dialog` when the task needs the reader's full attention.
+
+## Behavioral contract
+
+- Wraps one button child, which must forward its ref and props.
+- `content` is the panel and `label` names it for assistive technology.
+- `side` and `align` accept `POPOVER_SIDES` and `POPOVER_ALIGNMENTS`; the panel flips and shifts
+  to stay in view.
+- Opens on click, and closes on Escape, an outside click, or when focus leaves.
+- `open`, `defaultOpen`, and `onOpenChange` control it when needed.
+
+## Accessibility
+
+The trigger exposes `aria-expanded` and the panel is a dialog. Focus moves into the panel when it
+opens and returns to the trigger when it closes.
+
+## Customization
+
+The panel is a bordered surface on the `Z_INDICES.OVERLAY` layer and never exceeds the available
+viewport width.
+
+## Example
+
+```tsx
+import { Button, Popover } from '@faber-ui/react';
+
+<Popover label="Share settings" content={<ShareForm />}>
+  <Button variant="outline">Share</Button>
+</Popover>;
+```
+
+## Boundaries
+
+Built on Radix Popover, which is an implementation detail. The content renders in a portal on the
+document body, so it follows the root theme and not a scoped `ThemeProvider`.

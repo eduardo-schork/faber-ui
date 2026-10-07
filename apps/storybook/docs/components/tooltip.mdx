@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Tooltip" />
+
+# Tooltip
+
+[Interactive stories and prop reference](?path=/docs/molecules-tooltip--docs)
+
+## Purpose and when to use it
+
+Use `Tooltip` for a short text hint about a control, shown on hover and keyboard focus. Never put
+essential information or interactive content in a tooltip.
+
+## Behavioral contract
+
+- Wraps one focusable child, which must forward its ref and props, as library components do.
+- `content` is the hint. `side` accepts `TOOLTIP_SIDES` and flips when there is no room.
+- Opens after `delay` milliseconds of hover and immediately on focus; closes on Escape.
+- `open`, `defaultOpen`, and `onOpenChange` control it when needed.
+
+## Accessibility
+
+The trigger is described by the tooltip through `aria-describedby`. A tooltip is not a label: an
+icon-only button still needs its own `aria-label`.
+
+## Customization
+
+The tooltip uses the inverted text and background roles and the `Z_INDICES.OVERLAY` layer.
+
+## Example
+
+```tsx
+import { IconButton, Tooltip } from '@faber-ui/react';
+
+<Tooltip content="Copy the link">
+  <IconButton aria-label="Copy">
+    <CopyIcon />
+  </IconButton>
+</Tooltip>;
+```
+
+## Boundaries
+
+Built on Radix Tooltip, which is an implementation detail. The content renders in a portal on the
+document body, so it follows the root theme and not a scoped `ThemeProvider`.

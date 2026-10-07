@@ -1,0 +1,119 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introduction/Forms" />
+
+# Forms
+
+`Input` renders a native text-like input, `Textarea` renders a native multiline control with
+`rows` and vertical browser resizing, and `Select` renders a native `select` with `option` or
+`optgroup` children. `Field` adds a visible label and optional description and error message, then
+connects them to any of these child controls with stable IDs and ARIA attributes.
+
+`Checkbox`, `Radio`, and `Switch` have their own inline labels. Do not wrap them in `Field`. Use
+`Switch` for a setting that applies immediately and `Checkbox` for a choice committed with a form.
+Wrap related radio options in `RadioGroup`, which renders a native `fieldset` and `legend` and
+shows a group-level description or error; the options must share a `name`.
+
+```tsx
+import { Radio, RadioGroup, Switch } from '@faber-ui/react';
+
+<RadioGroup label="Preferred theme">
+  <Radio label="Light" name="theme" value="light" defaultChecked />
+  <Radio label="Dark" name="theme" value="dark" />
+</RadioGroup>;
+
+<Switch label="Enable notifications" name="notifications" />;
+```
+
+```tsx
+import { Field, Input, INPUT_TYPES, Textarea } from '@faber-ui/react';
+
+<Field label="Email" description="We will use this address for account updates.">
+  <Input name="email" type={INPUT_TYPES.EMAIL} autoComplete="email" required />
+</Field>;
+
+<Field label="Message" description="Tell us more about your request.">
+  <Textarea name="message" rows={4} />
+</Field>;
+```
+
+The child control keeps ownership of native value, events, name, required state, and ref. This
+allows controlled React state, ordinary form submissions, and external form libraries to use the
+same components. `Field` accepts a single control that forwards `id`, `aria-describedby`, and
+`aria-invalid` to its underlying form element.
+
+## Other form controls
+
+`SegmentedControl` presents a few exclusive options as native radios. `Slider` is a native range
+input and `Autocomplete` is an `Input` with native suggestions; both compose with `Field`.
+
+```tsx
+import { Autocomplete, Field, Segment, SegmentedControl, Slider } from '@faber-ui/react';
+
+<SegmentedControl label="Billing period">
+  <Segment name="period" value="monthly" defaultChecked>
+    Monthly
+  </Segment>
+  <Segment name="period" value="yearly">
+    Yearly
+  </Segment>
+</SegmentedControl>;
+
+<Field label="Volume">
+  <Slider name="volume" min={0} max={100} />
+</Field>;
+
+<Field label="City">
+  <Autocomplete name="city" options={['Lisbon', 'Porto']} />
+</Field>;
+```
+
+## Validation libraries
+
+Validation runs in the application. Pass its current error message to `Field`; Faber UI will show
+the message, set `aria-invalid`, and connect the error to the input. For example, a consumer using
+React Hook Form and Yup can pass the registration props and resolver output directly:
+
+```tsx
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Field, Input, INPUT_TYPES } from '@faber-ui/react';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+
+const schema = yup.object({
+  email: yup.string().email('Enter a valid email address.').required('Email is required.'),
+});
+
+function ExampleForm() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+
+  return (
+    <form onSubmit={handleSubmit((values) => console.log(values))}>
+      <Field label="Email" error={errors.email?.message}>
+        <Input type={INPUT_TYPES.EMAIL} {...register('email')} />
+      </Field>
+    </form>
+  );
+}
+```
+
+React Hook Form, Yup, and the resolver are optional application dependencies. They are not bundled
+with Faber UI.
+
+## Translated copy
+
+`label`, `description`, and `error` accept React content. Translate these values in the
+application's i18n layer before passing them to the field:
+
+```tsx
+<Field label={t('form.email.label')} error={errorKey ? t(errorKey) : undefined}>
+  <Input name="email" type={INPUT_TYPES.EMAIL} />
+</Field>
+```
+
+The same CSS and ARIA behavior applies regardless of the language of the content. Error colors
+come from the semantic `COLORS.ERROR` variable, which can be overridden in a custom theme.

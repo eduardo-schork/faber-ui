@@ -1,5 +1,6 @@
 export const ANIMATIONS = {
   DURATION_FAST: '150ms',
+  DURATION_SLOW: '1500ms',
   DURATION_SPIN: '700ms',
   EASING_LINEAR: 'linear',
   EASING_STANDARD: 'ease',

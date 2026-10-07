@@ -14,6 +14,7 @@ const config: StorybookConfig = {
   viteFinal: (config) =>
     mergeConfig(config, {
       resolve: {
+        dedupe: ['react', 'react-dom', 'styled-components'],
         alias: [
           {
             find: /^@faber-ui\/fonts$/,

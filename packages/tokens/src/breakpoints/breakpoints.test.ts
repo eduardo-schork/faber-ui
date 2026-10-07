@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { BREAKPOINTS } from './breakpoints';
 
 describe('breakpoint tokens', () => {
-  it('provides the approved mobile-first layout thresholds', () => {
+  it('SHOULD provide the approved mobile-first layout thresholds', () => {
     expect(BREAKPOINTS).toEqual({
       MOBILE: '0px',
       MOBILE_LARGE: '640px',

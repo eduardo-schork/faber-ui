@@ -7,7 +7,7 @@ import { Title } from './title.ui';
 describe('Title', () => {
   afterEach(cleanup);
 
-  it('renders every heading level with semantic markup', () => {
+  it('SHOULD render every heading level with semantic markup', () => {
     const { getByRole } = render(
       <div>
         <Title.H1>Heading 1</Title.H1>
@@ -24,7 +24,7 @@ describe('Title', () => {
     }
   });
 
-  it('provides the approved visual defaults independently from semantic level', () => {
+  it('SHOULD provide the approved visual defaults independently from semantic level', () => {
     const { getByRole } = render(<Title.H1>Page title</Title.H1>);
     const title = getByRole('heading', { level: 1 });
 
@@ -33,7 +33,7 @@ describe('Title', () => {
     expect(title.getAttribute('data-line-height')).toBe('tight');
   });
 
-  it('allows visual overrides without changing semantic markup', () => {
+  it('SHOULD allow visual overrides without changing semantic markup', () => {
     const { getByRole } = render(
       <Title.H1 size="medium" tone="accent" truncate weight="medium">
         Compact page title
@@ -48,7 +48,7 @@ describe('Title', () => {
     expect(title.getAttribute('data-weight')).toBe('medium');
   });
 
-  it('forwards native props and the heading ref', () => {
+  it('SHOULD forward native props and the heading ref', () => {
     const ref = createRef<HTMLHeadingElement>();
     const { getByRole } = render(
       <Title.H2 ref={ref} id="overview" aria-describedby="overview-description">

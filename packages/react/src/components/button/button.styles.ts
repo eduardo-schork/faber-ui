@@ -9,21 +9,18 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
-  RELATIVE_SIZES,
   SIZES,
   SPACINGS,
 } from '@faber-ui/tokens';
-import styled, { keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { FLEX_ALIGNS, FLEX_JUSTIFIES, HFlex } from '../flex';
+import { Spinner } from '../spinner';
 
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from './button.constants';
 
-const rotate = keyframes`
-  to {
-    transform: rotate(${ANIMATIONS.ROTATION_FULL});
-  }
-`;
-
-export const StyledButton = styled.button`
+/** Shared by Button and LinkButton so an action and a navigation link stay visually identical. */
+export const buttonStyles = css`
   --button-color: ${COLORS.PRIMARY};
   --button-color-hover: ${COLORS.PRIMARY_HOVER};
   --button-color-active: ${COLORS.PRIMARY_ACTIVE};
@@ -62,6 +59,13 @@ export const StyledButton = styled.button`
     --button-color-hover: ${COLORS.ACCENT_HOVER};
     --button-color-active: ${COLORS.ACCENT_ACTIVE};
     --button-on-color: ${COLORS.ON_ACCENT};
+  }
+
+  &[data-color='${BUTTON_COLORS.NEUTRAL}'] {
+    --button-color: ${COLORS.TEXT_PRIMARY};
+    --button-color-hover: ${COLORS.TEXT_SECONDARY};
+    --button-color-active: ${COLORS.TEXT_SECONDARY};
+    --button-on-color: ${COLORS.BACKGROUND_PRIMARY};
   }
 
   &[data-size='${BUTTON_SIZES.SMALL}'] {
@@ -206,43 +210,46 @@ export const StyledButton = styled.button`
   }
 `;
 
-export const ButtonContent = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: ${SPACINGS.XS};
-  max-width: 100%;
-  min-width: 0;
+export const StyledButton = styled.button.attrs({ className: 'faber-ui-button' })`
+  ${buttonStyles}
 `;
 
-export const ButtonIcon = styled.span`
-  display: inline-flex;
+export const ButtonContent = styled(HFlex).attrs({
+  className: 'faber-ui-button-content',
+  align: FLEX_ALIGNS.CENTER,
+  forwardedAs: 'span',
+  gap: 'XS',
+  inline: true,
+  justify: FLEX_JUSTIFIES.CENTER,
+})`
+  max-width: 100%;
+`;
+
+export const ButtonIcon = styled(HFlex).attrs({
+  className: 'faber-ui-button-icon',
+  align: FLEX_ALIGNS.CENTER,
+  forwardedAs: 'span',
+  inline: true,
+  justify: FLEX_JUSTIFIES.CENTER,
+})`
   flex: 0 0 auto;
-  align-items: center;
-  justify-content: center;
   line-height: ${LINE_HEIGHTS.ZERO};
 `;
 
-export const ButtonLabel = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
+/* The label clips for truncation, so it needs a line box tall enough for descenders. */
+export const ButtonLabel = styled(HFlex).attrs({
+  className: 'faber-ui-button-label',
+  align: FLEX_ALIGNS.CENTER,
+  forwardedAs: 'span',
+  inline: true,
+  justify: FLEX_JUSTIFIES.CENTER,
+})`
   overflow: hidden;
+  line-height: ${LINE_HEIGHTS.NORMAL};
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 
-export const ButtonSpinner = styled.span`
+export const ButtonSpinner = styled(Spinner).attrs({ className: 'faber-ui-button-spinner' })`
   position: absolute;
-  width: ${RELATIVE_SIZES.CURRENT_FONT};
-  height: ${RELATIVE_SIZES.CURRENT_FONT};
-  border: ${BORDER_WIDTHS.STRONG} solid currentcolor;
-  border-right-color: transparent;
-  border-radius: ${RADII.FULL};
-  animation: ${rotate} ${ANIMATIONS.DURATION_SPIN} ${ANIMATIONS.EASING_LINEAR} infinite;
-
-  @media (prefers-reduced-motion: reduce) {
-    animation: none;
-  }
 `;

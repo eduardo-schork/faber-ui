@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Table" />
+
+# Table
+
+[Interactive stories and prop reference](?path=/docs/atoms-table--docs)
+
+## Purpose and when to use it
+
+Use `Table` for tabular data: values that readers compare across rows and columns. Do not use a
+table for layout.
+
+## Behavioral contract
+
+- Renders a native `table`, forwards its props and ref, and styles the native `caption`, `thead`,
+  `tbody`, `tr`, `th`, and `td` elements placed inside it.
+- Takes the full available width. Text aligns to the inline start and rows are separated by a
+  default border; the header row uses a strong border.
+
+## Accessibility
+
+Write the table with native elements: a `caption` or `aria-label` for its name, `th scope="col"`
+for column headers, and `th scope="row"` for the cell that identifies each row.
+
+## Customization
+
+The table consumes typography, spacing, and semantic color tokens. Wrap it with styled-components
+to adjust cell styles, and wrap it in a scrolling container when it can exceed a narrow viewport.
+
+## Example
+
+```tsx
+import { Table } from '@faber-ui/react/table';
+
+<Table>
+  <caption>Team members</caption>
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Ada Lovelace</th>
+      <td>Admin</td>
+    </tr>
+  </tbody>
+</Table>;
+```
+
+## Boundaries
+
+Sorting, selection, pagination, sticky headers, and responsive stacking are not included.

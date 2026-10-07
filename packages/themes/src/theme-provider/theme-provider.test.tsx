@@ -7,7 +7,7 @@ import { ThemeProvider } from './theme-provider.ui';
 describe('ThemeProvider', () => {
   afterEach(cleanup);
 
-  it('applies the light theme by default', () => {
+  it('SHOULD apply the light theme by default', () => {
     const { container } = render(
       <ThemeProvider>
         <span>Content</span>
@@ -17,11 +17,11 @@ describe('ThemeProvider', () => {
 
     expect(scope.getAttribute('data-theme')).toBe('light');
     expect(scope.style.getPropertyValue(THEME_VARIABLE_NAMES.BACKGROUND_PRIMARY)).toBe(
-      'hsl(95 20% 98%)',
+      'hsl(200 14% 96%)',
     );
   });
 
-  it('applies the dark theme when requested', () => {
+  it('SHOULD apply the dark theme WHEN requested', () => {
     const { container } = render(
       <ThemeProvider mode="dark">
         <span>Content</span>
@@ -31,7 +31,7 @@ describe('ThemeProvider', () => {
 
     expect(scope.getAttribute('data-theme')).toBe('dark');
     expect(scope.style.getPropertyValue(THEME_VARIABLE_NAMES.BACKGROUND_PRIMARY)).toBe(
-      'hsl(95 78% 7%)',
+      'hsl(200 16% 8%)',
     );
   });
 });

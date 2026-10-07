@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Breadcrumb" />
+
+# Breadcrumb
+
+[Interactive stories and prop reference](?path=/docs/molecules-breadcrumb--docs)
+
+## Purpose and when to use it
+
+Use `Breadcrumb` to show where the current page sits in a hierarchy and to let readers move up it.
+
+## Behavioral contract
+
+- `Breadcrumb` renders a `nav` landmark containing an ordered list and forwards the `nav` ref. Its
+  `aria-label` defaults to `Breadcrumb`; pass a translated one when needed.
+- `BreadcrumbItem` renders a list item. Put a `Link` inside each ancestor item.
+- `current` marks the page the reader is on and renders its content with `aria-current="page"`.
+- Separators are drawn in CSS and are not announced.
+
+## Accessibility
+
+The landmark and list give screen-reader users the trail length and position. The current page is
+text, not a link.
+
+## Customization
+
+Typography and colors use semantic tokens. The components are styled-components targets.
+
+## Example
+
+```tsx
+import { Breadcrumb, BreadcrumbItem, Link } from '@faber-ui/react';
+
+<Breadcrumb>
+  <BreadcrumbItem>
+    <Link href="/">Home</Link>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <Link href="/settings">Settings</Link>
+  </BreadcrumbItem>
+  <BreadcrumbItem current>Billing</BreadcrumbItem>
+</Breadcrumb>;
+```
+
+## Boundaries
+
+Long trails are not collapsed, and the trail is not derived from the route.
