@@ -1,10 +1,14 @@
 import {
   BORDER_WIDTHS,
   BREAKPOINTS,
-  Card,
   CARD_PADDINGS,
   COLORS,
+  Card,
   FONT_SIZES,
+  Grid,
+  HFlex,
+  LIST_MARKERS,
+  List,
   SIZES,
   SPACINGS,
   Textarea,
@@ -13,8 +17,7 @@ import styled from 'styled-components';
 
 import { captionText, SITE_HEADER_HEIGHT } from '@/components/sheet/sheet.styles';
 
-export const PlaygroundGrid = styled.div`
-  display: grid;
+export const PlaygroundGrid = styled(Grid)`
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: start;
   gap: ${SPACINGS.LG};
@@ -24,10 +27,9 @@ export const PlaygroundGrid = styled.div`
   }
 `;
 
-export const EditorColumn = styled.div`
+export const EditorColumn = styled(Grid)`
   position: sticky;
   top: calc(${SITE_HEADER_HEIGHT} + ${SPACINGS.LG});
-  display: grid;
   gap: ${SPACINGS.MD};
   min-width: ${SPACINGS.NONE};
 
@@ -36,8 +38,7 @@ export const EditorColumn = styled.div`
   }
 `;
 
-export const PresetList = styled.div`
-  display: flex;
+export const PresetList = styled(HFlex)`
   flex-wrap: wrap;
   gap: ${SPACINGS.XS};
 `;
@@ -54,8 +55,7 @@ export const PreviewCard = styled(Card).attrs({ padding: CARD_PADDINGS.NONE })`
   overflow: hidden;
 `;
 
-export const PreviewHead = styled.div`
-  display: flex;
+export const PreviewHead = styled(HFlex)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -65,8 +65,7 @@ export const PreviewHead = styled.div`
 `;
 
 /** Paints the theme of the surrounding provider so the preview reads as its own region. */
-export const PreviewSurface = styled.div`
-  display: grid;
+export const PreviewSurface = styled(Grid)`
   gap: ${SPACINGS.LG};
   padding: ${SPACINGS.LG};
   color: ${COLORS.TEXT_PRIMARY};
@@ -77,14 +76,12 @@ export const PreviewSurface = styled.div`
   }
 `;
 
-export const ReferenceList = styled.ul`
+export const ReferenceList = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   ${captionText}
-  display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc(${SIZES.XXL} * 3), 1fr));
   gap: ${SPACINGS.XXS} ${SPACINGS.MD};
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
   color: ${COLORS.TEXT_SECONDARY};
-  list-style: none;
   overflow-wrap: anywhere;
 `;

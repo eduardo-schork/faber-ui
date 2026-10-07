@@ -69,25 +69,32 @@ the compiler enforces it. Add both when a component is added to `@faber-ui/react
 
 The website is built from Faber UI components. When the site needs something the library does not
 have, it is listed here to be developed in the library, and the local stand-in is replaced once it
-ships. Audit of 2026-10-06: 104 raw styled elements against 36 built on library components.
+ships.
 
-| Missing in the library            | Where the site stands in for it today                                 |
-| --------------------------------- | --------------------------------------------------------------------- |
-| Grid (responsive columns)         | `DocsColumns`, `HeroGrid`, `FooterGrid`, `RecastGrid`, `PlateBody`, … |
-| Box (a themed block surface)      | `PageWidth`, `ThemedSurface`, `DemoBox`, `PreviewSurface`             |
-| List and ListItem                 | `DocsList`, `GuideList`, `Steps`, `Ledger`, `RoleList`                |
-| DescriptionList                   | `HeroFacts`, `TitleBlock`                                             |
-| CodeBlock with a copy button      | `components/code-block`                                               |
-| Header, NavLink, and Footer shell | `SiteHeader`, `HeaderNav`, `SiteFooter`, `FooterColumn`               |
-| Sidebar navigation                | `DocsSidebar`, `SidebarGroup`, `SidebarLink`                          |
-| SkipLink                          | `SkipLink`                                                            |
-| Selectable card (radio card)      | `MaterialButton` in the recast panel                                  |
-| ColorSwatch                       | `Swatch`, `MaterialSwatch`, `Role`                                    |
-| Lead, caption, and overline text  | `Lead`, `Prose`, `Caption`, `SidebarHeading`, `FooterHeading`         |
+| Missing in the library       | Where the site stands in for it today  |
+| ---------------------------- | -------------------------------------- |
+| Selectable card (radio card) | `MaterialButton` in the recast panel   |
+| ColorSwatch                  | `Swatch`, `MaterialSwatch`, and `Role` |
+| Display font sizes           | `clamp()` sizes on the hero and titles |
 
-Not gaps: about forty raw flex rows, stacks, paragraphs, and links that `HFlex`, `VFlex`, `Text`,
-`Link`, and `Card` already cover and that still need converting. The Button anatomy drawing and
-the token scale bars are illustrations specific to this site and stay local.
+The audit of 2026-10-06 found 104 raw styled elements. Box, Grid, List, DescriptionList, CodeBlock,
+Header, Footer, NavLink, SideNav, SkipLink, and the lead, caption, and overline text members were
+added to the library for it, and the site now has two: the `MaterialButton` above and a native
+`fieldset` that the Radio example shows on purpose. Syntax tokens inside code blocks and a few
+`strong` and `small` elements stay native because they inherit the text around them.
+
+## Publishing to GitHub Pages
+
+`.github/workflows/pages.yml` builds a static export of this site with Storybook under
+`/storybook` and deploys it. It runs on pushes to `master` once Pages is enabled in the repository
+settings with the source set to GitHub Actions. The same export can be produced locally:
+
+```bash
+FABER_UI_STATIC_EXPORT=true FABER_UI_BASE_PATH=/faber-ui bun run build:website
+```
+
+The files land in `apps/website/out`. Without those variables the site builds as a regular Next.js
+application.
 
 ## Production build
 

@@ -1,17 +1,18 @@
 'use client';
 
 import {
-  Alert,
   ALERT_COLORS,
+  Alert,
   Button,
   Checkbox,
   Field,
   HFlex,
-  Input,
   INPUT_TYPES,
+  Input,
+  ListItem,
   Select,
-  Text,
   TYPOGRAPHY_TONES,
+  Text,
   VFlex,
 } from '@faber-ui/react';
 import { useState, type SyntheticEvent } from 'react';
@@ -289,27 +290,27 @@ export function GettingStartedPage() {
       <DocsSection id="next" aria-labelledby="next-title">
         <DocsSectionTitle id="next-title">Where to go next</DocsSectionTitle>
         <GuideList>
-          <li>
+          <ListItem>
             <TextLink href="/docs/components">
               Components
               <ArrowRightIcon />
             </TextLink>
             <Caption>every component, running, with its code</Caption>
-          </li>
-          <li>
+          </ListItem>
+          <ListItem>
             <TextLink href="/docs/foundations">
               Foundations
               <ArrowRightIcon />
             </TextLink>
             <Caption>the token tables, drawn from the package</Caption>
-          </li>
-          <li>
+          </ListItem>
+          <ListItem>
             <TextLink href="/docs/theming">
               Theming
               <ArrowRightIcon />
             </TextLink>
             <Caption>themes, overrides, scoped providers, fonts</Caption>
-          </li>
+          </ListItem>
         </GuideList>
         <Prose>
           Storybook holds the full prop reference and a written guide for every component. It is not
@@ -317,13 +318,13 @@ export function GettingStartedPage() {
         </Prose>
         <GuideList>
           {STORYBOOK_GUIDES.map(({ id, label, note }) => (
-            <li key={id}>
+            <ListItem key={id}>
               <ExternalLink href={getStorybookDocsUrl(id)}>
                 {label}
                 <ArrowUpRightIcon />
               </ExternalLink>
               <Caption>{note}</Caption>
-            </li>
+            </ListItem>
           ))}
         </GuideList>
       </DocsSection>

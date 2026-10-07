@@ -41,6 +41,24 @@ import { Radio, RadioGroup } from '@faber-ui/react';
 </RadioGroup>;
 ```
 
+## Composition
+
+`RadioGroupRoot` is the `fieldset`, `RadioGroupLabel` its `legend`, `RadioGroupOptions` the stack
+of radios, and `RadioGroupMessage` and `RadioGroupError` the two text lines. `RadioGroup` connects
+the description and error to the fieldset; in a composition set `aria-describedby` yourself.
+
+```tsx
+import { RadioGroupLabel, RadioGroupOptions, RadioGroupRoot } from '@faber-ui/react/radio-group';
+
+<RadioGroupRoot>
+  <RadioGroupLabel>Plan</RadioGroupLabel>
+  <RadioGroupOptions>
+    <Radio label="Starter" name="plan" value="starter" />
+    <Radio label="Team" name="plan" value="team" />
+  </RadioGroupOptions>
+</RadioGroupRoot>;
+```
+
 ## Boundaries
 
 Validation, translation, selected value, and form state belong to the application. `RadioGroup`

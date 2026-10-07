@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/SkipLink" />
+
+# SkipLink
+
+[Interactive stories and prop reference](?path=/docs/atoms-skiplink--docs)
+
+## Purpose and when to use it
+
+Use `SkipLink` as the first focusable element of a page so keyboard users can jump past the
+navigation.
+
+## Behavioral contract
+
+- Renders the library `Link` and forwards its props and ref.
+- `href` defaults to `#main` and the content to "Skip to content".
+- It is visually hidden until it receives focus, then appears at the top corner of the viewport.
+
+## Accessibility
+
+Give the target element the matching `id` and `tabIndex={-1}` so focus moves with the jump.
+
+## Customization
+
+Target `faber-ui-skip-link`. The link stays an ordinary anchor and accepts `as` for a router
+link.
+
+## Example
+
+```tsx
+import { SkipLink } from '@faber-ui/react/skip-link';
+
+<SkipLink href="#content" />
+<main id="content" tabIndex={-1} />;
+```
+
+## Boundaries
+
+`SkipLink` does not manage focus on the target and renders one link, not a list of landmarks.

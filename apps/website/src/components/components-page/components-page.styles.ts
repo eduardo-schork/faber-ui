@@ -1,8 +1,7 @@
-import { BORDER_WIDTHS, BREAKPOINTS, COLORS, SPACINGS } from '@faber-ui/react';
+import { BORDER_WIDTHS, BREAKPOINTS, COLORS, Grid, HFlex, SPACINGS } from '@faber-ui/react';
 import styled from 'styled-components';
 
-export const Plate = styled.article`
-  display: grid;
+export const Plate = styled(Grid).attrs({ forwardedAs: 'article' })`
   gap: ${SPACINGS.MD};
   min-width: ${SPACINGS.NONE};
   padding-top: ${SPACINGS.XL};
@@ -13,15 +12,13 @@ export const Plate = styled.article`
   }
 `;
 
-export const PlateHead = styled.header`
-  display: flex;
+export const PlateHead = styled(HFlex).attrs({ forwardedAs: 'header' })`
   flex-wrap: wrap;
   align-items: baseline;
   gap: ${SPACINGS.XXS} ${SPACINGS.MD};
 `;
 
-export const PlateBody = styled.div`
-  display: grid;
+export const PlateBody = styled(Grid)`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
   gap: ${SPACINGS.MD};
@@ -31,8 +28,7 @@ export const PlateBody = styled.div`
   }
 `;
 
-export const PlateFoot = styled.footer`
-  display: flex;
+export const PlateFoot = styled(HFlex).attrs({ forwardedAs: 'footer' })`
   flex-wrap: wrap;
   align-items: center;
   gap: ${SPACINGS.XXS} ${SPACINGS.LG};

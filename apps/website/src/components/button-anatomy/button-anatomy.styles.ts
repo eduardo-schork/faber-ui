@@ -2,9 +2,12 @@ import {
   ANIMATIONS,
   BORDER_WIDTHS,
   BREAKPOINTS,
+  Box,
   COLORS,
+  DescriptionList,
   FONT_SIZES,
   FONT_WEIGHTS,
+  Grid,
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
@@ -27,7 +30,7 @@ export const AnatomyFigure = styled(Frame)`
   margin: ${SPACINGS.NONE};
 `;
 
-export const AnatomyStage = styled.div`
+export const AnatomyStage = styled(Grid)`
   --anatomy-scale: 2;
   --half-width: calc(var(--subject-width, 0) * var(--anatomy-scale) * 0.5px);
   --half-height: calc(var(--subject-height, 0) * var(--anatomy-scale) * 0.5px);
@@ -39,7 +42,6 @@ export const AnatomyStage = styled.div`
   );
 
   position: relative;
-  display: grid;
   place-items: center;
   height: calc(${SIZES.XXL} * 4);
   overflow: hidden;
@@ -70,11 +72,11 @@ export const AnatomyStage = styled.div`
   }
 `;
 
-export const AnatomySubject = styled.div`
+export const AnatomySubject = styled(Box)`
   transform: scale(var(--anatomy-scale));
 `;
 
-export const HeightDimension = styled.div`
+export const HeightDimension = styled(Box)`
   top: calc(50% - var(--half-height));
   left: calc(50% + var(--half-width) + ${DIMENSION_GAP});
   width: ${DIMENSION_DEPTH};
@@ -97,7 +99,7 @@ export const HeightDimension = styled.div`
   }
 `;
 
-export const PaddingDimension = styled.div`
+export const PaddingDimension = styled(Box)`
   top: calc(50% + var(--half-height) + ${DIMENSION_GAP});
   left: calc(50% - var(--half-width));
   width: var(--padding-length);
@@ -119,7 +121,7 @@ export const PaddingDimension = styled.div`
   }
 `;
 
-const Leader = styled.div`
+const Leader = styled(Box)`
   top: calc(50% - var(--half-height) - ${LEADER_LENGTH});
   width: ${BORDER_WIDTHS.DEFAULT};
   height: ${LEADER_LENGTH};
@@ -158,10 +160,9 @@ export const TypeLeader = styled(Leader)`
   }
 `;
 
-export const AnnotationLabel = styled.span`
+export const AnnotationLabel = styled(Grid).attrs({ forwardedAs: 'span' })`
   ${captionText}
   position: absolute;
-  display: grid;
   color: ${COLORS.TEXT_SECONDARY};
   font-size: calc(${FONT_SIZES.XS} - 1px);
   line-height: ${LINE_HEIGHTS.TIGHT};
@@ -174,14 +175,13 @@ export const AnnotationLabel = styled.span`
   }
 `;
 
-export const AnatomyControls = styled.div`
-  display: grid;
+export const AnatomyControls = styled(Grid)`
   gap: ${SPACINGS.XS};
   padding: ${SPACINGS.MD};
   border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
 `;
 
-export const TitleBlock = styled.dl`
+export const TitleBlock = styled(DescriptionList)`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   margin: ${SPACINGS.NONE};

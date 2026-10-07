@@ -82,6 +82,59 @@ export const COMPONENT_CATALOG = [
       'The trail from the top of a hierarchy to the current page, as a navigation landmark with an ordered list.',
   },
   {
+    slug: 'nav-link',
+    name: 'NavLink',
+    family: 'navigation',
+    element: '<a>',
+    ref: 'HTMLAnchorElement',
+    entry: '@faber-ui/react/nav-link',
+    storybookId: 'components-navlink',
+    summary:
+      'A navigation destination with a current-page state. It accepts a router link through as.',
+  },
+  {
+    slug: 'header',
+    name: 'Header',
+    family: 'navigation',
+    element: '<header>',
+    ref: 'HTMLElement',
+    entry: '@faber-ui/react/header',
+    storybookId: 'components-header',
+    summary:
+      'The top bar of an application: a bordered row for the brand, navigation, and actions, optionally sticky.',
+  },
+  {
+    slug: 'side-nav',
+    name: 'SideNav',
+    family: 'navigation',
+    element: '<nav>',
+    ref: 'HTMLElement',
+    entry: '@faber-ui/react/side-nav',
+    storybookId: 'components-sidenav',
+    summary: 'Vertical navigation in labelled groups, for documentation sections and settings.',
+  },
+  {
+    slug: 'footer',
+    name: 'Footer',
+    family: 'navigation',
+    element: '<footer>',
+    ref: 'HTMLElement',
+    entry: '@faber-ui/react/footer',
+    storybookId: 'components-footer',
+    summary:
+      'The closing region of a page, with the border, spacing, and quiet text of the system.',
+  },
+  {
+    slug: 'skip-link',
+    name: 'SkipLink',
+    family: 'navigation',
+    element: '<a>',
+    ref: 'HTMLAnchorElement',
+    entry: '@faber-ui/react/skip-link',
+    storybookId: 'components-skiplink',
+    summary: 'A link that appears on keyboard focus and jumps past the navigation to the content.',
+  },
+  {
     slug: 'pagination',
     name: 'Pagination',
     family: 'navigation',
@@ -247,6 +300,28 @@ export const COMPONENT_CATALOG = [
       'Page width. Without a size it follows the breakpoint scale; with one it becomes a responsive maximum width.',
   },
   {
+    slug: 'box',
+    name: 'Box',
+    family: 'layout',
+    element: '<div>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/box',
+    storybookId: 'components-box',
+    summary:
+      'A block container with token padding and no layout of its own. Children keep normal flow.',
+  },
+  {
+    slug: 'grid',
+    name: 'Grid',
+    family: 'layout',
+    element: '<div>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/grid',
+    storybookId: 'components-grid',
+    summary:
+      'Columns from a number, a track template, or a minimum width, with responsive values and token gaps.',
+  },
+  {
     slug: 'center-flex',
     name: 'CenterFlex',
     family: 'layout',
@@ -333,6 +408,38 @@ export const COMPONENT_CATALOG = [
     storybookId: 'components-table',
     summary:
       'Styles native table markup: caption, header cells, row headers, and data cells. The semantics stay in your markup.',
+  },
+  {
+    slug: 'list',
+    name: 'List',
+    family: 'display',
+    element: '<ul> or <ol>',
+    ref: 'HTMLUListElement',
+    entry: '@faber-ui/react/list',
+    storybookId: 'components-list',
+    summary:
+      'Unordered and ordered lists with token spacing. Markers can be removed without losing list semantics.',
+  },
+  {
+    slug: 'description-list',
+    name: 'DescriptionList',
+    family: 'display',
+    element: '<dl>',
+    ref: 'HTMLDListElement',
+    entry: '@faber-ui/react/description-list',
+    storybookId: 'components-descriptionlist',
+    summary: 'Name and value pairs as a native description list, stacked or side by side.',
+  },
+  {
+    slug: 'code-block',
+    name: 'CodeBlock',
+    family: 'display',
+    element: '<pre> + <code>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/code-block',
+    storybookId: 'components-codeblock',
+    summary:
+      'Source code with a label and a copy button. Pass highlighted nodes as children; the plain code is what gets copied.',
   },
   {
     slug: 'alert',
@@ -443,6 +550,17 @@ export const COMPONENT_CATALOG = [
     storybookId: 'components-dialog',
     summary:
       'A native modal dialog. The browser provides the top layer, the backdrop, focus containment, and Escape.',
+  },
+  {
+    slug: 'alert-dialog',
+    name: 'AlertDialog',
+    family: 'overlays',
+    element: '<dialog role="alertdialog">',
+    ref: 'HTMLDialogElement',
+    entry: '@faber-ui/react/alert-dialog',
+    storybookId: 'components-alertdialog',
+    summary:
+      'A modal that stops for a decision. It has two actions, no close button, and puts focus on the safe one.',
   },
   {
     slug: 'drawer',

@@ -11,6 +11,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { FLEX_ALIGNS, HFlex, VFlex } from '../flex';
 import { Text } from '../text';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_WEIGHTS } from '../typography/typography.constants';
@@ -77,6 +78,6 @@ export const ToastTitle = styled(Text.Span).attrs({
   weight: TYPOGRAPHY_WEIGHTS.SEMIBOLD,
 })``;
 
-export const ToastBody = styled.div.attrs({ className: 'faber-ui-toast-body' })`
+export const ToastBody = styled(Box).attrs({ className: 'faber-ui-toast-body' })`
   color: ${COLORS.TEXT_SECONDARY};
 `;

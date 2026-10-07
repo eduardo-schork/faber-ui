@@ -9,6 +9,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { VFlex } from '../flex';
 import { Text } from '../text';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_WEIGHTS } from '../typography/typography.constants';
@@ -47,6 +48,6 @@ export const AlertTitle = styled(Text.Span).attrs({
   weight: TYPOGRAPHY_WEIGHTS.SEMIBOLD,
 })``;
 
-export const AlertBody = styled.div.attrs({ className: 'faber-ui-alert-body' })`
+export const AlertBody = styled(Box).attrs({ className: 'faber-ui-alert-body' })`
   color: ${COLORS.TEXT_SECONDARY};
 `;

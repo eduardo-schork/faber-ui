@@ -80,17 +80,22 @@ export function ActionAlert({ action, children, title, ...rootProps }) {
 }
 ```
 
-| Component        | Parts                                                                                    |
-| ---------------- | ---------------------------------------------------------------------------------------- |
-| Dialog           | `DialogRoot`, `DialogHeader`, `DialogTitle`, `DialogClose`, `DialogBody`, `DialogFooter` |
-| Alert            | `AlertRoot`, `AlertTitle`, `AlertBody`                                                   |
-| Toast            | `ToastRoot`, `ToastContent`, `ToastTitle`, `ToastBody`                                   |
-| Field            | `FieldRoot`, `FieldLabel`, `FieldDescription`, `FieldError`                              |
-| Accordion        | `AccordionItemRoot`, `AccordionSummary`, `AccordionContent`                              |
-| Tabs             | `Tabs`, `TabList`, `Tab`, `TabPanel`                                                     |
-| Menu             | `Menu`, `MenuItem`, `MenuLabel`, `MenuSeparator`                                         |
-| Breadcrumb       | `Breadcrumb`, `BreadcrumbItem`                                                           |
-| SegmentedControl | `SegmentedControl`, `Segment`                                                            |
+| Component               | Parts                                                                                                             |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Dialog                  | `DialogRoot`, `DialogHeader`, `DialogTitle`, `DialogClose`, `DialogBody`, `DialogFooter`                          |
+| Alert                   | `AlertRoot`, `AlertTitle`, `AlertBody`                                                                            |
+| Toast                   | `ToastRoot`, `ToastContent`, `ToastTitle`, `ToastBody`                                                            |
+| Field                   | `FieldRoot`, `FieldLabel`, `FieldDescription`, `FieldError`                                                       |
+| Accordion               | `AccordionItemRoot`, `AccordionSummary`, `AccordionContent`                                                       |
+| Button                  | `ButtonRoot`, `ButtonContent`, `ButtonIcon`, `ButtonLabel`, `ButtonSpinner`                                       |
+| RadioGroup              | `RadioGroupRoot`, `RadioGroupLabel`, `RadioGroupOptions`, `RadioGroupMessage`, `RadioGroupError`                  |
+| Pagination              | `PaginationRoot`, `PaginationList`, `PaginationButton`, `PaginationEllipsis`                                      |
+| Checkbox, Radio, Switch | `ChoiceControlRoot`, `ChoiceControlLabel`, `ChoiceControlInput`, `ChoiceControlDescription`, `ChoiceControlError` |
+| CodeBlock               | `CodeBlockRoot`, `CodeBlockHeader`, `CodeBlockLabel`, `CodeBlockPre`, `CodeBlockCopy`                             |
+| Tabs                    | `Tabs`, `TabList`, `Tab`, `TabPanel`                                                                              |
+| Menu                    | `Menu`, `MenuItem`, `MenuLabel`, `MenuSeparator`                                                                  |
+| Breadcrumb              | `Breadcrumb`, `BreadcrumbItem`                                                                                    |
+| SegmentedControl        | `SegmentedControl`, `Segment`                                                                                     |
 
 Each component guide has a **Composition** section with the contract of its parts. The remaining
 components are single elements or do not expose parts yet.

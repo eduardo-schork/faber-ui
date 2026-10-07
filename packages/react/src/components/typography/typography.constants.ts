@@ -6,6 +6,8 @@ export const TYPOGRAPHY_SIZES = {
   LARGE: 'large',
   LARGER: 'larger',
   LARGEST: 'largest',
+  /** Takes the font size of the surrounding text. */
+  INHERIT: 'inherit',
 } as const;
 
 export const TYPOGRAPHY_WEIGHTS = {
@@ -13,6 +15,8 @@ export const TYPOGRAPHY_WEIGHTS = {
   MEDIUM: 'medium',
   SEMIBOLD: 'semibold',
   BOLD: 'bold',
+  /** Takes the font weight of the surrounding text. */
+  INHERIT: 'inherit',
 } as const;
 
 export const TYPOGRAPHY_TONES = {

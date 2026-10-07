@@ -37,6 +37,7 @@ export const createTypographyComponent = <
           data-italic={defaults.italic === true ? true : undefined}
           data-line-height={defaults.lineHeight}
           data-link={defaults.link === true ? true : undefined}
+          data-overline={defaults.overline === true ? true : undefined}
           data-size={size}
           data-tone={tone}
           data-truncate={truncate || undefined}

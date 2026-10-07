@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Grid" />
+
+# Grid
+
+[Interactive stories and prop reference](?path=/docs/atoms-grid--docs)
+
+## Purpose and when to use it
+
+Use `Grid` to place children in columns: equal columns, unequal tracks, or as many columns as
+the width allows.
+
+## Behavioral contract
+
+- Renders a `div` with `display: grid`, forwards its native props and ref, and accepts `as`.
+- `columns` takes a number of equal columns or a `grid-template-columns` string, optionally per
+  breakpoint. Without it the grid is one column, which makes it a stack.
+- `minColumnWidth` switches to auto-fit: the grid fits as many columns of at least that width as
+  it can, and `columns` is ignored.
+- `gap` takes a spacing token name or a CSS length, optionally per breakpoint. `align` sets
+  `align-items` from `GRID_ALIGNS`.
+
+## Accessibility
+
+`Grid` adds no role and does not reorder content. Keep the source order meaningful, because that
+is the order assistive technology reads.
+
+## Customization
+
+Target `faber-ui-grid`, or wrap it with styled-components for tracks the props do not express.
+
+## Example
+
+```tsx
+import { Grid } from '@faber-ui/react/grid';
+
+<Grid columns={{ MOBILE: 1, TABLET: 2, DESKTOP: 3 }} gap="LG">
+  <PlanCard />
+  <PlanCard />
+  <PlanCard />
+</Grid>;
+
+<Grid columns="2fr 1fr" gap="XL" />;
+
+<Grid minColumnWidth="16rem" gap="MD" />;
+```
+
+## Boundaries
+
+There are no row, area, or span props. Set `grid-column` on a child, or write the template in a
+styled wrapper, when a layout needs them.

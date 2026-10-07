@@ -29,6 +29,12 @@ export type {
 } from './font-weights';
 export { FOCUS_RINGS } from './focus-rings';
 export type { TFocusRingTokenName, TFocusRingTokenValue } from './focus-rings';
+export { LETTER_SPACING_SCALE, LETTER_SPACINGS } from './letter-spacings';
+export type {
+  TLetterSpacingScaleValue,
+  TLetterSpacingTokenName,
+  TLetterSpacingTokenValue,
+} from './letter-spacings';
 export { LINE_HEIGHT_SCALE, LINE_HEIGHTS } from './line-heights';
 export type {
   TLineHeightScaleValue,

@@ -73,6 +73,36 @@ export const TextCode = createTypographyComponent<'code', HTMLElement>('code', '
   weight: TYPOGRAPHY_WEIGHTS.REGULAR,
 });
 
+export const TextLead = createTypographyComponent<'p', HTMLParagraphElement>('p', 'Text.Lead', {
+  lineHeight: TYPOGRAPHY_LINE_HEIGHTS.NORMAL,
+  size: TYPOGRAPHY_SIZES.MEDIUM,
+  tone: TYPOGRAPHY_TONES.SECONDARY,
+  weight: TYPOGRAPHY_WEIGHTS.REGULAR,
+});
+
+export const TextCaption = createTypographyComponent<'span', HTMLSpanElement>(
+  'span',
+  'Text.Caption',
+  {
+    lineHeight: TYPOGRAPHY_LINE_HEIGHTS.NORMAL,
+    size: TYPOGRAPHY_SIZES.SMALLEST,
+    tone: TYPOGRAPHY_TONES.SECONDARY,
+    weight: TYPOGRAPHY_WEIGHTS.REGULAR,
+  },
+);
+
+export const TextOverline = createTypographyComponent<'span', HTMLSpanElement>(
+  'span',
+  'Text.Overline',
+  {
+    lineHeight: TYPOGRAPHY_LINE_HEIGHTS.NORMAL,
+    overline: true,
+    size: TYPOGRAPHY_SIZES.SMALLEST,
+    tone: TYPOGRAPHY_TONES.SECONDARY,
+    weight: TYPOGRAPHY_WEIGHTS.SEMIBOLD,
+  },
+);
+
 export const Text = {
   P: TextP,
   Span: TextSpan,
@@ -82,4 +112,7 @@ export const Text = {
   Em: TextEm,
   Small: TextSmall,
   Code: TextCode,
+  Lead: TextLead,
+  Caption: TextCaption,
+  Overline: TextOverline,
 } as const;

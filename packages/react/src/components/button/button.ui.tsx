@@ -9,39 +9,43 @@ import {
   ButtonSpinner,
   StyledButton,
 } from './button.styles';
-import type { TButtonProps } from './button.types';
+import type { TButtonProps, TButtonRootProps } from './button.types';
 
-export const Button = forwardRef<HTMLButtonElement, TButtonProps>(function Button(
+export const ButtonRoot = forwardRef<HTMLButtonElement, TButtonRootProps>(function ButtonRoot(
   {
-    children,
     color = BUTTON_COLORS.PRIMARY,
     disabled,
-    endIcon,
     fullWidth = false,
     loading = false,
     size = BUTTON_SIZES.MEDIUM,
-    startIcon,
     type = 'button',
     variant = BUTTON_VARIANTS.FILLED,
     ...nativeProps
   },
   ref,
 ) {
-  const isDisabled = loading ? true : disabled;
-
   return (
     <StyledButton
       {...nativeProps}
       ref={ref}
       type={type}
       aria-busy={loading || undefined}
-      disabled={isDisabled}
+      disabled={loading ? true : disabled}
       data-color={color}
       data-full-width={fullWidth || undefined}
       data-loading={loading || undefined}
       data-size={size}
       data-variant={variant}
-    >
+    />
+  );
+});
+
+export const Button = forwardRef<HTMLButtonElement, TButtonProps>(function Button(
+  { children, endIcon, loading = false, startIcon, ...rootProps },
+  ref,
+) {
+  return (
+    <ButtonRoot {...rootProps} ref={ref} loading={loading}>
       {loading ? (
         <ButtonSpinner decorative size={SPINNER_SIZES.CURRENT} data-button-spinner />
       ) : null}
@@ -58,6 +62,6 @@ export const Button = forwardRef<HTMLButtonElement, TButtonProps>(function Butto
           </ButtonIcon>
         ) : null}
       </ButtonContent>
-    </StyledButton>
+    </ButtonRoot>
   );
 });

@@ -1,19 +1,21 @@
 import {
   BORDER_WIDTHS,
   BREAKPOINTS,
+  Box,
   COLORS,
   FONT_SIZES,
   FONT_WEIGHTS,
+  Grid,
   RADII,
   SIZES,
   SPACINGS,
+  Text,
 } from '@faber-ui/react';
 import styled from 'styled-components';
 
 import { focusRing, captionText } from '@/components/sheet/sheet.styles';
 
-export const RecastGrid = styled.div`
-  display: grid;
+export const RecastGrid = styled(Grid)`
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
   gap: ${SPACINGS.XXL};
@@ -24,14 +26,12 @@ export const RecastGrid = styled.div`
   }
 `;
 
-export const RecastColumn = styled.div`
-  display: grid;
+export const RecastColumn = styled(Grid)`
   gap: ${SPACINGS.LG};
   min-width: ${SPACINGS.NONE};
 `;
 
-export const MaterialList = styled.div`
-  display: grid;
+export const MaterialList = styled(Grid)`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${SPACINGS.XS};
 
@@ -77,7 +77,7 @@ export const MaterialButton = styled.button`
   }
 `;
 
-export const MaterialSwatch = styled.span`
+export const MaterialSwatch = styled(Box).attrs({ forwardedAs: 'span' })`
   flex: none;
   width: ${SIZES.SM};
   height: ${SIZES.SM};
@@ -85,15 +85,14 @@ export const MaterialSwatch = styled.span`
   background: linear-gradient(135deg, var(--swatch-primary) 50%, var(--swatch-accent) 50%);
 `;
 
-export const RecastNote = styled.p`
+export const RecastNote = styled(Text.P)`
   ${captionText}
   max-width: 62ch;
   margin: ${SPACINGS.NONE};
   color: ${COLORS.TEXT_SECONDARY};
 `;
 
-export const SpecimenBody = styled.div`
-  display: grid;
+export const SpecimenBody = styled(Grid)`
   gap: ${SPACINGS.LG};
   padding: ${SPACINGS.LG};
 
@@ -102,8 +101,7 @@ export const SpecimenBody = styled.div`
   }
 `;
 
-export const SpecimenIdentity = styled.div`
-  display: grid;
+export const SpecimenIdentity = styled(Grid)`
   flex: 1;
   min-width: ${SPACINGS.NONE};
 `;

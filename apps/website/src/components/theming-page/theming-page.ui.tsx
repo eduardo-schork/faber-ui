@@ -1,21 +1,23 @@
 'use client';
 
 import {
-  Button,
   BUTTON_COLORS,
   BUTTON_VARIANTS,
+  Box,
+  Button,
   Checkbox,
   DARK_THEME,
-  Field,
   FLEX_WRAPS,
+  Field,
   HFlex,
-  Input,
   INPUT_TYPES,
-  Text,
+  Input,
+  ListItem,
   THEME_MODES,
+  TYPOGRAPHY_TONES,
+  Text,
   ThemeProvider,
   Title,
-  TYPOGRAPHY_TONES,
   type TTheme,
 } from '@faber-ui/react';
 import { useState, type CSSProperties } from 'react';
@@ -170,10 +172,10 @@ export function App() {
 function SignInCard() {
   return (
     <ThemedSurface>
-      <div>
+      <Box>
         <Title.H3>Sign in</Title.H3>
         <Text.P tone={TYPOGRAPHY_TONES.SECONDARY}>Use the address you registered with.</Text.P>
-      </div>
+      </Box>
       <Field label="Email">
         <Input name="subtree-email" type={INPUT_TYPES.EMAIL} placeholder="you@example.com" />
       </Field>
@@ -240,7 +242,7 @@ export function ThemingPage() {
           This site works that way. The control in the header writes the attribute on the{' '}
           <Text.Code>html</Text.Code> element; no provider wraps the page.
         </Prose>
-        <Caption data-tone="markup" role="status">
+        <Caption data-emphasis="markup" role="status">
           Right now: data-theme=&quot;{theme}&quot;, rendering the {scheme} scheme.
         </Caption>
         <DocsColumns>
@@ -332,11 +334,15 @@ export function ThemingPage() {
           semantic browser styles:
         </Prose>
         <DocsList>
-          <li>Sets border-box sizing on every element.</li>
-          <li>Applies the theme text color, background, base font, and line height to the body.</li>
-          <li>Makes form controls inherit the document font and color.</li>
-          <li>Keeps images, video, and canvas inside their containers.</li>
-          <li>Turns off transitions and animations when reduced motion is requested.</li>
+          <ListItem>Sets border-box sizing on every element.</ListItem>
+          <ListItem>
+            Applies the theme text color, background, base font, and line height to the body.
+          </ListItem>
+          <ListItem>Makes form controls inherit the document font and color.</ListItem>
+          <ListItem>Keeps images, video, and canvas inside their containers.</ListItem>
+          <ListItem>
+            Turns off transitions and animations when reduced motion is requested.
+          </ListItem>
         </DocsList>
         <CodeBlock code={BASELINE_CODE} label="app.tsx" language="tsx" />
       </DocsSection>

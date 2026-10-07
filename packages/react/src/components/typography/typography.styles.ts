@@ -6,6 +6,7 @@ import {
   FONT_FAMILIES,
   FONT_SIZES,
   FONT_WEIGHTS,
+  LETTER_SPACINGS,
   LINE_HEIGHTS,
   RADII,
   SPACINGS,
@@ -58,6 +59,15 @@ export const StyledTypography = styled.span.attrs({ className: 'faber-ui-typogra
     font-size: ${FONT_SIZES.XXXL};
   }
 
+  &[data-size='${TYPOGRAPHY_SIZES.INHERIT}'] {
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  &[data-weight='${TYPOGRAPHY_WEIGHTS.INHERIT}'] {
+    font-weight: inherit;
+  }
+
   &[data-weight='${TYPOGRAPHY_WEIGHTS.MEDIUM}'] {
     font-weight: ${FONT_WEIGHTS.MEDIUM};
   }
@@ -108,6 +118,11 @@ export const StyledTypography = styled.span.attrs({ className: 'faber-ui-typogra
     border-radius: ${RADII.SM};
     background-color: ${COLORS.SURFACE_PRIMARY};
     overflow-wrap: anywhere;
+  }
+
+  &[data-overline='true'] {
+    letter-spacing: ${LETTER_SPACINGS.WIDE};
+    text-transform: uppercase;
   }
 
   &[data-truncate='true'] {

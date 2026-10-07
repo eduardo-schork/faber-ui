@@ -202,7 +202,55 @@
     },
     "./styles.css": "./styles.css",
     "./theme.css": "./theme.css",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./box": {
+      "types": "./dist/components/box/index.d.ts",
+      "import": "./dist/box.js"
+    },
+    "./grid": {
+      "types": "./dist/components/grid/index.d.ts",
+      "import": "./dist/grid.js"
+    },
+    "./list": {
+      "types": "./dist/components/list/index.d.ts",
+      "import": "./dist/list.js"
+    },
+    "./description-list": {
+      "types": "./dist/components/description-list/index.d.ts",
+      "import": "./dist/description-list.js"
+    },
+    "./code-block": {
+      "types": "./dist/components/code-block/index.d.ts",
+      "import": "./dist/code-block.js"
+    },
+    "./skip-link": {
+      "types": "./dist/components/skip-link/index.d.ts",
+      "import": "./dist/skip-link.js"
+    },
+    "./nav-link": {
+      "types": "./dist/components/nav-link/index.d.ts",
+      "import": "./dist/nav-link.js"
+    },
+    "./header": {
+      "types": "./dist/components/header/index.d.ts",
+      "import": "./dist/header.js"
+    },
+    "./footer": {
+      "types": "./dist/components/footer/index.d.ts",
+      "import": "./dist/footer.js"
+    },
+    "./side-nav": {
+      "types": "./dist/components/side-nav/index.d.ts",
+      "import": "./dist/side-nav.js"
+    },
+    "./alert-dialog": {
+      "types": "./dist/components/alert-dialog/index.d.ts",
+      "import": "./dist/alert-dialog.js"
+    },
+    "./choice-control": {
+      "types": "./dist/components/choice-control/index.d.ts",
+      "import": "./dist/choice-control.js"
+    }
   },
   "dependencies": {
     "@faber-ui/themes": "workspace:*",

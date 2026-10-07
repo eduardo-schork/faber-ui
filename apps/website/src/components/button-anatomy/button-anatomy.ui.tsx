@@ -1,9 +1,12 @@
 'use client';
 
 import {
-  Button,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  Button,
+  DescriptionDetails,
+  DescriptionItem,
+  DescriptionTerm,
   FONT_SIZE_SCALE,
   FONT_WEIGHT_SCALE,
   RADIUS_SCALE,
@@ -15,7 +18,7 @@ import {
 import { useCallback, useState, type CSSProperties } from 'react';
 
 import { OptionSwitch } from '@/components/option-switch/option-switch.ui';
-import { FrameHead, Caption } from '@/components/sheet/sheet.styles';
+import { Caption, FrameHead, Run } from '@/components/sheet/sheet.styles';
 import { findTokenName } from '@/site/find-token-name';
 
 import {
@@ -83,7 +86,7 @@ function Annotation({ tokens, value }: TAnnotationProps) {
     <AnnotationLabel>
       <strong>{value}</strong>
       {tokens.map((token, index) => (
-        <span key={index}>{token}</span>
+        <Run key={index}>{token}</Run>
       ))}
     </AnnotationLabel>
   );
@@ -91,13 +94,13 @@ function Annotation({ tokens, value }: TAnnotationProps) {
 
 function TitleBlockCell({ label, token, value }: TMeasurement & { readonly label: string }) {
   return (
-    <div>
-      <dt>{label}</dt>
-      <dd>
+    <DescriptionItem>
+      <DescriptionTerm>{label}</DescriptionTerm>
+      <DescriptionDetails>
         {value}
-        <span>{token}</span>
-      </dd>
-    </div>
+        <Run>{token}</Run>
+      </DescriptionDetails>
+    </DescriptionItem>
   );
 }
 
@@ -178,7 +181,7 @@ export function ButtonAnatomy() {
   return (
     <AnatomyFigure forwardedAs="figure" aria-label="Button anatomy, measured from the live element">
       <FrameHead>
-        <Caption data-tone="ink">Fig. 01 — Button</Caption>
+        <Caption data-emphasis="ink">Fig. 01 — Button</Caption>
         <Caption>read with getComputedStyle()</Caption>
       </FrameHead>
 
@@ -217,13 +220,13 @@ export function ButtonAnatomy() {
       </AnatomyControls>
 
       <TitleBlock>
-        <div>
-          <dt>Renders</dt>
-          <dd>
+        <DescriptionItem>
+          <DescriptionTerm>Renders</DescriptionTerm>
+          <DescriptionDetails>
             {'<button>'}
-            <span>type=&quot;button&quot;</span>
-          </dd>
-        </div>
+            <Run>type=&quot;button&quot;</Run>
+          </DescriptionDetails>
+        </DescriptionItem>
         <TitleBlockCell label="Height" {...height} />
         <TitleBlockCell label="Padding inline" {...padding} />
         <TitleBlockCell label="Radius" {...radius} />

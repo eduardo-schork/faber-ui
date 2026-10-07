@@ -38,6 +38,28 @@ import { Pagination } from '@faber-ui/react/pagination';
 <Pagination count={pageCount} page={page} onPageChange={setPage} />;
 ```
 
+## Composition
+
+`PaginationRoot` is the `nav`, `PaginationList` the list, `PaginationButton` one control, and
+`PaginationEllipsis` the gap marker. `PaginationButton` takes `current` and every `Button` prop.
+`getPaginationRange(count, page, siblingCount)` returns the same page list `Pagination` renders,
+with `PAGINATION_ELLIPSIS` where pages are skipped.
+
+```tsx
+import { PaginationButton, PaginationList, PaginationRoot } from '@faber-ui/react/pagination';
+
+<PaginationRoot aria-label="Results">
+  <PaginationList>
+    <li>
+      <PaginationButton onClick={loadPrevious}>Newer</PaginationButton>
+    </li>
+    <li>
+      <PaginationButton onClick={loadNext}>Older</PaginationButton>
+    </li>
+  </PaginationList>
+</PaginationRoot>;
+```
+
 ## Boundaries
 
 `Pagination` does not fetch or slice data, render links, or offer a page-size selector.

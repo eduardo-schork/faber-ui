@@ -1,6 +1,7 @@
 import { BORDER_WIDTH_SCALE } from '../border-widths';
 import { FONT_SIZE_SCALE } from '../font-sizes';
 import { FONT_WEIGHT_SCALE } from '../font-weights';
+import { LETTER_SPACING_SCALE } from '../letter-spacings';
 import { LINE_HEIGHT_SCALE } from '../line-heights';
 import { RADIUS_SCALE } from '../radii';
 import { SIZE_SCALE } from '../sizes';
@@ -16,6 +17,7 @@ export const TOKEN_VARIABLE_SCALES = {
   'font-size': FONT_SIZE_SCALE,
   'font-weight': FONT_WEIGHT_SCALE,
   'line-height': LINE_HEIGHT_SCALE,
+  'letter-spacing': LETTER_SPACING_SCALE,
 } as const satisfies Readonly<Record<string, TTokenScale>>;
 
 export type TTokenCSSVariables = Readonly<Record<`--faber-ui-${string}`, string>>;

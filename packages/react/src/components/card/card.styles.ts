@@ -1,9 +1,10 @@
 import { BORDER_WIDTHS, COLORS, FONT_FAMILIES, RADII, SPACINGS } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { CARD_PADDINGS } from './card.constants';
 
-export const StyledCard = styled.div.attrs({ className: 'faber-ui-card' })`
+export const StyledCard = styled(Box).attrs({ className: 'faber-ui-card' })`
   box-sizing: border-box;
   min-width: ${SPACINGS.NONE};
   padding: ${SPACINGS.LG};

@@ -1,0 +1,44 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Box" />
+
+# Box
+
+[Interactive stories and prop reference](?path=/docs/atoms-box--docs)
+
+## Purpose and when to use it
+
+Use `Box` for a block container that needs token padding or a stable styling target and no layout
+of its own. It is the neutral counterpart of `Flex` and `Grid`, and the base of content regions
+such as the dialog body.
+
+## Behavioral contract
+
+- Renders a `div`, forwards its native props and ref, and accepts `as` for a semantic element.
+- `padding` takes a spacing token name, or one per breakpoint.
+- Sets `box-sizing: border-box` and `min-width: 0`, and nothing else: children keep normal block
+  and inline flow.
+
+## Accessibility
+
+`Box` adds no role. Choose `as` from the document structure.
+
+## Customization
+
+The box is a plain styled-components target with the `faber-ui-box` class. Color, border, and
+radius belong to your wrapper or to `Card`.
+
+## Example
+
+```tsx
+import { Box } from '@faber-ui/react/box';
+
+<Box as="section" padding={{ MOBILE: 'MD', TABLET: 'XL' }}>
+  Are you sure you want to delete <strong>Project X</strong>?
+</Box>;
+```
+
+## Boundaries
+
+There are no margin, color, or sizing props. Use `Card` for a bordered surface and `Flex` or
+`Grid` when the children need arranging.

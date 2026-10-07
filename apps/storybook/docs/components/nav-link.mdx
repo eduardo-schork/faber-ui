@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/NavLink" />
+
+# NavLink
+
+[Interactive stories and prop reference](?path=/docs/atoms-navlink--docs)
+
+## Purpose and when to use it
+
+Use `NavLink` for a destination in a header, a sidebar, or any other navigation.
+
+## Behavioral contract
+
+- Renders an anchor, forwards native props and its ref, and accepts `as` for a router link.
+- `current` marks the link as the current page with `aria-current="page"` and a stronger style.
+- It is not underlined; the navigation around it provides the context.
+
+## Accessibility
+
+`current` is announced as the current page. Put the links inside a `nav` with an accessible name.
+
+## Customization
+
+Target `faber-ui-nav-link` and `[aria-current='page']` to draw the current state differently, for
+example as a rule instead of a fill.
+
+## Example
+
+```tsx
+import { NavLink } from '@faber-ui/react/nav-link';
+import Link from 'next/link';
+
+<NavLink as={Link} href="/docs" current={pathname === '/docs'}>
+  Docs
+</NavLink>;
+```
+
+## Boundaries
+
+`NavLink` does not read the router. The application decides which link is current.

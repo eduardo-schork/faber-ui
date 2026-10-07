@@ -3,6 +3,7 @@ import { createRef } from 'react';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { Radio } from '../radio';
+import { RadioGroupLabel, RadioGroupOptions, RadioGroupRoot } from './radio-group.styles';
 import { RadioGroup } from './radio-group.ui';
 
 describe('RadioGroup', () => {
@@ -36,5 +37,20 @@ describe('RadioGroup', () => {
     expect(group.getAttribute('aria-invalid')).toBe('true');
     expect(group.getAttribute('aria-describedby')).toBe(`${description.id} ${error.id}`);
     expect(error.getAttribute('aria-live')).toBe('polite');
+  });
+
+  it('SHOULD let a consumer assemble a group from its parts', () => {
+    const { getByRole } = render(
+      <RadioGroupRoot>
+        <RadioGroupLabel>Plan</RadioGroupLabel>
+        <RadioGroupOptions>
+          <input type="radio" name="plan" aria-label="Starter" />
+        </RadioGroupOptions>
+      </RadioGroupRoot>,
+    );
+    const group = getByRole('group', { name: 'Plan' });
+
+    expect(group.tagName).toBe('FIELDSET');
+    expect(group.contains(getByRole('radio', { name: 'Starter' }))).toBe(true);
   });
 });

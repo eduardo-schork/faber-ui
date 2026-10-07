@@ -11,6 +11,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { FLEX_ALIGNS, FLEX_JUSTIFIES, HFlex, VFlex } from '../flex';
 
 export const StyledAccordion = styled(VFlex).attrs({ className: 'faber-ui-accordion' })`
@@ -69,7 +70,7 @@ export const AccordionSummary = styled(HFlex).attrs({
   }
 `;
 
-export const AccordionContent = styled.div.attrs({ className: 'faber-ui-accordion-content' })`
+export const AccordionContent = styled(Box).attrs({ className: 'faber-ui-accordion-content' })`
   padding-bottom: ${SPACINGS.MD};
   color: ${COLORS.TEXT_SECONDARY};
   font-size: ${FONT_SIZES.SM};

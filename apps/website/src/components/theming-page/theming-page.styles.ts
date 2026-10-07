@@ -3,6 +3,8 @@ import {
   BREAKPOINTS,
   COLORS,
   FONT_WEIGHTS,
+  Grid,
+  HFlex,
   RADII,
   SPACINGS,
   Table,
@@ -53,8 +55,7 @@ export const LayerTable = styled(Table)`
   }
 `;
 
-export const DemoToolbar = styled.div`
-  display: flex;
+export const DemoToolbar = styled(HFlex)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -62,8 +63,7 @@ export const DemoToolbar = styled.div`
 `;
 
 /** Paints the theme of the nearest provider, so a scoped theme is visible as a region. */
-export const ThemedSurface = styled.div`
-  display: grid;
+export const ThemedSurface = styled(Grid)`
   gap: ${SPACINGS.MD};
   min-width: ${SPACINGS.NONE};
   padding: ${SPACINGS.LG};
@@ -77,7 +77,6 @@ export const ThemedSurface = styled.div`
   }
 `;
 
-export const FontScope = styled.div`
-  display: grid;
+export const FontScope = styled(Grid)`
   gap: ${SPACINGS.MD};
 `;

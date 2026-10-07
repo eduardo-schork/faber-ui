@@ -5,9 +5,12 @@ import {
   BUTTON_SIZES,
   BUTTON_VARIANTS,
   GlobalStyles,
+  ToastProvider,
   THEME_MODES,
   TYPOGRAPHY_SIZES,
-  VisuallyHidden,
+  SkipLink,
+  Text,
+  TYPOGRAPHY_TONES,
   type TThemeMode,
 } from '@faber-ui/react';
 import { usePathname } from 'next/navigation';
@@ -36,7 +39,6 @@ import {
   SiteFooter,
   SiteHeader,
   SiteStyles,
-  SkipLink,
   ThemeButton,
 } from './site-shell.styles';
 
@@ -60,13 +62,11 @@ export function SiteShell({ children }: PropsWithChildren) {
   const nextTheme = NEXT_THEME[theme];
 
   return (
-    <>
+    <ToastProvider>
       <GlobalStyles />
       <SiteStyles />
 
-      <VisuallyHidden focusable>
-        <SkipLink href={`#${CONTENT_ID}`}>Skip to content</SkipLink>
-      </VisuallyHidden>
+      <SkipLink href={`#${CONTENT_ID}`} />
 
       <SiteHeader>
         <PageWidth>
@@ -79,11 +79,7 @@ export function SiteShell({ children }: PropsWithChildren) {
 
             <HeaderNav aria-label="Primary">
               {DOC_PAGES.map(({ href, label }) => (
-                <NavLink
-                  key={href}
-                  href={href}
-                  aria-current={pathname === href ? 'page' : undefined}
-                >
+                <NavLink key={href} href={href} current={pathname === href}>
                   {label}
                 </NavLink>
               ))}
@@ -127,10 +123,10 @@ export function SiteShell({ children }: PropsWithChildren) {
                 <BrandMark aria-hidden="true" />
                 Faber UI
               </Brand>
-              <p>
+              <Text.P size={TYPOGRAPHY_SIZES.SMALLER} tone={TYPOGRAPHY_TONES.SECONDARY}>
                 A design system for React, built on native elements, typed tokens, and CSS
                 variables. MIT licensed. Version {PACKAGE_VERSION}; not on npm yet.
-              </p>
+              </Text.P>
             </FooterAbout>
 
             <FooterColumn aria-label="Documentation">
@@ -168,6 +164,6 @@ export function SiteShell({ children }: PropsWithChildren) {
           </FooterColophon>
         </PageWidth>
       </SiteFooter>
-    </>
+    </ToastProvider>
   );
 }

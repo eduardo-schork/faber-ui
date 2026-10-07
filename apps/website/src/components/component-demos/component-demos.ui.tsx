@@ -1,75 +1,96 @@
 'use client';
 
 import {
+  ALERT_COLORS,
+  AVATAR_SIZES,
   Accordion,
   AccordionItem,
   Alert,
-  ALERT_COLORS,
+  AlertDialog,
   Autocomplete,
   Avatar,
-  AVATAR_SIZES,
-  Badge,
   BADGE_COLORS,
-  Breadcrumb,
-  BreadcrumbItem,
-  Button,
   BUTTON_COLORS,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  Badge,
+  Box,
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  COLORS,
   Card,
   Checkbox,
-  COLORS,
+  CodeBlock as LibraryCodeBlock,
   Container,
+  DESCRIPTION_LIST_ORIENTATIONS,
+  DIVIDER_ORIENTATIONS,
+  DescriptionDetails,
+  DescriptionItem,
+  DescriptionList,
+  DescriptionTerm,
   Dialog,
   Divider,
-  DIVIDER_ORIENTATIONS,
   Drawer,
-  Field,
-  Flex,
   FLEX_ALIGNS,
   FLEX_DIRECTIONS,
+  FLEX_JUSTIFIES,
+  FLEX_WRAPS,
+  Field,
+  Flex,
+  Footer,
+  Grid,
   HFlex,
+  Header,
+  INPUT_TYPES,
   IconButton,
   Input,
-  INPUT_TYPES,
+  LIST_MARKERS,
   Link,
   LinkButton,
-  Menu,
+  List,
+  ListItem,
   MENU_ITEM_COLORS,
+  Menu,
   MenuItem,
   MenuLabel,
   MenuSeparator,
+  NavLink,
   Pagination,
   Popover,
   Progress,
   Radio,
   RadioGroup,
+  SPINNER_SIZES,
   Segment,
   SegmentedControl,
   Select,
+  SideNav,
+  SideNavGroup,
   Skeleton,
+  SkipLink,
   Slider,
   Spinner,
-  SPINNER_SIZES,
   Switch,
+  TOAST_COLORS,
+  TOOLTIP_SIDES,
+  TYPOGRAPHY_SIZES,
+  TYPOGRAPHY_TONES,
+  TYPOGRAPHY_WEIGHTS,
   Tab,
-  Table,
   TabList,
   TabPanel,
+  Table,
   Tabs,
   Text,
   Textarea,
   Title,
   Toast,
-  TOAST_COLORS,
   ToastViewport,
   Tooltip,
-  TOOLTIP_SIDES,
-  TYPOGRAPHY_SIZES,
-  TYPOGRAPHY_TONES,
-  TYPOGRAPHY_WEIGHTS,
   VFlex,
   VisuallyHidden,
+  useToast,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
 import { useEffect, useState, type ReactElement } from 'react';
@@ -960,18 +981,18 @@ function SkeletonDemo() {
         {loaded ? (
           <>
             <Avatar alt="" fallback="GH" size={AVATAR_SIZES.LARGE} />
-            <div>
+            <VFlex>
               <Text.Strong>Grace Hopper</Text.Strong>
               <Text.Small tone={TYPOGRAPHY_TONES.SECONDARY}>Compiler team · 12 reviews</Text.Small>
-            </div>
+            </VFlex>
           </>
         ) : (
           <>
             <Skeleton circle />
-            <div>
+            <VFlex gap="XXS">
               <Skeleton style={{ width: '45%' }} />
               <Skeleton style={{ width: '70%' }} />
-            </div>
+            </VFlex>
           </>
         )}
       </DemoMedia>
@@ -1005,6 +1026,211 @@ function VisuallyHiddenDemo() {
           Next focusable control
         </Button>
       </DemoFocusZone>
+    </DemoStack>
+  );
+}
+
+function BoxDemo() {
+  return (
+    <DemoStack>
+      <DemoBox as={Box} padding="LG">
+        <Text.P>
+          Padding from a token. Inline content such as <Text.Strong>this</Text.Strong> keeps flowing
+          as text.
+        </Text.P>
+      </DemoBox>
+    </DemoStack>
+  );
+}
+
+function GridDemo() {
+  return (
+    <DemoStack>
+      <Grid columns={3} gap="XS">
+        <DemoBox>1</DemoBox>
+        <DemoBox>2</DemoBox>
+        <DemoBox>3</DemoBox>
+      </Grid>
+      <Grid columns="2fr 1fr" gap="XS">
+        <DemoBox>2fr</DemoBox>
+        <DemoBox>1fr</DemoBox>
+      </Grid>
+      <Grid minColumnWidth="7rem" gap="XS">
+        <DemoBox>fits</DemoBox>
+        <DemoBox>as many</DemoBox>
+        <DemoBox>as the</DemoBox>
+        <DemoBox>width</DemoBox>
+        <DemoBox>allows</DemoBox>
+      </Grid>
+    </DemoStack>
+  );
+}
+
+function ListDemo() {
+  return (
+    <DemoStack>
+      <List>
+        <ListItem>Native elements first</ListItem>
+        <ListItem>Typed options</ListItem>
+      </List>
+      <List ordered>
+        <ListItem>Install the package.</ListItem>
+        <ListItem>Import the stylesheet.</ListItem>
+      </List>
+      <List marker={LIST_MARKERS.NONE} gap="XS">
+        <ListItem>
+          <Badge>Draft</Badge> Without markers
+        </ListItem>
+      </List>
+    </DemoStack>
+  );
+}
+
+function DescriptionListDemo() {
+  return (
+    <DescriptionList orientation={DESCRIPTION_LIST_ORIENTATIONS.HORIZONTAL}>
+      <DescriptionItem>
+        <DescriptionTerm>Plan</DescriptionTerm>
+        <DescriptionDetails>Team</DescriptionDetails>
+      </DescriptionItem>
+      <DescriptionItem>
+        <DescriptionTerm>Seats</DescriptionTerm>
+        <DescriptionDetails>12</DescriptionDetails>
+      </DescriptionItem>
+      <DescriptionItem>
+        <DescriptionTerm>Renews</DescriptionTerm>
+        <DescriptionDetails>1 November</DescriptionDetails>
+      </DescriptionItem>
+    </DescriptionList>
+  );
+}
+
+function CodeBlockDemo() {
+  return (
+    <DemoStack>
+      <LibraryCodeBlock label="terminal" code="bun add @faber-ui/react styled-components" />
+      <LibraryCodeBlock hideCopy code="No header: neither a label nor a copy button." />
+    </DemoStack>
+  );
+}
+
+function SkipLinkDemo() {
+  return (
+    <DemoStack>
+      <DemoNote>
+        The link is off screen until it has keyboard focus. Press the button, then Shift and Tab.
+      </DemoNote>
+      <DemoRow>
+        <SkipLink href="#skip-link">Skip to this example</SkipLink>
+        <Button variant={BUTTON_VARIANTS.OUTLINE}>Focus me first</Button>
+      </DemoRow>
+    </DemoStack>
+  );
+}
+
+function NavLinkDemo() {
+  const [current, setCurrent] = useState('Overview');
+
+  return (
+    <HFlex as="nav" aria-label="Example" gap="XXS" wrap={FLEX_WRAPS.WRAP}>
+      {['Overview', 'Activity', 'Settings'].map((label) => (
+        <NavLink
+          key={label}
+          href="#nav-link"
+          current={label === current}
+          onClick={(event) => {
+            event.preventDefault();
+            setCurrent(label);
+          }}
+        >
+          {label}
+        </NavLink>
+      ))}
+    </HFlex>
+  );
+}
+
+function HeaderDemo() {
+  return (
+    <DemoCanvas>
+      <Header>
+        <Text.Strong>Acme</Text.Strong>
+        <HFlex as="nav" aria-label="Example header" gap="XXS">
+          <NavLink current href="#header">
+            Projects
+          </NavLink>
+          <NavLink href="#header">Team</NavLink>
+        </HFlex>
+      </Header>
+    </DemoCanvas>
+  );
+}
+
+function SideNavDemo() {
+  return (
+    <SideNav aria-label="Example sections">
+      <SideNavGroup label="Guides">
+        <NavLink current href="#side-nav">
+          Get started
+        </NavLink>
+        <NavLink href="#side-nav">Theming</NavLink>
+      </SideNavGroup>
+      <SideNavGroup label="Reference">
+        <NavLink href="#side-nav">Components</NavLink>
+      </SideNavGroup>
+    </SideNav>
+  );
+}
+
+function FooterDemo() {
+  return (
+    <DemoCanvas>
+      <Footer>
+        <HFlex justify={FLEX_JUSTIFIES.SPACE_BETWEEN} gap="MD" wrap={FLEX_WRAPS.WRAP}>
+          <Text.Span>Acme, Inc.</Text.Span>
+          <Link href="#footer">Privacy</Link>
+        </HFlex>
+      </Footer>
+    </DemoCanvas>
+  );
+}
+
+function AlertDialogDemo() {
+  const [open, setOpen] = useState(false);
+  const [outcome, setOutcome] = useState('nothing yet');
+  const { toast } = useToast();
+
+  return (
+    <DemoStack>
+      <DemoRow>
+        <Button
+          color={BUTTON_COLORS.ACCENT}
+          variant={BUTTON_VARIANTS.OUTLINE}
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Delete project
+        </Button>
+      </DemoRow>
+      <DemoNote role="status">Last decision: {outcome}.</DemoNote>
+      <AlertDialog
+        open={open}
+        destructive
+        title="Delete this project?"
+        confirmLabel="Delete"
+        onCancel={() => {
+          setOpen(false);
+          setOutcome('cancelled');
+        }}
+        onConfirm={() => {
+          setOpen(false);
+          setOutcome('confirmed');
+          toast({ title: 'Project deleted', color: TOAST_COLORS.ACCENT });
+        }}
+      >
+        The project and its deployments will be removed. This cannot be undone.
+      </AlertDialog>
     </DemoStack>
   );
 }
@@ -1429,6 +1655,149 @@ import NextLink from 'next/link';
 
 // A failed image falls back on its own.
 <Avatar alt="Alan Turing" fallback="AT" src={brokenUrl} onImageError={report} />`,
+  },
+  box: {
+    Demo: BoxDemo,
+    code: `import { Box } from '@faber-ui/react/box';
+
+<Box as="section" padding="LG">
+  Inline content such as <strong>this</strong> keeps flowing as text.
+</Box>
+
+<Box padding={{ MOBILE: 'MD', TABLET: 'XL' }} />`,
+  },
+  grid: {
+    Demo: GridDemo,
+    code: `import { Grid } from '@faber-ui/react/grid';
+
+<Grid columns={3} gap="XS" />
+
+// Unequal tracks take a template.
+<Grid columns="2fr 1fr" gap="XS" />
+
+// Or let the width decide how many columns fit.
+<Grid minColumnWidth="7rem" gap="XS" />
+
+// Any value can change per breakpoint.
+<Grid columns={{ MOBILE: 1, TABLET: 2, DESKTOP: 3 }} />`,
+  },
+  list: {
+    Demo: ListDemo,
+    code: `import { List, ListItem } from '@faber-ui/react/list';
+
+<List>
+  <ListItem>Native elements first</ListItem>
+</List>
+
+<List ordered>
+  <ListItem>Install the package.</ListItem>
+</List>
+
+<List marker="none" gap="XS">
+  <ListItem>Without markers</ListItem>
+</List>`,
+  },
+  'description-list': {
+    Demo: DescriptionListDemo,
+    code: `import {
+  DescriptionDetails,
+  DescriptionItem,
+  DescriptionList,
+  DescriptionTerm,
+} from '@faber-ui/react/description-list';
+
+<DescriptionList orientation="horizontal">
+  <DescriptionItem>
+    <DescriptionTerm>Plan</DescriptionTerm>
+    <DescriptionDetails>Team</DescriptionDetails>
+  </DescriptionItem>
+</DescriptionList>`,
+  },
+  'code-block': {
+    Demo: CodeBlockDemo,
+    code: `import { CodeBlock } from '@faber-ui/react/code-block';
+
+<CodeBlock label="terminal" code="bun add @faber-ui/react styled-components" />
+
+// Highlighted nodes go in as children; the plain code is still what is copied.
+<CodeBlock code={source}>{highlight(source)}</CodeBlock>
+
+<CodeBlock hideCopy code="No header." />`,
+  },
+  'skip-link': {
+    Demo: SkipLinkDemo,
+    code: `import { SkipLink } from '@faber-ui/react/skip-link';
+
+// First in the document, before the header.
+<SkipLink href="#content" />
+
+<main id="content" tabIndex={-1} />`,
+  },
+  'nav-link': {
+    Demo: NavLinkDemo,
+    code: `import { NavLink } from '@faber-ui/react/nav-link';
+import Link from 'next/link';
+
+<nav aria-label="Primary">
+  <NavLink as={Link} href="/overview" current={pathname === '/overview'}>
+    Overview
+  </NavLink>
+  <NavLink as={Link} href="/activity">Activity</NavLink>
+</nav>`,
+  },
+  header: {
+    Demo: HeaderDemo,
+    code: `import { Header, HFlex, NavLink } from '@faber-ui/react';
+
+<Header sticky>
+  <Brand />
+  <HFlex as="nav" aria-label="Primary" gap="XXS">
+    <NavLink current href="/projects">Projects</NavLink>
+    <NavLink href="/team">Team</NavLink>
+  </HFlex>
+</Header>`,
+  },
+  'side-nav': {
+    Demo: SideNavDemo,
+    code: `import { NavLink, SideNav, SideNavGroup } from '@faber-ui/react';
+
+<SideNav aria-label="Documentation">
+  <SideNavGroup label="Guides">
+    <NavLink current href="/docs">Get started</NavLink>
+    <NavLink href="/docs/theming">Theming</NavLink>
+  </SideNavGroup>
+</SideNav>`,
+  },
+  footer: {
+    Demo: FooterDemo,
+    code: `import { Footer } from '@faber-ui/react/footer';
+
+<Footer>
+  <HFlex justify="space-between" gap="MD">
+    <Text.Span>Acme, Inc.</Text.Span>
+    <Link href="/privacy">Privacy</Link>
+  </HFlex>
+</Footer>`,
+  },
+  'alert-dialog': {
+    Demo: AlertDialogDemo,
+    code: `import { AlertDialog, useToast } from '@faber-ui/react';
+
+const { toast } = useToast();
+
+<AlertDialog
+  open={open}
+  destructive
+  title="Delete this project?"
+  confirmLabel="Delete"
+  onCancel={() => setOpen(false)}
+  onConfirm={() => {
+    setOpen(false);
+    toast({ title: 'Project deleted', color: 'accent' });
+  }}
+>
+  The project and its deployments will be removed. This cannot be undone.
+</AlertDialog>`,
   },
   card: {
     Demo: CardDemo,

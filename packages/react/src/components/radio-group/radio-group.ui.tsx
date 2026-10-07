@@ -5,7 +5,7 @@ import {
   RadioGroupLabel,
   RadioGroupMessage,
   RadioGroupOptions,
-  StyledRadioGroup,
+  RadioGroupRoot,
 } from './radio-group.styles';
 import type { TRadioGroupProps } from './radio-group.types';
 
@@ -40,7 +40,7 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, TRadioGroupProps>(func
     .join(' ');
 
   return (
-    <StyledRadioGroup
+    <RadioGroupRoot
       {...nativeProps}
       ref={ref}
       aria-describedby={describedBy.length > 0 ? describedBy : undefined}
@@ -57,6 +57,6 @@ export const RadioGroup = forwardRef<HTMLFieldSetElement, TRadioGroupProps>(func
           {error}
         </RadioGroupError>
       ) : null}
-    </StyledRadioGroup>
+    </RadioGroupRoot>
   );
 });

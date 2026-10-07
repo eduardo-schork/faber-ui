@@ -41,6 +41,9 @@
   --faber-ui-line-height-tight: 1.2;
   --faber-ui-line-height-normal: 1.5;
   --faber-ui-line-height-relaxed: 1.75;
+  --faber-ui-letter-spacing-tight: -0.02em;
+  --faber-ui-letter-spacing-normal: 0em;
+  --faber-ui-letter-spacing-wide: 0.08em;
 }
 
 :root,

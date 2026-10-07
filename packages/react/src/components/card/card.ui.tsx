@@ -11,7 +11,7 @@ export const Card = forwardRef<HTMLDivElement, TCardProps>(function Card(
   return (
     <StyledCard
       {...nativeProps}
-      {...(as === undefined ? {} : { as })}
+      {...(as === undefined ? {} : { forwardedAs: as })}
       ref={ref}
       data-card=""
       data-padding={padding}

@@ -57,7 +57,7 @@ export function ComponentsPage() {
               return (
                 <Plate key={slug} id={slug} aria-labelledby={`${slug}-title`}>
                   <PlateHead>
-                    <Caption data-tone="markup">No. {number}</Caption>
+                    <Caption data-emphasis="markup">No. {number}</Caption>
                     <Title.H3 id={`${slug}-title`}>{componentName}</Title.H3>
                     <Caption>{element}</Caption>
                   </PlateHead>

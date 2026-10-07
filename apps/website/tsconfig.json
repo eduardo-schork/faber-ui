@@ -10,6 +10,7 @@
     "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
   },
   "include": [
+    "environment.d.ts",
     "next-env.d.ts",
     "next.config.ts",
     "src/**/*.ts",

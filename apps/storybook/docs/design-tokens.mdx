@@ -48,6 +48,7 @@ const panelStyle = {
 - `FONT_SIZES`
 - `FONT_WEIGHTS`
 - `FOCUS_RINGS`
+- `LETTER_SPACINGS`
 - `LINE_HEIGHTS`
 - `OPACITIES`
 - `RADII`
@@ -86,15 +87,16 @@ SPACINGS.MD; // 'var(--faber-ui-spacing-md, 16px)'
 SPACING_SCALE.MD; // '16px'
 ```
 
-| Consumed in styles | Raw values           | Variable prefix             |
-| ------------------ | -------------------- | --------------------------- |
-| `SPACINGS`         | `SPACING_SCALE`      | `--faber-ui-spacing-*`      |
-| `SIZES`            | `SIZE_SCALE`         | `--faber-ui-size-*`         |
-| `RADII`            | `RADIUS_SCALE`       | `--faber-ui-radius-*`       |
-| `BORDER_WIDTHS`    | `BORDER_WIDTH_SCALE` | `--faber-ui-border-width-*` |
-| `FONT_SIZES`       | `FONT_SIZE_SCALE`    | `--faber-ui-font-size-*`    |
-| `FONT_WEIGHTS`     | `FONT_WEIGHT_SCALE`  | `--faber-ui-font-weight-*`  |
-| `LINE_HEIGHTS`     | `LINE_HEIGHT_SCALE`  | `--faber-ui-line-height-*`  |
+| Consumed in styles | Raw values             | Variable prefix               |
+| ------------------ | ---------------------- | ----------------------------- |
+| `SPACINGS`         | `SPACING_SCALE`        | `--faber-ui-spacing-*`        |
+| `SIZES`            | `SIZE_SCALE`           | `--faber-ui-size-*`           |
+| `RADII`            | `RADIUS_SCALE`         | `--faber-ui-radius-*`         |
+| `BORDER_WIDTHS`    | `BORDER_WIDTH_SCALE`   | `--faber-ui-border-width-*`   |
+| `FONT_SIZES`       | `FONT_SIZE_SCALE`      | `--faber-ui-font-size-*`      |
+| `FONT_WEIGHTS`     | `FONT_WEIGHT_SCALE`    | `--faber-ui-font-weight-*`    |
+| `LINE_HEIGHTS`     | `LINE_HEIGHT_SCALE`    | `--faber-ui-line-height-*`    |
+| `LETTER_SPACINGS`  | `LETTER_SPACING_SCALE` | `--faber-ui-letter-spacing-*` |
 
 The variable name is the prefix plus the token name in lower case: `RADII.MD` reads
 `--faber-ui-radius-md`. The theme stylesheet declares every one of these on `:root`, so plain CSS

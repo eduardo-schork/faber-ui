@@ -14,9 +14,12 @@ export type {
 export {
   Text,
   TextA,
+  TextCaption,
   TextCode,
   TextEm,
   TextLabel,
+  TextLead,
+  TextOverline,
   TextP,
   TextSmall,
   TextSpan,
@@ -24,9 +27,12 @@ export {
 } from './text.ui';
 export type {
   TTextAProps,
+  TTextCaptionProps,
   TTextCodeProps,
   TTextEmProps,
   TTextLabelProps,
+  TTextLeadProps,
+  TTextOverlineProps,
   TTextPProps,
   TTextSmallProps,
   TTextSpanProps,

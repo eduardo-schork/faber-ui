@@ -2,48 +2,50 @@
 
 import { CheckIcon, PlusIcon } from '@faber-ui/icons';
 import {
+  ALERT_COLORS,
   Accordion,
   AccordionItem,
   Alert,
-  ALERT_COLORS,
   Avatar,
-  Badge,
   BADGE_COLORS,
-  Button,
   BUTTON_COLORS,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  Badge,
+  Box,
+  Button,
   Checkbox,
-  createTokenCSSVariables,
   Divider,
-  Field,
   FLEX_ALIGNS,
   FLEX_WRAPS,
+  Field,
   HFlex,
   IconButton,
   Input,
+  ListItem,
   Pagination,
   Progress,
   Radio,
   RadioGroup,
+  SEGMENTED_CONTROL_SIZES,
   Segment,
   SegmentedControl,
-  SEGMENTED_CONTROL_SIZES,
   Select,
   Slider,
   Switch,
+  THEME_MODES,
+  THEME_VARIABLE_NAMES,
+  TYPOGRAPHY_SIZES,
+  TYPOGRAPHY_TONES,
   Tab,
   TabList,
   TabPanel,
   Tabs,
   Text,
-  THEME_MODES,
-  THEME_VARIABLE_NAMES,
   ThemeProvider,
   Title,
-  TYPOGRAPHY_SIZES,
-  TYPOGRAPHY_TONES,
   VFlex,
+  createTokenCSSVariables,
 } from '@faber-ui/react';
 import { useCallback, useId, useState } from 'react';
 
@@ -282,7 +284,7 @@ export function PlaygroundPage() {
 
           <PreviewCard>
             <PreviewHead>
-              <Caption data-tone="ink">Preview — library components only</Caption>
+              <Caption data-emphasis="ink">Preview — library components only</Caption>
               <OptionSwitch
                 label="Theme"
                 options={PREVIEW_SCHEMES}
@@ -291,9 +293,9 @@ export function PlaygroundPage() {
               />
             </PreviewHead>
             <ThemeProvider mode={resolvedScheme === 'dark' ? THEME_MODES.DARK : THEME_MODES.LIGHT}>
-              <div ref={readPartClasses} className={PLAYGROUND_PREVIEW_CLASS}>
+              <Box ref={readPartClasses} className={PLAYGROUND_PREVIEW_CLASS}>
                 <PlaygroundPreview />
-              </div>
+              </Box>
             </ThemeProvider>
           </PreviewCard>
         </PlaygroundGrid>
@@ -310,9 +312,9 @@ export function PlaygroundPage() {
             summary={`Color and font variables (${String(COLOR_VARIABLES.length + 1)})`}
           >
             <ReferenceList>
-              <li>--faber-ui-font-family-base</li>
+              <ListItem>--faber-ui-font-family-base</ListItem>
               {COLOR_VARIABLES.map((name) => (
-                <li key={name}>{name}</li>
+                <ListItem key={name}>{name}</ListItem>
               ))}
             </ReferenceList>
           </AccordionItem>
@@ -321,7 +323,7 @@ export function PlaygroundPage() {
           >
             <ReferenceList>
               {TOKEN_VARIABLES.map((name) => (
-                <li key={name}>{name}</li>
+                <ListItem key={name}>{name}</ListItem>
               ))}
             </ReferenceList>
           </AccordionItem>
@@ -331,7 +333,7 @@ export function PlaygroundPage() {
           >
             <ReferenceList>
               {partClasses.map((name) => (
-                <li key={name}>.{name}</li>
+                <ListItem key={name}>.{name}</ListItem>
               ))}
             </ReferenceList>
           </AccordionItem>

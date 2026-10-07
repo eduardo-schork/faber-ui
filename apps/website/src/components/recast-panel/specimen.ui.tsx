@@ -31,7 +31,7 @@ export function Specimen() {
   return (
     <Frame>
       <FrameHead>
-        <Caption data-tone="ink">Specimen — workspace settings</Caption>
+        <Caption data-emphasis="ink">Specimen — workspace settings</Caption>
         <Caption>library components only</Caption>
       </FrameHead>
       <SpecimenBody>

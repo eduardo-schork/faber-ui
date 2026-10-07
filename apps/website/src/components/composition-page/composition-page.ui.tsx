@@ -97,6 +97,27 @@ const PART_SETS = [
   { component: 'Toast', parts: 'ToastRoot, ToastContent, ToastTitle, ToastBody' },
   { component: 'Field', parts: 'FieldRoot, FieldLabel, FieldDescription, FieldError' },
   { component: 'Accordion', parts: 'AccordionItemRoot, AccordionSummary, AccordionContent' },
+  {
+    component: 'Button',
+    parts: 'ButtonRoot, ButtonContent, ButtonIcon, ButtonLabel, ButtonSpinner',
+  },
+  {
+    component: 'RadioGroup',
+    parts: 'RadioGroupRoot, RadioGroupLabel, RadioGroupOptions, RadioGroupMessage, RadioGroupError',
+  },
+  {
+    component: 'Pagination',
+    parts: 'PaginationRoot, PaginationList, PaginationButton, PaginationEllipsis',
+  },
+  {
+    component: 'Checkbox, Radio, Switch',
+    parts:
+      'ChoiceControlRoot, ChoiceControlLabel, ChoiceControlInput, ChoiceControlDescription, ChoiceControlError',
+  },
+  {
+    component: 'CodeBlock',
+    parts: 'CodeBlockRoot, CodeBlockHeader, CodeBlockLabel, CodeBlockPre, CodeBlockCopy',
+  },
   { component: 'Tabs', parts: 'Tabs, TabList, Tab, TabPanel' },
   { component: 'Menu', parts: 'Menu, MenuItem, MenuLabel, MenuSeparator' },
   { component: 'Breadcrumb', parts: 'Breadcrumb, BreadcrumbItem' },

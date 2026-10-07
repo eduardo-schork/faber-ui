@@ -3,24 +3,12 @@ import { forwardRef } from 'react';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from '../button';
 import { getPaginationRange, PAGINATION_ELLIPSIS } from './get-pagination-range';
 import {
-  PaginationButton,
   PaginationEllipsis,
   PaginationList,
-  StyledPagination,
+  PaginationRoot,
+  StyledPaginationButton,
 } from './pagination.styles';
-import type { TPaginationProps } from './pagination.types';
-
-const STEP_BUTTON_PROPS = {
-  color: BUTTON_COLORS.NEUTRAL,
-  size: BUTTON_SIZES.SMALL,
-  variant: BUTTON_VARIANTS.SUBTLE,
-} as const;
-
-const CURRENT_BUTTON_PROPS = {
-  color: BUTTON_COLORS.PRIMARY,
-  size: BUTTON_SIZES.SMALL,
-  variant: BUTTON_VARIANTS.FILLED,
-} as const;
+import type { TPaginationButtonProps, TPaginationProps } from './pagination.types';
 
 const getDefaultPageLabel = (page: number) => `Page ${String(page)}`;
 
@@ -43,6 +31,21 @@ function Chevron({ direction }: { readonly direction: 'next' | 'previous' }) {
   );
 }
 
+export const PaginationButton = forwardRef<HTMLButtonElement, TPaginationButtonProps>(
+  function PaginationButton({ current = false, ...buttonProps }, ref) {
+    return (
+      <StyledPaginationButton
+        {...buttonProps}
+        ref={ref}
+        aria-current={current ? 'page' : undefined}
+        color={current ? BUTTON_COLORS.PRIMARY : BUTTON_COLORS.NEUTRAL}
+        size={BUTTON_SIZES.SMALL}
+        variant={current ? BUTTON_VARIANTS.FILLED : BUTTON_VARIANTS.SUBTLE}
+      />
+    );
+  },
+);
+
 export const Pagination = forwardRef<HTMLElement, TPaginationProps>(function Pagination(
   {
     'aria-label': ariaLabel = 'Pagination',
@@ -60,11 +63,10 @@ export const Pagination = forwardRef<HTMLElement, TPaginationProps>(function Pag
   const range = getPaginationRange(count, page, siblingCount);
 
   return (
-    <StyledPagination {...nativeProps} ref={ref} aria-label={ariaLabel}>
+    <PaginationRoot {...nativeProps} ref={ref} aria-label={ariaLabel}>
       <PaginationList>
         <li>
           <PaginationButton
-            {...STEP_BUTTON_PROPS}
             aria-label={previousLabel}
             disabled={page <= 1}
             onClick={() => {
@@ -82,8 +84,7 @@ export const Pagination = forwardRef<HTMLElement, TPaginationProps>(function Pag
           ) : (
             <li key={item}>
               <PaginationButton
-                {...(item === page ? CURRENT_BUTTON_PROPS : STEP_BUTTON_PROPS)}
-                aria-current={item === page ? 'page' : undefined}
+                current={item === page}
                 aria-label={getPageLabel(item)}
                 onClick={() => {
                   onPageChange(item);
@@ -96,7 +97,6 @@ export const Pagination = forwardRef<HTMLElement, TPaginationProps>(function Pag
         )}
         <li>
           <PaginationButton
-            {...STEP_BUTTON_PROPS}
             aria-label={nextLabel}
             disabled={page >= count}
             onClick={() => {
@@ -107,6 +107,6 @@ export const Pagination = forwardRef<HTMLElement, TPaginationProps>(function Pag
           </PaginationButton>
         </li>
       </PaginationList>
-    </StyledPagination>
+    </PaginationRoot>
   );
 });

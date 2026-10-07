@@ -6,7 +6,7 @@ import { FLEX_ALIGNS, FLEX_WRAPS, HFlex } from '../flex';
 import { Text } from '../text';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '../typography/typography.constants';
 
-export const StyledPagination = styled.nav.attrs({ className: 'faber-ui-pagination' })`
+export const PaginationRoot = styled.nav.attrs({ className: 'faber-ui-pagination' })`
   font-family: ${FONT_FAMILIES.BASE};
 `;
 
@@ -33,7 +33,9 @@ export const PaginationEllipsis = styled(Text.Span).attrs({
 `;
 
 /* The doubled selector outranks the size rules of Button, which match on a data attribute. */
-export const PaginationButton = styled(Button).attrs({ className: 'faber-ui-pagination-button' })`
+export const StyledPaginationButton = styled(Button).attrs({
+  className: 'faber-ui-pagination-button',
+})`
   && {
     min-width: ${SIZES.SM};
     padding-inline: ${SPACINGS.XS};

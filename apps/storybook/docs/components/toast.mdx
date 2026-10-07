@@ -63,7 +63,32 @@ import { ToastBody, ToastContent, ToastRoot, ToastTitle } from '@faber-ui/react/
 </ToastRoot>;
 ```
 
+## Queue
+
+`ToastProvider` owns a list of toasts and renders them in one `ToastViewport`. `useToast()` returns
+`toast(options)`, which shows a toast and returns its id, and `dismiss(id?)`, which removes one
+toast or all of them.
+
+- `options` takes `title`, `description`, `color`, and `duration` in milliseconds. `Infinity` keeps
+  the toast until it is dismissed.
+- The provider takes the default `duration` (5 seconds), a `limit` of visible toasts (3; the oldest
+  leave first), the region `label`, and the `dismissLabel`.
+
+```tsx
+import { ToastProvider, useToast } from '@faber-ui/react/toast';
+
+function SaveButton() {
+  const { toast } = useToast();
+
+  return <Button onClick={() => toast({ title: 'Saved', color: 'primary' })}>Save</Button>;
+}
+
+<ToastProvider>
+  <SaveButton />
+</ToastProvider>;
+```
+
 ## Boundaries
 
-These are the presentational primitives. The queue, timers, and an imperative `toast()` function
-belong to the application, or to a future companion package.
+The queue has no pause on hover, swipe to dismiss, or position option. Render `Toast` and
+`ToastViewport` yourself when the queue does not fit.

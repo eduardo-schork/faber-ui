@@ -12,6 +12,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { HFlex, VFlex } from '../flex';
 
 export const StyledTabs = styled(VFlex).attrs({ className: 'faber-ui-tabs', gap: 'MD' })`
@@ -71,7 +72,7 @@ export const StyledTab = styled.button.attrs({ className: 'faber-ui-tab' })`
   }
 `;
 
-export const StyledTabPanel = styled.div.attrs({ className: 'faber-ui-tab-panel' })`
+export const StyledTabPanel = styled(Box).attrs({ className: 'faber-ui-tab-panel' })`
   min-width: ${SPACINGS.NONE};
 
   &:focus-visible {

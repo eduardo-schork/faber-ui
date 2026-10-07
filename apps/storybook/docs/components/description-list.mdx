@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/DescriptionList" />
+
+# DescriptionList
+
+[Interactive stories and prop reference](?path=/docs/molecules-descriptionlist--docs)
+
+## Purpose and when to use it
+
+Use `DescriptionList` for name and value pairs such as a summary of settings or a row of key
+figures.
+
+## Behavioral contract
+
+- `DescriptionList` renders a `dl`. `orientation` accepts values from
+  `DESCRIPTION_LIST_ORIENTATIONS`: `vertical` stacks the items, `horizontal` puts them side by side
+  and wraps.
+- `DescriptionItem` groups one term with its details in a `div`, which HTML allows inside a `dl`.
+- `DescriptionTerm` renders the `dt` and `DescriptionDetails` the `dd`.
+- Every part forwards native props and its ref.
+
+## Accessibility
+
+The markup is a native description list, so assistive technology announces each term with its
+details. Keep one `DescriptionTerm` per `DescriptionItem`.
+
+## Customization
+
+Each part has its own class: `faber-ui-description-list`, `-item`, `-term`, and `-details`.
+
+## Example
+
+```tsx
+import {
+  DescriptionDetails,
+  DescriptionItem,
+  DescriptionList,
+  DescriptionTerm,
+} from '@faber-ui/react/description-list';
+
+<DescriptionList orientation="horizontal">
+  <DescriptionItem>
+    <DescriptionTerm>Plan</DescriptionTerm>
+    <DescriptionDetails>Team</DescriptionDetails>
+  </DescriptionItem>
+  <DescriptionItem>
+    <DescriptionTerm>Seats</DescriptionTerm>
+    <DescriptionDetails>12</DescriptionDetails>
+  </DescriptionItem>
+</DescriptionList>;
+```
+
+## Boundaries
+
+There is no two-column term and value alignment. Use `Table` for data with more than one value
+per row.

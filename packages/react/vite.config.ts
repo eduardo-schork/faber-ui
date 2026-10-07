@@ -43,6 +43,26 @@ export default defineConfig({
         toast: fileURLToPath(new URL('./src/components/toast/index.ts', import.meta.url)),
         tooltip: fileURLToPath(new URL('./src/components/tooltip/index.ts', import.meta.url)),
         alert: fileURLToPath(new URL('./src/components/alert/index.ts', import.meta.url)),
+        'alert-dialog': fileURLToPath(
+          new URL('./src/components/alert-dialog/index.ts', import.meta.url),
+        ),
+        'choice-control': fileURLToPath(
+          new URL('./src/components/choice-control/index.ts', import.meta.url),
+        ),
+        box: fileURLToPath(new URL('./src/components/box/index.ts', import.meta.url)),
+        grid: fileURLToPath(new URL('./src/components/grid/index.ts', import.meta.url)),
+        list: fileURLToPath(new URL('./src/components/list/index.ts', import.meta.url)),
+        'description-list': fileURLToPath(
+          new URL('./src/components/description-list/index.ts', import.meta.url),
+        ),
+        'code-block': fileURLToPath(
+          new URL('./src/components/code-block/index.ts', import.meta.url),
+        ),
+        'skip-link': fileURLToPath(new URL('./src/components/skip-link/index.ts', import.meta.url)),
+        'nav-link': fileURLToPath(new URL('./src/components/nav-link/index.ts', import.meta.url)),
+        header: fileURLToPath(new URL('./src/components/header/index.ts', import.meta.url)),
+        footer: fileURLToPath(new URL('./src/components/footer/index.ts', import.meta.url)),
+        'side-nav': fileURLToPath(new URL('./src/components/side-nav/index.ts', import.meta.url)),
         card: fileURLToPath(new URL('./src/components/card/index.ts', import.meta.url)),
         link: fileURLToPath(new URL('./src/components/link/index.ts', import.meta.url)),
         'link-button': fileURLToPath(

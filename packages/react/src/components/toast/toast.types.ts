@@ -19,3 +19,23 @@ export type TToastViewportProps = ComponentPropsWithoutRef<'div'> & {
   /** Names the notification region for assistive technology. */
   readonly 'aria-label'?: string;
 };
+
+export type TToastOptions = {
+  readonly color?: TToastColor;
+  readonly description?: ReactNode;
+  /** Milliseconds before the toast leaves. `Infinity` keeps it until it is dismissed. */
+  readonly duration?: number;
+  readonly title?: ReactNode;
+};
+
+export type TToastProviderProps = {
+  readonly children: ReactNode;
+  /** The accessible name of every dismiss button. */
+  readonly dismissLabel?: string;
+  /** The default lifetime of a toast, in milliseconds. */
+  readonly duration?: number;
+  /** Names the notification region for assistive technology. */
+  readonly label?: string;
+  /** How many toasts may be visible at once. Older ones leave first. */
+  readonly limit?: number;
+};

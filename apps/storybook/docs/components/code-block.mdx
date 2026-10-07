@@ -1,0 +1,52 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/CodeBlock" />
+
+# CodeBlock
+
+[Interactive stories and prop reference](?path=/docs/molecules-codeblock--docs)
+
+## Purpose and when to use it
+
+Use `CodeBlock` to show source code or a terminal command with a copy button.
+
+## Behavioral contract
+
+- `code` is the source text. It is rendered as is and is what the copy button writes to the
+  clipboard.
+- `children` replaces the rendered text, for example with syntax-highlighted nodes; `code` is
+  still what gets copied.
+- `label` shows a file name or language above the code.
+- The copy button confirms for two seconds with `copiedLabel`. `hideCopy` removes it, and the
+  header disappears when there is neither a label nor a button.
+- The root forwards native `div` props and its ref.
+
+## Accessibility
+
+The code region is a focusable `pre` so keyboard users can scroll long lines. The copy button
+announces its confirmation politely. Where the clipboard is unavailable the button does nothing.
+
+## Customization
+
+The block is set in the base font family like the rest of the system; override
+`--faber-ui-font-family-base` on the block for a monospace face. Parts are classed
+`faber-ui-code-block`, `-header`, `-label`, and `-pre`.
+
+## Example
+
+```tsx
+import { CodeBlock } from '@faber-ui/react/code-block';
+
+<CodeBlock label="terminal" code="bun add @faber-ui/react styled-components" />;
+```
+
+## Composition
+
+`CodeBlockRoot`, `CodeBlockHeader`, `CodeBlockLabel`, `CodeBlockPre`, and `CodeBlockCopy` are
+exported. `CodeBlockCopy` takes the `code` to copy and every `Button` prop, so it also works on its
+own next to any text.
+
+## Boundaries
+
+There is no built-in syntax highlighting, line numbers, or wrapping toggle. Pass highlighted
+nodes as children.

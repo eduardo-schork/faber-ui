@@ -13,7 +13,7 @@ import { VFlex } from '../flex';
 import { Text } from '../text';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '../typography/typography.constants';
 
-export const StyledRadioGroup = styled.fieldset.attrs({ className: 'faber-ui-radio-group' })`
+export const RadioGroupRoot = styled.fieldset.attrs({ className: 'faber-ui-radio-group' })`
   display: grid;
   gap: ${SPACINGS.SM};
   min-width: ${SPACINGS.NONE};

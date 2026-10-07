@@ -9,7 +9,8 @@ import { Meta } from '@storybook/addon-docs/blocks';
 ## Purpose and when to use it
 
 `Text` is a namespace of semantic text elements: `Text.P`, `Text.Span`, `Text.A`, `Text.Label`,
-`Text.Strong`, `Text.Em`, `Text.Small`, and `Text.Code`. Choose the member for its HTML meaning first, then
+`Text.Strong`, `Text.Em`, `Text.Small`, `Text.Code`, `Text.Lead`, `Text.Caption`, and
+`Text.Overline`. Choose the member for its HTML meaning first, then
 adjust its visual appearance. Use `Title` for headings.
 
 ## Behavioral contract
@@ -20,6 +21,11 @@ adjust its visual appearance. Use `Title` for headings.
 - `truncate` applies single-line overflow truncation; the parent must constrain width.
 - Defaults are member-specific, such as accent-toned links and smaller labels.
 - `Text.Code` renders an inline `code` element on a bordered surface, in the base family.
+- `Text.Lead` is an opening paragraph: a `p` one size up in the secondary tone.
+- `Text.Caption` is a `span` in the smallest size and secondary tone, for annotations.
+- `Text.Overline` is a `span` in uppercase with wide tracking, for a short label above content.
+- `size="inherit"` and `weight="inherit"` make a member follow the text around it, which suits a
+  `Text.Span` inside a heading.
 
 ## Accessibility
 

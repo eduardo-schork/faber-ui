@@ -1,12 +1,10 @@
-import { BORDER_WIDTHS, COLORS, SPACINGS } from '@faber-ui/react';
+import { BORDER_WIDTHS, COLORS, LIST_MARKERS, List, SPACINGS } from '@faber-ui/react';
 import styled from 'styled-components';
 
-export const GuideList = styled.ul`
-  display: grid;
+export const GuideList = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
   border-bottom: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  list-style: none;
 
   li {
     display: flex;

@@ -4,7 +4,8 @@ import { createRef } from 'react';
 import styled from 'styled-components';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { Button } from './button.ui';
+import { ButtonIcon, ButtonLabel } from './button.styles';
+import { Button, ButtonRoot } from './button.ui';
 
 const ConsumerButton = styled(Button)`
   margin-inline: ${SPACINGS.SM};
@@ -128,5 +129,20 @@ describe('Button', () => {
     expect(button.querySelector('[data-button-spinner]')?.getAttribute('aria-hidden')).toBe('true');
     expect(button.querySelector('[data-button-content]')).not.toBeNull();
     expect(handleClick).not.toHaveBeenCalled();
+  });
+
+  it('SHOULD let a consumer assemble a button from its parts', () => {
+    const { getByRole } = render(
+      <ButtonRoot variant="outline" size="small">
+        <ButtonLabel>Two lines</ButtonLabel>
+        <ButtonIcon aria-hidden="true">→</ButtonIcon>
+      </ButtonRoot>,
+    );
+    const button = getByRole('button', { name: 'Two lines' });
+
+    expect(button.getAttribute('data-variant')).toBe('outline');
+    expect(button.getAttribute('type')).toBe('button');
+    expect(button.querySelector('[data-button-content]')).toBeNull();
+    expect(button.lastElementChild?.classList.contains('faber-ui-button-icon')).toBe(true);
   });
 });

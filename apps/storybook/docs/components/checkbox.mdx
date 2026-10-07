@@ -40,6 +40,27 @@ import { Checkbox } from '@faber-ui/react/checkbox';
 <Checkbox label="I accept the terms" error={errors.terms?.message} {...register('terms')} />;
 ```
 
+## Composition
+
+Checkbox, Radio, and Switch share five parts, exported from `@faber-ui/react/choice-control`:
+`ChoiceControlRoot`, `ChoiceControlLabel`, `ChoiceControlInput`, `ChoiceControlDescription`, and
+`ChoiceControlError`. The input draws itself from its native `type`; add `data-control="switch"`
+to the input and the root for the switch shape. Ids and `aria-describedby` are yours to connect.
+
+```tsx
+import {
+  ChoiceControlInput,
+  ChoiceControlLabel,
+  ChoiceControlRoot,
+} from '@faber-ui/react/choice-control';
+
+<ChoiceControlRoot>
+  <ChoiceControlLabel>
+    <ChoiceControlInput type="checkbox" name="terms" />I accept the <Link href="/terms">terms</Link>
+  </ChoiceControlLabel>
+</ChoiceControlRoot>;
+```
+
 ## Boundaries
 
 Validation and translated messages are supplied by the application. This component does not

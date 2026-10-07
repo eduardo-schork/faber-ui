@@ -1,36 +1,40 @@
 import {
   BORDER_WIDTHS,
   BREAKPOINTS,
+  Box,
   COLORS,
   FOCUS_RINGS,
   FONT_WEIGHTS,
+  Grid,
+  HFlex,
   LINE_HEIGHTS,
+  LIST_MARKERS,
+  List,
+  ListItem,
   RADII,
   SIZES,
   SPACINGS,
+  Text,
 } from '@faber-ui/react';
 import styled from 'styled-components';
 
 import { captionText } from '@/components/sheet/sheet.styles';
 
-export const SwatchFamily = styled.div`
-  display: grid;
+export const SwatchFamily = styled(Grid)`
   gap: ${SPACINGS.XS};
   min-width: ${SPACINGS.NONE};
 `;
 
-export const SwatchStrip = styled.ul`
-  display: grid;
+export const SwatchStrip = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   grid-template-columns: repeat(auto-fit, minmax(${SIZES.XL}, 1fr));
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
   overflow: hidden;
   border: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
   border-radius: ${RADII.MD};
-  list-style: none;
 `;
 
-export const Swatch = styled.li`
+export const Swatch = styled(ListItem)`
   ${captionText}
   display: grid;
   gap: ${SPACINGS.XXS};
@@ -53,8 +57,7 @@ export const Swatch = styled.li`
   }
 `;
 
-export const ThemePanels = styled.div`
-  display: grid;
+export const ThemePanels = styled(Grid)`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: ${SPACINGS.MD};
 
@@ -63,8 +66,7 @@ export const ThemePanels = styled.div`
   }
 `;
 
-export const ThemePanel = styled.div`
-  display: grid;
+export const ThemePanel = styled(Grid)`
   gap: ${SPACINGS.SM};
   min-width: ${SPACINGS.NONE};
   padding: ${SPACINGS.LG};
@@ -78,14 +80,12 @@ export const ThemePanel = styled.div`
   }
 `;
 
-export const RoleList = styled.ul`
-  display: grid;
+export const RoleList = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
-  list-style: none;
 `;
 
-export const Role = styled.li`
+export const Role = styled(ListItem)`
   ${captionText}
   display: grid;
   grid-template-columns: ${SIZES.XS} minmax(0, 1fr) auto;
@@ -120,15 +120,13 @@ export const Role = styled.li`
 `;
 
 /** A token table: name, value, and a drawing of the value. */
-export const Scale = styled.ul`
-  display: grid;
+export const Scale = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
   border-bottom: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  list-style: none;
 `;
 
-export const ScaleRow = styled.li`
+export const ScaleRow = styled(ListItem)`
   ${captionText}
   display: grid;
   grid-template-columns: calc(${SIZES.XXL} * 3) ${SIZES.XXL} minmax(0, 1fr);
@@ -171,15 +169,14 @@ export const ScaleRow = styled.li`
   }
 `;
 
-export const ScaleVisual = styled.div`
-  display: flex;
+export const ScaleVisual = styled(HFlex)`
   align-items: center;
   gap: ${SPACINGS.SM};
   min-width: ${SPACINGS.NONE};
   color: ${COLORS.TEXT_PRIMARY};
 `;
 
-export const Bar = styled.span`
+export const Bar = styled(Box).attrs({ forwardedAs: 'span' })`
   flex: none;
   width: var(--length);
   max-width: 100%;
@@ -191,7 +188,7 @@ export const Bar = styled.span`
   }
 `;
 
-export const Square = styled.span`
+export const Square = styled(Box).attrs({ forwardedAs: 'span' })`
   flex: none;
   width: var(--length, ${SIZES.LG});
   height: var(--length, ${SIZES.LG});
@@ -200,14 +197,14 @@ export const Square = styled.span`
   background: color-mix(in srgb, ${COLORS.PRIMARY} 14%, transparent);
 `;
 
-export const Stroke = styled.span`
+export const Stroke = styled(Box).attrs({ forwardedAs: 'span' })`
   flex: 1;
   max-width: calc(${SIZES.XXL} * 3);
   height: var(--length);
   background: ${COLORS.TEXT_PRIMARY};
 `;
 
-export const TypeSpecimen = styled.span`
+export const TypeSpecimen = styled(Text.Span)`
   overflow: hidden;
   color: ${COLORS.TEXT_PRIMARY};
   font-family: inherit;
@@ -217,7 +214,7 @@ export const TypeSpecimen = styled.span`
   white-space: nowrap;
 `;
 
-export const FocusSpecimen = styled.span`
+export const FocusSpecimen = styled(Box).attrs({ forwardedAs: 'span' })`
   padding: ${SPACINGS.XXS} ${SPACINGS.SM};
   border-radius: ${FOCUS_RINGS.RADIUS};
   outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};

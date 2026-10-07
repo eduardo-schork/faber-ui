@@ -53,6 +53,24 @@ import { BUTTON_VARIANTS, Button } from '@faber-ui/react/button';
 </Button>;
 ```
 
+## Composition
+
+`ButtonRoot` is the button element with `color`, `size`, `variant`, `fullWidth`, and `loading`,
+and no fixed content. `ButtonContent`, `ButtonIcon`, `ButtonLabel`, and `ButtonSpinner` are the
+parts `Button` arranges inside it. Use them when the content needs another structure, such as a
+label with a keyboard hint.
+
+```tsx
+import { ButtonIcon, ButtonLabel, ButtonRoot } from '@faber-ui/react/button';
+
+<ButtonRoot variant="outline">
+  <ButtonLabel>Search</ButtonLabel>
+  <ButtonIcon aria-hidden="true">⌘K</ButtonIcon>
+</ButtonRoot>;
+```
+
+`ButtonRoot` does not hide its content while loading; `Button` does that through `ButtonContent`.
+
 ## Boundaries
 
 `Button` does not own form state, navigation, or confirmation dialogs. A pressed/toggle state is

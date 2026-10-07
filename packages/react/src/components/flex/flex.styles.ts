@@ -1,5 +1,8 @@
-import { BORDER_WIDTHS, BREAKPOINTS, SPACINGS, type TBreakpointTokenName } from '@faber-ui/tokens';
+import { BORDER_WIDTHS, SPACINGS } from '@faber-ui/tokens';
 import styled, { css } from 'styled-components';
+
+import { createResponsiveStyles } from '../../internal/create-responsive-styles';
+import { resolveSpacing } from '../../internal/resolve-spacing';
 
 import type {
   TFlexAlign,
@@ -9,53 +12,6 @@ import type {
   TFlexResponsiveValue,
   TFlexWrap,
 } from './flex.types';
-
-const RESPONSIVE_BREAKPOINTS = [
-  'MOBILE_LARGE',
-  'TABLET',
-  'DESKTOP',
-  'DESKTOP_LARGE',
-  'DESKTOP_WIDE',
-] as const satisfies readonly TBreakpointTokenName[];
-
-type TFlexStyleValue = TFlexAlign | TFlexDirection | TFlexGap | TFlexJustify | TFlexWrap;
-type TFlexDeclaration<TValue extends TFlexStyleValue> = (value: TValue) => ReturnType<typeof css>;
-
-const isResponsiveValue = <TValue extends TFlexStyleValue>(
-  value: TFlexResponsiveValue<TValue>,
-): value is Partial<Record<TBreakpointTokenName, TValue>> => typeof value === 'object';
-
-const createResponsiveStyles = <TValue extends TFlexStyleValue>(
-  value: TFlexResponsiveValue<TValue> | undefined,
-  declaration: TFlexDeclaration<TValue>,
-) => {
-  if (value === undefined) {
-    return undefined;
-  }
-
-  if (!isResponsiveValue(value)) {
-    return declaration(value);
-  }
-
-  return css`
-    ${value.MOBILE === undefined ? undefined : declaration(value.MOBILE)}
-
-    ${RESPONSIVE_BREAKPOINTS.map((breakpoint) => {
-      const breakpointValue = value[breakpoint];
-
-      return breakpointValue === undefined
-        ? undefined
-        : css`
-            @media (min-width: ${BREAKPOINTS[breakpoint]}) {
-              ${declaration(breakpointValue)}
-            }
-          `;
-    })}
-  `;
-};
-
-const resolveGap = (gap: TFlexGap) =>
-  Object.hasOwn(SPACINGS, gap) ? SPACINGS[gap as keyof typeof SPACINGS] : gap;
 
 type TStyledFlexProps = {
   readonly $align?: TFlexResponsiveValue<TFlexAlign>;
@@ -101,7 +57,7 @@ export const StyledFlex = styled.div.attrs({ className: 'faber-ui-flex' })<TStyl
     createResponsiveStyles(
       $gap,
       (value) => css`
-        gap: ${resolveGap(value)};
+        gap: ${resolveSpacing(value)};
       `,
     )}
   &[data-outline-color] {

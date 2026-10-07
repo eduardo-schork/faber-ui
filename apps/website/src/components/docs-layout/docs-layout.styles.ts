@@ -1,22 +1,25 @@
 import {
   BORDER_WIDTHS,
   BREAKPOINTS,
-  Card,
   COLORS,
+  Card,
   FONT_SIZES,
-  FONT_WEIGHTS,
+  Grid,
+  List,
+  NavLink,
   RADII,
   SIZES,
   SPACINGS,
+  SideNav,
+  SideNavGroup,
   Title,
 } from '@faber-ui/react';
-import Link from 'next/link';
+import NextLink from 'next/link';
 import styled from 'styled-components';
 
-import { focusRing, captionText, SITE_HEADER_HEIGHT } from '@/components/sheet/sheet.styles';
+import { SITE_HEADER_HEIGHT } from '@/components/sheet/sheet.styles';
 
-export const DocsFrame = styled.main`
-  display: grid;
+export const DocsFrame = styled(Grid).attrs({ forwardedAs: 'main' })`
   grid-template-columns: minmax(0, calc(${SIZES.XXL} * 2.5)) minmax(0, 1fr);
   gap: ${SPACINGS.XXL};
   padding-block: ${SPACINGS.XXL} calc(${SPACINGS.XXL} * 2);
@@ -28,10 +31,9 @@ export const DocsFrame = styled.main`
   }
 `;
 
-export const DocsSidebar = styled.nav`
+export const DocsSidebar = styled(SideNav)`
   position: sticky;
   top: calc(${SITE_HEADER_HEIGHT} + ${SPACINGS.LG});
-  display: grid;
   align-self: start;
   gap: ${SPACINGS.XL};
   max-height: calc(100dvh - ${SITE_HEADER_HEIGHT} - ${SPACINGS.XXL});
@@ -47,37 +49,25 @@ export const DocsSidebar = styled.nav`
   }
 `;
 
-export const SidebarGroup = styled.div`
-  display: grid;
-  gap: ${SPACINGS.XXS};
-
+export const SidebarGroup = styled(SideNavGroup)`
   @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     align-items: center;
     gap: ${SPACINGS.XXS} ${SPACINGS.MD};
+
+    .faber-ui-side-nav-label {
+      width: 100%;
+      padding-inline: ${SPACINGS.NONE};
+    }
   }
 `;
 
-export const SidebarHeading = styled.span`
-  ${captionText}
-  margin-bottom: ${SPACINGS.XXS};
-  color: ${COLORS.TEXT_SECONDARY};
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-
-  @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    width: 100%;
-  }
-`;
-
-export const SidebarLink = styled(Link)`
+/* The library NavLink drawn as an entry on a ruled margin instead of a filled pill. */
+export const SidebarLink = styled(NavLink).attrs({ forwardedAs: NextLink })`
   padding-block: ${SPACINGS.XXS};
-  padding-inline-start: ${SPACINGS.SM};
+  padding-inline: ${SPACINGS.SM} ${SPACINGS.NONE};
   border-inline-start: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  color: ${COLORS.TEXT_SECONDARY};
-  font-size: ${FONT_SIZES.SM};
-  text-decoration: none;
+  border-radius: ${RADII.NONE};
 
   &[data-depth='1'] {
     padding-inline-start: ${SPACINGS.LG};
@@ -85,14 +75,7 @@ export const SidebarLink = styled(Link)`
 
   &[aria-current='page'] {
     border-inline-start-color: ${COLORS.ACCENT};
-    color: ${COLORS.TEXT_PRIMARY};
-    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
-  }
-
-  @media (hover: hover) {
-    &:hover {
-      color: ${COLORS.TEXT_PRIMARY};
-    }
+    background-color: transparent;
   }
 
   @media (max-width: ${BREAKPOINTS.DESKTOP}) {
@@ -102,20 +85,16 @@ export const SidebarLink = styled(Link)`
     &[aria-current='page'] {
       text-decoration: underline;
       text-decoration-color: ${COLORS.ACCENT};
-      text-underline-offset: 0.3em;
+      text-underline-offset: ${SPACINGS.XXS};
     }
   }
-
-  ${focusRing}
 `;
 
-export const DocsArticle = styled.article`
-  display: grid;
+export const DocsArticle = styled(Grid).attrs({ forwardedAs: 'article' })`
   min-width: ${SPACINGS.NONE};
 `;
 
-export const DocsHeader = styled.header`
-  display: grid;
+export const DocsHeader = styled(Grid).attrs({ forwardedAs: 'header' })`
   gap: ${SPACINGS.MD};
   padding-bottom: ${SPACINGS.XXL};
 `;
@@ -129,8 +108,7 @@ export const DocsTitle = styled(Title.H1)`
   }
 `;
 
-export const DocsSection = styled.section`
-  display: grid;
+export const DocsSection = styled(Grid).attrs({ forwardedAs: 'section' })`
   gap: ${SPACINGS.LG};
   min-width: ${SPACINGS.NONE};
   padding-block: ${SPACINGS.XXL};
@@ -144,22 +122,19 @@ export const DocsSectionTitle = styled(Title.H2)`
   }
 `;
 
-export const DocsSubsection = styled.div`
-  display: grid;
+export const DocsSubsection = styled(Grid)`
   gap: ${SPACINGS.MD};
   min-width: ${SPACINGS.NONE};
   margin-top: ${SPACINGS.MD};
 `;
 
-export const DocsStack = styled.div`
-  display: grid;
+export const DocsStack = styled(Grid)`
   align-content: start;
   gap: ${SPACINGS.MD};
   min-width: ${SPACINGS.NONE};
 `;
 
-export const DocsColumns = styled.div`
-  display: grid;
+export const DocsColumns = styled(Grid)`
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
   gap: ${SPACINGS.LG};
@@ -181,8 +156,7 @@ export const DemoSurface = styled(Card)`
   }
 `;
 
-export const DocsList = styled.ul`
-  display: grid;
+export const DocsList = styled(List)`
   gap: ${SPACINGS.XS};
   max-width: 68ch;
   margin: ${SPACINGS.NONE};

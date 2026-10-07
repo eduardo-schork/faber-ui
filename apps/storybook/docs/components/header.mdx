@@ -1,0 +1,49 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/Header" />
+
+# Header
+
+[Interactive stories and prop reference](?path=/docs/molecules-header--docs)
+
+## Purpose and when to use it
+
+Use `Header` for the bar at the top of an application: brand, primary navigation, and actions.
+
+## Behavioral contract
+
+- Renders a `header`, forwards native props and its ref, and lays its children out in a centered
+  row.
+- `sticky` keeps the bar at the top of the viewport while the page scrolls.
+- Sets the page background, a bottom border, and a minimum height from tokens.
+
+## Accessibility
+
+At the top level of the page a `header` is the banner landmark. Wrap the links in a `nav` with an
+accessible name.
+
+## Customization
+
+Target `faber-ui-header`. Arrange the content with `HFlex`; a `margin-inline-start: auto` on the
+last group pushes it to the end.
+
+## Example
+
+```tsx
+import { Header } from '@faber-ui/react/header';
+
+<Header sticky>
+  <Brand />
+  <HFlex as="nav" aria-label="Primary" gap="XXS">
+    <NavLink current href="/docs">
+      Docs
+    </NavLink>
+    <NavLink href="/blog">Blog</NavLink>
+  </HFlex>
+</Header>;
+```
+
+## Boundaries
+
+There is no mobile menu, search slot, or elevation. Compose them from `Drawer`, `Input`, and
+your own styles.

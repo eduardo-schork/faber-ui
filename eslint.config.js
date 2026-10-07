@@ -15,6 +15,7 @@ export default defineConfig(
     '**/node_modules/**',
     '**/dist/**',
     '**/.next/**',
+    'apps/website/out/**',
     '**/storybook-static/**',
     '**/coverage/**',
     '**/.turbo/**',

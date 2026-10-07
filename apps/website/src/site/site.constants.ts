@@ -1,7 +1,7 @@
 export const SITE_LINKS = {
   REPOSITORY: 'https://github.com/eduardo-schork/faber-ui',
-  // Storybook is not hosted yet; the site points at the local development server.
-  STORYBOOK: 'http://localhost:6006',
+  // The published site sets this to the hosted Storybook; locally it is the development server.
+  STORYBOOK: process.env.NEXT_PUBLIC_STORYBOOK_URL ?? 'http://localhost:6006',
 } as const;
 
 export const STORAGE_KEYS = {

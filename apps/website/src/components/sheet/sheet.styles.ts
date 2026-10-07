@@ -1,19 +1,25 @@
 import {
   BORDER_WIDTHS,
-  CARD_PADDINGS,
-  Card,
-  Link,
-  TYPOGRAPHY_TONES,
   BREAKPOINTS,
+  Box,
+  CARD_PADDINGS,
   COLORS,
   CONTAINER_SIZES,
+  Card,
   FOCUS_RINGS,
   FONT_SIZES,
   FONT_WEIGHTS,
+  Grid,
+  HFlex,
   LINE_HEIGHTS,
+  Link,
   RADII,
   SIZES,
   SPACINGS,
+  TYPOGRAPHY_SIZES,
+  TYPOGRAPHY_TONES,
+  TYPOGRAPHY_WEIGHTS,
+  Text,
   Title,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
@@ -38,7 +44,7 @@ export const captionText = css`
   line-height: ${LINE_HEIGHTS.NORMAL};
 `;
 
-export const PageWidth = styled.div`
+export const PageWidth = styled(Box)`
   width: 100%;
   max-width: ${CONTAINER_SIZES.WIDE};
   margin-inline: auto;
@@ -49,21 +55,21 @@ export const PageWidth = styled.div`
   }
 `;
 
-export const Caption = styled.span`
+export const Caption = styled(Text.Caption)`
   ${captionText}
   color: ${COLORS.TEXT_SECONDARY};
 
-  &[data-tone='ink'] {
+  &[data-emphasis='ink'] {
     color: ${COLORS.TEXT_PRIMARY};
   }
 
-  &[data-tone='markup'] {
+  &[data-emphasis='markup'] {
     color: ${COLORS.ACCENT};
   }
 `;
 
 /** A full-width section separated from the previous one by a hairline. */
-export const Band = styled.section`
+export const Band = styled(Box).attrs({ forwardedAs: 'section' })`
   padding-block: calc(${SPACINGS.XXL} * 1.5);
   border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
 
@@ -73,8 +79,7 @@ export const Band = styled.section`
 `;
 
 /** A narrow labelled rail beside the section content, like the margin of a drawing sheet. */
-export const Rail = styled.div`
-  display: grid;
+export const Rail = styled(Grid)`
   grid-template-columns: minmax(0, calc(${SIZES.XXL} * 2.5)) minmax(0, 1fr);
   gap: ${SPACINGS.XXL};
 
@@ -84,10 +89,9 @@ export const Rail = styled.div`
   }
 `;
 
-export const RailLabel = styled.div`
+export const RailLabel = styled(Grid)`
   position: sticky;
   top: calc(${SITE_HEADER_HEIGHT} + ${SPACINGS.LG});
-  display: grid;
   align-self: start;
   gap: ${SPACINGS.XXS};
 
@@ -98,12 +102,11 @@ export const RailLabel = styled.div`
   }
 `;
 
-export const RailContent = styled.div`
+export const RailContent = styled(Box)`
   min-width: ${SPACINGS.NONE};
 `;
 
-export const BandIntro = styled.div`
-  display: grid;
+export const BandIntro = styled(Grid)`
   gap: ${SPACINGS.MD};
   max-width: 62ch;
   margin-bottom: ${SPACINGS.XXL};
@@ -123,7 +126,7 @@ export const BandTitle = styled(Title.H2)`
   }
 `;
 
-export const Lead = styled.p`
+export const Lead = styled(Text.Lead)`
   max-width: 60ch;
   margin: ${SPACINGS.NONE};
   color: ${COLORS.TEXT_SECONDARY};
@@ -132,7 +135,7 @@ export const Lead = styled.p`
   text-wrap: pretty;
 `;
 
-export const Prose = styled.p`
+export const Prose = styled(Text.P)`
   max-width: 68ch;
   margin: ${SPACINGS.NONE};
   color: ${COLORS.TEXT_SECONDARY};
@@ -144,6 +147,12 @@ export const Prose = styled.p`
     font-weight: ${FONT_WEIGHTS.SEMIBOLD};
   }
 `;
+
+/** An inline run of text that keeps the size and weight of the text around it. */
+export const Run = styled(Text.Span).attrs({
+  size: TYPOGRAPHY_SIZES.INHERIT,
+  weight: TYPOGRAPHY_WEIGHTS.INHERIT,
+})``;
 
 const linkIcon = css`
   svg {
@@ -203,8 +212,7 @@ export const Frame = styled(Card).attrs({ padding: CARD_PADDINGS.NONE })`
   }
 `;
 
-export const FrameHead = styled.div`
-  display: flex;
+export const FrameHead = styled(HFlex)`
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;

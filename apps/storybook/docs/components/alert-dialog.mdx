@@ -1,0 +1,55 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/AlertDialog" />
+
+# AlertDialog
+
+[Interactive stories and prop reference](?path=/docs/molecules-alertdialog--docs)
+
+## Purpose and when to use it
+
+Use `AlertDialog` to stop for a decision that cannot be undone or ignored: deleting, overwriting,
+or leaving with unsaved changes. Use `Dialog` for everything that can simply be closed.
+
+## Behavioral contract
+
+- Renders the native modal `dialog` with `role="alertdialog"` and forwards native props and its
+  ref.
+- It has two actions and no close button. `onConfirm` runs from the confirm button; `onCancel` runs
+  from the cancel button and from Escape. A click on the backdrop does nothing.
+- `title` and `confirmLabel` are required. `cancelLabel` defaults to "Cancel".
+- `destructive` draws the confirm button in the accent color.
+- `confirming` shows the confirm button as busy and disables both actions while work is running.
+
+## Accessibility
+
+The dialog is named by its title and described by its children, so a screen reader announces the
+question and its consequence together. The cancel button takes the initial focus, so pressing
+Enter right away never confirms.
+
+## Customization
+
+The dialog is assembled from `DialogRoot` and `DialogTitle`. Its rows carry
+`faber-ui-alert-dialog-header`, `-body`, and `-footer` in addition to the dialog part classes.
+
+## Example
+
+```tsx
+import { AlertDialog } from '@faber-ui/react/alert-dialog';
+
+<AlertDialog
+  open={open}
+  destructive
+  title="Delete this project?"
+  confirmLabel="Delete"
+  confirming={deleting}
+  onCancel={() => setOpen(false)}
+  onConfirm={remove}
+>
+  The project and its deployments will be removed. This cannot be undone.
+</AlertDialog>;
+```
+
+## Boundaries
+
+There is no third action and no input inside the dialog. Build those from the `Dialog` parts.

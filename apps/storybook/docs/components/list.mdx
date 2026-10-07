@@ -1,0 +1,45 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/List" />
+
+# List
+
+[Interactive stories and prop reference](?path=/docs/atoms-list--docs)
+
+## Purpose and when to use it
+
+Use `List` and `ListItem` for a sequence of related items: steps, features, or links.
+
+## Behavioral contract
+
+- `List` renders a `ul`, or an `ol` when `ordered` is set, and forwards native props and its ref.
+- `marker` accepts values from `LIST_MARKERS`. `none` removes the bullets or numbers and the
+  indentation.
+- `gap` takes a spacing token name and defaults to `XXS`.
+- `ListItem` renders an `li` and forwards native props and its ref.
+
+## Accessibility
+
+The native list semantics are kept. With `marker="none"` the list also sets `role="list"`,
+because Safari stops announcing a list once its markers are removed.
+
+## Customization
+
+Target `faber-ui-list` and `faber-ui-list-item`. Marker color follows the secondary text role and
+can be changed with `::marker`.
+
+## Example
+
+```tsx
+import { List, ListItem } from '@faber-ui/react/list';
+
+<List ordered gap="XS">
+  <ListItem>Install the package.</ListItem>
+  <ListItem>Import the stylesheet.</ListItem>
+</List>;
+```
+
+## Boundaries
+
+There is no nested-list styling beyond the browser default and no interactive or selectable
+item. Use `Menu` for actions.

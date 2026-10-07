@@ -35,7 +35,7 @@ import {
   DocsSubsection,
 } from '@/components/docs-layout/docs-layout.styles';
 import { DocsLayout, type TDocsSectionLink } from '@/components/docs-layout/docs-layout.ui';
-import { Caption, Prose } from '@/components/sheet/sheet.styles';
+import { Caption, Prose, Run } from '@/components/sheet/sheet.styles';
 
 import {
   Bar,
@@ -103,12 +103,12 @@ const Card = styled.section\`
 /** A token name with the CSS custom property that overrides it. */
 function TokenName({ name, prefix }: { readonly name: string; readonly prefix: string }) {
   return (
-    <span>
+    <Run>
       <strong>{name}</strong>
       <small>
         --faber-ui-{prefix}-{name.toLowerCase()}
       </small>
-    </span>
+    </Run>
   );
 }
 
@@ -155,7 +155,7 @@ export function FoundationsPage() {
         <CodeBlock code={ARCHITECTURE_CODE} label="primitive → role → component" language="tsx" />
 
         <DocsSubsection>
-          <Caption data-tone="ink">PALETTE</Caption>
+          <Caption data-emphasis="ink">PALETTE</Caption>
           {PALETTE_FAMILIES.map(({ name, prefix, role }) => (
             <SwatchFamily key={prefix}>
               <Caption>
@@ -176,7 +176,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">Semantic roles, per theme</Caption>
+          <Caption data-emphasis="ink">Semantic roles, per theme</Caption>
           <Prose>
             Both panels are the same markup under two <Text.Code>ThemeProvider</Text.Code> subtrees.
             Each swatch reads its CSS variable; the value on the right is what the theme object
@@ -186,12 +186,12 @@ export function FoundationsPage() {
             {SCHEMES.map(({ mode, name, theme }) => (
               <ThemeProvider key={mode} mode={mode}>
                 <ThemePanel>
-                  <Caption data-tone="ink">{name}</Caption>
+                  <Caption data-emphasis="ink">{name}</Caption>
                   <RoleList>
                     {THEME_ROLES.map((role) => (
                       <Role key={role} style={{ '--swatch': `var(${THEME_VARIABLE_NAMES[role]})` }}>
                         <strong>{role}</strong>
-                        <span>{theme[role]}</span>
+                        <Run>{theme[role]}</Run>
                       </Role>
                     ))}
                   </RoleList>
@@ -211,7 +211,7 @@ export function FoundationsPage() {
         </Prose>
 
         <DocsSubsection>
-          <Caption data-tone="ink">FONT_SIZES</Caption>
+          <Caption data-emphasis="ink">FONT_SIZES</Caption>
           <Scale>
             {toEntries(FONT_SIZE_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -224,7 +224,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">FONT_WEIGHTS</Caption>
+          <Caption data-emphasis="ink">FONT_WEIGHTS</Caption>
           <Scale>
             {toEntries(FONT_WEIGHT_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -239,13 +239,13 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">LINE_HEIGHTS</Caption>
+          <Caption data-emphasis="ink">LINE_HEIGHTS</Caption>
           <Scale>
             {toEntries(LINE_HEIGHT_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
                 <TokenName name={name} prefix="line-height" />
                 {value}
-                <span>× the font size</span>
+                <Run>× the font size</Run>
               </ScaleRow>
             ))}
           </Scale>
@@ -268,7 +268,7 @@ export function FoundationsPage() {
         </Prose>
 
         <DocsSubsection>
-          <Caption data-tone="ink">SPACINGS</Caption>
+          <Caption data-emphasis="ink">SPACINGS</Caption>
           <Scale>
             {toEntries(SPACING_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -283,7 +283,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">SIZES</Caption>
+          <Caption data-emphasis="ink">SIZES</Caption>
           <Scale>
             {toEntries(SIZE_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -302,7 +302,7 @@ export function FoundationsPage() {
         <DocsSectionTitle id="shape-title">Shape</DocsSectionTitle>
 
         <DocsSubsection>
-          <Caption data-tone="ink">RADII</Caption>
+          <Caption data-emphasis="ink">RADII</Caption>
           <Scale>
             {toEntries(RADIUS_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -317,7 +317,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">BORDER_WIDTHS</Caption>
+          <Caption data-emphasis="ink">BORDER_WIDTHS</Caption>
           <Scale>
             {toEntries(BORDER_WIDTH_SCALE).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -332,7 +332,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">FOCUS_RINGS</Caption>
+          <Caption data-emphasis="ink">FOCUS_RINGS</Caption>
           <Prose>
             One ring for every interactive component: {BORDER_WIDTH_SCALE.STRONG} wide, offset by{' '}
             {FOCUS_RINGS.OFFSET}, in the <Text.Code>FOCUS_RING</Text.Code> role, and shown only for{' '}
@@ -353,7 +353,7 @@ export function FoundationsPage() {
         </Prose>
 
         <DocsSubsection>
-          <Caption data-tone="ink">BREAKPOINTS</Caption>
+          <Caption data-emphasis="ink">BREAKPOINTS</Caption>
           <Scale>
             {breakpointEntries.map(([name, value]) => (
               <ScaleRow key={name} data-current={name === currentBreakpoint || undefined}>
@@ -366,7 +366,7 @@ export function FoundationsPage() {
                     }}
                   />
                   {name === currentBreakpoint ? (
-                    <Caption data-tone="markup">you are here · {viewportWidth}px</Caption>
+                    <Caption data-emphasis="markup">you are here · {viewportWidth}px</Caption>
                   ) : null}
                 </ScaleVisual>
               </ScaleRow>
@@ -375,7 +375,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">CONTAINER_SIZES</Caption>
+          <Caption data-emphasis="ink">CONTAINER_SIZES</Caption>
           <Scale>
             {toEntries(CONTAINER_SIZES).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -394,7 +394,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">Z_INDICES</Caption>
+          <Caption data-emphasis="ink">Z_INDICES</Caption>
           <Scale>
             {toEntries(Z_INDICES).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -415,7 +415,7 @@ export function FoundationsPage() {
         </Prose>
 
         <DocsSubsection>
-          <Caption data-tone="ink">ANIMATIONS</Caption>
+          <Caption data-emphasis="ink">ANIMATIONS</Caption>
           <Scale>
             {toEntries(ANIMATIONS).map(([name, value]) => (
               <ScaleRow key={name}>
@@ -427,7 +427,7 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-tone="ink">OPACITIES</Caption>
+          <Caption data-emphasis="ink">OPACITIES</Caption>
           <Scale>
             {toEntries(OPACITIES).map(([name, value]) => (
               <ScaleRow key={name}>

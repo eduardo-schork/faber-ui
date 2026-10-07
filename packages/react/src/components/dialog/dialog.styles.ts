@@ -12,6 +12,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { Box } from '../box';
 import { FLEX_ALIGNS, FLEX_JUSTIFIES, FLEX_WRAPS, HFlex } from '../flex';
 import { Title } from '../title';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_WEIGHTS } from '../typography/typography.constants';
@@ -78,7 +79,7 @@ export const StyledDialogTitle = styled(Title.H2).attrs({
   weight: TYPOGRAPHY_WEIGHTS.SEMIBOLD,
 })``;
 
-export const DialogBody = styled.div.attrs({ className: 'faber-ui-dialog-body' })`
+export const DialogBody = styled(Box).attrs({ className: 'faber-ui-dialog-body' })`
   flex: 1;
   padding: ${SPACINGS.LG};
   overflow-y: auto;

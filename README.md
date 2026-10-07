@@ -103,20 +103,26 @@ The current React package includes:
 - `Flex`, `HFlex`, and `VFlex`
 - `Container`
 - `CenterFlex`
+- `Box`
+- `Grid`
 - `Divider`
+- `Header`, `Footer`, `NavLink`, `SideNav`, and `SkipLink`
 - `Tabs`, `TabList`, `Tab`, and `TabPanel`
 - `Accordion` and `AccordionItem`
 - `Breadcrumb` and `BreadcrumbItem`
 - `Pagination`
 - `Tooltip`, `Popover`, and `Menu`
-- `Dialog` and `Drawer`
+- `Dialog`, `AlertDialog`, and `Drawer`
 - `Card`
 - `Table`
+- `List` and `ListItem`
+- `DescriptionList`
+- `CodeBlock`
 - `Alert`
 - `Badge`
 - `Avatar`
 - `Progress`
-- `Toast` and `ToastViewport`
+- `Toast`, `ToastViewport`, and the `ToastProvider` queue with `useToast`
 - `Spinner`
 - `Skeleton`
 - `VisuallyHidden`
@@ -128,6 +134,7 @@ The current React package includes:
 - `Text.Em`
 - `Text.Small`
 - `Text.Code`
+- `Text.Lead`, `Text.Caption`, and `Text.Overline`
 - `Title.H1` through `Title.H6`
 
 Icons are distributed separately in `@faber-ui/icons`: a first set of outline icons that inherit
@@ -282,8 +289,9 @@ import { AlertBody, AlertRoot, AlertTitle, Button, HFlex, VFlex } from '@faber-u
 </AlertRoot>;
 ```
 
-Dialog, Alert, Toast, Field, and Accordion expose a root and parts today; Tabs, Menu, Breadcrumb,
-and SegmentedControl are compound by design. The Composition guide in Storybook lists them.
+Button, Dialog, Alert, Toast, Field, Accordion, RadioGroup, Pagination, CodeBlock, and the choice
+controls expose a root and parts; Tabs, Menu, Breadcrumb, and SegmentedControl are compound by
+design. The Composition guide in Storybook lists them.
 
 ## Component examples
 

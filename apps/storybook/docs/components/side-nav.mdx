@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/SideNav" />
+
+# SideNav
+
+[Interactive stories and prop reference](?path=/docs/molecules-sidenav--docs)
+
+## Purpose and when to use it
+
+Use `SideNav` for vertical navigation beside the content, such as documentation sections.
+
+## Behavioral contract
+
+- `SideNav` renders a `nav` and forwards native props and its ref.
+- `SideNavGroup` stacks its children under a `label` and exposes them as a group named by it.
+- Put `NavLink` elements inside a group.
+
+## Accessibility
+
+Give `SideNav` an `aria-label`. Each group is announced with its label.
+
+## Customization
+
+Target `faber-ui-side-nav`, `-group`, and `-label`.
+
+## Example
+
+```tsx
+import { SideNav, SideNavGroup } from '@faber-ui/react/side-nav';
+
+<SideNav aria-label="Documentation">
+  <SideNavGroup label="Guides">
+    <NavLink current href="/docs">
+      Get started
+    </NavLink>
+    <NavLink href="/docs/theming">Theming</NavLink>
+  </SideNavGroup>
+</SideNav>;
+```
+
+## Composition
+
+`SideNavLabel` is exported for a group built by hand.
+
+## Boundaries
+
+There are no collapsible groups, nested levels, or scroll tracking.

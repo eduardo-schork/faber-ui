@@ -13,7 +13,6 @@ import {
   DocsSidebar,
   DocsTitle,
   SidebarGroup,
-  SidebarHeading,
   SidebarLink,
 } from './docs-layout.styles';
 
@@ -40,21 +39,15 @@ export function DocsLayout({ children, kicker, lead, sections, title }: TDocsLay
     <PageWidth>
       <DocsFrame>
         <DocsSidebar aria-label="Documentation">
-          <SidebarGroup>
-            <SidebarHeading>Documentation</SidebarHeading>
+          <SidebarGroup label="Documentation">
             {DOC_PAGES.map(({ href, label }) => (
-              <SidebarLink
-                key={href}
-                href={href}
-                aria-current={pathname === href ? 'page' : undefined}
-              >
+              <SidebarLink key={href} href={href} current={pathname === href}>
                 {label}
               </SidebarLink>
             ))}
           </SidebarGroup>
 
-          <SidebarGroup data-group="on-this-page">
-            <SidebarHeading>On this page</SidebarHeading>
+          <SidebarGroup label="On this page" data-group="on-this-page">
             {sections.flatMap(({ id, items = [], label }) => [
               <SidebarLink key={id} href={`#${id}`}>
                 {label}
@@ -70,7 +63,7 @@ export function DocsLayout({ children, kicker, lead, sections, title }: TDocsLay
 
         <DocsArticle>
           <DocsHeader>
-            <Caption data-tone="markup">{kicker}</Caption>
+            <Caption data-emphasis="markup">{kicker}</Caption>
             <DocsTitle>{title}</DocsTitle>
             <Lead>{lead}</Lead>
           </DocsHeader>

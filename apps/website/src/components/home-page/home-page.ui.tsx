@@ -5,11 +5,18 @@ import {
   BUTTON_COLORS,
   BUTTON_SIZES,
   BUTTON_VARIANTS,
+  Box,
+  DescriptionDetails,
+  DescriptionItem,
+  DescriptionTerm,
+  LIST_MARKERS,
   LinkButton,
-  Text,
-  Title,
+  List,
+  ListItem,
   TYPOGRAPHY_SIZES,
   TYPOGRAPHY_TONES,
+  Text,
+  Title,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
 
@@ -22,14 +29,15 @@ import {
   Band,
   BandIntro,
   BandTitle,
+  Caption,
   ExternalLink,
   Lead,
-  Caption,
   PageWidth,
   Prose,
   Rail,
   RailContent,
   RailLabel,
+  Run,
   TextLink,
 } from '@/components/sheet/sheet.styles';
 import {
@@ -170,7 +178,7 @@ export function InviteForm() {
 
 export function HomePage() {
   return (
-    <main>
+    <Box as="main">
       <HeroBand>
         <PageWidth>
           <HeroGrid>
@@ -178,7 +186,7 @@ export function HomePage() {
               <Caption>@faber-ui/react · v{PACKAGE_VERSION} · MIT · React 18 and 19</Caption>
               <HeroTitle>
                 Plain parts,
-                <span>properly made.</span>
+                <Run>properly made.</Run>
               </HeroTitle>
               <Lead>
                 Faber UI is a React design system that keeps the platform in view. A Button is a{' '}
@@ -206,22 +214,22 @@ export function HomePage() {
                 </LinkButton>
               </HeroActions>
               <HeroFacts>
-                <div>
-                  <dt>components</dt>
-                  <dd>{COMPONENT_CATALOG.length}</dd>
-                </div>
-                <div>
-                  <dt>token tables</dt>
-                  <dd>{TOKEN_TABLE_COUNT}</dd>
-                </div>
-                <div>
-                  <dt>themes, plus system</dt>
-                  <dd>2</dd>
-                </div>
-                <div>
-                  <dt>required providers</dt>
-                  <dd>0</dd>
-                </div>
+                <DescriptionItem>
+                  <DescriptionTerm>components</DescriptionTerm>
+                  <DescriptionDetails>{COMPONENT_CATALOG.length}</DescriptionDetails>
+                </DescriptionItem>
+                <DescriptionItem>
+                  <DescriptionTerm>token tables</DescriptionTerm>
+                  <DescriptionDetails>{TOKEN_TABLE_COUNT}</DescriptionDetails>
+                </DescriptionItem>
+                <DescriptionItem>
+                  <DescriptionTerm>themes, plus system</DescriptionTerm>
+                  <DescriptionDetails>2</DescriptionDetails>
+                </DescriptionItem>
+                <DescriptionItem>
+                  <DescriptionTerm>required providers</DescriptionTerm>
+                  <DescriptionDetails>0</DescriptionDetails>
+                </DescriptionItem>
               </HeroFacts>
             </HeroCopy>
 
@@ -234,8 +242,8 @@ export function HomePage() {
         <PageWidth>
           <Rail>
             <RailLabel>
-              <Caption data-tone="markup">§ 01</Caption>
-              <Caption data-tone="ink">Theming</Caption>
+              <Caption data-emphasis="markup">§ 01</Caption>
+              <Caption data-emphasis="ink">Theming</Caption>
             </RailLabel>
             <RailContent>
               <BandIntro>
@@ -255,8 +263,8 @@ export function HomePage() {
         <PageWidth>
           <Rail>
             <RailLabel>
-              <Caption data-tone="markup">§ 02</Caption>
-              <Caption data-tone="ink">Principles</Caption>
+              <Caption data-emphasis="markup">§ 02</Caption>
+              <Caption data-emphasis="ink">Principles</Caption>
             </RailLabel>
             <RailContent>
               <BandIntro>
@@ -271,7 +279,7 @@ export function HomePage() {
               <Ledger>
                 {LEDGER.map(({ claim, code, detail, label, language }, index) => (
                   <LedgerRow key={claim}>
-                    <Caption data-tone="markup">{formatCatalogNumber(index)}</Caption>
+                    <Caption data-emphasis="markup">{formatCatalogNumber(index)}</Caption>
                     <LedgerClaim>
                       <Title.H3 size={TYPOGRAPHY_SIZES.MEDIUM}>{claim}</Title.H3>
                       <Prose>{detail}</Prose>
@@ -289,8 +297,8 @@ export function HomePage() {
         <PageWidth>
           <Rail>
             <RailLabel>
-              <Caption data-tone="markup">§ 03</Caption>
-              <Caption data-tone="ink">Components</Caption>
+              <Caption data-emphasis="markup">§ 03</Caption>
+              <Caption data-emphasis="ink">Components</Caption>
             </RailLabel>
             <RailContent>
               <BandIntro>
@@ -337,8 +345,8 @@ export function HomePage() {
         <PageWidth>
           <Rail>
             <RailLabel>
-              <Caption data-tone="markup">§ 04</Caption>
-              <Caption data-tone="ink">Start</Caption>
+              <Caption data-emphasis="markup">§ 04</Caption>
+              <Caption data-emphasis="ink">Start</Caption>
             </RailLabel>
             <RailContent>
               <BandIntro>
@@ -377,32 +385,32 @@ export function HomePage() {
                     Next on the bench: a full WCAG 2.2 AA contrast audit, real-browser tests for the
                     overlay components, and the first published release.
                   </Text.P>
-                  <ul>
-                    <li>
+                  <List marker={LIST_MARKERS.NONE}>
+                    <ListItem>
                       <TextLink href="/docs">
                         Read the getting started guide
                         <ArrowRightIcon />
                       </TextLink>
-                    </li>
-                    <li>
+                    </ListItem>
+                    <ListItem>
                       <ExternalLink href={SITE_LINKS.STORYBOOK}>
                         Open Storybook
                         <ArrowUpRightIcon />
                       </ExternalLink>
-                    </li>
-                    <li>
+                    </ListItem>
+                    <ListItem>
                       <ExternalLink href={SITE_LINKS.REPOSITORY}>
                         View the source on GitHub
                         <ArrowUpRightIcon />
                       </ExternalLink>
-                    </li>
-                  </ul>
+                    </ListItem>
+                  </List>
                 </StatusNote>
               </StartGrid>
             </RailContent>
           </Rail>
         </PageWidth>
       </Band>
-    </main>
+    </Box>
   );
 }

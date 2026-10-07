@@ -33,4 +33,6 @@ export type TTypographyDefaults = Required<
   readonly italic?: boolean;
   readonly lineHeight: TTypographyLineHeight;
   readonly link?: boolean;
+  /** Uppercase with wide tracking, for short labels above content. */
+  readonly overline?: boolean;
 };

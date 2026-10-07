@@ -2,7 +2,8 @@ import { cleanup, fireEvent, render } from '@testing-library/react';
 import { createRef } from 'react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
-import { Pagination } from './pagination.ui';
+import { PaginationList, PaginationRoot } from './pagination.styles';
+import { Pagination, PaginationButton } from './pagination.ui';
 
 describe('Pagination', () => {
   afterEach(cleanup);
@@ -59,5 +60,24 @@ describe('Pagination', () => {
     expect(getByRole('navigation', { name: 'Paginação' })).toBeDefined();
     expect(getByRole('button', { name: 'Página 2' })).toBeDefined();
     expect(getByRole('button', { name: 'Próxima página' })).toBeDefined();
+  });
+
+  it('SHOULD let a consumer assemble pagination from its parts', () => {
+    const { getByRole } = render(
+      <PaginationRoot aria-label="Results">
+        <PaginationList>
+          <li>
+            <PaginationButton current>1</PaginationButton>
+          </li>
+          <li>
+            <PaginationButton>Load more</PaginationButton>
+          </li>
+        </PaginationList>
+      </PaginationRoot>,
+    );
+
+    expect(getByRole('navigation', { name: 'Results' }).firstElementChild?.tagName).toBe('UL');
+    expect(getByRole('button', { name: '1' }).getAttribute('aria-current')).toBe('page');
+    expect(getByRole('button', { name: 'Load more' }).hasAttribute('current')).toBe(false);
   });
 });

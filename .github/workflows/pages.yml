@@ -1,0 +1,61 @@
+name: Pages
+
+# Publishes the website and Storybook to GitHub Pages. Enable it once under
+# Settings > Pages > Build and deployment > Source: GitHub Actions.
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    if: github.repository == 'eduardo-schork/faber-ui'
+    runs-on: ubuntu-latest
+    env:
+      FABER_UI_STATIC_EXPORT: 'true'
+      FABER_UI_BASE_PATH: /faber-ui
+      NEXT_PUBLIC_STORYBOOK_URL: https://eduardo-schork.github.io/faber-ui/storybook
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: .bun-version
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Build the website and Storybook
+        run: bun run build
+
+      - name: Place Storybook under the website
+        run: |
+          cp -R apps/storybook/storybook-static apps/website/out/storybook
+          touch apps/website/out/.nojekyll
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: apps/website/out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

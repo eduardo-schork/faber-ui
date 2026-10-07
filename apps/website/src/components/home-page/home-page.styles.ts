@@ -2,10 +2,17 @@ import {
   Alert,
   BORDER_WIDTHS,
   BREAKPOINTS,
+  Box,
   COLORS,
+  DescriptionList,
   FONT_SIZES,
   FONT_WEIGHTS,
+  Grid,
+  HFlex,
   LINE_HEIGHTS,
+  LIST_MARKERS,
+  List,
+  ListItem,
   SIZES,
   SPACINGS,
   Table,
@@ -16,7 +23,7 @@ import styled from 'styled-components';
 
 import { focusRing, captionText } from '@/components/sheet/sheet.styles';
 
-export const HeroBand = styled.section`
+export const HeroBand = styled(Box).attrs({ forwardedAs: 'section' })`
   padding-block: calc(${SPACINGS.XXL} * 1.5) calc(${SPACINGS.XXL} * 2);
 
   @media (max-width: ${BREAKPOINTS.TABLET}) {
@@ -24,8 +31,7 @@ export const HeroBand = styled.section`
   }
 `;
 
-export const HeroGrid = styled.div`
-  display: grid;
+export const HeroGrid = styled(Grid)`
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   align-items: center;
   gap: calc(${SPACINGS.XXL} * 1.5);
@@ -36,8 +42,7 @@ export const HeroGrid = styled.div`
   }
 `;
 
-export const HeroCopy = styled.div`
-  display: grid;
+export const HeroCopy = styled(Grid)`
   justify-items: start;
   gap: ${SPACINGS.LG};
 `;
@@ -55,14 +60,13 @@ export const HeroTitle = styled(Title.H1)`
   }
 `;
 
-export const HeroActions = styled.div`
-  display: flex;
+export const HeroActions = styled(HFlex)`
   flex-wrap: wrap;
   gap: ${SPACINGS.SM};
   margin-top: ${SPACINGS.XS};
 `;
 
-export const HeroFacts = styled.dl`
+export const HeroFacts = styled(DescriptionList)`
   display: grid;
   grid-template-columns: repeat(4, auto);
   justify-content: start;
@@ -97,15 +101,13 @@ export const HeroFacts = styled.dl`
   }
 `;
 
-export const Ledger = styled.ol`
-  display: grid;
+export const Ledger = styled(List).attrs({ ordered: true, marker: LIST_MARKERS.NONE })`
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
   border-bottom: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  list-style: none;
 `;
 
-export const LedgerRow = styled.li`
+export const LedgerRow = styled(ListItem)`
   display: grid;
   grid-template-columns: ${SIZES.LG} minmax(0, 1fr) minmax(0, 1.15fr);
   align-items: start;
@@ -122,8 +124,7 @@ export const LedgerRow = styled.li`
   }
 `;
 
-export const LedgerClaim = styled.div`
-  display: grid;
+export const LedgerClaim = styled(Grid)`
   gap: ${SPACINGS.XS};
 `;
 
@@ -180,8 +181,7 @@ export const PartLink = styled(Link)`
   ${focusRing}
 `;
 
-export const StartGrid = styled.div`
-  display: grid;
+export const StartGrid = styled(Grid)`
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   align-items: start;
   gap: ${SPACINGS.XXL};
@@ -191,15 +191,13 @@ export const StartGrid = styled.div`
   }
 `;
 
-export const Steps = styled.ol`
-  display: grid;
+export const Steps = styled(List).attrs({ ordered: true, marker: LIST_MARKERS.NONE })`
   gap: ${SPACINGS.XL};
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};
-  list-style: none;
 `;
 
-export const Step = styled.li`
+export const Step = styled(ListItem)`
   display: grid;
   gap: ${SPACINGS.SM};
   min-width: ${SPACINGS.NONE};
