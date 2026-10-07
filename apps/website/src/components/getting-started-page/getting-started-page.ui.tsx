@@ -211,10 +211,10 @@ export function GettingStartedPage() {
     >
       <DocsSection id="status" aria-labelledby="status-title">
         <DocsSectionTitle id="status-title">Where the project is</DocsSectionTitle>
-        <Alert color={ALERT_COLORS.ACCENT} title={`v${PACKAGE_VERSION} · pre-release`}>
-          Faber UI is public and under active development, and the packages are not on npm yet. To
-          try it today, clone the repository and run it locally. The install command below is what
-          consumption will look like once the first version is published.
+        <Alert color={ALERT_COLORS.PRIMARY} title={`v${PACKAGE_VERSION} · on npm`}>
+          The packages are published under the <Text.Code>@faber-ui</Text.Code> scope. Faber UI is
+          under active development: until 1.0, a minor version may change an API. To work on the
+          library itself, clone the repository and run it locally.
         </Alert>
         <CodeBlock code={CLONE_CODE} label="terminal" language="bash" />
       </DocsSection>
@@ -263,9 +263,10 @@ export function GettingStartedPage() {
           <DocsStack>
             <CodeBlock code={NEXT_CONFIG_CODE} label="next.config.ts" language="tsx" />
             <Prose>
-              Faber UI components use styled-components at runtime, so files that render them start
-              with <Text.Code>{"'use client'"}</Text.Code>. Pages can stay server components and
-              render those client components.
+              The components are marked as client components inside the package, so a server
+              component can import and render them directly, and tokens and option constants stay
+              readable on the server. Your own file needs <Text.Code>{"'use client'"}</Text.Code>{' '}
+              only when it holds state or event handlers.
             </Prose>
           </DocsStack>
         </DocsColumns>

@@ -8,14 +8,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  transpilePackages: [
-    '@faber-ui/fonts',
-    '@faber-ui/icons',
-    '@faber-ui/react',
-    '@faber-ui/themes',
-    '@faber-ui/tokens',
-    '@faber-ui/utilities',
-  ],
   ...(isStaticExport ? { basePath, output: 'export' as const, trailingSlash: true } : {}),
 } satisfies NextConfig;
 

@@ -343,8 +343,8 @@ function TableDemo() {
 function AlertDemo() {
   return (
     <DemoStack>
-      <Alert title="Pre-release" color={ALERT_COLORS.ACCENT}>
-        The packages are not on npm yet.
+      <Alert title="Early release" color={ALERT_COLORS.ACCENT}>
+        APIs may change before version 1.0.
       </Alert>
       <Alert title="Saved" color={ALERT_COLORS.PRIMARY}>
         Your changes are live.
@@ -1834,8 +1834,8 @@ const { toast } = useToast();
     Demo: AlertDemo,
     code: `import { Alert, ALERT_COLORS } from '@faber-ui/react/alert';
 
-<Alert title="Pre-release" color={ALERT_COLORS.ACCENT}>
-  The packages are not on npm yet.
+<Alert title="Early release" color={ALERT_COLORS.ACCENT}>
+  APIs may change before version 1.0.
 </Alert>
 
 // Announced immediately by screen readers.

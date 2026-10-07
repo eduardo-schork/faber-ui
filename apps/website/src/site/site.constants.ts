@@ -14,7 +14,7 @@ export const PREFERENCE_ATTRIBUTES = {
   THEME: 'data-theme',
 } as const;
 
-export const PACKAGE_VERSION = '0.0.0';
+export const PACKAGE_VERSION = '0.1.0';
 
 export const getStorybookDocsUrl = (docsId: string) =>
   `${SITE_LINKS.STORYBOOK}/?path=/docs/${docsId}--docs`;

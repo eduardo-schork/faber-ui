@@ -1,3 +1,5 @@
+export { cssVariable } from './css-variable';
+export type { TCSSCustomProperty } from './css-variable';
 export { ANIMATIONS } from './animations';
 export type { TAnimationTokenName, TAnimationTokenValue } from './animations';
 export { BORDER_WIDTH_SCALE, BORDER_WIDTHS } from './border-widths';

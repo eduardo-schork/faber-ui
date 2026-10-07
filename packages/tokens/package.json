@@ -1,7 +1,6 @@
 {
   "name": "@faber-ui/tokens",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "Strongly typed design tokens and semantic foundations for Faber UI.",
   "keywords": [
     "design-system",
@@ -37,9 +36,6 @@
       "import": "./dist/index.js"
     },
     "./package.json": "./package.json"
-  },
-  "dependencies": {
-    "@faber-ui/utilities": "workspace:*"
   },
   "devDependencies": {
     "@storybook/react-vite": "^10.5.2",

@@ -3,6 +3,9 @@ import { fileURLToPath } from 'node:url';
 import react from '@vitejs/plugin-react-swc';
 import { defineConfig } from 'vite';
 
+import { styledComponentsInterop } from '../../scripts/styled-components-interop-plugin.mjs';
+import { useClientDirective } from '../../scripts/use-client-directive-plugin.mjs';
+
 export default defineConfig({
   plugins: [
     react({
@@ -18,6 +21,8 @@ export default defineConfig({
         ],
       ],
     }),
+    styledComponentsInterop(),
+    useClientDirective(),
   ],
   build: {
     target: 'baseline-widely-available',
@@ -105,6 +110,8 @@ export default defineConfig({
       fileName: (_format, entryName) => `${entryName}.js`,
     },
     rolldownOptions: {
+      // One output file per source module keeps constants apart from client components.
+      output: { preserveModules: true, preserveModulesRoot: 'src' },
       external: [
         /^@radix-ui\//,
         '@faber-ui/themes',

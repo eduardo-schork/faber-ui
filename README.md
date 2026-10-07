@@ -145,6 +145,12 @@ by component inside a flat source tree.
 
 ## Installation
 
+The packages are published on npm under the `@faber-ui` scope. Until 1.0, a minor version may
+change an API.
+
+The components are marked as client components inside the package, so a React Server Component
+can import and render them directly; tokens and option constants stay readable on the server.
+
 The commands below assume an existing React application. `@faber-ui/themes` and
 `@faber-ui/tokens` are installed automatically by `@faber-ui/react`. styled-components remains an
 explicit peer dependency.
@@ -830,7 +836,6 @@ packages/
   react/           React components
   themes/          Themes, CSS variables, and React provider
   tokens/          Primitive and semantic design tokens
-  utilities/       Framework-independent utilities
 ```
 
 ## Scripts

@@ -12,8 +12,5 @@ export default defineConfig({
       formats: ['es'],
       fileName: 'index',
     },
-    rolldownOptions: {
-      external: ['@faber-ui/utilities'],
-    },
   },
 });

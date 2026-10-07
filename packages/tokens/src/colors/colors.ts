@@ -1,4 +1,4 @@
-import { cssVariable } from '@faber-ui/utilities';
+import { cssVariable } from '../css-variable';
 
 import { PALETTE } from './palette';
 

@@ -12,7 +12,6 @@ export default defineConfig({
       '@faber-ui/react': `${rootDirectory}packages/react/src/index.ts`,
       '@faber-ui/themes': `${rootDirectory}packages/themes/src/index.ts`,
       '@faber-ui/tokens': `${rootDirectory}packages/tokens/src/index.ts`,
-      '@faber-ui/utilities': `${rootDirectory}packages/utilities/src/index.ts`,
     },
   },
   test: {

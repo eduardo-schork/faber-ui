@@ -47,7 +47,8 @@
     "format:check": "prettier --check .",
     "changeset": "changeset",
     "version:packages": "changeset version",
-    "release": "changeset publish"
+    "release": "bun run build && node scripts/publish-packages.mjs && changeset tag",
+    "release:dry-run": "bun run build && node scripts/publish-packages.mjs --dry-run"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1",

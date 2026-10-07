@@ -12,6 +12,7 @@ describe('findKebabCasePathViolations', () => {
       'packages/react/package.json',
       'README.md',
       'AGENTS.md',
+      'packages/react/CHANGELOG.md',
     ]);
 
     expect(violations).toEqual([]);

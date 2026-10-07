@@ -142,8 +142,9 @@ remain fully typed, while constants provide discoverability and a reusable runti
 For Vite, place the stylesheet import in the main application entry. For Next.js App Router,
 place it in the root layout or another location where Next.js permits global CSS imports.
 
-Components use styled-components at runtime, so in the Next.js App Router the files that render
-them need a client-component boundary, and the application needs the styled-components registry
+Components use styled-components at runtime. They are marked as client components inside the
+package, so a React Server Component can import and render them directly, while tokens and option
+constants stay readable on the server. The application still needs the styled-components registry
 to collect styles during server rendering. Static CSS themes can be applied without the React
 provider.
 

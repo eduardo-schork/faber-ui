@@ -125,7 +125,7 @@ export function SiteShell({ children }: PropsWithChildren) {
               </Brand>
               <Text.P size={TYPOGRAPHY_SIZES.SMALLER} tone={TYPOGRAPHY_TONES.SECONDARY}>
                 A design system for React, built on native elements, typed tokens, and CSS
-                variables. MIT licensed. Version {PACKAGE_VERSION}; not on npm yet.
+                variables. MIT licensed. Version {PACKAGE_VERSION}, on npm as @faber-ui/react.
               </Text.P>
             </FooterAbout>
 

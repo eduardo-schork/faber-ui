@@ -11,8 +11,7 @@
       "@faber-ui/icons": ["packages/icons/src/index.ts"],
       "@faber-ui/react": ["packages/react/src/index.ts"],
       "@faber-ui/themes": ["packages/themes/src/index.ts"],
-      "@faber-ui/tokens": ["packages/tokens/src/index.ts"],
-      "@faber-ui/utilities": ["packages/utilities/src/index.ts"]
+      "@faber-ui/tokens": ["packages/tokens/src/index.ts"]
     },
     "jsx": "react-jsx",
     "strict": true,

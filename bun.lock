@@ -69,14 +69,14 @@
     },
     "packages/fonts": {
       "name": "@faber-ui/fonts",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
         "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
       },
     },
     "packages/icons": {
       "name": "@faber-ui/icons",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "devDependencies": {
         "@storybook/react-vite": "^10.5.2",
         "@testing-library/react": "^16.3.2",
@@ -89,7 +89,7 @@
     },
     "packages/react": {
       "name": "@faber-ui/react",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
         "@faber-ui/themes": "workspace:*",
         "@faber-ui/tokens": "workspace:*",
@@ -111,7 +111,7 @@
     },
     "packages/themes": {
       "name": "@faber-ui/themes",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
         "@faber-ui/fonts": "workspace:*",
         "@faber-ui/tokens": "workspace:*",
@@ -130,19 +130,12 @@
     },
     "packages/tokens": {
       "name": "@faber-ui/tokens",
-      "version": "0.0.0",
-      "dependencies": {
-        "@faber-ui/utilities": "workspace:*",
-      },
+      "version": "0.1.0",
       "devDependencies": {
         "@storybook/react-vite": "^10.5.2",
         "@types/react": "^19.2.17",
         "react": "^19.2.7",
       },
-    },
-    "packages/utilities": {
-      "name": "@faber-ui/utilities",
-      "version": "0.0.0",
     },
   },
   "packages": {
@@ -333,8 +326,6 @@
     "@faber-ui/themes": ["@faber-ui/themes@workspace:packages/themes"],
 
     "@faber-ui/tokens": ["@faber-ui/tokens@workspace:packages/tokens"],
-
-    "@faber-ui/utilities": ["@faber-ui/utilities@workspace:packages/utilities"],
 
     "@faber-ui/website": ["@faber-ui/website@workspace:apps/website"],
 

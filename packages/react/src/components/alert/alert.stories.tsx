@@ -8,9 +8,9 @@ const meta = {
   title: 'Atoms/Alert',
   component: Alert,
   args: {
-    children: 'The packages are not on npm yet. Clone the repository to try them.',
+    children: 'APIs may change before version 1.0.',
     color: ALERT_COLORS.NEUTRAL,
-    title: 'Pre-release',
+    title: 'Early release',
   },
   argTypes: { color: { control: 'select', options: Object.values(ALERT_COLORS) } },
 } satisfies Meta<typeof Alert>;

@@ -378,12 +378,12 @@ export function HomePage() {
                   aria-label="Project status"
                 >
                   <Text.P>
-                    The packages are not on npm yet. Until the first release, clone the repository
-                    and run this site or Storybook locally.
+                    The packages are on npm under the @faber-ui scope. Until 1.0, a minor version
+                    may change an API.
                   </Text.P>
                   <Text.P tone={TYPOGRAPHY_TONES.SECONDARY}>
                     Next on the bench: a full WCAG 2.2 AA contrast audit, real-browser tests for the
-                    overlay components, and the first published release.
+                    overlay components, and a custom Select.
                   </Text.P>
                   <List marker={LIST_MARKERS.NONE}>
                     <ListItem>
