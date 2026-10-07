@@ -11,6 +11,7 @@ export const THEME_VARIABLE_NAMES = {
   DISABLED_BACKGROUND: '--faber-ui-color-disabled-background',
   FOCUS_RING: '--faber-ui-color-focus-ring',
   ERROR: '--faber-ui-color-error',
+  OVERLAY: '--faber-ui-color-overlay',
   PRIMARY: '--faber-ui-color-primary',
   PRIMARY_HOVER: '--faber-ui-color-primary-hover',
   PRIMARY_ACTIVE: '--faber-ui-color-primary-active',

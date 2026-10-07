@@ -5,7 +5,6 @@ import {
   FONT_FAMILIES,
   FONT_SIZES,
   LINE_HEIGHTS,
-  OPACITIES,
   RADII,
   SIZES,
   SPACINGS,
@@ -37,7 +36,7 @@ export const StyledDialog = styled.dialog.attrs({ className: 'faber-ui-dialog' }
   }
 
   &::backdrop {
-    background-color: color-mix(in srgb, ${COLORS.TEXT_PRIMARY} ${OPACITIES.SKELETON}, transparent);
+    background-color: ${COLORS.OVERLAY};
   }
 
   &[data-placement='${DIALOG_PLACEMENTS.START}'],

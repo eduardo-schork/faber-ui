@@ -2,7 +2,6 @@ import {
   ANIMATIONS,
   BORDER_WIDTHS,
   COLORS,
-  FOCUS_RINGS,
   FONT_FAMILIES,
   FONT_SIZES,
   LINE_HEIGHTS,
@@ -11,6 +10,8 @@ import {
   SPACINGS,
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
+
+import { FIELD_FOCUS_GROWTH, fieldFocusStyles } from '../../internal/field-focus-styles';
 
 export const StyledTextarea = styled.textarea.attrs({ className: 'faber-ui-textarea' })`
   display: block;
@@ -35,18 +36,14 @@ export const StyledTextarea = styled.textarea.attrs({ className: 'faber-ui-texta
     color: ${COLORS.TEXT_SECONDARY};
   }
 
+  ${fieldFocusStyles}
+
   &:focus-visible {
-    border-color: ${COLORS.BORDER_STRONG};
-    outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};
-    outline-offset: ${FOCUS_RINGS.OFFSET};
+    padding: calc(${SPACINGS.SM} - ${FIELD_FOCUS_GROWTH});
   }
 
   &[aria-invalid='true']:not(:disabled) {
     border-color: ${COLORS.ERROR};
-
-    &:focus-visible {
-      outline-color: ${COLORS.ERROR};
-    }
   }
 
   &:disabled {

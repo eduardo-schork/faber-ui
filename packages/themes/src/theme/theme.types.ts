@@ -13,6 +13,7 @@ export type TTheme = {
   readonly DISABLED_BACKGROUND: string;
   readonly FOCUS_RING: string;
   readonly ERROR: string;
+  readonly OVERLAY: string;
   readonly PRIMARY: string;
   readonly PRIMARY_HOVER: string;
   readonly PRIMARY_ACTIVE: string;

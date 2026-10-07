@@ -150,7 +150,7 @@ import { Button } from '@faber-ui/react/button';`,
   },
 ];
 
-const TOKEN_TABLE_COUNT = 18;
+const TOKEN_TABLE_COUNT = 19;
 
 const FAMILY_NAMES = Object.fromEntries(
   COMPONENT_FAMILIES.map(({ id, name }) => [id, name]),

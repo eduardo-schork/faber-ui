@@ -220,3 +220,7 @@ export const FocusSpecimen = styled(Box).attrs({ forwardedAs: 'span' })`
   outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};
   outline-offset: ${FOCUS_RINGS.OFFSET};
 `;
+
+export const FocusField = styled(Box)`
+  max-width: calc(${SIZES.XXL} * 4);
+`;

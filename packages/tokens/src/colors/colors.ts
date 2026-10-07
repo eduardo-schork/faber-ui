@@ -13,6 +13,8 @@ export const COLORS = {
   DISABLED_BACKGROUND: cssVariable('--faber-ui-color-disabled-background', PALETTE.NEUTRAL_200),
   FOCUS_RING: cssVariable('--faber-ui-color-focus-ring', PALETTE.COPPER_400),
   ERROR: cssVariable('--faber-ui-color-error', PALETTE.RED_400),
+  /** The scrim behind a modal. It stays dark in every theme so the page recedes. */
+  OVERLAY: cssVariable('--faber-ui-color-overlay', PALETTE.OVERLAY_400),
 
   PRIMARY_LIGHTEN_3: cssVariable('--faber-ui-color-primary-lighten-3', PALETTE.MALACHITE_100),
   PRIMARY_LIGHTEN_2: cssVariable('--faber-ui-color-primary-lighten-2', PALETTE.MALACHITE_200),

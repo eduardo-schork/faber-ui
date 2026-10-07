@@ -10,6 +10,9 @@ import {
   FONT_SIZES,
   FONT_SIZE_SCALE,
   FONT_WEIGHT_SCALE,
+  Field,
+  Input,
+  LETTER_SPACING_SCALE,
   LIGHT_THEME,
   LINE_HEIGHT_SCALE,
   OPACITIES,
@@ -20,11 +23,11 @@ import {
   SPACING_SCALE,
   THEME_MODES,
   THEME_VARIABLE_NAMES,
+  Text,
   ThemeProvider,
   Z_INDICES,
   type TTheme,
   type TThemeTokenName,
-  Text,
 } from '@faber-ui/react';
 import { useSyncExternalStore } from 'react';
 
@@ -39,6 +42,7 @@ import { Caption, Prose, Run } from '@/components/sheet/sheet.styles';
 
 import {
   Bar,
+  FocusField,
   FocusSpecimen,
   Role,
   RoleList,
@@ -141,7 +145,7 @@ export function FoundationsPage() {
     <DocsLayout
       kicker="Foundations"
       title="The token tables."
-      lead="Eighteen typed objects hold every visual decision in the library. This page is drawn directly from them, so what you see is what the package exports."
+      lead="Nineteen typed objects hold every visual decision in the library. This page is drawn directly from them, so what you see is what the package exports."
       sections={SECTIONS}
     >
       <DocsSection id="color" aria-labelledby="color-title">
@@ -177,6 +181,10 @@ export function FoundationsPage() {
 
         <DocsSubsection>
           <Caption data-emphasis="ink">Semantic roles, per theme</Caption>
+          <Prose>
+            <Text.Code>OVERLAY</Text.Code> is the scrim behind a modal. It is a translucent dark in
+            both themes, and deeper in the dark one, so the page behind a dialog always recedes.
+          </Prose>
           <Prose>
             Both panels are the same markup under two <Text.Code>ThemeProvider</Text.Code> subtrees.
             Each swatch reads its CSS variable; the value on the right is what the theme object
@@ -246,6 +254,21 @@ export function FoundationsPage() {
                 <TokenName name={name} prefix="line-height" />
                 {value}
                 <Run>× the font size</Run>
+              </ScaleRow>
+            ))}
+          </Scale>
+        </DocsSubsection>
+
+        <DocsSubsection>
+          <Caption data-emphasis="ink">LETTER_SPACINGS</Caption>
+          <Scale>
+            {toEntries(LETTER_SPACING_SCALE).map(([name, value]) => (
+              <ScaleRow key={name}>
+                <TokenName name={name} prefix="letter-spacing" />
+                {value}
+                <TypeSpecimen style={{ letterSpacing: value }}>
+                  Plain parts, properly made.
+                </TypeSpecimen>
               </ScaleRow>
             ))}
           </Scale>
@@ -341,6 +364,16 @@ export function FoundationsPage() {
           <ScaleVisual>
             <FocusSpecimen>A focused control</FocusSpecimen>
           </ScaleVisual>
+          <Prose>
+            Text fields are the exception. Their own border marks focus: it grows to{' '}
+            {FOCUS_RINGS.FIELD_BORDER_WIDTH} and takes a gradient of the primary roles, so nothing
+            is drawn outside the control. Focus the field to see it.
+          </Prose>
+          <FocusField>
+            <Field label="A text field">
+              <Input name="focus-specimen" placeholder="Click or tab here" />
+            </Field>
+          </FocusField>
         </DocsSubsection>
       </DocsSection>
 

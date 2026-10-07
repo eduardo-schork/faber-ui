@@ -2,6 +2,10 @@ export const PALETTE = {
   BLACK: '#000000',
   WHITE: '#ffffff',
 
+  /* Translucent darks laid over the page behind a modal. */
+  OVERLAY_400: 'hsl(200 16% 8% / 48%)',
+  OVERLAY_800: 'hsl(200 30% 2% / 78%)',
+
   NEUTRAL_50: 'hsl(200 14% 96%)',
   NEUTRAL_100: 'hsl(200 12% 93%)',
   NEUTRAL_200: 'hsl(200 10% 87%)',

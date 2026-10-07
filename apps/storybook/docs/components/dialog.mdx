@@ -28,7 +28,8 @@ title specific and put the least destructive action first in the footer.
 
 ## Customization
 
-Surface, border, and spacing use tokens, and the backdrop derives from the text color. Because a
+Surface, border, and spacing use tokens, and the backdrop uses the `OVERLAY` color role, a translucent
+dark that is deeper in the dark theme. Override `--faber-ui-color-overlay` to change it. Because a
 modal dialog renders in the top layer it needs no z-index.
 
 ## Example

@@ -21,6 +21,9 @@ PALETTE primitives
 Use `PALETTE` when authoring themes or extending the design system. Application interfaces should
 prefer semantic `COLORS`, because semantic tokens adapt automatically to the active theme.
 
+`PALETTE.OVERLAY_400` and `PALETTE.OVERLAY_800` are translucent darks for the `OVERLAY` role, the
+scrim behind a modal.
+
 The default brand palette uses `MALACHITE_*` primitives for primary actions and `COPPER_*`
 primitives for accents. Both families run from a light `100` value to a dark `600` value. The
 semantic API keeps components independent from those primitive names. `NEUTRAL_*` is a separate
@@ -47,7 +50,7 @@ const panelStyle = {
 - `FONT_FAMILIES`
 - `FONT_SIZES`
 - `FONT_WEIGHTS`
-- `FOCUS_RINGS`
+- `FOCUS_RINGS`, including `FIELD_BORDER_WIDTH` for the focused border of text fields
 - `LETTER_SPACINGS`
 - `LINE_HEIGHTS`
 - `OPACITIES`

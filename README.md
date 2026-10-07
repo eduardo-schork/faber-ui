@@ -801,6 +801,7 @@ Current token domains include:
 - Colors and palette
 - Container sizes
 - Focus rings
+- Letter spacings
 - Font families, sizes, and weights
 - Line heights
 - Opacities

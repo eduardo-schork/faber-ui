@@ -91,6 +91,26 @@ Or scope a brand variation to one subtree:
 }
 ```
 
+## The modal overlay
+
+`--faber-ui-color-overlay` is the scrim behind `Dialog`, `Drawer`, and `AlertDialog`. Unlike the
+other roles it carries its own transparency, and it is dark in both built-in themes: lighter in
+the light theme, deeper in the dark one. A complete custom theme must define `OVERLAY`.
+
+```css
+:root {
+  --faber-ui-color-overlay: hsl(222 47% 8% / 70%);
+}
+```
+
+## Focus on text fields
+
+`Input`, `Textarea`, and `Select` mark focus on their own border instead of drawing a ring around
+it. The border grows to `FOCUS_RINGS.FIELD_BORDER_WIDTH` and takes a gradient built from
+`--faber-ui-color-primary-active`, `--faber-ui-color-primary`, and the surface color, so a brand
+override of the primary roles restyles it. Every other control keeps the outer ring in
+`--faber-ui-color-focus-ring`.
+
 ## Retune dimensions
 
 Spacing, sizes, radii, border widths, font sizes, font weights, and line heights are CSS variables

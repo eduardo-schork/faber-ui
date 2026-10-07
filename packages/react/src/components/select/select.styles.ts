@@ -2,7 +2,6 @@ import {
   ANIMATIONS,
   BORDER_WIDTHS,
   COLORS,
-  FOCUS_RINGS,
   FONT_FAMILIES,
   FONT_SIZES,
   LINE_HEIGHTS,
@@ -11,6 +10,8 @@ import {
   SPACINGS,
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
+
+import { FIELD_FOCUS_GROWTH, fieldFocusStyles } from '../../internal/field-focus-styles';
 
 export const StyledSelect = styled.select.attrs({ className: 'faber-ui-select' })`
   display: block;
@@ -30,18 +31,14 @@ export const StyledSelect = styled.select.attrs({ className: 'faber-ui-select' }
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
     background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
+  ${fieldFocusStyles}
+
   &:focus-visible {
-    border-color: ${COLORS.BORDER_STRONG};
-    outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};
-    outline-offset: ${FOCUS_RINGS.OFFSET};
+    padding-inline: calc(${SPACINGS.SM} - ${FIELD_FOCUS_GROWTH});
   }
 
   &[aria-invalid='true']:not(:disabled) {
     border-color: ${COLORS.ERROR};
-
-    &:focus-visible {
-      outline-color: ${COLORS.ERROR};
-    }
   }
 
   &:disabled {
