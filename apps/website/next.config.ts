@@ -8,6 +8,7 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  devIndicators: false,
   ...(isStaticExport ? { basePath, output: 'export' as const, trailingSlash: true } : {}),
 } satisfies NextConfig;
 

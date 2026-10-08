@@ -132,6 +132,15 @@ const LEVELS = [
 
 const PART_SETS = [
   {
+    component: 'RadioCard',
+    parts: 'RadioCardRoot, RadioCardInput, RadioCardContent, RadioCardLabel, RadioCardDescription',
+  },
+  {
+    component: 'ColorSwatch',
+    parts: 'ColorSwatchRoot, ColorSwatchSample, ColorSwatchLabel, ColorSwatchValue',
+  },
+  { component: 'Listbox', parts: 'Listbox, ListboxOption, ListboxGroup, ListboxSeparator' },
+  {
     component: 'Dialog',
     parts: 'DialogRoot, DialogHeader, DialogTitle, DialogClose, DialogBody, DialogFooter',
   },

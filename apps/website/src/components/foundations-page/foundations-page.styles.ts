@@ -25,36 +25,9 @@ export const SwatchFamily = styled(Grid)`
   min-width: ${SPACINGS.NONE};
 `;
 
-export const SwatchStrip = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
+export const SwatchStrip = styled(Grid)`
   grid-template-columns: repeat(auto-fit, minmax(${SIZES.XL}, 1fr));
-  margin: ${SPACINGS.NONE};
-  padding: ${SPACINGS.NONE};
-  overflow: hidden;
-  border: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  border-radius: ${RADII.MD};
-`;
-
-export const Swatch = styled(ListItem)`
-  ${captionText}
-  display: grid;
-  gap: ${SPACINGS.XXS};
-  min-width: ${SPACINGS.NONE};
-  padding: ${SPACINGS.XS};
-  color: ${COLORS.TEXT_SECONDARY};
-  background: ${COLORS.SURFACE_PRIMARY};
-  overflow-wrap: anywhere;
-
-  &::before {
-    height: ${SIZES.LG};
-    margin: calc(-1 * ${SPACINGS.XS}) calc(-1 * ${SPACINGS.XS}) ${SPACINGS.XXS};
-    background: var(--swatch);
-    content: '';
-  }
-
-  strong {
-    color: ${COLORS.TEXT_PRIMARY};
-    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
-  }
+  gap: ${SPACINGS.XS};
 `;
 
 export const ThemePanels = styled(Grid)`
@@ -80,46 +53,10 @@ export const ThemePanel = styled(Grid)`
   }
 `;
 
-export const RoleList = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
-  margin: ${SPACINGS.NONE};
-  padding: ${SPACINGS.NONE};
+export const RoleList = styled(Grid)`
+  gap: ${SPACINGS.XS};
 `;
 
-export const Role = styled(ListItem)`
-  ${captionText}
-  display: grid;
-  grid-template-columns: ${SIZES.XS} minmax(0, 1fr) auto;
-  align-items: center;
-  gap: ${SPACINGS.SM};
-  padding-block: ${SPACINGS.XXS};
-  border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
-  color: ${COLORS.TEXT_SECONDARY};
-
-  &::before {
-    width: ${SIZES.XS};
-    height: ${SIZES.XS};
-    border: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_STRONG};
-    border-radius: ${RADII.SM};
-    background: var(--swatch);
-    content: '';
-  }
-
-  strong {
-    overflow: hidden;
-    color: ${COLORS.TEXT_PRIMARY};
-    font-weight: ${FONT_WEIGHTS.REGULAR};
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  @media (max-width: ${BREAKPOINTS.MOBILE_LARGE}) {
-    > span {
-      display: none;
-    }
-  }
-`;
-
-/** A token table: name, value, and a drawing of the value. */
 export const Scale = styled(List).attrs({ marker: LIST_MARKERS.NONE })`
   margin: ${SPACINGS.NONE};
   padding: ${SPACINGS.NONE};

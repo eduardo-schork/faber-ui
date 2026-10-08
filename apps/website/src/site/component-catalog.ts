@@ -190,6 +190,28 @@ export const COMPONENT_CATALOG = [
       'A native option list with option and optgroup children. It keeps platform keyboard, touch, and screen-reader behavior.',
   },
   {
+    slug: 'listbox',
+    name: 'Listbox',
+    family: 'forms',
+    element: '<button role="combobox">',
+    ref: 'HTMLButtonElement',
+    entry: '@faber-ui/react/listbox',
+    storybookId: 'components-listbox',
+    summary:
+      'A custom select: a button that opens a styled list of options, with keyboard navigation, type-ahead, groups, and form submission.',
+  },
+  {
+    slug: 'radio-card',
+    name: 'RadioCard',
+    family: 'forms',
+    element: '<label> + <input type="radio">',
+    ref: 'HTMLInputElement',
+    entry: '@faber-ui/react/radio-card',
+    storybookId: 'components-radiocard',
+    summary:
+      'A native radio drawn as a selectable card, with a label, a description, and room for a visual.',
+  },
+  {
     slug: 'checkbox',
     name: 'Checkbox',
     family: 'forms',
@@ -386,6 +408,17 @@ export const COMPONENT_CATALOG = [
     storybookId: 'components-avatar',
     summary:
       'An identity image with a required fallback, shown when there is no source or the image fails to load.',
+  },
+  {
+    slug: 'color-swatch',
+    name: 'ColorSwatch',
+    family: 'display',
+    element: '<div>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/color-swatch',
+    storybookId: 'components-colorswatch',
+    summary:
+      'A color sample with its name and value, laid out as a row or as a tile. It accepts any CSS color, gradient, or variable.',
   },
   {
     slug: 'card',

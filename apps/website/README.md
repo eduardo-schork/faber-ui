@@ -72,17 +72,12 @@ The website is built from Faber UI components. When the site needs something the
 have, it is listed here to be developed in the library, and the local stand-in is replaced once it
 ships.
 
-| Missing in the library       | Where the site stands in for it today  |
-| ---------------------------- | -------------------------------------- |
-| Selectable card (radio card) | `MaterialButton` in the recast panel   |
-| ColorSwatch                  | `Swatch`, `MaterialSwatch`, and `Role` |
-| Display font sizes           | `clamp()` sizes on the hero and titles |
+No gaps are open. The selectable card, the color swatch, and the display font sizes the site
+used to stand in for are now `RadioCard`, `ColorSwatch`, and the `display-*` sizes of `Title`.
 
-The audit of 2026-10-06 found 104 raw styled elements. Box, Grid, List, DescriptionList, CodeBlock,
-Header, Footer, NavLink, SideNav, SkipLink, and the lead, caption, and overline text members were
-added to the library for it, and the site now has two: the `MaterialButton` above and a native
-`fieldset` that the Radio example shows on purpose. Syntax tokens inside code blocks and a few
-`strong` and `small` elements stay native because they inherit the text around them.
+The only raw styled element left is a native `fieldset` that the Radio example shows on purpose.
+Syntax tokens inside code blocks and a few `strong` and `small` elements stay native because they
+inherit the text around them.
 
 ## Publishing to GitHub Pages
 

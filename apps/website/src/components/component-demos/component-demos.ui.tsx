@@ -91,6 +91,13 @@ import {
   VFlex,
   VisuallyHidden,
   useToast,
+  COLOR_SWATCH_ORIENTATIONS,
+  ColorSwatch,
+  Listbox,
+  ListboxGroup,
+  ListboxOption,
+  ListboxSeparator,
+  RadioCard,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
 import { useEffect, useState, type ReactElement } from 'react';
@@ -716,6 +723,71 @@ function SelectDemo() {
         </optgroup>
       </Select>
     </Field>
+  );
+}
+
+function ListboxDemo() {
+  const [region, setRegion] = useState('fra');
+
+  return (
+    <Field label="Region" description={`Selected value: ${region}`}>
+      <Listbox name="listbox-region" value={region} onValueChange={setRegion}>
+        <ListboxGroup label="Europe">
+          <ListboxOption value="fra">Frankfurt</ListboxOption>
+          <ListboxOption value="dub">Dublin</ListboxOption>
+        </ListboxGroup>
+        <ListboxSeparator />
+        <ListboxGroup label="Americas">
+          <ListboxOption value="gru">São Paulo</ListboxOption>
+          <ListboxOption value="iad" disabled>
+            Washington, D.C.
+          </ListboxOption>
+        </ListboxGroup>
+      </Listbox>
+    </Field>
+  );
+}
+
+function RadioCardDemo() {
+  return (
+    <RadioGroup label="Plan">
+      <Grid columns={{ MOBILE: 1, MOBILE_LARGE: 2 }} gap="SM">
+        <RadioCard name="demo-plan" value="solo" label="Solo" description="One seat" />
+        <RadioCard
+          name="demo-plan"
+          value="team"
+          label="Team"
+          description="Up to 12 seats"
+          defaultChecked
+        />
+      </Grid>
+    </RadioGroup>
+  );
+}
+
+function ColorSwatchDemo() {
+  return (
+    <DemoStack>
+      <ColorSwatch color={COLORS.PRIMARY} label="PRIMARY" value="--faber-ui-color-primary" />
+      <ColorSwatch color={COLORS.ACCENT} label="ACCENT" value="--faber-ui-color-accent" />
+      <Grid columns={3} gap="SM">
+        <ColorSwatch
+          color={COLORS.PRIMARY}
+          label="Primary"
+          orientation={COLOR_SWATCH_ORIENTATIONS.VERTICAL}
+        />
+        <ColorSwatch
+          color={COLORS.PRIMARY_HOVER}
+          label="Hover"
+          orientation={COLOR_SWATCH_ORIENTATIONS.VERTICAL}
+        />
+        <ColorSwatch
+          color={COLORS.PRIMARY_ACTIVE}
+          label="Active"
+          orientation={COLOR_SWATCH_ORIENTATIONS.VERTICAL}
+        />
+      </Grid>
+    </DemoStack>
   );
 }
 
@@ -1492,6 +1564,38 @@ import NextLink from 'next/link';
     </optgroup>
   </Select>
 </Field>`,
+  },
+  listbox: {
+    Demo: ListboxDemo,
+    code: `import { Field, Listbox, ListboxGroup, ListboxOption } from '@faber-ui/react';
+
+<Field label="Region">
+  <Listbox name="region" value={region} onValueChange={setRegion}>
+    <ListboxGroup label="Europe">
+      <ListboxOption value="fra">Frankfurt</ListboxOption>
+      <ListboxOption value="dub">Dublin</ListboxOption>
+    </ListboxGroup>
+  </Listbox>
+</Field>`,
+  },
+  'radio-card': {
+    Demo: RadioCardDemo,
+    code: `import { Grid, RadioCard, RadioGroup } from '@faber-ui/react';
+
+<RadioGroup label="Plan">
+  <Grid columns={2} gap="SM">
+    <RadioCard name="plan" value="solo" label="Solo" description="One seat" />
+    <RadioCard name="plan" value="team" label="Team" description="Up to 12 seats" />
+  </Grid>
+</RadioGroup>`,
+  },
+  'color-swatch': {
+    Demo: ColorSwatchDemo,
+    code: `import { COLORS, ColorSwatch } from '@faber-ui/react';
+
+<ColorSwatch color={COLORS.PRIMARY} label="PRIMARY" value="--faber-ui-color-primary" />
+
+<ColorSwatch color={COLORS.PRIMARY} label="Primary" orientation="vertical" />`,
   },
   checkbox: {
     Demo: CheckboxDemo,

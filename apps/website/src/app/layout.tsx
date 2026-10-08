@@ -5,15 +5,39 @@ import type { PropsWithChildren } from 'react';
 
 import { SiteShell } from '@/components/site-shell/site-shell.ui';
 import { StyledComponentsRegistry } from '@/providers/styled-components-registry/styled-components-registry';
-import { PREFERENCE_ATTRIBUTES, STORAGE_KEYS } from '@/site/site.constants';
+import { PREFERENCE_ATTRIBUTES, SITE_LINKS, STORAGE_KEYS } from '@/site/site.constants';
+
+const SITE_DESCRIPTION =
+  'Faber UI is a strongly typed React design system built on native HTML elements, design tokens, and CSS variables.';
+
+// The card other sites show when a link to this one is shared. It needs an absolute address.
+const SOCIAL_CARD = {
+  url: `${SITE_LINKS.WEBSITE}/social-card.png`,
+  width: 1200,
+  height: 630,
+  alt: 'Faber UI — plain parts, properly made',
+};
 
 export const metadata: Metadata = {
   title: {
     default: 'Faber UI — plain parts, properly made',
     template: '%s · Faber UI',
   },
-  description:
-    'Faber UI is a strongly typed React design system built on native HTML elements, design tokens, and CSS variables.',
+  description: SITE_DESCRIPTION,
+  openGraph: {
+    type: 'website',
+    siteName: 'Faber UI',
+    title: 'Faber UI — plain parts, properly made',
+    description: SITE_DESCRIPTION,
+    url: SITE_LINKS.WEBSITE,
+    images: [SOCIAL_CARD],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Faber UI — plain parts, properly made',
+    description: SITE_DESCRIPTION,
+    images: [SOCIAL_CARD],
+  },
 };
 
 // Applies the stored theme and material to the document element before first paint. The theme
