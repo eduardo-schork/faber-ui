@@ -18,6 +18,8 @@ export const PALETTE = {
   NEUTRAL_900: 'hsl(200 15% 12%)',
   NEUTRAL_950: 'hsl(200 16% 8%)',
 
+  AMETHYST_50: 'hsl(263 80% 80%)',
+  AMETHYST_75: 'hsl(263 80% 74%)',
   AMETHYST_100: 'hsl(263 80% 68%)',
   AMETHYST_200: 'hsl(263 80% 61%)',
   AMETHYST_300: 'hsl(263 80% 55%)',

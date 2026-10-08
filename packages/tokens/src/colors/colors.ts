@@ -9,7 +9,7 @@ export const COLORS = {
   BACKGROUND_PRIMARY: cssVariable('--faber-ui-color-background-primary', PALETTE.NEUTRAL_50),
   SURFACE_PRIMARY: cssVariable('--faber-ui-color-surface-primary', PALETTE.WHITE),
   BORDER_DEFAULT: cssVariable('--faber-ui-color-border-default', PALETTE.NEUTRAL_200),
-  BORDER_STRONG: cssVariable('--faber-ui-color-border-strong', PALETTE.NEUTRAL_400),
+  BORDER_STRONG: cssVariable('--faber-ui-color-border-strong', PALETTE.NEUTRAL_500),
   DISABLED_BACKGROUND: cssVariable('--faber-ui-color-disabled-background', PALETTE.NEUTRAL_200),
   FOCUS_RING: cssVariable('--faber-ui-color-focus-ring', PALETTE.OBSIDIAN_400),
   ERROR: cssVariable('--faber-ui-color-error', PALETTE.RED_400),

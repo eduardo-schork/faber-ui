@@ -25,7 +25,9 @@ prefer semantic `COLORS`, because semantic tokens adapt automatically to the act
 scrim behind a modal.
 
 The default brand palette uses `AMETHYST_*` primitives for primary actions and `OBSIDIAN_*`
-primitives for accents. Both families run from a light `100` value to a dark `600` value. The
+primitives for accents. Both families run from a light `100` value to a dark `600` value;
+`AMETHYST_50` and `AMETHYST_75` are two lighter steps the dark theme uses for hover and pressed
+states, so dark text on a primary surface stays readable in every state. The
 semantic API keeps components independent from those primitive names. `NEUTRAL_*` is a separate
 gray-first Silver-to-Graphite scale for page backgrounds, surfaces, text, borders, and disabled
 states; brand hues do not tint structural surfaces.
