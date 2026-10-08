@@ -54,7 +54,7 @@
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "@eslint/js": "9.39.2",
-    "@swc/plugin-styled-components": "^12.15.0",
+    "@swc/plugin-styled-components": "^15.0.0",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^14.6.1",
