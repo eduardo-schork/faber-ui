@@ -69,6 +69,16 @@ export const SemanticAndVisualIndependence: TStory = {
   ),
 };
 
+export const Display: TStory = {
+  render: () => (
+    <div style={{ display: 'grid', gap: SPACINGS.LG }}>
+      <Title.H1 size={TYPOGRAPHY_SIZES.DISPLAY_LARGE}>Display large</Title.H1>
+      <Title.H1 size={TYPOGRAPHY_SIZES.DISPLAY_MEDIUM}>Display medium</Title.H1>
+      <Title.H2 size={TYPOGRAPHY_SIZES.DISPLAY_SMALL}>Display small</Title.H2>
+    </div>
+  ),
+};
+
 export const Truncated: TStory = {
   render: () => (
     <div style={{ width: 360 }}>

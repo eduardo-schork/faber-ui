@@ -19,7 +19,7 @@ export type {
 } from './colors';
 export { CONTAINER_SIZES } from './container-sizes';
 export type { TContainerSizeTokenName, TContainerSizeTokenValue } from './container-sizes';
-export { FONT_SIZE_SCALE, FONT_SIZES } from './font-sizes';
+export { FONT_SIZE_FLUID_RATES, FONT_SIZE_SCALE, FONT_SIZES } from './font-sizes';
 export type { TFontSizeScaleValue, TFontSizeTokenName, TFontSizeTokenValue } from './font-sizes';
 export { FONT_FAMILIES } from './font-families';
 export type { TFontFamilyTokenName, TFontFamilyTokenValue } from './font-families';

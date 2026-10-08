@@ -263,6 +263,7 @@ export {
   CONTAINER_SIZES,
   FOCUS_RINGS,
   FONT_FAMILIES,
+  FONT_SIZE_FLUID_RATES,
   FONT_SIZE_SCALE,
   FONT_SIZES,
   FONT_WEIGHT_SCALE,
@@ -376,3 +377,42 @@ export type { TSideNavGroupProps, TSideNavProps } from './components/side-nav';
 export type { TResponsiveValue } from './internal/create-responsive-styles';
 export { AlertDialog } from './components/alert-dialog';
 export type { TAlertDialogProps } from './components/alert-dialog';
+
+export { COLOR_SWATCH_ORIENTATIONS } from './components/color-swatch';
+export {
+  ColorSwatch,
+  ColorSwatchLabel,
+  ColorSwatchRoot,
+  ColorSwatchSample,
+  ColorSwatchValue,
+} from './components/color-swatch';
+export type { TColorSwatchOrientation, TColorSwatchProps } from './components/color-swatch';
+
+export {
+  RadioCard,
+  RadioCardContent,
+  RadioCardDescription,
+  RadioCardInput,
+  RadioCardLabel,
+  RadioCardRoot,
+} from './components/radio-card';
+export type { TRadioCardProps } from './components/radio-card';
+
+export {
+  Listbox,
+  ListboxContent,
+  ListboxGroup,
+  ListboxGroupLabel,
+  ListboxIcon,
+  ListboxOption,
+  ListboxOptionIndicator,
+  ListboxSeparator,
+  ListboxTrigger,
+  ListboxViewport,
+} from './components/listbox';
+export type {
+  TListboxGroupProps,
+  TListboxOptionProps,
+  TListboxProps,
+  TListboxSeparatorProps,
+} from './components/listbox';

@@ -226,6 +226,18 @@
       "types": "./dist/components/skip-link/index.d.ts",
       "import": "./dist/skip-link.js"
     },
+    "./color-swatch": {
+      "types": "./dist/components/color-swatch/index.d.ts",
+      "import": "./dist/color-swatch.js"
+    },
+    "./radio-card": {
+      "types": "./dist/components/radio-card/index.d.ts",
+      "import": "./dist/radio-card.js"
+    },
+    "./listbox": {
+      "types": "./dist/components/listbox/index.d.ts",
+      "import": "./dist/listbox.js"
+    },
     "./nav-link": {
       "types": "./dist/components/nav-link/index.d.ts",
       "import": "./dist/nav-link.js"
@@ -256,6 +268,7 @@
     "@faber-ui/tokens": "workspace:*",
     "@radix-ui/react-dropdown-menu": "^2.1.24",
     "@radix-ui/react-popover": "^1.1.23",
+    "@radix-ui/react-select": "^2.3.8",
     "@radix-ui/react-tooltip": "^1.2.16"
   },
   "peerDependencies": {

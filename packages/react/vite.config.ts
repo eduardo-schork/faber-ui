@@ -64,6 +64,13 @@ export default defineConfig({
           new URL('./src/components/code-block/index.ts', import.meta.url),
         ),
         'skip-link': fileURLToPath(new URL('./src/components/skip-link/index.ts', import.meta.url)),
+        'color-swatch': fileURLToPath(
+          new URL('./src/components/color-swatch/index.ts', import.meta.url),
+        ),
+        'radio-card': fileURLToPath(
+          new URL('./src/components/radio-card/index.ts', import.meta.url),
+        ),
+        listbox: fileURLToPath(new URL('./src/components/listbox/index.ts', import.meta.url)),
         'nav-link': fileURLToPath(new URL('./src/components/nav-link/index.ts', import.meta.url)),
         header: fileURLToPath(new URL('./src/components/header/index.ts', import.meta.url)),
         footer: fileURLToPath(new URL('./src/components/footer/index.ts', import.meta.url)),

@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Components/RadioCard" />
+
+# RadioCard
+
+[Interactive stories and prop reference](?path=/docs/molecules-radiocard--docs)
+
+## Purpose and when to use it
+
+Use `RadioCard` for a small set of exclusive choices that deserve more room than a radio and a
+label: plans, layouts, themes. Use `Radio` for plain lists and `SegmentedControl` for compact
+toggles.
+
+## Behavioral contract
+
+- Renders a `label` that wraps a native `input type="radio"`. The ref and native input props go
+  to the input, so `checked`, `defaultChecked`, `onChange`, and form libraries work as with
+  `Radio`.
+- `label` is required; `description` adds supporting text, and `media` places a visual, such as
+  an icon or a `ColorSwatch`, before the text.
+- The whole card is the click target. The selected card takes the primary color on its border.
+- Cards that share a `name` form one group. Lay them out with `Grid` or `Flex`.
+
+## Accessibility
+
+Put the cards inside `RadioGroup` so the set has a name. The label and the description are both
+part of the accessible name of the radio. Arrow keys move the selection within the group, as with
+any native radio.
+
+## Customization
+
+Target `faber-ui-radio-card`, `faber-ui-radio-card-input`, `faber-ui-radio-card-content`,
+`faber-ui-radio-card-label`, and `faber-ui-radio-card-description`. The parts are exported
+(`RadioCardRoot`, `RadioCardInput`, `RadioCardContent`, `RadioCardLabel`, `RadioCardDescription`)
+to assemble a different card around the same native radio.
+
+## Example
+
+```tsx
+import { Grid, RadioCard, RadioGroup } from '@faber-ui/react';
+
+<RadioGroup label="Plan">
+  <Grid columns={2} gap="SM">
+    <RadioCard name="plan" value="solo" label="Solo" description="One seat" />
+    <RadioCard name="plan" value="team" label="Team" description="Up to 12 seats" defaultChecked />
+  </Grid>
+</RadioGroup>;
+```
+
+## Boundaries
+
+`RadioCard` has no error message of its own; `RadioGroup` shows the error for the set. The
+selected state relies on the CSS `:has()` selector, which every current browser supports.
