@@ -17,7 +17,7 @@ npm install @faber-ui/tokens
 ```ts
 import { COLORS, SPACINGS, SPACING_SCALE } from '@faber-ui/tokens';
 
-COLORS.PRIMARY; // 'var(--faber-ui-color-primary, hsl(147 57% 33%))'
+COLORS.PRIMARY; // 'var(--faber-ui-color-primary, hsl(270 50% 38%))'
 SPACINGS.MD; // 'var(--faber-ui-spacing-md, 16px)'
 SPACING_SCALE.MD; // '16px', for code that needs the raw value
 ```

@@ -19,8 +19,8 @@ export const Playground: TStory = {
     'aria-label': 'Material',
     children: (
       <>
-        <option value="malachite">Malachite</option>
-        <option value="copper">Copper</option>
+        <option value="amethyst">Amethyst</option>
+        <option value="obsidian">Obsidian</option>
         <option value="graphite">Graphite</option>
       </>
     ),
@@ -31,9 +31,9 @@ export const WithField: TStory = {
   render: () => (
     <div style={{ width: '320px', maxWidth: `calc(100vw - ${SPACINGS.XL})` }}>
       <Field label="Material" description="Choose the primary material.">
-        <Select defaultValue="malachite">
-          <option value="malachite">Malachite</option>
-          <option value="copper">Copper</option>
+        <Select defaultValue="amethyst">
+          <option value="amethyst">Amethyst</option>
+          <option value="obsidian">Obsidian</option>
         </Select>
       </Field>
     </div>
