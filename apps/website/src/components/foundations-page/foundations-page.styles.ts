@@ -197,13 +197,6 @@ export const Square = styled(Box).attrs({ forwardedAs: 'span' })`
   background: color-mix(in srgb, ${COLORS.PRIMARY} 14%, transparent);
 `;
 
-export const Stroke = styled(Box).attrs({ forwardedAs: 'span' })`
-  flex: 1;
-  max-width: calc(${SIZES.XXL} * 3);
-  height: var(--length);
-  background: ${COLORS.TEXT_PRIMARY};
-`;
-
 export const TypeSpecimen = styled(Text.Span)`
   overflow: hidden;
   color: ${COLORS.TEXT_PRIMARY};

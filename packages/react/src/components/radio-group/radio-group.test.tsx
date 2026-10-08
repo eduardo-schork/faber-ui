@@ -13,7 +13,7 @@ describe('RadioGroup', () => {
     const ref = createRef<HTMLFieldSetElement>();
     const { getByRole } = render(
       <RadioGroup ref={ref} label="Material">
-        <Radio label="Copper" name="material" value="copper" />
+        <Radio label="Obsidian" name="material" value="obsidian" />
         <Radio label="Steel" name="material" value="steel" />
       </RadioGroup>,
     );
@@ -21,13 +21,13 @@ describe('RadioGroup', () => {
 
     expect(group.tagName).toBe('FIELDSET');
     expect(ref.current).toBe(group);
-    expect(getByRole('radio', { name: 'Copper' }).getAttribute('name')).toBe('material');
+    expect(getByRole('radio', { name: 'Obsidian' }).getAttribute('name')).toBe('material');
   });
 
   it('SHOULD connect group description and validation error', () => {
     const { getByRole, getByText } = render(
       <RadioGroup label="Material" description="Choose one." error="A material is required.">
-        <Radio label="Copper" name="material" value="copper" />
+        <Radio label="Obsidian" name="material" value="obsidian" />
       </RadioGroup>,
     );
     const group = getByRole('group', { name: 'Material' });

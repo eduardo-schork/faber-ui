@@ -7,7 +7,6 @@ import {
   FONT_SIZES,
   FONT_WEIGHTS,
   Footer,
-  Grid,
   HFlex,
   Header,
   LINE_HEIGHTS,
@@ -16,8 +15,6 @@ import {
   RADII,
   SIZES,
   SPACINGS,
-  TYPOGRAPHY_SIZES,
-  TYPOGRAPHY_TONES,
   Text,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
@@ -62,26 +59,6 @@ export const Brand = styled(DsNavLink).attrs({ forwardedAs: NextLink })`
   font-weight: ${FONT_WEIGHTS.BOLD};
   letter-spacing: -0.02em;
   line-height: ${LINE_HEIGHTS.NONE};
-`;
-
-/** A malachite block with a copper rivet. */
-export const BrandMark = styled(Box).attrs({ forwardedAs: 'span' })`
-  position: relative;
-  width: ${SIZES.XS};
-  height: ${SIZES.XS};
-  border-radius: ${RADII.SM};
-  background: ${COLORS.PRIMARY};
-
-  &::after {
-    position: absolute;
-    right: ${SPACINGS.XXS};
-    bottom: ${SPACINGS.XXS};
-    width: ${SPACINGS.XS};
-    height: ${SPACINGS.XS};
-    border-radius: ${RADII.FULL};
-    background: ${COLORS.ACCENT};
-    content: '';
-  }
 `;
 
 export const BrandVersion = styled(Text.Caption)`
@@ -159,42 +136,15 @@ export const SiteFooter = styled(Footer)`
   border-top-color: ${COLORS.BORDER_STRONG};
 `;
 
-export const FooterGrid = styled(Grid)`
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
-  gap: ${SPACINGS.XL};
-  padding-block: ${SPACINGS.XXL};
-
-  @media (max-width: ${BREAKPOINTS.TABLET}) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
+export const FooterRow = styled(HFlex)`
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: ${SPACINGS.SM} ${SPACINGS.XL};
+  padding-block: ${SPACINGS.LG};
 `;
 
-export const FooterAbout = styled(Grid)`
-  align-content: start;
-  justify-items: start;
-  gap: ${SPACINGS.SM};
-  max-width: 44ch;
-  color: ${COLORS.TEXT_SECONDARY};
-
-  @media (max-width: ${BREAKPOINTS.TABLET}) {
-    grid-column: 1 / -1;
-  }
-`;
-
-export const FooterColumn = styled(Grid).attrs({ forwardedAs: 'nav' })`
-  align-content: start;
-  justify-items: start;
-  gap: ${SPACINGS.XS};
-`;
-
-export const FooterHeading = styled(Text.Overline)`
-  margin-bottom: ${SPACINGS.XXS};
-`;
-
-export const FooterColophon = styled(Text.P).attrs({
-  size: TYPOGRAPHY_SIZES.SMALLEST,
-  tone: TYPOGRAPHY_TONES.SECONDARY,
-})`
-  padding-block: ${SPACINGS.MD};
-  border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
+export const FooterLinks = styled(HFlex).attrs({ forwardedAs: 'nav' })`
+  flex-wrap: wrap;
+  gap: ${SPACINGS.XS} ${SPACINGS.LG};
 `;

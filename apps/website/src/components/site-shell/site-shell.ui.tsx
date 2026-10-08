@@ -17,19 +17,16 @@ import { usePathname } from 'next/navigation';
 import type { PropsWithChildren, ReactElement } from 'react';
 
 import { ArrowUpRightIcon, MonitorIcon, MoonIcon, SunIcon } from '@faber-ui/icons';
-import { ExternalLink, PageWidth, TextLink } from '@/components/sheet/sheet.styles';
+import { BrandLogo } from '@/components/brand-logo/brand-logo.ui';
+import { ExternalLink, PageWidth } from '@/components/sheet/sheet.styles';
 import { useSitePreferences } from '@/hooks/use-site-preferences';
 import { DOC_PAGES, PACKAGE_VERSION, SITE_LINKS } from '@/site/site.constants';
 
 import {
   Brand,
-  BrandMark,
   BrandVersion,
-  FooterAbout,
-  FooterColophon,
-  FooterColumn,
-  FooterGrid,
-  FooterHeading,
+  FooterLinks,
+  FooterRow,
   HeaderActions,
   HeaderExternalLink,
   HeaderNav,
@@ -72,7 +69,7 @@ export function SiteShell({ children }: PropsWithChildren) {
         <PageWidth>
           <HeaderRow>
             <Brand href="/" aria-label="Faber UI home">
-              <BrandMark aria-hidden="true" />
+              <BrandLogo />
               Faber UI
               <BrandVersion aria-hidden="true">{PACKAGE_VERSION}</BrandVersion>
             </Brand>
@@ -117,29 +114,11 @@ export function SiteShell({ children }: PropsWithChildren) {
 
       <SiteFooter>
         <PageWidth>
-          <FooterGrid>
-            <FooterAbout>
-              <Brand href="/" aria-label="Faber UI home">
-                <BrandMark aria-hidden="true" />
-                Faber UI
-              </Brand>
-              <Text.P size={TYPOGRAPHY_SIZES.SMALLER} tone={TYPOGRAPHY_TONES.SECONDARY}>
-                A design system for React, built on native elements, typed tokens, and CSS
-                variables. MIT licensed. Version {PACKAGE_VERSION}, on npm as @faber-ui/react.
-              </Text.P>
-            </FooterAbout>
-
-            <FooterColumn aria-label="Documentation">
-              <FooterHeading>Documentation</FooterHeading>
-              {DOC_PAGES.map(({ href, label }) => (
-                <TextLink key={href} href={href} size={TYPOGRAPHY_SIZES.SMALLER}>
-                  {label}
-                </TextLink>
-              ))}
-            </FooterColumn>
-
-            <FooterColumn aria-label="Elsewhere">
-              <FooterHeading>Elsewhere</FooterHeading>
+          <FooterRow>
+            <Text.P size={TYPOGRAPHY_SIZES.SMALLER} tone={TYPOGRAPHY_TONES.SECONDARY}>
+              Faber UI {PACKAGE_VERSION}. MIT licensed, and built with the components it documents.
+            </Text.P>
+            <FooterLinks aria-label="Elsewhere">
               <ExternalLink size={TYPOGRAPHY_SIZES.SMALLER} href={SITE_LINKS.STORYBOOK}>
                 Storybook
                 <ArrowUpRightIcon />
@@ -148,20 +127,12 @@ export function SiteShell({ children }: PropsWithChildren) {
                 GitHub
                 <ArrowUpRightIcon />
               </ExternalLink>
-              <ExternalLink
-                size={TYPOGRAPHY_SIZES.SMALLER}
-                href={`${SITE_LINKS.REPOSITORY}/blob/master/LICENSE`}
-              >
-                MIT License
+              <ExternalLink size={TYPOGRAPHY_SIZES.SMALLER} href={SITE_LINKS.NPM}>
+                npm
                 <ArrowUpRightIcon />
               </ExternalLink>
-            </FooterColumn>
-          </FooterGrid>
-
-          <FooterColophon>
-            Set in Plus Jakarta Sans, served from the package. This site is built with the
-            components it documents.
-          </FooterColophon>
+            </FooterLinks>
+          </FooterRow>
         </PageWidth>
       </SiteFooter>
     </ToastProvider>

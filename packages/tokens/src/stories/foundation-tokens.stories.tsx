@@ -114,7 +114,7 @@ export const SpacingScale: TStory = {
               width: value,
               minWidth: value === SPACING_SCALE.NONE ? BORDER_WIDTHS.DEFAULT : value,
               height: SIZES.XS,
-              background: PALETTE.MALACHITE_400,
+              background: PALETTE.AMETHYST_400,
             }}
           />
           <span>{value}</span>
@@ -134,7 +134,7 @@ export const RadiusScale: TStory = {
               width: SIZES.XL,
               height: SIZES.XL,
               borderRadius: value,
-              background: PALETTE.COPPER_400,
+              background: PALETTE.OBSIDIAN_400,
             }}
           />
           <code>{name}</code>
@@ -151,7 +151,7 @@ export const BorderWidthScale: TStory = {
       {Object.entries(BORDER_WIDTH_SCALE).map(([name, value]) => (
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
-          <div style={{ width: 160, borderTop: `${value} solid ${PALETTE.MALACHITE_400}` }} />
+          <div style={{ width: 160, borderTop: `${value} solid ${PALETTE.AMETHYST_400}` }} />
           <span>{value}</span>
         </div>
       ))}
@@ -170,7 +170,7 @@ export const SizeScale: TStory = {
               height: value,
               margin: `${SPACINGS.NONE} auto`,
               borderRadius: RADII.SM,
-              background: PALETTE.MALACHITE_100,
+              background: PALETTE.AMETHYST_100,
             }}
           />
           <code>{name}</code>

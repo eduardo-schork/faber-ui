@@ -4,6 +4,7 @@ import {
   COLORS,
   Card,
   FONT_SIZES,
+  FONT_WEIGHTS,
   Grid,
   List,
   NavLink,
@@ -11,13 +12,13 @@ import {
   SIZES,
   SPACINGS,
   SideNav,
-  SideNavGroup,
+  Table,
   Title,
 } from '@faber-ui/react';
 import NextLink from 'next/link';
 import styled from 'styled-components';
 
-import { SITE_HEADER_HEIGHT } from '@/components/sheet/sheet.styles';
+import { captionText, SITE_HEADER_HEIGHT } from '@/components/sheet/sheet.styles';
 
 export const DocsFrame = styled(Grid).attrs({ forwardedAs: 'main' })`
   grid-template-columns: minmax(0, calc(${SIZES.XXL} * 2.5)) minmax(0, 1fr);
@@ -40,25 +41,7 @@ export const DocsSidebar = styled(SideNav)`
   overflow-y: auto;
 
   @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    position: static;
-    max-height: none;
-
-    [data-group='on-this-page'] {
-      display: none;
-    }
-  }
-`;
-
-export const SidebarGroup = styled(SideNavGroup)`
-  @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    flex-flow: row wrap;
-    align-items: center;
-    gap: ${SPACINGS.XXS} ${SPACINGS.MD};
-
-    .faber-ui-side-nav-label {
-      width: 100%;
-      padding-inline: ${SPACINGS.NONE};
-    }
+    display: none;
   }
 `;
 
@@ -71,22 +54,6 @@ export const SidebarLink = styled(NavLink).attrs({ forwardedAs: NextLink })`
 
   &[data-depth='1'] {
     padding-inline-start: ${SPACINGS.LG};
-  }
-
-  &[aria-current='page'] {
-    border-inline-start-color: ${COLORS.ACCENT};
-    background-color: transparent;
-  }
-
-  @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    padding-inline-start: ${SPACINGS.NONE};
-    border-inline-start: ${BORDER_WIDTHS.NONE};
-
-    &[aria-current='page'] {
-      text-decoration: underline;
-      text-decoration-color: ${COLORS.ACCENT};
-      text-underline-offset: ${SPACINGS.XXS};
-    }
   }
 `;
 
@@ -165,5 +132,48 @@ export const DocsList = styled(List)`
 
   li::marker {
     color: ${COLORS.ACCENT};
+  }
+`;
+
+/** A reference table whose last column holds code. */
+export const LayerTable = styled(Table)`
+  thead th {
+    ${captionText}
+    border-bottom-color: ${COLORS.BORDER_STRONG};
+    color: ${COLORS.TEXT_SECONDARY};
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  tbody th {
+    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
+  }
+
+  td {
+    color: ${COLORS.TEXT_SECONDARY};
+  }
+
+  td:last-child {
+    ${captionText}
+    color: ${COLORS.TEXT_PRIMARY};
+  }
+
+  @media (max-width: ${BREAKPOINTS.TABLET}) {
+    thead {
+      display: none;
+    }
+
+    tr {
+      display: grid;
+      gap: ${SPACINGS.XXS};
+      padding-block: ${SPACINGS.SM};
+      border-bottom: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
+    }
+
+    th,
+    td {
+      padding: ${SPACINGS.NONE};
+      border-bottom: ${BORDER_WIDTHS.NONE};
+    }
   }
 `;

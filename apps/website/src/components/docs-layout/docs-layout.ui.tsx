@@ -1,10 +1,9 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { SideNavGroup } from '@faber-ui/react';
 import type { PropsWithChildren } from 'react';
 
 import { Lead, Caption, PageWidth } from '@/components/sheet/sheet.styles';
-import { DOC_PAGES } from '@/site/site.constants';
 
 import {
   DocsArticle,
@@ -12,7 +11,6 @@ import {
   DocsHeader,
   DocsSidebar,
   DocsTitle,
-  SidebarGroup,
   SidebarLink,
 } from './docs-layout.styles';
 
@@ -33,21 +31,11 @@ type TDocsLayoutProps = PropsWithChildren<{
 }>;
 
 export function DocsLayout({ children, kicker, lead, sections, title }: TDocsLayoutProps) {
-  const pathname = usePathname();
-
   return (
     <PageWidth>
       <DocsFrame>
-        <DocsSidebar aria-label="Documentation">
-          <SidebarGroup label="Documentation">
-            {DOC_PAGES.map(({ href, label }) => (
-              <SidebarLink key={href} href={href} current={pathname === href}>
-                {label}
-              </SidebarLink>
-            ))}
-          </SidebarGroup>
-
-          <SidebarGroup label="On this page" data-group="on-this-page">
+        <DocsSidebar aria-label="On this page">
+          <SideNavGroup label="On this page">
             {sections.flatMap(({ id, items = [], label }) => [
               <SidebarLink key={id} href={`#${id}`}>
                 {label}
@@ -58,7 +46,7 @@ export function DocsLayout({ children, kicker, lead, sections, title }: TDocsLay
                 </SidebarLink>
               )),
             ])}
-          </SidebarGroup>
+          </SideNavGroup>
         </DocsSidebar>
 
         <DocsArticle>

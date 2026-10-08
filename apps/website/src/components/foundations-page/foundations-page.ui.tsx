@@ -1,10 +1,8 @@
 'use client';
 
 import {
-  ANIMATIONS,
   BORDER_WIDTH_SCALE,
   BREAKPOINTS,
-  CONTAINER_SIZES,
   DARK_THEME,
   FOCUS_RINGS,
   FONT_SIZES,
@@ -12,23 +10,19 @@ import {
   FONT_WEIGHT_SCALE,
   Field,
   Input,
-  LETTER_SPACING_SCALE,
   LIGHT_THEME,
-  LINE_HEIGHT_SCALE,
-  OPACITIES,
   PALETTE,
   RADIUS_SCALE,
-  SIZES,
   SIZE_SCALE,
   SPACING_SCALE,
   THEME_MODES,
   THEME_VARIABLE_NAMES,
   Text,
   ThemeProvider,
-  Z_INDICES,
   type TTheme,
   type TThemeTokenName,
 } from '@faber-ui/react';
+import { ArrowUpRightIcon } from '@faber-ui/icons';
 import { useSyncExternalStore } from 'react';
 
 import { CodeBlock } from '@/components/code-block/code-block.ui';
@@ -38,7 +32,8 @@ import {
   DocsSubsection,
 } from '@/components/docs-layout/docs-layout.styles';
 import { DocsLayout, type TDocsSectionLink } from '@/components/docs-layout/docs-layout.ui';
-import { Caption, Prose, Run } from '@/components/sheet/sheet.styles';
+import { Caption, ExternalLink, Prose, Run } from '@/components/sheet/sheet.styles';
+import { getStorybookDocsUrl } from '@/site/site.constants';
 
 import {
   Bar,
@@ -50,7 +45,6 @@ import {
   ScaleRow,
   ScaleVisual,
   Square,
-  Stroke,
   Swatch,
   SwatchFamily,
   SwatchStrip,
@@ -66,13 +60,13 @@ const SECTIONS: readonly TDocsSectionLink[] = [
   { id: 'typography', label: 'Typography' },
   { id: 'space', label: 'Space and size' },
   { id: 'shape', label: 'Shape' },
-  { id: 'layout', label: 'Layout' },
-  { id: 'motion', label: 'Motion and opacity' },
+  { id: 'layout', label: 'Breakpoints' },
+  { id: 'more', label: 'The rest' },
 ];
 
 const PALETTE_FAMILIES = [
-  { name: 'Malachite', prefix: 'MALACHITE_', role: 'primary' },
-  { name: 'Hot Copper', prefix: 'COPPER_', role: 'accent' },
+  { name: 'Amethyst', prefix: 'AMETHYST_', role: 'primary' },
+  { name: 'Obsidian', prefix: 'OBSIDIAN_', role: 'accent' },
   { name: 'Silver to Graphite', prefix: 'NEUTRAL_', role: 'structure' },
   { name: 'Red', prefix: 'RED_', role: 'error' },
 ] as const;
@@ -91,10 +85,10 @@ const PALETTE_ENTRIES = toEntries(PALETTE);
 const SPECIMEN_TEXT = 'Plain parts, properly made.';
 
 const ARCHITECTURE_CODE = `// 1. A primitive: a color with a name and no opinion.
-PALETTE.MALACHITE_400; // 'hsl(147 57% 33%)'
+PALETTE.AMETHYST_400; // 'hsl(270 50% 38%)'
 
 // 2. A semantic role: what the color is for. This is a CSS variable.
-COLORS.PRIMARY; // 'var(--faber-ui-color-primary, hsl(147 57% 33%))'
+COLORS.PRIMARY; // 'var(--faber-ui-color-primary, hsl(270 50% 38%))'
 
 // 3. Components only ever read roles.
 const Card = styled.section\`
@@ -145,7 +139,7 @@ export function FoundationsPage() {
     <DocsLayout
       kicker="Foundations"
       title="The token tables."
-      lead="Nineteen typed objects hold every visual decision in the library. This page is drawn directly from them, so what you see is what the package exports."
+      lead="Typed token objects hold every visual decision in the library. This page is drawn directly from the ones you reach for most, so what you see is what the package exports."
       sections={SECTIONS}
     >
       <DocsSection id="color" aria-labelledby="color-title">
@@ -182,13 +176,9 @@ export function FoundationsPage() {
         <DocsSubsection>
           <Caption data-emphasis="ink">Semantic roles, per theme</Caption>
           <Prose>
-            <Text.Code>OVERLAY</Text.Code> is the scrim behind a modal. It is a translucent dark in
-            both themes, and deeper in the dark one, so the page behind a dialog always recedes.
-          </Prose>
-          <Prose>
             Both panels are the same markup under two <Text.Code>ThemeProvider</Text.Code> subtrees.
             Each swatch reads its CSS variable; the value on the right is what the theme object
-            assigns to it.
+            assigns to it. <Text.Code>OVERLAY</Text.Code> is the scrim behind a modal.
           </Prose>
           <ThemePanels>
             {SCHEMES.map(({ mode, name, theme }) => (
@@ -245,34 +235,6 @@ export function FoundationsPage() {
             ))}
           </Scale>
         </DocsSubsection>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">LINE_HEIGHTS</Caption>
-          <Scale>
-            {toEntries(LINE_HEIGHT_SCALE).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <TokenName name={name} prefix="line-height" />
-                {value}
-                <Run>× the font size</Run>
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">LETTER_SPACINGS</Caption>
-          <Scale>
-            {toEntries(LETTER_SPACING_SCALE).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <TokenName name={name} prefix="letter-spacing" />
-                {value}
-                <TypeSpecimen style={{ letterSpacing: value }}>
-                  Plain parts, properly made.
-                </TypeSpecimen>
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
       </DocsSection>
 
       <DocsSection id="space" aria-labelledby="space-title">
@@ -285,9 +247,7 @@ export function FoundationsPage() {
         <Prose>
           Every value below is also a CSS custom property. Components read{' '}
           <Text.Code>var(--faber-ui-spacing-md, 16px)</Text.Code>, so setting the property on{' '}
-          <Text.Code>:root</Text.Code> or on any element retunes everything inside it. The raw
-          values are exported as <Text.Code>SPACING_SCALE</Text.Code>,{' '}
-          <Text.Code>SIZE_SCALE</Text.Code>, and so on for use in JavaScript.
+          <Text.Code>:root</Text.Code> or on any element retunes everything inside it.
         </Prose>
 
         <DocsSubsection>
@@ -340,21 +300,6 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
-          <Caption data-emphasis="ink">BORDER_WIDTHS</Caption>
-          <Scale>
-            {toEntries(BORDER_WIDTH_SCALE).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <TokenName name={name} prefix="border-width" />
-                {value}
-                <ScaleVisual>
-                  <Stroke style={{ '--length': value }} />
-                </ScaleVisual>
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
-
-        <DocsSubsection>
           <Caption data-emphasis="ink">FOCUS_RINGS</Caption>
           <Prose>
             One ring for every interactive component: {BORDER_WIDTH_SCALE.STRONG} wide, offset by{' '}
@@ -378,7 +323,7 @@ export function FoundationsPage() {
       </DocsSection>
 
       <DocsSection id="layout" aria-labelledby="layout-title">
-        <DocsSectionTitle id="layout-title">Layout</DocsSectionTitle>
+        <DocsSectionTitle id="layout-title">Breakpoints</DocsSectionTitle>
         <Prose>
           Breakpoints are mobile-first minimum widths. They are the keys of every responsive prop on{' '}
           <Text.Code>Flex</Text.Code>, and they compile to CSS media queries; no component reads the
@@ -406,73 +351,19 @@ export function FoundationsPage() {
             ))}
           </Scale>
         </DocsSubsection>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">CONTAINER_SIZES</Caption>
-          <Scale>
-            {toEntries(CONTAINER_SIZES).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <strong>{name}</strong>
-                {value}
-                <ScaleVisual>
-                  <Bar
-                    style={{
-                      '--length': `${String((Number.parseFloat(value) / Number.parseFloat(BREAKPOINTS.DESKTOP_WIDE)) * 100)}%`,
-                    }}
-                  />
-                </ScaleVisual>
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">Z_INDICES</Caption>
-          <Scale>
-            {toEntries(Z_INDICES).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <strong>{name}</strong>
-                {value}
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
       </DocsSection>
 
-      <DocsSection id="motion" aria-labelledby="motion-title">
-        <DocsSectionTitle id="motion-title">Motion and opacity</DocsSectionTitle>
+      <DocsSection id="more" aria-labelledby="more-title">
+        <DocsSectionTitle id="more-title">The rest</DocsSectionTitle>
         <Prose>
-          Motion is deliberately small: one fast duration for state changes, one for the spinner,
-          one for the skeleton pulse. Every animated component switches it off under{' '}
-          <Text.Code>prefers-reduced-motion</Text.Code>.
+          Line heights, letter spacing, border widths, container sizes, layers, motion, and opacity
+          are tokens too. The{' '}
+          <ExternalLink href={getStorybookDocsUrl('foundations-design-tokens')}>
+            design tokens guide in Storybook
+            <ArrowUpRightIcon />
+          </ExternalLink>{' '}
+          lists every table.
         </Prose>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">ANIMATIONS</Caption>
-          <Scale>
-            {toEntries(ANIMATIONS).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <strong>{name}</strong>
-                {value}
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
-
-        <DocsSubsection>
-          <Caption data-emphasis="ink">OPACITIES</Caption>
-          <Scale>
-            {toEntries(OPACITIES).map(([name, value]) => (
-              <ScaleRow key={name}>
-                <strong>{name}</strong>
-                {value}
-                <ScaleVisual>
-                  <Bar style={{ '--length': SIZES.XXL, opacity: value }} />
-                </ScaleVisual>
-              </ScaleRow>
-            ))}
-          </Scale>
-        </DocsSubsection>
       </DocsSection>
     </DocsLayout>
   );

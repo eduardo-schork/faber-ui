@@ -5,13 +5,13 @@ import { PALETTE } from './palette';
 
 describe('brand color tokens', () => {
   it('SHOULD store explicit HSL values in the primitive palette', () => {
-    expect(PALETTE.MALACHITE_400).toBe('hsl(147 57% 33%)');
-    expect(PALETTE.COPPER_400).toBe('hsl(11 70% 48%)');
+    expect(PALETTE.AMETHYST_400).toBe('hsl(270 50% 38%)');
+    expect(PALETTE.OBSIDIAN_400).toBe('hsl(240 12% 20%)');
   });
 
   it('SHOULD map semantic tokens to overridable CSS variables', () => {
-    expect(COLORS.PRIMARY).toBe('var(--faber-ui-color-primary, hsl(147 57% 33%))');
-    expect(COLORS.ACCENT).toBe('var(--faber-ui-color-accent, hsl(11 70% 48%))');
+    expect(COLORS.PRIMARY).toBe('var(--faber-ui-color-primary, hsl(270 50% 38%))');
+    expect(COLORS.ACCENT).toBe('var(--faber-ui-color-accent, hsl(240 12% 20%))');
     expect(COLORS.ERROR).toBe('var(--faber-ui-color-error, hsl(4 75% 42%))');
   });
 

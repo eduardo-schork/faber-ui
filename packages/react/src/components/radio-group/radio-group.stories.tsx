@@ -19,8 +19,8 @@ export const Playground: TStory = {
     description: 'Choose the material used for this object.',
     children: (
       <>
-        <Radio label="Malachite" name="material" value="malachite" />
-        <Radio label="Copper" name="material" value="copper" />
+        <Radio label="Amethyst" name="material" value="amethyst" />
+        <Radio label="Obsidian" name="material" value="obsidian" />
         <Radio label="Graphite" name="material" value="graphite" />
       </>
     ),

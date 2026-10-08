@@ -1,9 +1,9 @@
 import {
-  Alert,
   BORDER_WIDTHS,
   BREAKPOINTS,
   Box,
   COLORS,
+  DescriptionDetails,
   DescriptionList,
   FONT_SIZES,
   FONT_WEIGHTS,
@@ -15,7 +15,6 @@ import {
   ListItem,
   SIZES,
   SPACINGS,
-  Table,
   Title,
 } from '@faber-ui/react';
 import Link from 'next/link';
@@ -128,46 +127,44 @@ export const LedgerClaim = styled(Grid)`
   gap: ${SPACINGS.XS};
 `;
 
-export const PartsTable = styled(Table)`
-  thead th {
+export const FamilyIndex = styled(DescriptionList)`
+  display: grid;
+  margin: ${SPACINGS.NONE};
+  border-bottom: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
+
+  > div {
+    display: grid;
+    grid-template-columns: calc(${SIZES.XXL} * 2) minmax(0, 1fr);
+    align-items: baseline;
+    gap: ${SPACINGS.XS} ${SPACINGS.XL};
+    padding-block: ${SPACINGS.MD};
+    border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
+  }
+
+  dt {
     ${captionText}
-    border-bottom-color: ${COLORS.BORDER_STRONG};
     color: ${COLORS.TEXT_SECONDARY};
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
-  tbody th {
-    font-size: ${FONT_SIZES.MD};
-    font-weight: ${FONT_WEIGHTS.SEMIBOLD};
-    white-space: nowrap;
-  }
-
-  td {
-    ${captionText}
-    color: ${COLORS.TEXT_SECONDARY};
-  }
-
-  td:first-child {
-    width: ${SIZES.LG};
-  }
-
-  @media (hover: hover) {
-    tbody tr:hover td:first-child {
-      color: ${COLORS.ACCENT};
-    }
-  }
-
   @media (max-width: ${BREAKPOINTS.TABLET}) {
-    [data-column='ref'],
-    [data-column='family'] {
-      display: none;
+    > div {
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 `;
 
+export const FamilyParts = styled(DescriptionDetails)`
+  display: flex;
+  flex-wrap: wrap;
+  gap: ${SPACINGS.XS} ${SPACINGS.LG};
+  margin: ${SPACINGS.NONE};
+`;
+
 export const PartLink = styled(Link)`
   color: ${COLORS.TEXT_PRIMARY};
+  font-weight: ${FONT_WEIGHTS.MEDIUM};
   text-decoration: none;
 
   @media (hover: hover) {
@@ -179,41 +176,4 @@ export const PartLink = styled(Link)`
   }
 
   ${focusRing}
-`;
-
-export const StartGrid = styled(Grid)`
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  align-items: start;
-  gap: ${SPACINGS.XXL};
-
-  @media (max-width: ${BREAKPOINTS.DESKTOP}) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-`;
-
-export const Steps = styled(List).attrs({ ordered: true, marker: LIST_MARKERS.NONE })`
-  gap: ${SPACINGS.XL};
-  margin: ${SPACINGS.NONE};
-  padding: ${SPACINGS.NONE};
-`;
-
-export const Step = styled(ListItem)`
-  display: grid;
-  gap: ${SPACINGS.SM};
-  min-width: ${SPACINGS.NONE};
-`;
-
-export const StatusNote = styled(Alert)`
-  [data-alert-body] {
-    display: grid;
-    gap: ${SPACINGS.SM};
-  }
-
-  ul {
-    display: grid;
-    gap: ${SPACINGS.XS};
-    margin: ${SPACINGS.NONE};
-    padding: ${SPACINGS.NONE};
-    list-style: none;
-  }
 `;

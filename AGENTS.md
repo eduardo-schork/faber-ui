@@ -29,6 +29,8 @@ guides or typed source.
   "Design-system gaps" in `apps/website/README.md` instead of leaving an unrecorded local stand-in.
 - Document contract changes in the component guide, stories, and relevant tests in the same change.
 - Do not make commits unless the user explicitly asks.
+- Work happens on `develop`. `master` is protected and changes only through a pull request from
+  `develop`; merging there deploys the website and starts a release.
 
 `PROJECT.md` and the local `docs/` directory are intentionally gitignored. They may be present in
 the developer's workspace, but a repository clone must not rely on them. The versioned guides,

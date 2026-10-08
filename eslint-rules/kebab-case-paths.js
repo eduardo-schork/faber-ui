@@ -10,6 +10,7 @@ const ALLOWED_FILE_NAMES = new Set([
   'OFL.txt',
   'PROJECT.md',
   'README.md',
+  'SECURITY.md',
   'bun.lock',
   'eslint.config.js',
   'package.json',

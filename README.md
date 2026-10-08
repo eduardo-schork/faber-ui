@@ -1,3 +1,10 @@
+<p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/brand/faber-ui-horizontal-dark.svg" />
+    <img src="./assets/brand/faber-ui-horizontal.svg" alt="Faber UI" height="56" />
+  </picture>
+</p>
+
 # Faber UI
 
 Faber UI is a strongly typed design system for React applications built with TypeScript,
@@ -224,11 +231,10 @@ Start the Next.js integration website:
 bun run website
 ```
 
-The website runs at `http://localhost:3000`. It has an overview page and getting-started,
-component, foundations, and theming guides, with a live example of every component, a
-light/dark/system switch, a site-wide material switch built on CSS variable overrides, and a
-playground where a stylesheet restyles a live preview, and a composition guide that builds new
-components from exported parts. It consumes `@faber-ui/react` through the package's workspace exports and exercises the Next.js App
+The website runs at `http://localhost:3000`. It has an overview page with a site-wide material
+switch built on CSS variable overrides, a getting-started guide, a live example of every component,
+the main token tables, and one customization guide that covers themes, variables, part classes
+with a live stylesheet editor, tokens, and components built from exported parts. It consumes `@faber-ui/react` through the package's workspace exports and exercises the Next.js App
 Router, server rendering, and distributed stylesheets in a representative application. The
 complete interactive prop reference remains in Storybook; browser-level hydration automation is a
 later milestone.
@@ -412,9 +418,9 @@ element's attributes, events, and ref. Compose it with `Field` for the label and
 import { Field, Select } from '@faber-ui/react';
 
 <Field label="Material">
-  <Select name="material" defaultValue="malachite">
-    <option value="malachite">Malachite</option>
-    <option value="copper">Copper</option>
+  <Select name="material" defaultValue="amethyst">
+    <option value="amethyst">Amethyst</option>
+    <option value="obsidian">Obsidian</option>
   </Select>
 </Field>;
 ```
@@ -818,8 +824,8 @@ Current token domains include:
 - Text decorations
 - Z-indices
 
-The default color direction pairs Malachite primary tokens with Hot Copper accents. Primitive
-values live under `PALETTE.MALACHITE_*` and `PALETTE.COPPER_*`; components consume semantic
+The default color direction pairs Amethyst primary tokens with Obsidian accents. Primitive
+values live under `PALETTE.AMETHYST_*` and `PALETTE.OBSIDIAN_*`; components consume semantic
 `COLORS` roles so applications can replace the palette through themes or CSS variables. Page
 backgrounds, surfaces, text, and borders use a gray-first Silver-to-Graphite neutral scale rather
 than tinted brand colors.

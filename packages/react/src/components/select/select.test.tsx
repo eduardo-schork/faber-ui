@@ -14,7 +14,7 @@ describe('Select', () => {
     const ref = createRef<HTMLSelectElement>();
     const { getByRole } = render(
       <Select ref={ref} aria-label="Material" name="material">
-        <option value="copper">Copper</option>
+        <option value="obsidian">Obsidian</option>
       </Select>,
     );
     const select = getByRole('combobox', { name: 'Material' });
@@ -27,8 +27,8 @@ describe('Select', () => {
   it('SHOULD preserve native values, events and validation attributes', () => {
     const onChange = vi.fn();
     const { getByRole } = render(
-      <Select aria-label="Material" defaultValue="copper" required onChange={onChange}>
-        <option value="copper">Copper</option>
+      <Select aria-label="Material" defaultValue="obsidian" required onChange={onChange}>
+        <option value="obsidian">Obsidian</option>
         <option value="steel">Steel</option>
       </Select>,
     );
@@ -44,7 +44,7 @@ describe('Select', () => {
   it('SHOULD remain composable with styled-components', () => {
     const { getByRole } = render(
       <ConsumerSelect aria-label="Material" className="consumer">
-        <option>Copper</option>
+        <option>Obsidian</option>
       </ConsumerSelect>,
     );
 

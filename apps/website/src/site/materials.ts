@@ -37,14 +37,40 @@ export type TColorScheme = 'dark' | 'light';
 const pickMaterialRoles = (theme: TTheme): TMaterialOverrides =>
   Object.fromEntries(MATERIAL_ROLES.map((role) => [role, theme[role]])) as TMaterialOverrides;
 
-export const DEFAULT_MATERIAL_ID = 'malachite';
+export const DEFAULT_MATERIAL_ID = 'amethyst';
 
 export const MATERIALS = [
   {
     id: DEFAULT_MATERIAL_ID,
-    name: 'Malachite & Copper',
+    name: 'Amethyst & Obsidian',
     light: pickMaterialRoles(LIGHT_THEME),
     dark: pickMaterialRoles(DARK_THEME),
+  },
+  {
+    id: 'malachite',
+    name: 'Malachite & Copper',
+    light: {
+      PRIMARY: 'hsl(147 57% 33%)',
+      PRIMARY_HOVER: 'hsl(148 61% 25%)',
+      PRIMARY_ACTIVE: 'hsl(149 66% 17%)',
+      ON_PRIMARY: PALETTE.WHITE,
+      ACCENT: 'hsl(11 70% 48%)',
+      ACCENT_HOVER: 'hsl(10 74% 39%)',
+      ACCENT_ACTIVE: 'hsl(9 79% 30%)',
+      ON_ACCENT: PALETTE.WHITE,
+      FOCUS_RING: 'hsl(11 70% 48%)',
+    },
+    dark: {
+      PRIMARY: 'hsl(145 58% 61%)',
+      PRIMARY_HOVER: 'hsl(145 52% 52%)',
+      PRIMARY_ACTIVE: 'hsl(146 50% 42%)',
+      ON_PRIMARY: PALETTE.NEUTRAL_950,
+      ACCENT: 'hsl(14 100% 70%)',
+      ACCENT_HOVER: 'hsl(13 89% 62%)',
+      ACCENT_ACTIVE: 'hsl(12 79% 55%)',
+      ON_ACCENT: PALETTE.NEUTRAL_950,
+      FOCUS_RING: 'hsl(14 100% 70%)',
+    },
   },
   {
     id: 'cobalt',
@@ -70,32 +96,6 @@ export const MATERIALS = [
       ACCENT_ACTIVE: 'hsl(36 88% 46%)',
       ON_ACCENT: PALETTE.NEUTRAL_950,
       FOCUS_RING: 'hsl(40 96% 62%)',
-    },
-  },
-  {
-    id: 'amethyst',
-    name: 'Amethyst & Brass',
-    light: {
-      PRIMARY: 'hsl(268 48% 44%)',
-      PRIMARY_HOVER: 'hsl(268 52% 36%)',
-      PRIMARY_ACTIVE: 'hsl(268 56% 28%)',
-      ON_PRIMARY: PALETTE.WHITE,
-      ACCENT: 'hsl(44 80% 28%)',
-      ACCENT_HOVER: 'hsl(44 84% 22%)',
-      ACCENT_ACTIVE: 'hsl(44 88% 17%)',
-      ON_ACCENT: PALETTE.WHITE,
-      FOCUS_RING: 'hsl(44 80% 28%)',
-    },
-    dark: {
-      PRIMARY: 'hsl(268 86% 78%)',
-      PRIMARY_HOVER: 'hsl(268 78% 70%)',
-      PRIMARY_ACTIVE: 'hsl(268 68% 62%)',
-      ON_PRIMARY: PALETTE.NEUTRAL_950,
-      ACCENT: 'hsl(46 88% 62%)',
-      ACCENT_HOVER: 'hsl(45 82% 54%)',
-      ACCENT_ACTIVE: 'hsl(44 76% 46%)',
-      ON_ACCENT: PALETTE.NEUTRAL_950,
-      FOCUS_RING: 'hsl(46 88% 62%)',
     },
   },
   {

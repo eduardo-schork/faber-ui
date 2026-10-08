@@ -21,19 +21,20 @@ before starting the persistent Next.js development server.
 
 ## Pages
 
-| Route               | Content                                                                                                                                               |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`                 | Overview: a Button figure measured from the live element, a site-wide material switch, the design principles with code, and the component parts list. |
-| `/docs`             | Getting started: project status, installation, stylesheet, Next.js and Vite setup, and a validated form.                                              |
-| `/docs/components`  | A live example and snippet for every component, with the element it renders and its ref type.                                                         |
-| `/docs/foundations` | The token tables, rendered from the exported objects, with both themes side by side.                                                                  |
-| `/docs/theming`     | CSS-only themes, variable overrides, scoped providers, typed custom themes, fonts, and `GlobalStyles`.                                                |
-| `/docs/composition` | Live examples of props, tokens, and components assembled from exported parts such as `DialogRoot` and `AlertRoot`.                                    |
-| `/docs/playground`  | A stylesheet editor scoped to a live preview, with presets for CSS variables and part class names.                                                    |
+| Route                 | Content                                                                                                                                                                                |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/`                   | Overview: a Button figure measured from the live element, the site-wide material switch, four principles with code, and an index of components by family.                              |
+| `/docs`               | Getting started: installation, stylesheet, Next.js and Vite setup, and a validated form.                                                                                               |
+| `/docs/components`    | A live example and snippet for every component, with the element it renders and its ref type.                                                                                          |
+| `/docs/foundations`   | The main token tables, rendered from the exported objects, with both themes side by side.                                                                                              |
+| `/docs/customization` | Every way to change the library on one page: props, themes, CSS variables and fonts, part classes with a live stylesheet editor, tokens, and components assembled from exported parts. |
 
-Storybook remains the detailed prop and state reference. It is not hosted yet, so Storybook links
-point at the local development server on port 6006 (`SITE_LINKS.STORYBOOK` in
-`src/site/site.constants.ts`).
+Each topic lives on one page. The overview links to the guides instead of repeating them, the header
+is the only navigation between pages, and the docs sidebar lists the sections of the current page.
+
+Storybook remains the detailed prop and state reference. `SITE_LINKS.STORYBOOK` in
+`src/site/site.constants.ts` points at the hosted Storybook when `NEXT_PUBLIC_STORYBOOK_URL` is set
+and at the local development server on port 6006 otherwise.
 
 ## How the site themes itself
 
