@@ -222,7 +222,7 @@ function LinkButtonDemo() {
       </LinkButton>
       <LinkButton
         as={NextLink}
-        href="/docs/theming"
+        href="/docs/customization"
         color={BUTTON_COLORS.NEUTRAL}
         variant={BUTTON_VARIANTS.OUTLINE}
       >
@@ -1440,7 +1440,7 @@ import NextLink from 'next/link';
   Get started
 </LinkButton>
 
-<LinkButton as={NextLink} href="/docs/theming" color="neutral" variant="outline">
+<LinkButton as={NextLink} href="/docs/customization" color="neutral" variant="outline">
   Theming
 </LinkButton>
 
@@ -1764,7 +1764,7 @@ import Link from 'next/link';
 <SideNav aria-label="Documentation">
   <SideNavGroup label="Guides">
     <NavLink current href="/docs">Get started</NavLink>
-    <NavLink href="/docs/theming">Theming</NavLink>
+    <NavLink href="/docs/customization">Customization</NavLink>
   </SideNavGroup>
 </SideNav>`,
   },
