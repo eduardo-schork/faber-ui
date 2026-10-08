@@ -51,10 +51,10 @@
     "styled-components": "^6.1.0"
   },
   "devDependencies": {
-    "@storybook/react-vite": "^10.5.2",
-    "@testing-library/react": "^16.3.2",
-    "@types/react": "^19.2.17",
-    "react": "^19.2.7"
+    "@storybook/react-vite": "^10.6.1",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0"
   },
   "scripts": {
     "build": "bun run generate:styles && vite build && node scripts/build-theme-styles.mjs && tsc -p tsconfig.build.json",

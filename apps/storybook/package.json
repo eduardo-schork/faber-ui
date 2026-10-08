@@ -15,14 +15,14 @@
     "@faber-ui/react": "workspace:*",
     "@faber-ui/themes": "workspace:*",
     "@faber-ui/tokens": "workspace:*",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "styled-components": "^6.1.0"
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "styled-components": "^6.5.3"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.5.2",
-    "@storybook/addon-docs": "^10.5.2",
-    "@storybook/react-vite": "^10.5.2",
-    "storybook": "^10.5.2"
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "storybook": "^10.6.1"
   }
 }
