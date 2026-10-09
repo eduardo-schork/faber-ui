@@ -3,7 +3,7 @@ import reactPackage from '../../../../packages/react/package.json';
 export const SITE_LINKS = {
   NPM: 'https://www.npmjs.com/package/@faber-ui/react',
   REPOSITORY: 'https://github.com/eduardo-schork/faber-ui',
-  WEBSITE: 'https://eduardo-schork.github.io/faber-ui',
+  WEBSITE: 'https://faberui.vercel.app',
   // The published site sets this to the hosted Storybook; locally it is the development server.
   STORYBOOK: process.env.NEXT_PUBLIC_STORYBOOK_URL ?? 'http://localhost:6006',
 } as const;

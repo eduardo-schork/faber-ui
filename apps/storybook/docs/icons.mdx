@@ -6,7 +6,7 @@ import * as GroupStories from '../../../packages/icons/src/icons/icons.stories';
 
 # Icons
 
-`@faber-ui/icons` is a small, independent package of outline icons. It has no dependency on the
+`@faber-ui/icons` is an independent package of 70 outline icons for product interfaces. It has no dependency on the
 React component package and is installed separately.
 
 [Icon catalog and prop reference](?path=/docs/foundations-icons--docs)
@@ -21,8 +21,21 @@ React component package and is installed separately.
 - Icons are decorative and hidden from assistive technology by default. Pass `label` to expose an
   icon as a named image.
 
-The current set is `ArrowRightIcon`, `ArrowUpRightIcon`, `CheckIcon`, `CloseIcon`, `CopyIcon`,
-`MonitorIcon`, `MoonIcon`, `PlusIcon`, `SunIcon`, and `TrashIcon`.
+## The set
+
+Every name ends in `Icon`. The catalog story below shows all of them.
+
+| Group         | Icons                                                                                                                                                    |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arrows        | `ArrowUp`, `ArrowDown`, `ArrowLeft`, `ArrowRight`, `ArrowUpRight`                                                                                        |
+| Chevrons      | `ChevronUp`, `ChevronDown`, `ChevronLeft`, `ChevronRight`, `ChevronsLeft`, `ChevronsRight`, `ChevronsUpDown`                                             |
+| Actions       | `Plus`, `Minus`, `Check`, `Close`, `Search`, `Filter`, `Sort`, `Copy`, `Edit`, `Trash`, `Download`, `Upload`, `Share`, `Refresh`, `Link`, `ExternalLink` |
+| Navigation    | `Menu`, `MoreHorizontal`, `MoreVertical`, `Home`, `Grid`, `List`, `Settings`, `Sliders`, `LogIn`, `LogOut`                                               |
+| Status        | `Info`, `HelpCircle`, `AlertCircle`, `AlertTriangle`, `CheckCircle`, `CloseCircle`                                                                       |
+| People        | `User`, `Users`, `Bell`, `Mail`, `Message`                                                                                                               |
+| Objects       | `Calendar`, `Clock`, `File`, `FileText`, `Folder`, `Image`, `Bookmark`, `Star`, `Heart`, `MapPin`, `Globe`, `Code`                                       |
+| Security      | `Lock`, `Unlock`, `Eye`, `EyeOff`                                                                                                                        |
+| Media, themes | `Play`, `Pause`, `Sun`, `Moon`, `Monitor`                                                                                                                |
 
 ## Example
 
@@ -43,7 +56,7 @@ Inside `Button` and `IconButton` the icon stays decorative: the button already h
 
 ## Boundaries
 
-The set covers what the documentation and examples need today and will grow with the component
-catalog. Filled variants, brand logos, and an icon font are not provided.
+The set covers the common needs of an application interface. Filled variants, brand logos, and an
+icon font are not provided.
 
 <Stories />

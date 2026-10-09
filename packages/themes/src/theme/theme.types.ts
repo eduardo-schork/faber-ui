@@ -14,6 +14,7 @@ export type TTheme = {
   readonly FOCUS_RING: string;
   readonly ERROR: string;
   readonly OVERLAY: string;
+  readonly SHADOW: string;
   readonly PRIMARY: string;
   readonly PRIMARY_HOVER: string;
   readonly PRIMARY_ACTIVE: string;

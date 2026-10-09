@@ -6,6 +6,10 @@ export const PALETTE = {
   OVERLAY_400: 'hsl(200 16% 8% / 48%)',
   OVERLAY_800: 'hsl(200 30% 2% / 78%)',
 
+  /* Translucent darks for shadows; the dark theme needs a deeper one to show on dark surfaces. */
+  SHADOW_400: 'hsl(200 30% 12% / 10%)',
+  SHADOW_800: 'hsl(200 40% 2% / 48%)',
+
   NEUTRAL_50: 'hsl(200 14% 96%)',
   NEUTRAL_100: 'hsl(200 12% 93%)',
   NEUTRAL_200: 'hsl(200 10% 87%)',

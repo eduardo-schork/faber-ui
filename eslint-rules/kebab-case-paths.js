@@ -27,7 +27,7 @@ const ALLOWED_FILE_NAMES = new Set([
 const KEBAB_CASE_SEGMENT_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 const HIDDEN_DIRECTORY_PATTERN = /^\.[a-z0-9]+(?:-[a-z0-9]+)*$/u;
 const KEBAB_CASE_FILE_PATTERN =
-  /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.(?:build|config|constants|d|stories|styles|test|types|ui))*\.[a-z0-9]+$/u;
+  /^[a-z0-9]+(?:-[a-z0-9]+)*(?:\.(?:browser|build|config|constants|d|stories|styles|test|types|ui))*\.[a-z0-9]+$/u;
 
 export function findKebabCasePathViolations(paths) {
   const violations = [];

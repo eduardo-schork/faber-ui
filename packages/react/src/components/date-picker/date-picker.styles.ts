@@ -7,6 +7,7 @@ import {
   FONT_SIZES,
   LINE_HEIGHTS,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
   Z_INDICES,
@@ -14,6 +15,7 @@ import {
 import styled from 'styled-components';
 
 import { FIELD_FOCUS_GROWTH, fieldFocusStyles } from '../../internal/field-focus-styles';
+import { floatingMotionStyles } from '../../internal/motion-styles';
 import { Box } from '../box';
 
 /* Drawn like the other text fields, so a DatePicker and an Input line up in a form. */
@@ -39,7 +41,8 @@ export const DatePickerTrigger = styled.button.attrs({ className: 'faber-ui-date
   cursor: pointer;
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   &[data-placeholder='true'] {
     color: ${COLORS.TEXT_SECONDARY};
@@ -90,4 +93,7 @@ export const DatePickerContent = styled(PopoverPrimitive.Content).attrs({
   border: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_STRONG};
   border-radius: ${RADII.MD};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
+
+  ${floatingMotionStyles}
 `;

@@ -7,8 +7,8 @@
 
 A React design system built on native elements, typed props, design tokens, and CSS variables.
 
-[Website](https://eduardo-schork.github.io/faber-ui/) ·
-[Storybook](https://eduardo-schork.github.io/faber-ui/storybook/) ·
+[Website](https://faberui.vercel.app/) ·
+[Storybook](https://faberui.vercel.app/storybook/) ·
 [npm](https://www.npmjs.com/package/@faber-ui/react)
 
 <picture>
@@ -64,7 +64,7 @@ export function InviteForm() {
 ```
 
 In the Next.js App Router, add the styled-components registry and the `compiler.styledComponents`
-flag; the [getting started guide](https://eduardo-schork.github.io/faber-ui/docs/) shows both.
+flag; the [getting started guide](https://faberui.vercel.app/docs/) shows both.
 
 ## Customize
 
@@ -83,7 +83,7 @@ flag; the [getting started guide](https://eduardo-schork.github.io/faber-ui/docs
 
 Typed props, scoped themes, tokens in your own styles, and components rebuilt from exported parts
 are covered in the
-[customization guide](https://eduardo-schork.github.io/faber-ui/docs/customization/).
+[customization guide](https://faberui.vercel.app/docs/customization/).
 
 ## Packages
 
@@ -110,6 +110,7 @@ bun run website     # documentation site on port 3000
 bun run lint
 bun run typecheck
 bun run test
+bun run test:browser   # Playwright against the built Storybook
 bun run build
 ```
 

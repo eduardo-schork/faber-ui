@@ -9,6 +9,7 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
   Z_INDICES,
@@ -16,6 +17,7 @@ import {
 import styled from 'styled-components';
 
 import { FIELD_FOCUS_GROWTH, fieldFocusDeclarations } from '../../internal/field-focus-styles';
+import { floatingMotionStyles } from '../../internal/motion-styles';
 import { Box } from '../box';
 import { HFlex } from '../flex';
 import { List, ListItem } from '../list';
@@ -39,7 +41,8 @@ export const ComboboxControl = styled(HFlex).attrs({ className: 'faber-ui-combob
   cursor: text;
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   &:has(input:focus-visible) {
     ${fieldFocusDeclarations}
@@ -47,6 +50,8 @@ export const ComboboxControl = styled(HFlex).attrs({ className: 'faber-ui-combob
   }
 
   &[data-invalid='true']:not([data-disabled='true']) {
+    --field-focus-color: ${COLORS.ERROR};
+
     border-color: ${COLORS.ERROR};
     background-image: none;
   }
@@ -151,9 +156,12 @@ export const ComboboxContent = styled(PopoverPrimitive.Content).attrs({
   border-radius: ${RADII.MD};
   color: ${COLORS.TEXT_PRIMARY};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
   font-family: ${FONT_FAMILIES.BASE};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
+
+  ${floatingMotionStyles}
 `;
 
 export const ComboboxList = styled(List).attrs({

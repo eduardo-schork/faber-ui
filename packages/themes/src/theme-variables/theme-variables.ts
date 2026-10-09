@@ -12,6 +12,7 @@ export const THEME_VARIABLE_NAMES = {
   FOCUS_RING: '--faber-ui-color-focus-ring',
   ERROR: '--faber-ui-color-error',
   OVERLAY: '--faber-ui-color-overlay',
+  SHADOW: '--faber-ui-color-shadow',
   PRIMARY: '--faber-ui-color-primary',
   PRIMARY_HOVER: '--faber-ui-color-primary-hover',
   PRIMARY_ACTIVE: '--faber-ui-color-primary-active',

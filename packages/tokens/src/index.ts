@@ -45,6 +45,8 @@ export type {
 } from './line-heights';
 export { OPACITIES } from './opacities';
 export type { TOpacityTokenName, TOpacityTokenValue } from './opacities';
+export { SHADOW_SCALE, SHADOWS } from './shadows';
+export type { TShadowScaleValue, TShadowTokenName, TShadowTokenValue } from './shadows';
 export { RADIUS_SCALE, RADII } from './radii';
 export type { TRadiusScaleValue, TRadiusTokenName, TRadiusTokenValue } from './radii';
 export { RELATIVE_SIZES } from './relative-sizes';

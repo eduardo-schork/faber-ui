@@ -97,9 +97,19 @@ jobs:
           bun run typecheck
           bun run test
 
+      # `changeset tag` writes annotated tags, which need a tagger. Without one `git tag` fails,
+      # changesets ignores it, and the job used to pass without pushing anything.
+      - name: Set the tagger
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       # Versions are staged, not published: a maintainer approves each one on npmjs.com.
       - name: Build and stage
         run: bun run release:stage
 
+      # Fails when a version in the repository still has no tag on the remote.
       - name: Push release tags
-        run: git push --tags
+        run: |
+          git push --tags
+          node scripts/publish-packages.mjs --check-tags

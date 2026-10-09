@@ -30,7 +30,8 @@ export const StyledTextarea = styled.textarea.attrs({ className: 'faber-ui-texta
   resize: vertical;
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   &::placeholder {
     color: ${COLORS.TEXT_SECONDARY};

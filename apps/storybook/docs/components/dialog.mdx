@@ -24,6 +24,9 @@ to the page, such as confirming a deletion.
 - `title` is required and names the dialog. `footer` holds the actions.
 - `placement` accepts `DIALOG_PLACEMENTS`; `Drawer` uses the edge placements.
 - `closeLabel` names the close button and defaults to `Close`.
+- It fades and scales in and out with its backdrop, and an edge placement slides from its edge.
+  Browsers that cannot transition a closing `dialog` close it at once, and reduced motion turns the
+  transitions off.
 
 ## Accessibility
 
@@ -32,7 +35,7 @@ title specific and put the least destructive action first in the footer.
 
 ## Customization
 
-Surface, border, and spacing use tokens, and the backdrop uses the `OVERLAY` color role, a translucent
+Surface, border, spacing, and the `SHADOWS.LG` elevation use tokens, and the backdrop uses the `OVERLAY` color role, a translucent
 dark that is deeper in the dark theme. Override `--faber-ui-color-overlay` to change it. Because a
 modal dialog renders in the top layer it needs no z-index.
 

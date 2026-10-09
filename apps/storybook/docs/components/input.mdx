@@ -37,10 +37,9 @@ The visual states use semantic color, spacing, size, radius, border, typography,
 tokens. Applications can override CSS variables or use native `className` and `style`.
 
 Focus is shown on the border, not around it: the border grows to `FOCUS_RINGS.FIELD_BORDER_WIDTH`
-(half a pixel thicker) and takes a gradient of the primary color roles. `Textarea` and `Select`
-share the treatment. An invalid field keeps a solid error border while focused, and forced-colors
-mode falls back to the system outline. The gradient is painted over the `SURFACE_PRIMARY` role, so
-a field with another background should restyle `:focus-visible` as well.
+(half a pixel thicker) and takes the primary color, with a faint halo of the same color around it.
+`Textarea` and `Select` share the treatment. An invalid field uses the error color for both while
+focused, and forced-colors mode falls back to the system outline.
 
 ## Example
 

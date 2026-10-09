@@ -88,6 +88,26 @@ if (process.argv.includes('--list-pending')) {
   process.exit(0);
 }
 
+// Fails when a version in the repository has no tag on the remote. `changeset tag` exits with zero
+// even when `git tag` fails, so the release checks the result instead of trusting the exit code.
+if (process.argv.includes('--check-tags')) {
+  const missing = PACKAGES.map(readManifest)
+    .filter((manifest) => manifest.private !== true)
+    .map(({ name, version }) => `${name}@${version}`)
+    .filter(
+      (releaseTag) =>
+        run('git', ['ls-remote', '--tags', 'origin', `refs/tags/${releaseTag}`]).trim() === '',
+    );
+
+  if (missing.length > 0) {
+    console.error(`Missing on the remote: ${missing.join(', ')}`);
+    process.exit(1);
+  }
+
+  console.log('Every version has its tag on the remote.');
+  process.exit(0);
+}
+
 for (const directoryName of PACKAGES) {
   const directory = join('packages', directoryName);
   const {

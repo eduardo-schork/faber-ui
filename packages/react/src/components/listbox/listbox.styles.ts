@@ -9,6 +9,7 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
   Z_INDICES,
@@ -16,6 +17,7 @@ import {
 import styled from 'styled-components';
 
 import { FIELD_FOCUS_GROWTH, fieldFocusStyles } from '../../internal/field-focus-styles';
+import { floatingMotionStyles } from '../../internal/motion-styles';
 
 /* Drawn like the other text fields, so a Listbox and an Input line up in a form. */
 export const ListboxTrigger = styled(SelectPrimitive.Trigger).attrs({
@@ -42,7 +44,8 @@ export const ListboxTrigger = styled(SelectPrimitive.Trigger).attrs({
   cursor: pointer;
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   /* The value is the first child; it gives way to the icon when space runs out. */
   > span:first-child {
@@ -113,9 +116,12 @@ export const ListboxContent = styled(SelectPrimitive.Content).attrs({
   border-radius: ${RADII.MD};
   color: ${COLORS.TEXT_PRIMARY};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
   font-family: ${FONT_FAMILIES.BASE};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
+
+  ${floatingMotionStyles}
 `;
 
 export const ListboxViewport = styled(SelectPrimitive.Viewport).attrs({

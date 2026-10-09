@@ -9,12 +9,14 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
   Z_INDICES,
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { floatingMotionStyles } from '../../internal/motion-styles';
 import { MENU_ITEM_COLORS } from './menu.constants';
 
 export const MenuContent = styled(MenuPrimitive.Content).attrs({
@@ -32,9 +34,12 @@ export const MenuContent = styled(MenuPrimitive.Content).attrs({
   border-radius: ${RADII.MD};
   color: ${COLORS.TEXT_PRIMARY};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
   font-family: ${FONT_FAMILIES.BASE};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
+
+  ${floatingMotionStyles}
 `;
 
 export const StyledMenuItem = styled(MenuPrimitive.Item).attrs({ className: 'faber-ui-menu-item' })`

@@ -8,10 +8,13 @@ import {
   FONT_SIZES,
   LINE_HEIGHTS,
   RADII,
+  SHADOWS,
   SPACINGS,
   Z_INDICES,
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
+
+import { floatingMotionStyles } from '../../internal/motion-styles';
 
 export const PopoverContent = styled(PopoverPrimitive.Content).attrs({
   className: 'faber-ui-popover-content',
@@ -28,6 +31,7 @@ export const PopoverContent = styled(PopoverPrimitive.Content).attrs({
   border-radius: ${RADII.MD};
   color: ${COLORS.TEXT_PRIMARY};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
   font-family: ${FONT_FAMILIES.BASE};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
@@ -36,4 +40,6 @@ export const PopoverContent = styled(PopoverPrimitive.Content).attrs({
     outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};
     outline-offset: ${FOCUS_RINGS.OFFSET};
   }
+
+  ${floatingMotionStyles}
 `;
