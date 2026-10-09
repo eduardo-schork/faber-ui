@@ -9,6 +9,7 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
 } from '@faber-ui/tokens';
@@ -57,7 +58,14 @@ export const buttonStyles = css`
   transition:
     color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
     background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    transform ${ANIMATIONS.DURATION_INSTANT} ${ANIMATIONS.EASING_STANDARD};
+
+  /* A press gives slightly; transform leaves the layout around the button alone. */
+  &:active:not(:disabled) {
+    transform: scale(${ANIMATIONS.SCALE_PRESSED});
+  }
 
   &[data-color='${BUTTON_COLORS.ACCENT}'] {
     --button-color: ${COLORS.ACCENT};
@@ -92,9 +100,11 @@ export const buttonStyles = css`
   &[data-variant='${BUTTON_VARIANTS.FILLED}'] {
     color: var(--button-on-color);
     background-color: var(--button-color);
+    box-shadow: ${SHADOWS.SM};
 
     &:active:not(:disabled) {
       background-color: var(--button-color-active);
+      box-shadow: ${SHADOWS.NONE};
     }
   }
 
@@ -165,6 +175,7 @@ export const buttonStyles = css`
   &[data-variant='${BUTTON_VARIANTS.FILLED}']:disabled:not([data-loading='true']) {
     border-color: transparent;
     background-color: ${COLORS.DISABLED_BACKGROUND};
+    box-shadow: ${SHADOWS.NONE};
   }
 
   &[data-variant='${BUTTON_VARIANTS.LIGHT}']:disabled:not([data-loading='true']) {
@@ -215,6 +226,10 @@ export const buttonStyles = css`
 
   @media (prefers-reduced-motion: reduce) {
     transition: none;
+
+    &:active:not(:disabled) {
+      transform: none;
+    }
   }
 `;
 

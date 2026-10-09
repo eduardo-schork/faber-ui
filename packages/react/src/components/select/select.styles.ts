@@ -29,7 +29,8 @@ export const StyledSelect = styled.select.attrs({ className: 'faber-ui-select' }
   cursor: pointer;
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   ${fieldFocusStyles}
 

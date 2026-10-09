@@ -14,7 +14,9 @@ import {
   Input,
   LIGHT_THEME,
   PALETTE,
+  RADII,
   RADIUS_SCALE,
+  SHADOWS,
   SIZE_SCALE,
   SPACING_SCALE,
   THEME_MODES,
@@ -97,6 +99,12 @@ const Card = styled.section\`
   border-radius: \${RADII.LG};
   padding: \${SPACINGS.LG};
 \`;`;
+
+const ELEVATIONS = [
+  { name: 'SM', use: 'Cards and filled buttons' },
+  { name: 'MD', use: 'Menus, popovers, and toasts' },
+  { name: 'LG', use: 'Dialogs and drawers' },
+] as const;
 
 /** A token name with the CSS custom property that overrides it. */
 function TokenName({ name, prefix }: { readonly name: string; readonly prefix: string }) {
@@ -181,7 +189,8 @@ export function FoundationsPage() {
           <Prose>
             Both panels are the same markup under two <Text.Code>ThemeProvider</Text.Code> subtrees.
             Each swatch reads its CSS variable; the value on the right is what the theme object
-            assigns to it. <Text.Code>OVERLAY</Text.Code> is the scrim behind a modal.
+            assigns to it. <Text.Code>OVERLAY</Text.Code> is the scrim behind a modal and{' '}
+            <Text.Code>SHADOW</Text.Code> is the color of every shadow.
           </Prose>
           <ThemePanels>
             {SCHEMES.map(({ mode, name, theme }) => (
@@ -305,6 +314,25 @@ export function FoundationsPage() {
         </DocsSubsection>
 
         <DocsSubsection>
+          <Caption data-emphasis="ink">SHADOWS</Caption>
+          <Prose>
+            Three levels of elevation, all drawn in the <Text.Code>SHADOW</Text.Code> role, which
+            the dark theme deepens.
+          </Prose>
+          <Scale>
+            {ELEVATIONS.map(({ name, use }) => (
+              <ScaleRow key={name}>
+                <TokenName name={name} prefix="shadow" />
+                {use}
+                <ScaleVisual>
+                  <Square style={{ '--radius': RADII.MD, boxShadow: SHADOWS[name] }} />
+                </ScaleVisual>
+              </ScaleRow>
+            ))}
+          </Scale>
+        </DocsSubsection>
+
+        <DocsSubsection>
           <Caption data-emphasis="ink">FOCUS_RINGS</Caption>
           <Prose>
             One ring for every interactive component: {BORDER_WIDTH_SCALE.STRONG} wide, offset by{' '}
@@ -316,8 +344,8 @@ export function FoundationsPage() {
           </ScaleVisual>
           <Prose>
             Text fields are the exception. Their own border marks focus: it grows to{' '}
-            {FOCUS_RINGS.FIELD_BORDER_WIDTH} and takes a gradient of the primary roles, so nothing
-            is drawn outside the control. Focus the field to see it.
+            {FOCUS_RINGS.FIELD_BORDER_WIDTH} and takes the primary color, with a faint halo of the
+            same color around it. Focus the field to see it.
           </Prose>
           <FocusField>
             <Field label="A text field">

@@ -1,6 +1,7 @@
 import { COLORS } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { riseInStyles } from '../../internal/motion-styles';
 import { VFlex } from '../flex';
 import { Text } from '../text';
 import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '../typography/typography.constants';
@@ -20,4 +21,6 @@ export const FieldError = styled(Text.P).attrs({
   size: TYPOGRAPHY_SIZES.SMALLER,
 })`
   color: ${COLORS.ERROR};
+
+  ${riseInStyles}
 `;

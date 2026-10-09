@@ -12,6 +12,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { riseInStyles } from '../../internal/motion-styles';
 import { Box } from '../box';
 import { HFlex, VFlex } from '../flex';
 
@@ -80,4 +81,6 @@ export const StyledTabPanel = styled(Box).attrs({ className: 'faber-ui-tab-panel
     outline: ${FOCUS_RINGS.WIDTH} solid ${COLORS.FOCUS_RING};
     outline-offset: ${FOCUS_RINGS.OFFSET};
   }
+
+  ${riseInStyles}
 `;

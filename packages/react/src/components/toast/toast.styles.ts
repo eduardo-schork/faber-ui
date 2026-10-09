@@ -6,11 +6,13 @@ import {
   FONT_SIZES,
   LINE_HEIGHTS,
   RADII,
+  SHADOWS,
   SPACINGS,
   Z_INDICES,
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { riseInStyles } from '../../internal/motion-styles';
 import { Box } from '../box';
 import { FLEX_ALIGNS, HFlex, VFlex } from '../flex';
 import { Text } from '../text';
@@ -50,6 +52,7 @@ export const StyledToast = styled(HFlex).attrs({
   border-radius: ${RADII.MD};
   color: ${COLORS.TEXT_PRIMARY};
   background-color: ${COLORS.SURFACE_PRIMARY};
+  box-shadow: ${SHADOWS.MD};
   font-family: ${FONT_FAMILIES.BASE};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
@@ -65,6 +68,8 @@ export const StyledToast = styled(HFlex).attrs({
   &[data-color='${TOAST_COLORS.ERROR}'] {
     --toast-color: ${COLORS.ERROR};
   }
+
+  ${riseInStyles}
 `;
 
 export const ToastContent = styled(VFlex).attrs({ className: 'faber-ui-toast-content' })`

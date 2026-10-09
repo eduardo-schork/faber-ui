@@ -11,6 +11,7 @@ import {
 } from '@faber-ui/tokens';
 import styled from 'styled-components';
 
+import { riseInStyles } from '../../internal/motion-styles';
 import { Box } from '../box';
 import { FLEX_ALIGNS, FLEX_JUSTIFIES, HFlex, VFlex } from '../flex';
 
@@ -75,4 +76,6 @@ export const AccordionContent = styled(Box).attrs({ className: 'faber-ui-accordi
   color: ${COLORS.TEXT_SECONDARY};
   font-size: ${FONT_SIZES.SM};
   line-height: ${LINE_HEIGHTS.NORMAL};
+
+  ${riseInStyles}
 `;

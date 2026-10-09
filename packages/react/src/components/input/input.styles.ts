@@ -28,7 +28,8 @@ export const StyledInput = styled.input.attrs({ className: 'faber-ui-input' })`
   line-height: ${LINE_HEIGHTS.NORMAL};
   transition:
     border-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
-    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
+    background-color ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
+    box-shadow ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD};
 
   &::placeholder {
     color: ${COLORS.TEXT_SECONDARY};

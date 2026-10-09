@@ -113,13 +113,24 @@ the light theme, deeper in the dark one. A complete custom theme must define `OV
 }
 ```
 
+## Shadows
+
+`--faber-ui-color-shadow` is the color of every elevation shadow. Like the overlay it carries its
+own transparency and is deeper in the dark theme, where a light shadow would not show. A complete
+custom theme must define `SHADOW`.
+
+```css
+:root {
+  --faber-ui-color-shadow: hsl(260 40% 20% / 14%);
+}
+```
+
 ## Focus on text fields
 
 `Input`, `Textarea`, and `Select` mark focus on their own border instead of drawing a ring around
-it. The border grows to `FOCUS_RINGS.FIELD_BORDER_WIDTH` and takes a gradient built from
-`--faber-ui-color-primary-active`, `--faber-ui-color-primary`, and the surface color, so a brand
-override of the primary roles restyles it. Every other control keeps the outer ring in
-`--faber-ui-color-focus-ring`.
+it. The border grows to `FOCUS_RINGS.FIELD_BORDER_WIDTH` and takes `--faber-ui-color-primary`, with
+a faint halo of the same color `FOCUS_RINGS.HALO_WIDTH` wide, so a brand override of the primary
+role restyles it. Every other control keeps the outer ring in `--faber-ui-color-focus-ring`.
 
 ## Retune dimensions
 

@@ -37,6 +37,9 @@ guides or typed source.
   entry in `packages/react/vite.config.ts`, a guide in `apps/storybook/docs/components/`, a row in
   `apps/storybook/docs/components.mdx`, an entry in the website catalog with a demo in
   `apps/website/src/components/component-demos/demos/`, and a changeset.
+- Motion uses `ANIMATIONS` tokens and the shared styles in `packages/react/src/internal/motion-styles.ts`,
+  and every animated part turns its motion off under `prefers-reduced-motion: reduce`. Elevation
+  uses `SHADOWS`; do not write a literal `box-shadow`.
 - Real-browser tests live in `apps/storybook/browser-tests/*.browser.ts` and run with
   `bun run test:browser` against the built Storybook. Add or update one when a change affects
   focus, keyboard movement, or the position of an overlay or picker; jsdom cannot check those.

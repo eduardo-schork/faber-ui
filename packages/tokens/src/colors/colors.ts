@@ -15,6 +15,8 @@ export const COLORS = {
   ERROR: cssVariable('--faber-ui-color-error', PALETTE.RED_400),
   /** The scrim behind a modal. It stays dark in every theme so the page recedes. */
   OVERLAY: cssVariable('--faber-ui-color-overlay', PALETTE.OVERLAY_400),
+  /** The color of every shadow in `SHADOWS`. It carries its own transparency. */
+  SHADOW: cssVariable('--faber-ui-color-shadow', PALETTE.SHADOW_400),
 
   PRIMARY_LIGHTEN_3: cssVariable('--faber-ui-color-primary-lighten-3', PALETTE.AMETHYST_100),
   PRIMARY_LIGHTEN_2: cssVariable('--faber-ui-color-primary-lighten-2', PALETTE.AMETHYST_200),

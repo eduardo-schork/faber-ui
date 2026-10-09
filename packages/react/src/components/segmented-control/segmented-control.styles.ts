@@ -9,6 +9,7 @@ import {
   LINE_HEIGHTS,
   OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
 } from '@faber-ui/tokens';
@@ -124,6 +125,7 @@ export const SegmentText = styled(Text.Span).attrs({
   ${SegmentInput}:checked + & {
     color: ${COLORS.ON_PRIMARY};
     background-color: ${COLORS.PRIMARY};
+    box-shadow: ${SHADOWS.SM};
   }
 
   ${SegmentInput}:focus-visible + & {

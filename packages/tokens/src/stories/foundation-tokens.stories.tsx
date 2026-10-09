@@ -13,6 +13,7 @@ import { LINE_HEIGHT_SCALE } from '../line-heights';
 import { OPACITIES } from '../opacities';
 import { RADIUS_SCALE, RADII } from '../radii';
 import { RELATIVE_SIZES } from '../relative-sizes';
+import { SHADOW_SCALE, SHADOWS } from '../shadows';
 import { SIZE_SCALE, SIZES } from '../sizes';
 import { SPACING_SCALE, SPACINGS } from '../spacings';
 import { TEXT_DECORATIONS } from '../text-decorations';
@@ -235,6 +236,32 @@ export const Motion: TStory = {
         <div key={name} style={rowStyle}>
           <code style={labelStyle}>{name}</code>
           <strong>{value}</strong>
+        </div>
+      ))}
+    </div>
+  ),
+};
+
+export const Elevation: TStory = {
+  render: () => (
+    <div style={listStyle}>
+      <p>
+        Shadows mark how far a surface sits above the page. Every level uses the theme shadow color,
+        so it deepens in the dark theme.
+      </p>
+      {Object.entries(SHADOWS).map(([name, value]) => (
+        <div key={name} style={rowStyle}>
+          <code style={labelStyle}>{name}</code>
+          <div
+            style={{
+              width: SIZES.XXL,
+              height: SIZES.LG,
+              borderRadius: RADII.MD,
+              background: 'var(--faber-ui-color-surface-primary)',
+              boxShadow: value,
+            }}
+          />
+          <strong>{SHADOW_SCALE[name as keyof typeof SHADOW_SCALE]}</strong>
         </div>
       ))}
     </div>

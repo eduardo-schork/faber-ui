@@ -24,7 +24,8 @@ Use `PALETTE` when authoring themes or extending the design system. Application 
 prefer semantic `COLORS`, because semantic tokens adapt automatically to the active theme.
 
 `PALETTE.OVERLAY_400` and `PALETTE.OVERLAY_800` are translucent darks for the `OVERLAY` role, the
-scrim behind a modal.
+scrim behind a modal. `PALETTE.SHADOW_400` and `PALETTE.SHADOW_800` do the same for the `SHADOW`
+role, the color of every shadow.
 
 The default brand palette uses `AMETHYST_*` primitives for primary actions and `OBSIDIAN_*`
 primitives for accents. Both families run from a light `100` value to a dark `600` value;
@@ -54,10 +55,11 @@ const panelStyle = {
 - `FONT_FAMILIES`
 - `FONT_SIZES`
 - `FONT_WEIGHTS`
-- `FOCUS_RINGS`, including `FIELD_BORDER_WIDTH` for the focused border of text fields
+- `FOCUS_RINGS`, including `FIELD_BORDER_WIDTH` and `HALO_WIDTH` for a focused text field
 - `LETTER_SPACINGS`
 - `LINE_HEIGHTS`
 - `OPACITIES`
+- `SHADOWS`, three elevation levels drawn in the theme's `SHADOW` color
 - `RADII`
 - `RELATIVE_SIZES`
 - `SIZES`
@@ -111,6 +113,34 @@ can use them without the React package, and overriding one retunes every compone
 
 `BREAKPOINTS` stays raw because media queries cannot read custom properties. `Z_INDICES`,
 `OPACITIES`, `ANIMATIONS`, and `CONTAINER_SIZES` are raw values as well.
+
+## Elevation
+
+`SHADOWS` has three levels, each read through `--faber-ui-shadow-<name>`:
+
+| Token        | Used by                                                          |
+| ------------ | ---------------------------------------------------------------- |
+| `SHADOWS.SM` | Card, a filled Button, the Switch thumb, the selected Segment    |
+| `SHADOWS.MD` | Popover, Menu, Listbox, Combobox, DatePicker, and Toast surfaces |
+| `SHADOWS.LG` | Dialog, Drawer, and AlertDialog                                  |
+
+Every level is drawn in `COLORS.SHADOW`, which the dark theme deepens, so one override of
+`--faber-ui-color-shadow` retints all of them. The stylesheet does not declare the shadow variables
+on `:root`; set `--faber-ui-shadow-md` yourself to replace a level.
+
+## Motion
+
+`ANIMATIONS` holds the durations, easings, and scales behind interaction feedback:
+
+| Token                          | Used for                                               |
+| ------------------------------ | ------------------------------------------------------ |
+| `DURATION_INSTANT`             | A press, and content leaving                           |
+| `DURATION_FAST`                | Color changes and floating content arriving            |
+| `DURATION_MODERATE`            | A dialog or drawer arriving, and messages appearing    |
+| `EASING_ENTER`, `EASING_EXIT`  | Decelerating into place, accelerating out              |
+| `SCALE_PRESSED`, `SCALE_ENTER` | How far a pressed button gives and a dialog grows from |
+
+Every component turns its own motion off under `prefers-reduced-motion: reduce`.
 
 ## CSS-variable contract
 

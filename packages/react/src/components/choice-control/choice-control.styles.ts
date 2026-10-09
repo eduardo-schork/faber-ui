@@ -7,11 +7,13 @@ import {
   FONT_SIZES,
   FONT_WEIGHTS,
   LINE_HEIGHTS,
+  OPACITIES,
   RADII,
+  SHADOWS,
   SIZES,
   SPACINGS,
 } from '@faber-ui/tokens';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { VFlex } from '../flex';
 import { Text } from '../text';
@@ -20,6 +22,14 @@ import {
   TYPOGRAPHY_TONES,
   TYPOGRAPHY_WEIGHTS,
 } from '../typography/typography.constants';
+
+/* The mark of a checkbox or radio grows into place when the control is checked. */
+const markIn = keyframes`
+  from {
+    opacity: ${OPACITIES.HIDDEN};
+    transform: scale(calc(${ANIMATIONS.SCALE_ENTER} / 2));
+  }
+`;
 
 export const ChoiceControlRoot = styled(VFlex).attrs({
   className: 'faber-ui-choice-control',
@@ -111,6 +121,7 @@ export const ChoiceControlInput = styled.input.attrs({
     height: ${SIZES.XXS};
     border-radius: ${RADII.FULL};
     background-color: ${COLORS.TEXT_SECONDARY};
+    box-shadow: ${SHADOWS.SM};
     content: '';
     transition:
       transform ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_STANDARD},
@@ -124,6 +135,10 @@ export const ChoiceControlInput = styled.input.attrs({
     &::after {
       display: block;
     }
+  }
+
+  &:checked:not([data-control='switch'])::after {
+    animation: ${markIn} ${ANIMATIONS.DURATION_FAST} ${ANIMATIONS.EASING_ENTER};
   }
 
   &[data-control='switch']:checked::after {
@@ -165,6 +180,10 @@ export const ChoiceControlInput = styled.input.attrs({
 
     &::after {
       transition: none;
+    }
+
+    &:checked:not([data-control='switch'])::after {
+      animation: none;
     }
   }
 
