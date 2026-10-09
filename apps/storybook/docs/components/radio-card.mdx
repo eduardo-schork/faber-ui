@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/RadioCard" />
+import * as ComponentStories from '../../../../packages/react/src/components/radio-card/radio-card.stories';
+
+<Meta of={ComponentStories} />
 
 # RadioCard
 
-[Interactive stories and prop reference](?path=/docs/molecules-radiocard--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -52,3 +56,5 @@ import { Grid, RadioCard, RadioGroup } from '@faber-ui/react';
 
 `RadioCard` has no error message of its own; `RadioGroup` shows the error for the set. The
 selected state relies on the CSS `:has()` selector, which every current browser supports.
+
+<Stories includePrimary={false} />

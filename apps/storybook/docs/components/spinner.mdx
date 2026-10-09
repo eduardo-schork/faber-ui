@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Spinner" />
+import * as ComponentStories from '../../../../packages/react/src/components/spinner/spinner.stories';
+
+<Meta of={ComponentStories} />
 
 # Spinner
 
-[Interactive stories and prop reference](?path=/docs/atoms-spinner--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -35,3 +39,5 @@ import { Spinner } from '@faber-ui/react/spinner';
 
 Use a progress element for measurable progress and `Skeleton` when the future content structure is
 known.
+
+<Stories includePrimary={false} />

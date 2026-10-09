@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Accordion" />
+import * as ComponentStories from '../../../../packages/react/src/components/accordion/accordion.stories';
+
+<Meta of={ComponentStories} />
 
 # Accordion
 
-[Interactive stories and prop reference](?path=/docs/molecules-accordion--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -73,3 +77,5 @@ import {
 
 The open and close change is not animated, and the summary is not wrapped in a heading element;
 pass a heading in `summary` when the document outline needs one.
+
+<Stories includePrimary={false} />

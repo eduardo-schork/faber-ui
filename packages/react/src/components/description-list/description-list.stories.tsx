@@ -9,7 +9,7 @@ import {
 } from './description-list.ui';
 
 const meta = {
-  title: 'Molecules/DescriptionList',
+  title: 'Components/Display/DescriptionList',
   component: DescriptionList,
   args: {
     children: (

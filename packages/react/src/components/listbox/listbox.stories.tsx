@@ -4,7 +4,7 @@ import { Field } from '../field';
 import { Listbox, ListboxGroup, ListboxOption, ListboxSeparator } from './listbox.ui';
 
 const meta = {
-  title: 'Molecules/Listbox',
+  title: 'Components/Forms/Listbox',
   component: Listbox,
   args: {
     'aria-label': 'Role',

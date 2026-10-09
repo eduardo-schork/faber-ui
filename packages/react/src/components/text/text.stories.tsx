@@ -14,7 +14,7 @@ const tones = Object.values(TYPOGRAPHY_TONES);
 const weights = Object.values(TYPOGRAPHY_WEIGHTS);
 
 const meta = {
-  title: 'Atoms/Text',
+  title: 'Components/Typography/Text',
   component: Text.P,
   parameters: {
     layout: 'padded',

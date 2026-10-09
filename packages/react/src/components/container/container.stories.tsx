@@ -12,7 +12,7 @@ const DemoContent = styled.div`
 `;
 
 const meta = {
-  title: 'Atoms/Container',
+  title: 'Components/Layout/Container',
   component: Container,
   parameters: {
     layout: 'fullscreen',

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/RadioGroup" />
+import * as ComponentStories from '../../../../packages/react/src/components/radio-group/radio-group.stories';
+
+<Meta of={ComponentStories} />
 
 # RadioGroup
 
-[Interactive stories and prop reference](?path=/docs/molecules-radiogroup--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -63,3 +67,5 @@ import { RadioGroupLabel, RadioGroupOptions, RadioGroupRoot } from '@faber-ui/re
 
 Validation, translation, selected value, and form state belong to the application. `RadioGroup`
 provides structure and messages rather than a custom selection state manager.
+
+<Stories includePrimary={false} />

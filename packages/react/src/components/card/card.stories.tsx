@@ -5,7 +5,7 @@ import { CARD_PADDINGS } from './card.constants';
 import { Card } from './card.ui';
 
 const meta = {
-  title: 'Atoms/Card',
+  title: 'Components/Display/Card',
   component: Card,
   parameters: { layout: 'centered' },
   args: { children: 'A surface that groups related content.', padding: CARD_PADDINGS.MEDIUM },

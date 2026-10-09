@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Text" />
+import * as ComponentStories from '../../../../packages/react/src/components/text/text.stories';
+
+<Meta of={ComponentStories} />
 
 # Text
 
-[Interactive stories and prop reference](?path=/docs/atoms-text--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -54,3 +58,5 @@ import { Text, TYPOGRAPHY_TONES } from '@faber-ui/react';
 semantics; use `Link` when a router component must render the anchor. `Text.Code` is for inline
 fragments and does not highlight syntax or render code blocks. Text does not manage layout
 spacing around paragraphs or links.
+
+<Stories includePrimary={false} />

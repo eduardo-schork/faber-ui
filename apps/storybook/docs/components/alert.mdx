@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Alert" />
+import * as ComponentStories from '../../../../packages/react/src/components/alert/alert.stories';
+
+<Meta of={ComponentStories} />
 
 # Alert
 
-[Interactive stories and prop reference](?path=/docs/atoms-alert--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -71,3 +75,5 @@ import { HFlex, VFlex } from '@faber-ui/react/flex';
 
 `Alert` has no icon, dismiss button, or timer. Temporary notifications belong to a future toast
 component.
+
+<Stories includePrimary={false} />

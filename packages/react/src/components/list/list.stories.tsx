@@ -4,7 +4,7 @@ import { LIST_MARKERS } from './list.constants';
 import { List, ListItem } from './list.ui';
 
 const meta = {
-  title: 'Atoms/List',
+  title: 'Components/Display/List',
   component: List,
   args: {
     children: (

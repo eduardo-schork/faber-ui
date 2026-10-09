@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { NavLink } from './nav-link.ui';
 
 const meta = {
-  title: 'Atoms/NavLink',
+  title: 'Components/Navigation/NavLink',
   component: NavLink,
   parameters: { layout: 'centered' },
   args: { children: 'Components', href: '#' },

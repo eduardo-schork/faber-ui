@@ -7,7 +7,7 @@ import { RadioGroup } from '../radio-group';
 import { RadioCard } from './radio-card.ui';
 
 const meta = {
-  title: 'Molecules/RadioCard',
+  title: 'Components/Forms/RadioCard',
   component: RadioCard,
   args: {
     name: 'plan',

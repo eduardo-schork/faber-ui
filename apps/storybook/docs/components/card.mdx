@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Card" />
+import * as ComponentStories from '../../../../packages/react/src/components/card/card.stories';
+
+<Meta of={ComponentStories} />
 
 # Card
 
-[Interactive stories and prop reference](?path=/docs/atoms-card--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -43,3 +47,5 @@ import { Card } from '@faber-ui/react/card';
 
 There are no header, footer, or media slots, and no elevation. Compose those from other
 components until a concrete need defines them.
+
+<Stories includePrimary={false} />

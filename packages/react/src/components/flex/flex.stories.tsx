@@ -31,7 +31,7 @@ const TokenizedToolbar = styled(HFlex).attrs({
 const items = ['Alpha', 'Beta', 'Gamma'];
 
 const meta = {
-  title: 'Atoms/Flex',
+  title: 'Components/Layout/Flex',
   component: Flex,
   parameters: {
     layout: 'padded',

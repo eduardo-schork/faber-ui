@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Listbox" />
+import * as ComponentStories from '../../../../packages/react/src/components/listbox/listbox.stories';
+
+<Meta of={ComponentStories} />
 
 # Listbox
 
-[Interactive stories and prop reference](?path=/docs/molecules-listbox--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -63,4 +67,7 @@ import { Field, Listbox, ListboxGroup, ListboxOption, ListboxSeparator } from '@
 ## Boundaries
 
 `Listbox` selects one value and does not filter while typing or accept free text; use
-`Autocomplete` for suggestions on a text field. It does not support multiple selection.
+`Combobox` for a searchable list or for several values, and `Autocomplete` for suggestions on a
+text field.
+
+<Stories includePrimary={false} />

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Popover" />
+import * as ComponentStories from '../../../../packages/react/src/components/popover/popover.stories';
+
+<Meta of={ComponentStories} />
 
 # Popover
 
-[Interactive stories and prop reference](?path=/docs/molecules-popover--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -44,3 +48,5 @@ import { Button, Popover } from '@faber-ui/react';
 
 Built on Radix Popover, which is an implementation detail. The content renders in a portal on the
 document body, so it follows the root theme and not a scoped `ThemeProvider`.
+
+<Stories includePrimary={false} />

@@ -28,6 +28,17 @@ guides or typed source.
 - The website is built from library components. When it needs one the library lacks, add it to
   "Design-system gaps" in `apps/website/README.md` instead of leaving an unrecorded local stand-in.
 - Document contract changes in the component guide, stories, and relevant tests in the same change.
+- Storybook groups components by family. A story file is titled `Components/<Family>/<Name>`,
+  with the family the component has in `apps/website/src/site/component-catalog.ts`, and its guide
+  attaches to it with `<Meta of={ComponentStories} />`, so one Docs page holds the example, the
+  controls, the guide, and the stories.
+- A new component needs, in the same change: its folder under `packages/react/src/components/`, an
+  export in `packages/react/src/index.ts`, an `exports` entry in `packages/react/package.json`, an
+  entry in `packages/react/vite.config.ts`, a guide in `apps/storybook/docs/components/`, a row in
+  `apps/storybook/docs/components.mdx`, an entry in the website catalog with a demo in
+  `apps/website/src/components/component-demos/demos/`, and a changeset.
+- Both themes must pass `packages/themes/src/theme/theme-contrast.test.ts` (WCAG 2.2 AA) after any
+  palette or theme change.
 - Do not make commits unless the user explicitly asks.
 - Work happens on `develop`. `master` is protected and changes only through a pull request from
   `develop`; merging there deploys the website and starts a release.

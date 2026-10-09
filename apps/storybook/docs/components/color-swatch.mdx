@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/ColorSwatch" />
+import * as ComponentStories from '../../../../packages/react/src/components/color-swatch/color-swatch.stories';
+
+<Meta of={ComponentStories} />
 
 # ColorSwatch
 
-[Interactive stories and prop reference](?path=/docs/atoms-colorswatch--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -42,3 +46,5 @@ import { COLORS, ColorSwatch } from '@faber-ui/react';
 ## Boundaries
 
 `ColorSwatch` displays a color; it does not pick one and is not interactive.
+
+<Stories includePrimary={false} />

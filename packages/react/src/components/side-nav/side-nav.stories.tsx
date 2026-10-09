@@ -4,7 +4,7 @@ import { NavLink } from '../nav-link';
 import { SideNav, SideNavGroup } from './side-nav.ui';
 
 const meta = {
-  title: 'Molecules/SideNav',
+  title: 'Components/Navigation/SideNav',
   component: SideNav,
   args: {
     'aria-label': 'Documentation',

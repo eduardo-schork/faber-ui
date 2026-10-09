@@ -5,7 +5,7 @@ import { POPOVER_ALIGNMENTS, POPOVER_SIDES } from './popover.constants';
 import { Popover } from './popover.ui';
 
 const meta = {
-  title: 'Molecules/Popover',
+  title: 'Components/Overlays/Popover',
   component: Popover,
   parameters: { layout: 'centered' },
   args: {

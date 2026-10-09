@@ -10,7 +10,7 @@ const sizes = Object.values(BUTTON_SIZES);
 const colors = Object.values(BUTTON_COLORS);
 
 const meta = {
-  title: 'Atoms/Button',
+  title: 'Components/Actions/Button',
   component: Button,
   parameters: {
     layout: 'centered',

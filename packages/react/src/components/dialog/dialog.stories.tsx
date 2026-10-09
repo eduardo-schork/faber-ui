@@ -6,7 +6,7 @@ import { DIALOG_PLACEMENTS, type TDialogPlacement } from './dialog.constants';
 import { Dialog } from './dialog.ui';
 
 const meta = {
-  title: 'Organisms/Dialog',
+  title: 'Components/Overlays/Dialog',
   component: Dialog,
   parameters: { layout: 'centered' },
   args: {

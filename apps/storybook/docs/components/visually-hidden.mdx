@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/VisuallyHidden" />
+import * as ComponentStories from '../../../../packages/react/src/components/visually-hidden/visually-hidden.stories';
+
+<Meta of={ComponentStories} />
 
 # VisuallyHidden
 
-[Interactive stories and prop reference](?path=/docs/atoms-visuallyhidden--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -36,3 +40,5 @@ import { VisuallyHidden } from '@faber-ui/react/visually-hidden';
 ## Boundaries
 
 This is not a general display toggle. It exists only for visually hidden accessible content.
+
+<Stories includePrimary={false} />

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/CenterFlex" />
+import * as ComponentStories from '../../../../packages/react/src/components/center-flex/center-flex.stories';
+
+<Meta of={ComponentStories} />
 
 # CenterFlex
 
-[Interactive stories and prop reference](?path=/docs/atoms-centerflex--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -43,3 +47,5 @@ import { CenterFlex, SPACINGS } from '@faber-ui/react';
 
 `CenterFlex` does not set a height or width, so the parent still determines the area within
 which centering is visible. Use `Flex` if row direction or centered alignment must be changed.
+
+<Stories includePrimary={false} />

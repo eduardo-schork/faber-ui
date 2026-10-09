@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/CodeBlock" />
+import * as ComponentStories from '../../../../packages/react/src/components/code-block/code-block.stories';
+
+<Meta of={ComponentStories} />
 
 # CodeBlock
 
-[Interactive stories and prop reference](?path=/docs/molecules-codeblock--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -50,3 +54,5 @@ own next to any text.
 
 There is no built-in syntax highlighting, line numbers, or wrapping toggle. Pass highlighted
 nodes as children.
+
+<Stories includePrimary={false} />

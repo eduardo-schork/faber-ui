@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Skeleton" />
+import * as ComponentStories from '../../../../packages/react/src/components/skeleton/skeleton.stories';
+
+<Meta of={ComponentStories} />
 
 # Skeleton
 
-[Interactive stories and prop reference](?path=/docs/atoms-skeleton--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -37,3 +41,5 @@ import { Skeleton } from '@faber-ui/react/skeleton';
 
 The component does not infer dimensions or loading state. Compose several instances to match the
 real content without reproducing every visual detail.
+
+<Stories includePrimary={false} />

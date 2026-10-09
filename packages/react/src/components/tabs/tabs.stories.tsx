@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Tab, TabList, TabPanel, Tabs } from './tabs.ui';
 
 const meta = {
-  title: 'Molecules/Tabs',
+  title: 'Components/Navigation/Tabs',
   component: Tabs,
   args: { children: null, defaultValue: 'overview' },
   argTypes: { children: { control: false } },

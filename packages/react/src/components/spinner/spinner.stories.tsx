@@ -5,7 +5,7 @@ import { SPINNER_SIZES } from './spinner.constants';
 import { Spinner } from './spinner.ui';
 
 const meta = {
-  title: 'Atoms/Spinner',
+  title: 'Components/Feedback/Spinner',
   component: Spinner,
   parameters: { layout: 'centered' },
   args: { label: 'Loading', size: SPINNER_SIZES.MEDIUM },

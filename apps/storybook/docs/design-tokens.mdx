@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Foundations/Design Tokens" />
+import * as GroupStories from '../../../packages/tokens/src/stories/foundation-tokens.stories';
+
+<Meta of={GroupStories} name="Docs" />
 
 # Design Tokens
 
@@ -128,3 +130,5 @@ Components must use tokens for visual decisions. Reuse an existing token first a
 token when the system does not yet represent the decision. Universal CSS mechanics such as `100%`,
 `auto`, `inherit`, and `transparent` may remain local because they express CSS behavior rather than
 the visual language of Faber UI.
+
+<Stories />

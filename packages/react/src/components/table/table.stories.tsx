@@ -9,7 +9,7 @@ const ROWS = [
 ] as const;
 
 const meta = {
-  title: 'Atoms/Table',
+  title: 'Components/Display/Table',
   component: Table,
 } satisfies Meta<typeof Table>;
 

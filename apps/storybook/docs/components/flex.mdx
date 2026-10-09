@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Flex" />
+import * as ComponentStories from '../../../../packages/react/src/components/flex/flex.stories';
+
+<Meta of={ComponentStories} />
 
 # Flex, HFlex, and VFlex
 
-[Interactive stories and prop reference](?path=/docs/atoms-flex--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use them
 
@@ -54,3 +58,5 @@ import { Flex, HFlex, SPACINGS } from '@faber-ui/react';
 
 These are layout primitives, not responsive state hooks. They do not inspect viewport size in
 JavaScript. `Stack` and a general-purpose `Box` are not currently part of the API.
+
+<Stories includePrimary={false} />

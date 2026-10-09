@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VisuallyHidden } from './visually-hidden.ui';
 
 const meta = {
-  title: 'Atoms/VisuallyHidden',
+  title: 'Components/Utility/VisuallyHidden',
   component: VisuallyHidden,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof VisuallyHidden>;

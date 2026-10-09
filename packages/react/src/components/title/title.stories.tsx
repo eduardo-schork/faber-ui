@@ -14,7 +14,7 @@ const tones = Object.values(TYPOGRAPHY_TONES);
 const weights = Object.values(TYPOGRAPHY_WEIGHTS);
 
 const meta = {
-  title: 'Atoms/Title',
+  title: 'Components/Typography/Title',
   component: Title.H1,
   parameters: {
     layout: 'padded',

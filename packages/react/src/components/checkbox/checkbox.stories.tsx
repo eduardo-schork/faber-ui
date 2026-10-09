@@ -5,7 +5,7 @@ import { COLORS, SPACINGS } from '@faber-ui/tokens';
 import { Checkbox } from './checkbox.ui';
 
 const meta = {
-  title: 'Atoms/Checkbox',
+  title: 'Components/Forms/Checkbox',
   component: Checkbox,
   parameters: { layout: 'centered' },
   args: { label: 'Send me product updates', name: 'updates' },

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Badge" />
+import * as ComponentStories from '../../../../packages/react/src/components/badge/badge.stories';
+
+<Meta of={ComponentStories} />
 
 # Badge
 
-[Interactive stories and prop reference](?path=/docs/atoms-badge--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -34,3 +38,5 @@ import { Badge, BADGE_COLORS } from '@faber-ui/react/badge';
 
 This version intentionally has one compact presentation. Dismissible tags, counters, and richer
 status semantics should be separate contracts.
+
+<Stories includePrimary={false} />

@@ -4,7 +4,7 @@ import { SIZES, SPACINGS } from '@faber-ui/tokens';
 import { Skeleton } from './skeleton.ui';
 
 const meta = {
-  title: 'Atoms/Skeleton',
+  title: 'Components/Feedback/Skeleton',
   component: Skeleton,
   parameters: { layout: 'centered' },
   args: { animated: true },

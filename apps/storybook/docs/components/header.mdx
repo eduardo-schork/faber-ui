@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Header" />
+import * as ComponentStories from '../../../../packages/react/src/components/header/header.stories';
+
+<Meta of={ComponentStories} />
 
 # Header
 
-[Interactive stories and prop reference](?path=/docs/molecules-header--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -47,3 +51,5 @@ import { Header } from '@faber-ui/react/header';
 
 There is no mobile menu, search slot, or elevation. Compose them from `Drawer`, `Input`, and
 your own styles.
+
+<Stories includePrimary={false} />

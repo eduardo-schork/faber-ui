@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/SkipLink" />
+import * as ComponentStories from '../../../../packages/react/src/components/skip-link/skip-link.stories';
+
+<Meta of={ComponentStories} />
 
 # SkipLink
 
-[Interactive stories and prop reference](?path=/docs/atoms-skiplink--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -38,3 +42,5 @@ import { SkipLink } from '@faber-ui/react/skip-link';
 ## Boundaries
 
 `SkipLink` does not manage focus on the target and renders one link, not a list of landmarks.
+
+<Stories includePrimary={false} />

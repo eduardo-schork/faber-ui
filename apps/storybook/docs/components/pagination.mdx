@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Pagination" />
+import * as ComponentStories from '../../../../packages/react/src/components/pagination/pagination.stories';
+
+<Meta of={ComponentStories} />
 
 # Pagination
 
-[Interactive stories and prop reference](?path=/docs/molecules-pagination--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -63,3 +67,5 @@ import { PaginationButton, PaginationList, PaginationRoot } from '@faber-ui/reac
 ## Boundaries
 
 `Pagination` does not fetch or slice data, render links, or offer a page-size selector.
+
+<Stories includePrimary={false} />

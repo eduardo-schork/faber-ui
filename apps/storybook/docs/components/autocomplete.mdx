@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Autocomplete" />
+import * as ComponentStories from '../../../../packages/react/src/components/autocomplete/autocomplete.stories';
+
+<Meta of={ComponentStories} />
 
 # Autocomplete
 
-[Interactive stories and prop reference](?path=/docs/atoms-autocomplete--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -40,3 +44,5 @@ import { Autocomplete, Field } from '@faber-ui/react';
 
 There is no custom option rendering, async loading, multiple selection, or restriction to the
 listed values. Those need a dedicated combobox.
+
+<Stories includePrimary={false} />

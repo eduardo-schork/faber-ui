@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Radio" />
+import * as ComponentStories from '../../../../packages/react/src/components/radio/radio.stories';
+
+<Meta of={ComponentStories} />
 
 # Radio
 
-[Interactive stories and prop reference](?path=/docs/atoms-radio--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -46,5 +50,7 @@ import { Radio } from '@faber-ui/react/radio';
 ## Boundaries
 
 Radio does not manage the group's selected value or validation message. Use
-[RadioGroup](?path=/docs/components-radiogroup--docs) for the group label, description, and error;
+[RadioGroup](?path=/docs/components-forms-radiogroup--docs) for the group label, description, and error;
 a native `fieldset` and `legend` remain valid when those messages are not needed.
+
+<Stories includePrimary={false} />

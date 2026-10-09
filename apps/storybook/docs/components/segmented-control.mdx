@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/SegmentedControl" />
+import * as ComponentStories from '../../../../packages/react/src/components/segmented-control/segmented-control.stories';
+
+<Meta of={ComponentStories} />
 
 # SegmentedControl
 
-[Interactive stories and prop reference](?path=/docs/molecules-segmentedcontrol--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -52,3 +56,5 @@ import { Segment, SegmentedControl } from '@faber-ui/react/segmented-control';
 
 This is a single-selection form control, not a tab list or a toolbar of toggle buttons. It does
 not show descriptions or validation messages.
+
+<Stories includePrimary={false} />

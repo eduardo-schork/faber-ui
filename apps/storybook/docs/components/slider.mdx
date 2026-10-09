@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Slider" />
+import * as ComponentStories from '../../../../packages/react/src/components/slider/slider.stories';
+
+<Meta of={ComponentStories} />
 
 # Slider
 
-[Interactive stories and prop reference](?path=/docs/atoms-slider--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -41,3 +45,5 @@ import { Field, Slider } from '@faber-ui/react';
 ## Boundaries
 
 Range selection with two thumbs, tick marks, and a value bubble are not included.
+
+<Stories includePrimary={false} />

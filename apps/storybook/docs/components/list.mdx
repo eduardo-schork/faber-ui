@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/List" />
+import * as ComponentStories from '../../../../packages/react/src/components/list/list.stories';
+
+<Meta of={ComponentStories} />
 
 # List
 
-[Interactive stories and prop reference](?path=/docs/atoms-list--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -43,3 +47,5 @@ import { List, ListItem } from '@faber-ui/react/list';
 
 There is no nested-list styling beyond the browser default and no interactive or selectable
 item. Use `Menu` for actions.
+
+<Stories includePrimary={false} />

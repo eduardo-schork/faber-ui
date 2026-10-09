@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/LinkButton" />
+import * as ComponentStories from '../../../../packages/react/src/components/link-button/link-button.stories';
+
+<Meta of={ComponentStories} />
 
 # LinkButton
 
-[Interactive stories and prop reference](?path=/docs/atoms-linkbutton--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -48,3 +52,5 @@ import NextLink from 'next/link';
 
 There is no disabled link. When navigation is unavailable, render explanatory text or a disabled
 `Button` instead of a link that goes nowhere.
+
+<Stories includePrimary={false} />

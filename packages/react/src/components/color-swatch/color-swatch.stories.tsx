@@ -6,7 +6,7 @@ import { COLOR_SWATCH_ORIENTATIONS } from './color-swatch.constants';
 import { ColorSwatch } from './color-swatch.ui';
 
 const meta = {
-  title: 'Atoms/ColorSwatch',
+  title: 'Components/Display/ColorSwatch',
   component: ColorSwatch,
   args: {
     color: COLORS.PRIMARY,

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Button" />
+import * as ComponentStories from '../../../../packages/react/src/components/button/button.stories';
+
+<Meta of={ComponentStories} />
 
 # Button
 
-[Interactive stories and prop reference](?path=/docs/atoms-button--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -36,7 +40,7 @@ status message when the outcome needs to be announced.
 
 Styles use semantic color and dimension tokens through CSS variables. Applications can override
 theme variables, and the component accepts native `style` and `className`. The public API does not
-include arbitrary per-property styling props. See the [Theming](?path=/docs/foundations-theming-guide--docs)
+include arbitrary per-property styling props. See the [Theming](?path=/docs/foundations-theming--docs)
 guide for global overrides.
 
 ## Example
@@ -75,3 +79,5 @@ import { ButtonIcon, ButtonLabel, ButtonRoot } from '@faber-ui/react/button';
 
 `Button` does not own form state, navigation, or confirmation dialogs. A pressed/toggle state is
 not part of this API; a future toggle control should provide that behavior explicitly.
+
+<Stories includePrimary={false} />

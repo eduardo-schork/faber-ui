@@ -20,7 +20,7 @@ const icon = (
 );
 
 const meta = {
-  title: 'Atoms/IconButton',
+  title: 'Components/Actions/IconButton',
   component: IconButton,
   parameters: {
     layout: 'centered',

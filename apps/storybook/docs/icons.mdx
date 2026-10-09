@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Foundations/Icons Guide" />
+import * as GroupStories from '../../../packages/icons/src/icons/icons.stories';
+
+<Meta of={GroupStories} />
 
 # Icons
 
@@ -43,3 +45,5 @@ Inside `Button` and `IconButton` the icon stays decorative: the button already h
 
 The set covers what the documentation and examples need today and will grow with the component
 catalog. Filled variants, brand logos, and an icon font are not provided.
+
+<Stories />

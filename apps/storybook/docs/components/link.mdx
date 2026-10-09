@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Link" />
+import * as ComponentStories from '../../../../packages/react/src/components/link/link.stories';
+
+<Meta of={ComponentStories} />
 
 # Link
 
-[Interactive stories and prop reference](?path=/docs/atoms-link--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -46,3 +50,5 @@ import NextLink from 'next/link';
 
 `Link` does not add `target` or `rel` for external destinations and does not detect the active
 route. Set `aria-current` and those native attributes in the application.
+
+<Stories includePrimary={false} />

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Breadcrumb" />
+import * as ComponentStories from '../../../../packages/react/src/components/breadcrumb/breadcrumb.stories';
+
+<Meta of={ComponentStories} />
 
 # Breadcrumb
 
-[Interactive stories and prop reference](?path=/docs/molecules-breadcrumb--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -46,3 +50,5 @@ import { Breadcrumb, BreadcrumbItem, Link } from '@faber-ui/react';
 ## Boundaries
 
 Long trails are not collapsed, and the trail is not derived from the route.
+
+<Stories includePrimary={false} />

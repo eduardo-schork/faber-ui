@@ -5,7 +5,7 @@ import { COLORS, SPACINGS } from '@faber-ui/tokens';
 import { Radio } from './radio.ui';
 
 const meta = {
-  title: 'Atoms/Radio',
+  title: 'Components/Forms/Radio',
   component: Radio,
   parameters: { layout: 'centered' },
   args: { label: 'Light theme', name: 'theme-playground', value: 'light' },
