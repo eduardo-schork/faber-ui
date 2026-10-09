@@ -1,31 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { ICON_SIZES } from '../icon/icon.constants';
-import {
-  ArrowRightIcon,
-  ArrowUpRightIcon,
-  CheckIcon,
-  CloseIcon,
-  CopyIcon,
-  MonitorIcon,
-  MoonIcon,
-  PlusIcon,
-  SunIcon,
-  TrashIcon,
-} from './icons.ui';
+import * as ICONS from './icons.ui';
 
-const ICONS = {
-  ArrowRightIcon,
-  ArrowUpRightIcon,
-  CheckIcon,
-  CloseIcon,
-  CopyIcon,
-  MonitorIcon,
-  MoonIcon,
-  PlusIcon,
-  SunIcon,
-  TrashIcon,
-} as const;
+const { CheckIcon, CloseIcon } = ICONS;
 
 const meta = {
   title: 'Foundations/Icons',

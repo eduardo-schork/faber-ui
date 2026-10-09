@@ -1,6 +1,7 @@
 # @faber-ui/icons
 
-Outline icons for Faber UI as React components. They inherit the text color, size from a closed
+70 outline icons for Faber UI as React components, covering arrows and chevrons, common actions,
+navigation, status, people, files, and media. They inherit the text color, size from a closed
 scale, and are decorative unless given a `label`.
 
 ## Install
