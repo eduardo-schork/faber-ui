@@ -33,7 +33,7 @@ export const COMPONENT_CATALOG = [
     element: '<button>',
     ref: 'HTMLButtonElement',
     entry: '@faber-ui/react/button',
-    storybookId: 'components-button',
+    storybookId: 'components-actions-button',
     summary:
       'A text action in four variants, three sizes, and three colors. It defaults to type="button" and keeps its width while loading.',
   },
@@ -44,7 +44,7 @@ export const COMPONENT_CATALOG = [
     element: '<button>',
     ref: 'HTMLButtonElement',
     entry: '@faber-ui/react/icon-button',
-    storybookId: 'components-iconbutton',
+    storybookId: 'components-actions-iconbutton',
     summary:
       'A square, icon-only action built on the Button vocabulary. The type contract will not compile without an aria-label.',
   },
@@ -55,7 +55,7 @@ export const COMPONENT_CATALOG = [
     element: '<a>',
     ref: 'HTMLAnchorElement',
     entry: '@faber-ui/react/link-button',
-    storybookId: 'components-linkbutton',
+    storybookId: 'components-navigation-linkbutton',
     summary:
       'Navigation with the weight of a button. It shares every Button color, variant, and size, and has no disabled or loading state because a link has none.',
   },
@@ -66,7 +66,7 @@ export const COMPONENT_CATALOG = [
     element: '<a>',
     ref: 'HTMLAnchorElement',
     entry: '@faber-ui/react/link',
-    storybookId: 'components-link',
+    storybookId: 'components-navigation-link',
     summary:
       'A text link that can hand the anchor to a router component through the as prop, while keeping the typography props of Text.A.',
   },
@@ -77,7 +77,7 @@ export const COMPONENT_CATALOG = [
     element: '<nav> + <ol>',
     ref: 'HTMLElement',
     entry: '@faber-ui/react/breadcrumb',
-    storybookId: 'components-breadcrumb',
+    storybookId: 'components-navigation-breadcrumb',
     summary:
       'The trail from the top of a hierarchy to the current page, as a navigation landmark with an ordered list.',
   },
@@ -88,7 +88,7 @@ export const COMPONENT_CATALOG = [
     element: '<a>',
     ref: 'HTMLAnchorElement',
     entry: '@faber-ui/react/nav-link',
-    storybookId: 'components-navlink',
+    storybookId: 'components-navigation-navlink',
     summary:
       'A navigation destination with a current-page state. It accepts a router link through as.',
   },
@@ -99,7 +99,7 @@ export const COMPONENT_CATALOG = [
     element: '<header>',
     ref: 'HTMLElement',
     entry: '@faber-ui/react/header',
-    storybookId: 'components-header',
+    storybookId: 'components-navigation-header',
     summary:
       'The top bar of an application: a bordered row for the brand, navigation, and actions, optionally sticky.',
   },
@@ -110,7 +110,7 @@ export const COMPONENT_CATALOG = [
     element: '<nav>',
     ref: 'HTMLElement',
     entry: '@faber-ui/react/side-nav',
-    storybookId: 'components-sidenav',
+    storybookId: 'components-navigation-sidenav',
     summary: 'Vertical navigation in labelled groups, for documentation sections and settings.',
   },
   {
@@ -120,7 +120,7 @@ export const COMPONENT_CATALOG = [
     element: '<footer>',
     ref: 'HTMLElement',
     entry: '@faber-ui/react/footer',
-    storybookId: 'components-footer',
+    storybookId: 'components-navigation-footer',
     summary:
       'The closing region of a page, with the border, spacing, and quiet text of the system.',
   },
@@ -131,7 +131,7 @@ export const COMPONENT_CATALOG = [
     element: '<a>',
     ref: 'HTMLAnchorElement',
     entry: '@faber-ui/react/skip-link',
-    storybookId: 'components-skiplink',
+    storybookId: 'components-navigation-skiplink',
     summary: 'A link that appears on keyboard focus and jumps past the navigation to the content.',
   },
   {
@@ -141,7 +141,7 @@ export const COMPONENT_CATALOG = [
     element: '<nav> + <button>',
     ref: 'HTMLElement',
     entry: '@faber-ui/react/pagination',
-    storybookId: 'components-pagination',
+    storybookId: 'components-navigation-pagination',
     summary:
       'Controlled page navigation that keeps the first, last, and nearby pages visible and collapses the rest. Every label is replaceable.',
   },
@@ -152,7 +152,7 @@ export const COMPONENT_CATALOG = [
     element: '<button role="tab">',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/tabs',
-    storybookId: 'components-tabs',
+    storybookId: 'components-navigation-tabs',
     summary:
       'Related views switched in place. One tab sits in the tab order and the arrow keys move between them.',
   },
@@ -163,7 +163,7 @@ export const COMPONENT_CATALOG = [
     element: '<input>',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/input',
-    storybookId: 'components-input',
+    storybookId: 'components-forms-input',
     summary:
       'A single-line control for text-like types. Value, events, name, and ref stay native, so any form library can register it.',
   },
@@ -174,7 +174,7 @@ export const COMPONENT_CATALOG = [
     element: '<textarea>',
     ref: 'HTMLTextAreaElement',
     entry: '@faber-ui/react/textarea',
-    storybookId: 'components-textarea',
+    storybookId: 'components-forms-textarea',
     summary:
       'A multiline control sized by the native rows attribute and resizable vertically by the reader.',
   },
@@ -185,7 +185,7 @@ export const COMPONENT_CATALOG = [
     element: '<select>',
     ref: 'HTMLSelectElement',
     entry: '@faber-ui/react/select',
-    storybookId: 'components-select',
+    storybookId: 'components-forms-select',
     summary:
       'A native option list with option and optgroup children. It keeps platform keyboard, touch, and screen-reader behavior.',
   },
@@ -196,7 +196,7 @@ export const COMPONENT_CATALOG = [
     element: '<button role="combobox">',
     ref: 'HTMLButtonElement',
     entry: '@faber-ui/react/listbox',
-    storybookId: 'components-listbox',
+    storybookId: 'components-forms-listbox',
     summary:
       'A custom select: a button that opens a styled list of options, with keyboard navigation, type-ahead, groups, and form submission.',
   },
@@ -207,9 +207,53 @@ export const COMPONENT_CATALOG = [
     element: '<label> + <input type="radio">',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/radio-card',
-    storybookId: 'components-radiocard',
+    storybookId: 'components-forms-radiocard',
     summary:
       'A native radio drawn as a selectable card, with a label, a description, and room for a visual.',
+  },
+  {
+    slug: 'combobox',
+    name: 'Combobox',
+    family: 'forms',
+    element: '<input role="combobox">',
+    ref: 'HTMLInputElement',
+    entry: '@faber-ui/react/combobox',
+    storybookId: 'components-forms-combobox',
+    summary:
+      'A text field that filters a list of options as the reader types. It selects one value, or several shown as removable chips.',
+  },
+  {
+    slug: 'date-picker',
+    name: 'DatePicker',
+    family: 'forms',
+    element: '<button> + calendar',
+    ref: 'HTMLButtonElement',
+    entry: '@faber-ui/react/date-picker',
+    storybookId: 'components-forms-datepicker',
+    summary:
+      'A field that opens a calendar to pick one day. It submits an ISO date and formats the label for the locale.',
+  },
+  {
+    slug: 'calendar',
+    name: 'Calendar',
+    family: 'forms',
+    element: '<table>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/calendar',
+    storybookId: 'components-forms-calendar',
+    summary:
+      'A month grid with full keyboard navigation, a selectable range, and localized month and weekday names.',
+  },
+  {
+    slug: 'file-upload',
+    name: 'FileUpload',
+    family: 'forms',
+    element: '<label> + <input type="file">',
+    ref: 'HTMLInputElement',
+    entry: '@faber-ui/react/file-upload',
+    storybookId: 'components-forms-fileupload',
+    summary:
+      'A drop area around a native file input, with the list of chosen files and a remove button for each.',
   },
   {
     slug: 'checkbox',
@@ -218,7 +262,7 @@ export const COMPONENT_CATALOG = [
     element: '<input type="checkbox">',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/checkbox',
-    storybookId: 'components-checkbox',
+    storybookId: 'components-forms-checkbox',
     summary:
       'An independent binary choice with its own inline label and an optional connected description or error.',
   },
@@ -229,7 +273,7 @@ export const COMPONENT_CATALOG = [
     element: '<input type="radio">',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/radio',
-    storybookId: 'components-radio',
+    storybookId: 'components-forms-radio',
     summary:
       'One option in an exclusive set. Options that share a name get browser-native exclusivity and arrow-key movement.',
   },
@@ -240,7 +284,7 @@ export const COMPONENT_CATALOG = [
     element: '<fieldset> + <legend>',
     ref: 'HTMLFieldSetElement',
     entry: '@faber-ui/react/radio-group',
-    storybookId: 'components-radiogroup',
+    storybookId: 'components-forms-radiogroup',
     summary:
       'A group label, description, and error for a set of radios. It structures the question and leaves the selected value to the form.',
   },
@@ -251,7 +295,7 @@ export const COMPONENT_CATALOG = [
     element: '<input role="switch">',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/switch',
-    storybookId: 'components-switch',
+    storybookId: 'components-forms-switch',
     summary:
       'An on/off setting that applies immediately. Underneath it is a native checkbox announced with switch semantics.',
   },
@@ -262,7 +306,7 @@ export const COMPONENT_CATALOG = [
     element: '<fieldset> + <input type="radio">',
     ref: 'HTMLFieldSetElement',
     entry: '@faber-ui/react/segmented-control',
-    storybookId: 'components-segmentedcontrol',
+    storybookId: 'components-forms-segmentedcontrol',
     summary:
       'A few exclusive options side by side. Every Segment is a native radio, so arrow keys, form submission, and form libraries work unchanged.',
   },
@@ -273,7 +317,7 @@ export const COMPONENT_CATALOG = [
     element: '<input type="range">',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/slider',
-    storybookId: 'components-slider',
+    storybookId: 'components-forms-slider',
     summary:
       'A native range input colored by the theme. Keyboard, touch, and form behavior come from the platform.',
   },
@@ -284,7 +328,7 @@ export const COMPONENT_CATALOG = [
     element: '<input> + <datalist>',
     ref: 'HTMLInputElement',
     entry: '@faber-ui/react/autocomplete',
-    storybookId: 'components-autocomplete',
+    storybookId: 'components-forms-autocomplete',
     summary:
       'A text input with native suggestions. The reader can pick one or type something else.',
   },
@@ -295,7 +339,7 @@ export const COMPONENT_CATALOG = [
     element: '<div> + <label>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/field',
-    storybookId: 'components-field',
+    storybookId: 'components-forms-field',
     summary:
       'Connects a visible label, a description, and a validation error to one control through generated ids and ARIA attributes.',
   },
@@ -306,7 +350,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/flex',
-    storybookId: 'components-flex',
+    storybookId: 'components-layout-flex',
     summary:
       'One-axis layout with responsive direction, alignment, and token gaps. HFlex and VFlex lock the direction; outlineColor draws a debug outline.',
   },
@@ -317,7 +361,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/container',
-    storybookId: 'components-container',
+    storybookId: 'components-layout-container',
     summary:
       'Page width. Without a size it follows the breakpoint scale; with one it becomes a responsive maximum width.',
   },
@@ -328,7 +372,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/box',
-    storybookId: 'components-box',
+    storybookId: 'components-layout-box',
     summary:
       'A block container with token padding and no layout of its own. Children keep normal flow.',
   },
@@ -339,7 +383,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/grid',
-    storybookId: 'components-grid',
+    storybookId: 'components-layout-grid',
     summary:
       'Columns from a number, a track template, or a minimum width, with responsive values and token gaps.',
   },
@@ -350,7 +394,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/center-flex',
-    storybookId: 'components-centerflex',
+    storybookId: 'components-layout-centerflex',
     summary:
       'Centers its children on both axes. Direction and alignment are fixed because they are the whole contract.',
   },
@@ -361,7 +405,7 @@ export const COMPONENT_CATALOG = [
     element: '<hr>',
     ref: 'HTMLHRElement',
     entry: '@faber-ui/react/divider',
-    storybookId: 'components-divider',
+    storybookId: 'components-layout-divider',
     summary:
       'A horizontal or vertical separator that keeps the native separator role. Spacing around it belongs to the parent.',
   },
@@ -372,7 +416,7 @@ export const COMPONENT_CATALOG = [
     element: '<p> <span> <a> <label> <strong> <em> <small> <code>',
     ref: 'The matching element',
     entry: '@faber-ui/react/text',
-    storybookId: 'components-text',
+    storybookId: 'components-typography-text',
     summary:
       'Eight members, one per element. Size, weight, and tone change how the text looks and never which element is rendered.',
   },
@@ -383,7 +427,7 @@ export const COMPONENT_CATALOG = [
     element: '<h1> to <h6>',
     ref: 'HTMLHeadingElement',
     entry: '@faber-ui/react/title',
-    storybookId: 'components-title',
+    storybookId: 'components-typography-title',
     summary:
       'Six heading levels. The level is the document outline; the size prop is a separate, purely visual decision.',
   },
@@ -394,7 +438,7 @@ export const COMPONENT_CATALOG = [
     element: '<span>',
     ref: 'HTMLSpanElement',
     entry: '@faber-ui/react/badge',
-    storybookId: 'components-badge',
+    storybookId: 'components-display-badge',
     summary:
       'Short, read-only metadata such as a status or a release channel. It is not an action.',
   },
@@ -405,7 +449,7 @@ export const COMPONENT_CATALOG = [
     element: '<span> + <img>',
     ref: 'HTMLSpanElement',
     entry: '@faber-ui/react/avatar',
-    storybookId: 'components-avatar',
+    storybookId: 'components-display-avatar',
     summary:
       'An identity image with a required fallback, shown when there is no source or the image fails to load.',
   },
@@ -416,9 +460,30 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/color-swatch',
-    storybookId: 'components-colorswatch',
+    storybookId: 'components-display-colorswatch',
     summary:
       'A color sample with its name and value, laid out as a row or as a tile. It accepts any CSS color, gradient, or variable.',
+  },
+  {
+    slug: 'stat',
+    name: 'Stat',
+    family: 'display',
+    element: '<div>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/stat',
+    storybookId: 'components-display-stat',
+    summary:
+      'A labelled figure with an optional change and helper text, for dashboards and summaries.',
+  },
+  {
+    slug: 'empty-state',
+    name: 'EmptyState',
+    family: 'display',
+    element: '<div>',
+    ref: 'HTMLDivElement',
+    entry: '@faber-ui/react/empty-state',
+    storybookId: 'components-display-emptystate',
+    summary: 'A title, a description, and actions for a screen or a list with nothing to show yet.',
   },
   {
     slug: 'card',
@@ -427,7 +492,7 @@ export const COMPONENT_CATALOG = [
     element: '<div>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/card',
-    storybookId: 'components-card',
+    storybookId: 'components-display-card',
     summary:
       'A bordered surface that groups related content, with a closed padding scale and a semantic as prop.',
   },
@@ -438,7 +503,7 @@ export const COMPONENT_CATALOG = [
     element: '<table>',
     ref: 'HTMLTableElement',
     entry: '@faber-ui/react/table',
-    storybookId: 'components-table',
+    storybookId: 'components-display-table',
     summary:
       'Styles native table markup: caption, header cells, row headers, and data cells. The semantics stay in your markup.',
   },
@@ -449,7 +514,7 @@ export const COMPONENT_CATALOG = [
     element: '<ul> or <ol>',
     ref: 'HTMLUListElement',
     entry: '@faber-ui/react/list',
-    storybookId: 'components-list',
+    storybookId: 'components-display-list',
     summary:
       'Unordered and ordered lists with token spacing. Markers can be removed without losing list semantics.',
   },
@@ -460,7 +525,7 @@ export const COMPONENT_CATALOG = [
     element: '<dl>',
     ref: 'HTMLDListElement',
     entry: '@faber-ui/react/description-list',
-    storybookId: 'components-descriptionlist',
+    storybookId: 'components-display-descriptionlist',
     summary: 'Name and value pairs as a native description list, stacked or side by side.',
   },
   {
@@ -470,7 +535,7 @@ export const COMPONENT_CATALOG = [
     element: '<pre> + <code>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/code-block',
-    storybookId: 'components-codeblock',
+    storybookId: 'components-display-codeblock',
     summary:
       'Source code with a label and a copy button. Pass highlighted nodes as children; the plain code is what gets copied.',
   },
@@ -481,7 +546,7 @@ export const COMPONENT_CATALOG = [
     element: '<div role="note">',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/alert',
-    storybookId: 'components-alert',
+    storybookId: 'components-feedback-alert',
     summary:
       'A titled message that stands out from its surroundings. Static by default; pass a live role when it must be announced.',
   },
@@ -492,7 +557,7 @@ export const COMPONENT_CATALOG = [
     element: '<details> + <summary>',
     ref: 'HTMLDetailsElement',
     entry: '@faber-ui/react/accordion',
-    storybookId: 'components-accordion',
+    storybookId: 'components-display-accordion',
     summary:
       'Native disclosure sections. Items that share a name are exclusive, and hidden text stays searchable by the browser.',
   },
@@ -503,7 +568,7 @@ export const COMPONENT_CATALOG = [
     element: '<progress>',
     ref: 'HTMLProgressElement',
     entry: '@faber-ui/react/progress',
-    storybookId: 'components-progress',
+    storybookId: 'components-feedback-progress',
     summary:
       'Measurable progress with a required accessible name. Without a value it is indeterminate.',
   },
@@ -514,7 +579,7 @@ export const COMPONENT_CATALOG = [
     element: '<div role="status">',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/toast',
-    storybookId: 'components-toast',
+    storybookId: 'components-feedback-toast',
     summary:
       'A brief notification after an action, with an optional dismiss button and a fixed viewport to stack in.',
   },
@@ -525,7 +590,7 @@ export const COMPONENT_CATALOG = [
     element: '<span role="status">',
     ref: 'HTMLSpanElement',
     entry: '@faber-ui/react/spinner',
-    storybookId: 'components-spinner',
+    storybookId: 'components-feedback-spinner',
     summary:
       'An indeterminate wait. The types require either a label or the decorative flag, so an unnamed spinner cannot ship.',
   },
@@ -536,7 +601,7 @@ export const COMPONENT_CATALOG = [
     element: '<div aria-hidden>',
     ref: 'HTMLDivElement',
     entry: '@faber-ui/react/skeleton',
-    storybookId: 'components-skeleton',
+    storybookId: 'components-feedback-skeleton',
     summary:
       'Reserves the shape of content that is still loading. Always hidden from assistive technology; the region carries the status.',
   },
@@ -547,7 +612,7 @@ export const COMPONENT_CATALOG = [
     element: '<div role="tooltip">',
     ref: 'The trigger element',
     entry: '@faber-ui/react/tooltip',
-    storybookId: 'components-tooltip',
+    storybookId: 'components-overlays-tooltip',
     summary:
       'A short hint on hover and focus that describes its trigger. Positioning and timing come from Radix, kept internal.',
   },
@@ -558,7 +623,7 @@ export const COMPONENT_CATALOG = [
     element: '<div role="dialog">',
     ref: 'The trigger element',
     entry: '@faber-ui/react/popover',
-    storybookId: 'components-popover',
+    storybookId: 'components-overlays-popover',
     summary:
       'A small panel anchored to the button that opens it. It flips and shifts to stay in view and returns focus when it closes.',
   },
@@ -569,7 +634,7 @@ export const COMPONENT_CATALOG = [
     element: '<div role="menu">',
     ref: 'The trigger element',
     entry: '@faber-ui/react/menu',
-    storybookId: 'components-menu',
+    storybookId: 'components-overlays-menu',
     summary:
       'A list of actions behind a button, with arrow-key movement, typeahead, and a destructive item color.',
   },
@@ -580,7 +645,7 @@ export const COMPONENT_CATALOG = [
     element: '<dialog>',
     ref: 'HTMLDialogElement',
     entry: '@faber-ui/react/dialog',
-    storybookId: 'components-dialog',
+    storybookId: 'components-overlays-dialog',
     summary:
       'A native modal dialog. The browser provides the top layer, the backdrop, focus containment, and Escape.',
   },
@@ -591,7 +656,7 @@ export const COMPONENT_CATALOG = [
     element: '<dialog role="alertdialog">',
     ref: 'HTMLDialogElement',
     entry: '@faber-ui/react/alert-dialog',
-    storybookId: 'components-alertdialog',
+    storybookId: 'components-overlays-alertdialog',
     summary:
       'A modal that stops for a decision. It has two actions, no close button, and puts focus on the safe one.',
   },
@@ -602,7 +667,7 @@ export const COMPONENT_CATALOG = [
     element: '<dialog>',
     ref: 'HTMLDialogElement',
     entry: '@faber-ui/react/drawer',
-    storybookId: 'components-drawer',
+    storybookId: 'components-overlays-drawer',
     summary: 'The same native modal dialog docked to the inline start or end edge.',
   },
   {
@@ -612,7 +677,7 @@ export const COMPONENT_CATALOG = [
     element: '<span>',
     ref: 'HTMLSpanElement',
     entry: '@faber-ui/react/visually-hidden',
-    storybookId: 'components-visuallyhidden',
+    storybookId: 'components-utility-visuallyhidden',
     summary:
       'Content for assistive technology only. The focusable option reveals it on focus, which is how a skip link works.',
   },

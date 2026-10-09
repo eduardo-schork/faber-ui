@@ -62,9 +62,11 @@ Generic interface pieces come from the library: links and link buttons render th
 through the `as` prop, and icons come from `@faber-ui/icons`. Only site-specific pieces, such as
 the syntax-highlighted code block and the measured figure, live here.
 
-The component catalog in `src/site/component-catalog.ts` drives the parts list on the overview and
-the components page. `src/components/component-demos` must provide a demo for every catalog entry;
-the compiler enforces it. Add both when a component is added to `@faber-ui/react`.
+The component catalog in `src/site/component-catalog.ts` drives the index on the overview and the
+components page. Each entry has one file in `src/components/component-demos/demos/`, named
+`<slug>-demo.ui.tsx`, that exports the live example and its snippet; `component-demos.ui.tsx` only
+maps slugs to those exports, and the compiler rejects a catalog entry without one. Add both when a
+component is added to `@faber-ui/react`.
 
 ## Design-system gaps
 
