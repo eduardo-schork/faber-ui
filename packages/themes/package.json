@@ -1,6 +1,6 @@
 {
   "name": "@faber-ui/themes",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Typed themes, CSS variables, and theming utilities for Faber UI.",
   "keywords": [
     "react",
