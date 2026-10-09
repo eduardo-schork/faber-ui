@@ -1,3 +1,4 @@
+import { OPACITIES } from '@faber-ui/tokens';
 import { describe, expect, it } from 'vitest';
 
 import { DARK_THEME } from './dark-theme';
@@ -9,6 +10,8 @@ type TRgb = readonly [number, number, number];
 
 const AA_TEXT = 4.5;
 const AA_NON_TEXT = 3;
+const TEXT_ON_TINT = Number.parseFloat(OPACITIES.TEXT_ON_TINT) / 100;
+const STRONGEST_TINT = Number.parseFloat(OPACITIES.INTERACTION_LIGHT_ACTIVE) / 100;
 
 const parseColor = (value: string): TRgb => {
   if (value.startsWith('#')) {
@@ -82,6 +85,34 @@ describe.each([
         contrast(theme, foreground, background),
         `${foreground} on ${background}`,
       ).toBeGreaterThanOrEqual(AA_TEXT);
+    }
+  });
+
+  it('SHOULD keep tinted buttons and badges readable', () => {
+    // Text mixed toward the text color, on the strongest tint a component paints over a surface.
+    const mix = (first: TRgb, second: TRgb, share: number) =>
+      first.map(
+        (channel, index) => channel * share + (second[index] ?? 0) * (1 - share),
+      ) as unknown as TRgb;
+    const ratio = (first: TRgb, second: TRgb) => {
+      const [lighter, darker] = [luminance(first), luminance(second)].sort(
+        (one, other) => other - one,
+      ) as [number, number];
+
+      return (lighter + 0.05) / (darker + 0.05);
+    };
+
+    for (const surface of SURFACES) {
+      for (const role of ['PRIMARY', 'ACCENT', 'ERROR', 'TEXT_SECONDARY'] as const) {
+        const color = parseColor(theme[role]);
+        const text = mix(color, parseColor(theme.TEXT_PRIMARY), TEXT_ON_TINT);
+        const tint = mix(color, parseColor(theme[surface]), STRONGEST_TINT);
+
+        expect(
+          ratio(text, tint),
+          `${role} text on its tint over ${surface}`,
+        ).toBeGreaterThanOrEqual(AA_TEXT);
+      }
     }
   });
 

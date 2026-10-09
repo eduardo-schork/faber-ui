@@ -24,6 +24,11 @@ export const buttonStyles = css`
   --button-color: ${COLORS.PRIMARY};
   --button-color-hover: ${COLORS.PRIMARY_HOVER};
   --button-color-active: ${COLORS.PRIMARY_ACTIVE};
+  --button-on-tint: color-mix(
+    in srgb,
+    var(--button-color) ${OPACITIES.TEXT_ON_TINT},
+    ${COLORS.TEXT_PRIMARY}
+  );
   --button-on-color: ${COLORS.ON_PRIMARY};
 
   display: inline-flex;
@@ -93,8 +98,9 @@ export const buttonStyles = css`
     }
   }
 
+  /* Text on a tint of its own color leans toward the text color to stay readable in both themes. */
   &[data-variant='${BUTTON_VARIANTS.LIGHT}'] {
-    color: var(--button-color);
+    color: var(--button-on-tint);
     background-color: color-mix(
       in srgb,
       var(--button-color) ${OPACITIES.INTERACTION_LIGHT},
@@ -116,6 +122,7 @@ export const buttonStyles = css`
     background-color: transparent;
 
     &:active:not(:disabled) {
+      color: var(--button-on-tint);
       background-color: color-mix(
         in srgb,
         var(--button-color) ${OPACITIES.INTERACTION_SUBTLE_ACTIVE},
@@ -129,6 +136,7 @@ export const buttonStyles = css`
     background-color: transparent;
 
     &:active:not(:disabled) {
+      color: var(--button-on-tint);
       background-color: color-mix(
         in srgb,
         var(--button-color) ${OPACITIES.INTERACTION_SUBTLE_ACTIVE},

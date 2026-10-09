@@ -23,7 +23,8 @@ export const StyledBadge = styled.span.attrs({ className: 'faber-ui-badge' })`
   border: ${BORDER_WIDTHS.DEFAULT} solid
     color-mix(in srgb, var(--badge-color) ${OPACITIES.INTERACTION_LIGHT_ACTIVE}, transparent);
   border-radius: ${RADII.FULL};
-  color: var(--badge-color);
+  /* Leans toward the text color so the label stays readable on the tint in both themes. */
+  color: color-mix(in srgb, var(--badge-color) ${OPACITIES.TEXT_ON_TINT}, ${COLORS.TEXT_PRIMARY});
   background-color: color-mix(
     in srgb,
     var(--badge-color) ${OPACITIES.INTERACTION_LIGHT},

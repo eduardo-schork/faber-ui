@@ -8,6 +8,8 @@ export const OPACITIES = {
   INTERACTION_LIGHT_HOVER: '20%',
   INTERACTION_LIGHT_ACTIVE: '26%',
   DISABLED_BACKGROUND: '55%',
+  /* How much of a color stays in text set on a tint of itself; the rest is the text color. */
+  TEXT_ON_TINT: '70%',
 } as const;
 
 export type TOpacityTokenName = keyof typeof OPACITIES;
