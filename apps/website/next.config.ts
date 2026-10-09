@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 
-// A static export for GitHub Pages, which serves the site from a path named after the repository.
+// A static export, which Vercel serves as plain files. The base path is for hosts that serve the
+// site from a subpath.
 const isStaticExport = process.env.FABER_UI_STATIC_EXPORT === 'true';
 const basePath = process.env.FABER_UI_BASE_PATH ?? '';
 

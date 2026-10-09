@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "bun install --frozen-lockfile",
+  "buildCommand": "FABER_UI_STATIC_EXPORT=true NEXT_PUBLIC_STORYBOOK_URL=/storybook bun run build && cp -R apps/storybook/storybook-static apps/website/out/storybook",
+  "outputDirectory": "apps/website/out",
+  "trailingSlash": true,
+  "git": {
+    "deploymentEnabled": {
+      "develop": false
+    }
+  }
+}

@@ -81,18 +81,18 @@ The only raw styled element left is a native `fieldset` that the Radio example s
 Syntax tokens inside code blocks and a few `strong` and `small` elements stay native because they
 inherit the text around them.
 
-## Publishing to GitHub Pages
+## Publishing to Vercel
 
-`.github/workflows/pages.yml` builds a static export of this site with Storybook under
-`/storybook` and deploys it. It runs on pushes to `master` once Pages is enabled in the repository
-settings with the source set to GitHub Actions. The same export can be produced locally:
+`vercel.json` at the repository root builds a static export of this site, copies Storybook under
+`/storybook`, and serves the result. Vercel deploys every push to `master`; `develop` is not
+deployed. The same export can be produced locally:
 
 ```bash
-FABER_UI_STATIC_EXPORT=true FABER_UI_BASE_PATH=/faber-ui bun run build:website
+FABER_UI_STATIC_EXPORT=true NEXT_PUBLIC_STORYBOOK_URL=/storybook bun run build
 ```
 
 The files land in `apps/website/out`. Without those variables the site builds as a regular Next.js
-application.
+application. `FABER_UI_BASE_PATH` sets a base path for hosts that serve the site from a subpath.
 
 ## Production build
 
