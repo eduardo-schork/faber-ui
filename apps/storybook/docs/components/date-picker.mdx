@@ -1,0 +1,56 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/date-picker/date-picker.stories';
+
+<Meta of={ComponentStories} />
+
+# DatePicker
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `DatePicker` for one day in a form when a calendar helps the choice, such as a start date.
+For a date the reader knows by heart, such as a birthday, a native `Input type="date"` or three
+text fields are faster.
+
+## Behavioral contract
+
+- Renders a `button` that shows the selected day, formatted for `locale`, and opens a `Calendar`.
+  The ref and native button props go to that button.
+- The value is a `YYYY-MM-DD` string. `value` and `onValueChange` control it; `defaultValue`
+  leaves it uncontrolled. `name` submits it with the surrounding form in the same format.
+- `min`, `max`, `locale`, `weekStartsOn`, and the month navigation labels are passed to the
+  calendar.
+- Choosing a day closes the calendar and returns focus to the button.
+
+## Accessibility
+
+- When the calendar opens, focus moves to the selected day, or to today. Escape closes it.
+- Inside `Field` the button takes the field label, description, and error. Without `Field`, pass
+  `aria-label` or `aria-labelledby`.
+
+## Customization
+
+Target `faber-ui-date-picker` (the button), `faber-ui-date-picker-icon`, and
+`faber-ui-date-picker-content`, plus the `faber-ui-calendar-*` classes inside it. The calendar is
+rendered in a portal at the end of the document.
+
+## Example
+
+```tsx
+import { DatePicker, Field } from '@faber-ui/react';
+
+<Field label="Start date">
+  <DatePicker name="start" min="2026-03-01" value={start} onValueChange={setStart} />
+</Field>;
+```
+
+## Boundaries
+
+`DatePicker` does not accept typed dates, ranges, or times, and it cannot be cleared once a day is
+selected; render a separate button for that.
+
+<Stories includePrimary={false} />

@@ -1,0 +1,52 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/calendar/calendar.stories';
+
+<Meta of={ComponentStories} />
+
+# Calendar
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `Calendar` to pick one day from a month that is always visible. Use `DatePicker` when the
+calendar should open from a field.
+
+## Behavioral contract
+
+- Days are `YYYY-MM-DD` strings, which carry no time and no time zone. `value` and
+  `onValueChange` control it; `defaultValue` leaves it uncontrolled.
+- `min` and `max` disable the days outside a range.
+- `locale` sets the language of the month and weekday names and defaults to the language of the
+  reader. `weekStartsOn` is `0` for Sunday or `1` for Monday.
+- The buttons in the header move one month at a time.
+
+## Accessibility
+
+- One day is in the tab order; arrow keys move by day and by week, Home and End go to the ends of
+  the week, and Page Up and Page Down move by month. Focus never moves to a disabled day.
+- Each day is a button named with the full date, and the selected day is announced as pressed.
+- Translate `previousMonthLabel` and `nextMonthLabel` with the rest of the interface.
+
+## Customization
+
+Target `faber-ui-calendar`, `faber-ui-calendar-header`, `faber-ui-calendar-title`,
+`faber-ui-calendar-navigation`, `faber-ui-calendar-grid`, and `faber-ui-calendar-day`. A day
+carries `data-today`, `data-outside` for days of the adjacent months, and `aria-pressed`.
+
+## Example
+
+```tsx
+import { Calendar } from '@faber-ui/react/calendar';
+
+<Calendar weekStartsOn={1} min="2026-03-01" value={day} onValueChange={setDay} />;
+```
+
+## Boundaries
+
+`Calendar` selects one day. It does not select ranges or several days, and it has no time of day.
+
+<Stories includePrimary={false} />

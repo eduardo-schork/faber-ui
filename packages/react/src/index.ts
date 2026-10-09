@@ -416,3 +416,78 @@ export type {
   TListboxProps,
   TListboxSeparatorProps,
 } from './components/listbox';
+
+export { Combobox } from './components/combobox';
+export {
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxContent,
+  ComboboxControl,
+  ComboboxEmpty,
+  ComboboxIcon,
+  ComboboxInput,
+  ComboboxList,
+  ComboboxOption,
+  ComboboxOptionIndicator,
+} from './components/combobox';
+export type {
+  TComboboxMultipleProps,
+  TComboboxOption,
+  TComboboxProps,
+  TComboboxSingleProps,
+} from './components/combobox';
+
+export { Calendar } from './components/calendar';
+export {
+  CalendarDay,
+  CalendarGrid,
+  CalendarHeader,
+  CalendarNavigation,
+  CalendarRoot,
+  CalendarTitle,
+} from './components/calendar';
+export type { TCalendarProps, TIsoDate } from './components/calendar';
+
+export {
+  DatePicker,
+  DatePickerContent,
+  DatePickerIcon,
+  DatePickerTrigger,
+} from './components/date-picker';
+export type { TDatePickerProps } from './components/date-picker';
+
+export {
+  FileUpload,
+  FileUploadDescription,
+  FileUploadDropzone,
+  FileUploadInput,
+  FileUploadItem,
+  FileUploadItemText,
+  FileUploadLabel,
+  FileUploadList,
+  FileUploadRemove,
+  FileUploadRoot,
+} from './components/file-upload';
+export type { TFileUploadProps } from './components/file-upload';
+
+export {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateDescription,
+  EmptyStateMedia,
+  EmptyStateRoot,
+  EmptyStateTitle,
+} from './components/empty-state';
+export type { TEmptyStateProps } from './components/empty-state';
+
+export { STAT_TRENDS } from './components/stat';
+export {
+  Stat,
+  StatChange,
+  StatFigure,
+  StatHelper,
+  StatLabel,
+  StatRoot,
+  StatValue,
+} from './components/stat';
+export type { TStatProps, TStatTrend } from './components/stat';
