@@ -43,6 +43,7 @@
     "typecheck": "turbo run typecheck",
     "test": "bun run test:tooling && turbo run test",
     "test:tooling": "vitest run eslint-rules",
+    "test:browser": "turbo run build --filter=@faber-ui/storybook && bun run --cwd apps/storybook test:browser",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "changeset": "changeset",

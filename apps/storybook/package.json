@@ -8,6 +8,7 @@
     "dev": "storybook dev --port 6006 --no-open --disable-telemetry",
     "lint": "eslint .",
     "test": "vitest run --config ../../vitest.config.ts --root .",
+    "test:browser": "playwright test",
     "typecheck": "tsc -p tsconfig.json"
   },
   "dependencies": {
@@ -20,6 +21,7 @@
     "styled-components": "^6.1.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.64.0",
     "@storybook/addon-a11y": "^10.5.2",
     "@storybook/addon-docs": "^10.5.2",
     "@storybook/react-vite": "^10.5.2",

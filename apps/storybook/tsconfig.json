@@ -3,5 +3,10 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.cache/tsconfig.tsbuildinfo"
   },
-  "include": [".storybook/**/*.ts", ".storybook/**/*.tsx"]
+  "include": [
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    "browser-tests/**/*.ts",
+    "playwright.config.ts"
+  ]
 }

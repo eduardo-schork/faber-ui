@@ -37,6 +37,9 @@ guides or typed source.
   entry in `packages/react/vite.config.ts`, a guide in `apps/storybook/docs/components/`, a row in
   `apps/storybook/docs/components.mdx`, an entry in the website catalog with a demo in
   `apps/website/src/components/component-demos/demos/`, and a changeset.
+- Real-browser tests live in `apps/storybook/browser-tests/*.browser.ts` and run with
+  `bun run test:browser` against the built Storybook. Add or update one when a change affects
+  focus, keyboard movement, or the position of an overlay or picker; jsdom cannot check those.
 - Both themes must pass `packages/themes/src/theme/theme-contrast.test.ts` (WCAG 2.2 AA) after any
   palette or theme change.
 - Do not make commits unless the user explicitly asks.

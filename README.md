@@ -110,6 +110,7 @@ bun run website     # documentation site on port 3000
 bun run lint
 bun run typecheck
 bun run test
+bun run test:browser   # Playwright against the built Storybook
 bun run build
 ```
 

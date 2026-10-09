@@ -8,6 +8,7 @@ describe('findKebabCasePathViolations', () => {
       'packages/react/src/components/icon-button/icon-button.ui.tsx',
       'packages/react/src/components/icon-button/icon-button.stories.tsx',
       'apps/storybook/.storybook/preview.ts',
+      'apps/storybook/browser-tests/overlays.browser.ts',
       'docs/component-guidelines.md',
       'packages/react/package.json',
       'README.md',
