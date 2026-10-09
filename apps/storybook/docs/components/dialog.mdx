@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Dialog" />
+import * as ComponentStories from '../../../../packages/react/src/components/dialog/dialog.stories';
+
+<Meta of={ComponentStories} />
 
 # Dialog
 
-[Interactive stories and prop reference](?path=/docs/organisms-dialog--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -78,3 +82,5 @@ import { DialogBody, DialogClose, DialogRoot, DialogTitle } from '@faber-ui/reac
 
 The component does not own its open state, lock page scrolling, or animate. A non-modal dialog is
 not supported.
+
+<Stories includePrimary={false} />

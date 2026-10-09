@@ -1,25 +1,13 @@
 'use client';
 
-import type { CSSProperties } from 'react';
+import { ColorSwatch, RadioCard, RadioGroup } from '@faber-ui/react';
 
 import { CodeBlock } from '@/components/code-block/code-block.ui';
 import { useSitePreferences } from '@/hooks/use-site-preferences';
 import { createMaterialSnippet, getMaterial, MATERIALS } from '@/site/materials';
 
-import {
-  MaterialButton,
-  MaterialList,
-  MaterialSwatch,
-  RecastColumn,
-  RecastGrid,
-  RecastNote,
-} from './recast-panel.styles';
+import { MaterialList, RecastColumn, RecastGrid, RecastNote } from './recast-panel.styles';
 import { Specimen } from './specimen.ui';
-
-type TSwatchStyle = CSSProperties & {
-  readonly '--swatch-accent': string;
-  readonly '--swatch-primary': string;
-};
 
 /**
  * Re-themes the whole website by switching a `data-material` attribute on the document element.
@@ -32,28 +20,27 @@ export function RecastPanel() {
   return (
     <RecastGrid>
       <RecastColumn>
-        <MaterialList role="group" aria-label="Material">
-          {MATERIALS.map((option) => {
-            const swatchStyle: TSwatchStyle = {
-              '--swatch-accent': option[scheme].ACCENT,
-              '--swatch-primary': option[scheme].PRIMARY,
-            };
-
-            return (
-              <MaterialButton
+        <RadioGroup label="Material">
+          <MaterialList>
+            {MATERIALS.map((option) => (
+              <RadioCard
                 key={option.id}
-                type="button"
-                aria-pressed={option.id === materialId}
-                onClick={() => {
+                name="site-material"
+                value={option.id}
+                label={option.name}
+                checked={option.id === materialId}
+                media={
+                  <ColorSwatch
+                    color={`linear-gradient(135deg, ${option[scheme].PRIMARY} 50%, ${option[scheme].ACCENT} 50%)`}
+                  />
+                }
+                onChange={() => {
                   setMaterial(option.id);
                 }}
-              >
-                <MaterialSwatch aria-hidden="true" style={swatchStyle} />
-                {option.name}
-              </MaterialButton>
-            );
-          })}
-        </MaterialList>
+              />
+            ))}
+          </MaterialList>
+        </RadioGroup>
 
         <CodeBlock
           code={createMaterialSnippet(material)}

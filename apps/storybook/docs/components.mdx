@@ -4,64 +4,103 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Component guides
 
+Components are grouped by family in the sidebar. Each one opens on a single **Docs** page with a
+live example, its controls, the written guide, and every story; the entries below it open the
+stories one at a time.
+
 These guides explain the intent and stable behavior of each implemented React component. They are
 written for people and for tools that need explicit context. Stories remain the place to inspect
 visual states and interact with controls; exported TypeScript types remain the source of truth for
 the exact prop surface.
 
-- [Button](?path=/docs/components-button--docs): text or icon-and-text action.
-- [Checkbox](?path=/docs/components-checkbox--docs): independent binary selection.
-- [IconButton](?path=/docs/components-iconbutton--docs): icon-only action.
-- [LinkButton](?path=/docs/components-linkbutton--docs): navigation with the weight of a button.
-- [Link](?path=/docs/components-link--docs): navigation link, with router support.
-- [Input](?path=/docs/components-input--docs): single-line text-like input.
-- [Radio](?path=/docs/components-radio--docs): one option in a named exclusive set.
-- [RadioGroup](?path=/docs/components-radiogroup--docs): fieldset, legend, and messages for a set
+## Actions
+
+- [Button](?path=/docs/components-actions-button--docs): text or icon-and-text action.
+- [IconButton](?path=/docs/components-actions-iconbutton--docs): icon-only action.
+
+## Navigation
+
+- [Breadcrumb](?path=/docs/components-navigation-breadcrumb--docs): trail to the current page.
+- [Footer](?path=/docs/components-navigation-footer--docs): closing region of a page.
+- [Header](?path=/docs/components-navigation-header--docs): application top bar.
+- [Link](?path=/docs/components-navigation-link--docs): navigation link, with router support.
+- [LinkButton](?path=/docs/components-navigation-linkbutton--docs): navigation with the weight of a button.
+- [NavLink](?path=/docs/components-navigation-navlink--docs): destination with a current-page state.
+- [Pagination](?path=/docs/components-navigation-pagination--docs): move between pages of a list.
+- [SideNav](?path=/docs/components-navigation-sidenav--docs): grouped vertical navigation.
+- [SkipLink](?path=/docs/components-navigation-skiplink--docs): keyboard jump past the navigation.
+- [Tabs](?path=/docs/components-navigation-tabs--docs): switch between related views in place.
+
+## Forms
+
+- [Autocomplete](?path=/docs/components-forms-autocomplete--docs): text input with native suggestions.
+- [Calendar](?path=/docs/components-forms-calendar--docs): month grid for picking one day.
+- [Checkbox](?path=/docs/components-forms-checkbox--docs): independent binary selection.
+- [Combobox](?path=/docs/components-forms-combobox--docs): searchable select, single or multiple.
+- [DatePicker](?path=/docs/components-forms-datepicker--docs): field that opens a calendar.
+- [Field](?path=/docs/components-forms-field--docs): label, description, and error composition.
+- [FileUpload](?path=/docs/components-forms-fileupload--docs): drop area around a native file input.
+- [Input](?path=/docs/components-forms-input--docs): single-line text-like input.
+- [Listbox](?path=/docs/components-forms-listbox--docs): custom select with groups and type-ahead.
+- [Radio](?path=/docs/components-forms-radio--docs): one option in a named exclusive set.
+- [RadioCard](?path=/docs/components-forms-radiocard--docs): radio drawn as a selectable card.
+- [RadioGroup](?path=/docs/components-forms-radiogroup--docs): fieldset, legend, and messages for a set
   of radios.
-- [Switch](?path=/docs/components-switch--docs): immediately applied on/off setting.
-- [Select](?path=/docs/components-select--docs): native single-value option list.
-- [SegmentedControl](?path=/docs/components-segmentedcontrol--docs): one of a few visible options.
-- [Textarea](?path=/docs/components-textarea--docs): multiline text input.
-- [Field](?path=/docs/components-field--docs): label, description, and error composition.
-- [Flex](?path=/docs/components-flex--docs): responsive flex layout, including HFlex and VFlex.
-- [Container](?path=/docs/components-container--docs): responsive page width.
-- [CenterFlex](?path=/docs/components-centerflex--docs): centered flex composition.
-- [Text](?path=/docs/components-text--docs): semantic body text and inline text.
-- [Title](?path=/docs/components-title--docs): semantic heading levels.
-- [Divider](?path=/docs/components-divider--docs): horizontal or vertical separator.
-- [AlertDialog](?path=/docs/components-alertdialog--docs): modal confirmation with two actions.
-- [Box](?path=/docs/components-box--docs): block container with token padding.
-- [Grid](?path=/docs/components-grid--docs): responsive columns and tracks.
-- [List](?path=/docs/components-list--docs): unordered and ordered lists.
-- [DescriptionList](?path=/docs/components-descriptionlist--docs): name and value pairs.
-- [CodeBlock](?path=/docs/components-codeblock--docs): source code with a copy button.
-- [SkipLink](?path=/docs/components-skiplink--docs): keyboard jump past the navigation.
-- [NavLink](?path=/docs/components-navlink--docs): destination with a current-page state.
-- [Header](?path=/docs/components-header--docs): application top bar.
-- [Footer](?path=/docs/components-footer--docs): closing region of a page.
-- [SideNav](?path=/docs/components-sidenav--docs): grouped vertical navigation.
-- [Card](?path=/docs/components-card--docs): bordered surface for related content.
-- [Table](?path=/docs/components-table--docs): styled native table.
-- [Alert](?path=/docs/components-alert--docs): message that stands out from its surroundings.
-- [Badge](?path=/docs/components-badge--docs): short, read-only metadata.
-- [Avatar](?path=/docs/components-avatar--docs): identity image with a fallback.
-- [Spinner](?path=/docs/components-spinner--docs): indeterminate wait indicator.
-- [Skeleton](?path=/docs/components-skeleton--docs): placeholder shape for loading content.
-- [VisuallyHidden](?path=/docs/components-visuallyhidden--docs): content for assistive technology
+- [SegmentedControl](?path=/docs/components-forms-segmentedcontrol--docs): one of a few visible options.
+- [Select](?path=/docs/components-forms-select--docs): native single-value option list.
+- [Slider](?path=/docs/components-forms-slider--docs): native range input.
+- [Switch](?path=/docs/components-forms-switch--docs): immediately applied on/off setting.
+- [Textarea](?path=/docs/components-forms-textarea--docs): multiline text input.
+
+## Layout
+
+- [Box](?path=/docs/components-layout-box--docs): block container with token padding.
+- [CenterFlex](?path=/docs/components-layout-centerflex--docs): centered flex composition.
+- [Container](?path=/docs/components-layout-container--docs): responsive page width.
+- [Divider](?path=/docs/components-layout-divider--docs): horizontal or vertical separator.
+- [Flex](?path=/docs/components-layout-flex--docs): responsive flex layout, including HFlex and VFlex.
+- [Grid](?path=/docs/components-layout-grid--docs): responsive columns and tracks.
+
+## Typography
+
+- [Text](?path=/docs/components-typography-text--docs): semantic body text and inline text.
+- [Title](?path=/docs/components-typography-title--docs): semantic heading levels.
+
+## Display
+
+- [Accordion](?path=/docs/components-display-accordion--docs): native disclosure sections.
+- [Avatar](?path=/docs/components-display-avatar--docs): identity image with a fallback.
+- [Badge](?path=/docs/components-display-badge--docs): short, read-only metadata.
+- [Card](?path=/docs/components-display-card--docs): bordered surface for related content.
+- [CodeBlock](?path=/docs/components-display-codeblock--docs): source code with a copy button.
+- [ColorSwatch](?path=/docs/components-display-colorswatch--docs): color sample with a name and a value.
+- [DescriptionList](?path=/docs/components-display-descriptionlist--docs): name and value pairs.
+- [EmptyState](?path=/docs/components-display-emptystate--docs): title, description, and actions for an empty screen.
+- [List](?path=/docs/components-display-list--docs): unordered and ordered lists.
+- [Stat](?path=/docs/components-display-stat--docs): labelled figure with a change.
+- [Table](?path=/docs/components-display-table--docs): styled native table.
+
+## Feedback
+
+- [Alert](?path=/docs/components-feedback-alert--docs): message that stands out from its surroundings.
+- [Progress](?path=/docs/components-feedback-progress--docs): measurable progress.
+- [Skeleton](?path=/docs/components-feedback-skeleton--docs): placeholder shape for loading content.
+- [Spinner](?path=/docs/components-feedback-spinner--docs): indeterminate wait indicator.
+- [Toast](?path=/docs/components-feedback-toast--docs): brief notification after an action.
+
+## Overlays
+
+- [AlertDialog](?path=/docs/components-overlays-alertdialog--docs): modal confirmation with two actions.
+- [Dialog](?path=/docs/components-overlays-dialog--docs): modal task or decision.
+- [Drawer](?path=/docs/components-overlays-drawer--docs): modal panel docked to an edge.
+- [Menu](?path=/docs/components-overlays-menu--docs): list of actions behind a button.
+- [Popover](?path=/docs/components-overlays-popover--docs): panel anchored to a button.
+- [Tooltip](?path=/docs/components-overlays-tooltip--docs): short hint about a control.
+
+## Utility
+
+- [VisuallyHidden](?path=/docs/components-utility-visuallyhidden--docs): content for assistive technology
   only.
-- [Autocomplete](?path=/docs/components-autocomplete--docs): text input with native suggestions.
-- [Slider](?path=/docs/components-slider--docs): native range input.
-- [Tabs](?path=/docs/components-tabs--docs): switch between related views in place.
-- [Accordion](?path=/docs/components-accordion--docs): native disclosure sections.
-- [Breadcrumb](?path=/docs/components-breadcrumb--docs): trail to the current page.
-- [Pagination](?path=/docs/components-pagination--docs): move between pages of a list.
-- [Progress](?path=/docs/components-progress--docs): measurable progress.
-- [Toast](?path=/docs/components-toast--docs): brief notification after an action.
-- [Tooltip](?path=/docs/components-tooltip--docs): short hint about a control.
-- [Popover](?path=/docs/components-popover--docs): panel anchored to a button.
-- [Menu](?path=/docs/components-menu--docs): list of actions behind a button.
-- [Dialog](?path=/docs/components-dialog--docs): modal task or decision.
-- [Drawer](?path=/docs/components-drawer--docs): modal panel docked to an edge.
 
 Each guide follows the same order: purpose, when to use, contract, accessibility, customization,
 example, and boundaries. The descriptions cover only implemented behavior; future ideas are called

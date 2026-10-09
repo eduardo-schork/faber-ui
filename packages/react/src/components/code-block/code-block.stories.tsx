@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CodeBlock } from './code-block.ui';
 
 const meta = {
-  title: 'Molecules/CodeBlock',
+  title: 'Components/Display/CodeBlock',
   component: CodeBlock,
   args: {
     code: "import { Button } from '@faber-ui/react';\n\n<Button>Publish</Button>;",

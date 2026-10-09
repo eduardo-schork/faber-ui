@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Switch" />
+import * as ComponentStories from '../../../../packages/react/src/components/switch/switch.stories';
+
+<Meta of={ComponentStories} />
 
 # Switch
 
-[Interactive stories and prop reference](?path=/docs/atoms-switch--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -41,3 +45,5 @@ import { Switch } from '@faber-ui/react/switch';
 
 The component does not persist a preference or announce a successful server update. Those effects
 remain application responsibilities.
+
+<Stories includePrimary={false} />

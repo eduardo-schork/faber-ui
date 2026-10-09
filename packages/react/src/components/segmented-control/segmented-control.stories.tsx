@@ -5,7 +5,7 @@ import { SEGMENTED_CONTROL_SIZES } from './segmented-control.constants';
 import { Segment, SegmentedControl } from './segmented-control.ui';
 
 const meta = {
-  title: 'Molecules/SegmentedControl',
+  title: 'Components/Forms/SegmentedControl',
   component: SegmentedControl,
   parameters: { layout: 'centered' },
   args: {

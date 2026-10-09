@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Table" />
+import * as ComponentStories from '../../../../packages/react/src/components/table/table.stories';
+
+<Meta of={ComponentStories} />
 
 # Table
 
-[Interactive stories and prop reference](?path=/docs/atoms-table--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -53,3 +57,5 @@ import { Table } from '@faber-ui/react/table';
 ## Boundaries
 
 Sorting, selection, pagination, sticky headers, and responsive stacking are not included.
+
+<Stories includePrimary={false} />

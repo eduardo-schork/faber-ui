@@ -14,6 +14,7 @@ describe('opacity tokens', () => {
       INTERACTION_LIGHT_HOVER: '20%',
       INTERACTION_LIGHT_ACTIVE: '26%',
       DISABLED_BACKGROUND: '55%',
+      TEXT_ON_TINT: '70%',
     });
   });
 });

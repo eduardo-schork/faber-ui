@@ -5,7 +5,7 @@ import { ThemeProvider } from '../theme-provider';
 import { THEME_MODES } from '../theme';
 
 const meta = {
-  title: 'Foundations/Themes',
+  title: 'Foundations/Theming',
   parameters: {
     layout: 'padded',
   },

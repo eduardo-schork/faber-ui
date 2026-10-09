@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Footer } from './footer.ui';
 
 const meta = {
-  title: 'Molecules/Footer',
+  title: 'Components/Navigation/Footer',
   component: Footer,
   args: { children: 'Faber UI is MIT licensed.' },
 } satisfies Meta<typeof Footer>;

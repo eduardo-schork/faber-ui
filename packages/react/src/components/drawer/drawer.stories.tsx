@@ -6,7 +6,7 @@ import { DRAWER_SIDES, type TDrawerSide } from './drawer.constants';
 import { Drawer } from './drawer.ui';
 
 const meta = {
-  title: 'Organisms/Drawer',
+  title: 'Components/Overlays/Drawer',
   component: Drawer,
   parameters: { layout: 'centered' },
   args: {

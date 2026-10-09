@@ -12,6 +12,9 @@ describe('font size tokens', () => {
       XL: '20px',
       XXL: '24px',
       XXXL: '32px',
+      DISPLAY_SM: '40px',
+      DISPLAY_MD: '64px',
+      DISPLAY_LG: '96px',
     });
   });
 

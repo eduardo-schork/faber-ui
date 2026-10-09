@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Drawer" />
+import * as ComponentStories from '../../../../packages/react/src/components/drawer/drawer.stories';
+
+<Meta of={ComponentStories} />
 
 # Drawer
 
-[Interactive stories and prop reference](?path=/docs/organisms-drawer--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -39,3 +43,5 @@ import { Drawer } from '@faber-ui/react/drawer';
 ## Boundaries
 
 Top and bottom sheets, swipe gestures, and a persistent non-modal drawer are not included.
+
+<Stories includePrimary={false} />

@@ -5,7 +5,7 @@ import { TOOLTIP_SIDES } from './tooltip.constants';
 import { Tooltip } from './tooltip.ui';
 
 const meta = {
-  title: 'Molecules/Tooltip',
+  title: 'Components/Overlays/Tooltip',
   component: Tooltip,
   parameters: { layout: 'centered' },
   args: {

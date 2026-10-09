@@ -5,7 +5,7 @@ import { BADGE_COLORS } from './badge.constants';
 import { Badge } from './badge.ui';
 
 const meta = {
-  title: 'Atoms/Badge',
+  title: 'Components/Display/Badge',
   component: Badge,
   parameters: { layout: 'centered' },
   args: { children: 'Stable', color: BADGE_COLORS.NEUTRAL },

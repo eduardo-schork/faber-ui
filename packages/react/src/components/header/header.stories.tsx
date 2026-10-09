@@ -6,7 +6,7 @@ import { Text } from '../text';
 import { Header } from './header.ui';
 
 const meta = {
-  title: 'Molecules/Header',
+  title: 'Components/Navigation/Header',
   component: Header,
   args: {
     children: (

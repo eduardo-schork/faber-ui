@@ -19,7 +19,7 @@ import { TEXT_DECORATIONS } from '../text-decorations';
 import { Z_INDICES } from '../z-indices';
 
 const meta = {
-  title: 'Foundations/Tokens',
+  title: 'Foundations/Design Tokens',
   parameters: {
     layout: 'padded',
   },

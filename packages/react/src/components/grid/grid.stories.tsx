@@ -8,7 +8,7 @@ const cells = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'].map((label) => (
 ));
 
 const meta = {
-  title: 'Atoms/Grid',
+  title: 'Components/Layout/Grid',
   component: Grid,
   args: { children: cells, columns: 3, gap: 'MD' },
 } satisfies Meta<typeof Grid>;

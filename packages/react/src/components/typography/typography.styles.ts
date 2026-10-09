@@ -4,6 +4,7 @@ import {
   COLORS,
   FOCUS_RINGS,
   FONT_FAMILIES,
+  FONT_SIZE_FLUID_RATES,
   FONT_SIZES,
   FONT_WEIGHTS,
   LETTER_SPACINGS,
@@ -57,6 +58,36 @@ export const StyledTypography = styled.span.attrs({ className: 'faber-ui-typogra
 
   &[data-size='${TYPOGRAPHY_SIZES.LARGEST}'] {
     font-size: ${FONT_SIZES.XXXL};
+  }
+
+  /* Each display size grows with the viewport from the step below it up to its token. */
+  &[data-size='${TYPOGRAPHY_SIZES.DISPLAY_SMALL}'] {
+    font-size: clamp(
+      ${FONT_SIZES.XXL},
+      ${FONT_SIZE_FLUID_RATES.DISPLAY_SM},
+      ${FONT_SIZES.DISPLAY_SM}
+    );
+    letter-spacing: ${LETTER_SPACINGS.TIGHT};
+  }
+
+  &[data-size='${TYPOGRAPHY_SIZES.DISPLAY_MEDIUM}'] {
+    font-size: clamp(
+      ${FONT_SIZES.XXXL},
+      ${FONT_SIZE_FLUID_RATES.DISPLAY_MD},
+      ${FONT_SIZES.DISPLAY_MD}
+    );
+    letter-spacing: calc(${LETTER_SPACINGS.TIGHT} * 2);
+    line-height: ${LINE_HEIGHTS.NONE};
+  }
+
+  &[data-size='${TYPOGRAPHY_SIZES.DISPLAY_LARGE}'] {
+    font-size: clamp(
+      ${FONT_SIZES.DISPLAY_SM},
+      ${FONT_SIZE_FLUID_RATES.DISPLAY_LG},
+      ${FONT_SIZES.DISPLAY_LG}
+    );
+    letter-spacing: calc(${LETTER_SPACINGS.TIGHT} * 2.5);
+    line-height: ${LINE_HEIGHTS.NONE};
   }
 
   &[data-size='${TYPOGRAPHY_SIZES.INHERIT}'] {

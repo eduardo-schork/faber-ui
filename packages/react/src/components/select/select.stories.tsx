@@ -5,7 +5,7 @@ import { Field } from '../field';
 import { Select } from './select.ui';
 
 const meta = {
-  title: 'Atoms/Select',
+  title: 'Components/Forms/Select',
   component: Select,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof Select>;

@@ -160,5 +160,20 @@ for (const directoryName of PACKAGES) {
   }
 
   console.log(`${dryRun ? 'dry run' : stage ? 'stage' : 'publish'} ${name}@${version} (${tag})`);
-  run('npm', publishArguments, { stdio: 'inherit' });
+
+  try {
+    run('npm', publishArguments, { stdio: ['inherit', 'inherit', 'pipe'] });
+  } catch (error) {
+    const message = String(error.stderr ?? '');
+
+    process.stderr.write(message);
+
+    // The registry can report a version as missing for a moment after it is approved. Staging it
+    // again is refused, which means the work is already done, not that the release failed.
+    if (!stage || !message.includes('previously published')) {
+      throw error;
+    }
+
+    console.log(`skip ${name}@${version}: already published`);
+  }
 }

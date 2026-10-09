@@ -1,0 +1,57 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/file-upload/file-upload.stories';
+
+<Meta of={ComponentStories} />
+
+# FileUpload
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `FileUpload` to let the reader attach files by choosing them or dropping them on an area.
+
+## Behavioral contract
+
+- Renders a `label` around a native `input type="file"`. The ref and native input props, such as
+  `accept`, `multiple`, `name`, and `required`, go to the input.
+- Chosen and dropped files are listed with their size and a remove button. Without `multiple` a
+  new file replaces the previous one; with it, files are added.
+- `onFilesChange` receives the full list after each change. The native input is kept in step with
+  the list, so the surrounding form submits what is shown.
+- `label` and `description` set the text of the area.
+
+## Accessibility
+
+- The native input keeps keyboard access and the platform file picker; the area shows the focus
+  ring on its behalf.
+- Dropping files is an addition to choosing them, never the only way.
+- Translate `label` and `removeLabel` with the rest of the interface. Inside `Field` the input
+  takes the field label, description, and error.
+
+## Customization
+
+Target `faber-ui-file-upload`, `faber-ui-file-upload-dropzone`, `faber-ui-file-upload-input`,
+`faber-ui-file-upload-label`, `faber-ui-file-upload-description`, `faber-ui-file-upload-list`,
+`faber-ui-file-upload-item`, and `faber-ui-file-upload-remove`. The area carries `data-dragging`
+while files are over it.
+
+## Example
+
+```tsx
+import { Field, FileUpload } from '@faber-ui/react';
+
+<Field label="Attachments" error={errors.files}>
+  <FileUpload multiple name="attachments" accept=".pdf,.png" onFilesChange={setFiles} />
+</Field>;
+```
+
+## Boundaries
+
+`FileUpload` collects files; it does not send them, show progress, or preview images. It does not
+check `accept` or a size limit on dropped files: validate in `onFilesChange` and on the server.
+
+<Stories includePrimary={false} />

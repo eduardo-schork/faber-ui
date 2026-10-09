@@ -6,7 +6,7 @@ import { Field } from '../field';
 import { Textarea } from './textarea.ui';
 
 const meta = {
-  title: 'Atoms/Textarea',
+  title: 'Components/Forms/Textarea',
   component: Textarea,
   parameters: { layout: 'centered' },
   args: {

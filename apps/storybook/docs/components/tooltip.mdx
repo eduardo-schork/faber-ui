@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Tooltip" />
+import * as ComponentStories from '../../../../packages/react/src/components/tooltip/tooltip.stories';
+
+<Meta of={ComponentStories} />
 
 # Tooltip
 
-[Interactive stories and prop reference](?path=/docs/molecules-tooltip--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -43,3 +47,5 @@ import { IconButton, Tooltip } from '@faber-ui/react';
 
 Built on Radix Tooltip, which is an implementation detail. The content renders in a portal on the
 document body, so it follows the root theme and not a scoped `ThemeProvider`.
+
+<Stories includePrimary={false} />

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Input" />
+import * as ComponentStories from '../../../../packages/react/src/components/input/input.stories';
+
+<Meta of={ComponentStories} />
 
 # Input
 
-[Interactive stories and prop reference](?path=/docs/atoms-input--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -53,3 +57,5 @@ import { Field, Input, INPUT_TYPES } from '@faber-ui/react';
 `Input` does not own labels, validation, masking, formatting, or application form state. The
 `number` type retains browser-native number-input behavior; a currency-specific field is not
 implemented yet.
+
+<Stories includePrimary={false} />

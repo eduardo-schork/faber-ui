@@ -6,7 +6,7 @@ import { INPUT_TYPES } from './input.constants';
 import { Input } from './input.ui';
 
 const meta = {
-  title: 'Atoms/Input',
+  title: 'Components/Forms/Input',
   component: Input,
   parameters: {
     layout: 'centered',

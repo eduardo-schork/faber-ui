@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Checkbox" />
+import * as ComponentStories from '../../../../packages/react/src/components/checkbox/checkbox.stories';
+
+<Meta of={ComponentStories} />
 
 # Checkbox
 
-[Interactive stories and prop reference](?path=/docs/atoms-checkbox--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -66,3 +70,5 @@ import {
 Validation and translated messages are supplied by the application. This component does not
 manage a checkbox group or provide an indeterminate state yet. Do not wrap it in `Field`, because
 it already owns an inline label.
+
+<Stories includePrimary={false} />

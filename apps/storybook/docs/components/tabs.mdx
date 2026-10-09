@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Tabs" />
+import * as ComponentStories from '../../../../packages/react/src/components/tabs/tabs.stories';
+
+<Meta of={ComponentStories} />
 
 # Tabs
 
-[Interactive stories and prop reference](?path=/docs/molecules-tabs--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -48,3 +52,5 @@ import { Tab, TabList, TabPanel, Tabs } from '@faber-ui/react/tabs';
 
 Vertical orientation, manual activation, and lazy mounting of panels are not included. For
 navigation between pages, use links.
+
+<Stories includePrimary={false} />

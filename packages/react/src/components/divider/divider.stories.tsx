@@ -5,7 +5,7 @@ import { DIVIDER_ORIENTATIONS } from './divider.constants';
 import { Divider } from './divider.ui';
 
 const meta = {
-  title: 'Atoms/Divider',
+  title: 'Components/Layout/Divider',
   component: Divider,
   parameters: { layout: 'centered' },
   argTypes: {

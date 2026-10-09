@@ -3,6 +3,8 @@
 import {
   BORDER_WIDTH_SCALE,
   BREAKPOINTS,
+  COLOR_SWATCH_ORIENTATIONS,
+  ColorSwatch,
   DARK_THEME,
   FOCUS_RINGS,
   FONT_SIZES,
@@ -39,13 +41,11 @@ import {
   Bar,
   FocusField,
   FocusSpecimen,
-  Role,
   RoleList,
   Scale,
   ScaleRow,
   ScaleVisual,
   Square,
-  Swatch,
   SwatchFamily,
   SwatchStrip,
   ThemePanel,
@@ -162,10 +162,13 @@ export function FoundationsPage() {
               <SwatchStrip>
                 {PALETTE_ENTRIES.filter(([token]) => token.startsWith(prefix)).map(
                   ([token, value]) => (
-                    <Swatch key={token} style={{ '--swatch': value }}>
-                      <strong>{token.replace(prefix, '')}</strong>
-                      {value}
-                    </Swatch>
+                    <ColorSwatch
+                      key={token}
+                      color={value}
+                      label={token.replace(prefix, '')}
+                      orientation={COLOR_SWATCH_ORIENTATIONS.VERTICAL}
+                      value={value}
+                    />
                   ),
                 )}
               </SwatchStrip>
@@ -187,10 +190,12 @@ export function FoundationsPage() {
                   <Caption data-emphasis="ink">{name}</Caption>
                   <RoleList>
                     {THEME_ROLES.map((role) => (
-                      <Role key={role} style={{ '--swatch': `var(${THEME_VARIABLE_NAMES[role]})` }}>
-                        <strong>{role}</strong>
-                        <Run>{theme[role]}</Run>
-                      </Role>
+                      <ColorSwatch
+                        key={role}
+                        color={`var(${THEME_VARIABLE_NAMES[role]})`}
+                        label={role}
+                        value={theme[role]}
+                      />
                     ))}
                   </RoleList>
                 </ThemePanel>

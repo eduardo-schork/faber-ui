@@ -3,7 +3,6 @@ import {
   BREAKPOINTS,
   COLORS,
   Card,
-  FONT_SIZES,
   FONT_WEIGHTS,
   Grid,
   List,
@@ -12,6 +11,7 @@ import {
   SIZES,
   SPACINGS,
   SideNav,
+  TYPOGRAPHY_SIZES,
   Table,
   Title,
 } from '@faber-ui/react';
@@ -66,13 +66,8 @@ export const DocsHeader = styled(Grid).attrs({ forwardedAs: 'header' })`
   padding-bottom: ${SPACINGS.XXL};
 `;
 
-export const DocsTitle = styled(Title.H1)`
-  && {
-    font-size: clamp(calc(${FONT_SIZES.XL} * 1.8), 5vw, calc(${FONT_SIZES.XXXL} * 2));
-    letter-spacing: -0.045em;
-    line-height: 1;
-    text-wrap: balance;
-  }
+export const DocsTitle = styled(Title.H1).attrs({ size: TYPOGRAPHY_SIZES.DISPLAY_MEDIUM })`
+  text-wrap: balance;
 `;
 
 export const DocsSection = styled(Grid).attrs({ forwardedAs: 'section' })`
@@ -82,12 +77,7 @@ export const DocsSection = styled(Grid).attrs({ forwardedAs: 'section' })`
   border-top: ${BORDER_WIDTHS.DEFAULT} solid ${COLORS.BORDER_DEFAULT};
 `;
 
-export const DocsSectionTitle = styled(Title.H2)`
-  && {
-    font-size: clamp(${FONT_SIZES.XXL}, 2.6vw, ${FONT_SIZES.XXXL});
-    letter-spacing: -0.03em;
-  }
-`;
+export const DocsSectionTitle = styled(Title.H2).attrs({ size: TYPOGRAPHY_SIZES.LARGEST })``;
 
 export const DocsSubsection = styled(Grid)`
   gap: ${SPACINGS.MD};

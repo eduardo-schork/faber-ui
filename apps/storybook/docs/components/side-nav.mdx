@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/SideNav" />
+import * as ComponentStories from '../../../../packages/react/src/components/side-nav/side-nav.stories';
+
+<Meta of={ComponentStories} />
 
 # SideNav
 
-[Interactive stories and prop reference](?path=/docs/molecules-sidenav--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -46,3 +50,5 @@ import { SideNav, SideNavGroup } from '@faber-ui/react/side-nav';
 ## Boundaries
 
 There are no collapsible groups, nested levels, or scroll tracking.
+
+<Stories includePrimary={false} />

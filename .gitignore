@@ -57,3 +57,8 @@ Thumbs.db
 
 # Local living project memory; intentionally not committed.
 PROJECT.md
+
+# Local graphify knowledge graph and the Claude Code integration it installs.
+graphify-out/
+/CLAUDE.md
+/.claude/

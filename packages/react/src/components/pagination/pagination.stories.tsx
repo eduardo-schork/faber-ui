@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Pagination } from './pagination.ui';
 
 const meta = {
-  title: 'Molecules/Pagination',
+  title: 'Components/Navigation/Pagination',
   component: Pagination,
   parameters: { layout: 'centered' },
   args: { count: 20, onPageChange: () => undefined, page: 1, siblingCount: 1 },

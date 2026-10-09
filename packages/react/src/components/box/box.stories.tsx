@@ -4,7 +4,7 @@ import { SPACING_SCALE } from '@faber-ui/tokens';
 import { Box } from './box.ui';
 
 const meta = {
-  title: 'Atoms/Box',
+  title: 'Components/Layout/Box',
   component: Box,
   parameters: { layout: 'centered' },
   args: { children: 'A block container with token padding.', padding: 'MD' },

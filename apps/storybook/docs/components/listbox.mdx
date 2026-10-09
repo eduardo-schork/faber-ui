@@ -1,0 +1,73 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/listbox/listbox.stories';
+
+<Meta of={ComponentStories} />
+
+# Listbox
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `Listbox` to choose one value from a list when the options should look like the rest of the
+interface: grouped, separated, or wider than the native picker allows. Use the native `Select`
+when the platform picker is enough, especially on touch devices.
+
+## Behavioral contract
+
+- Renders a `button` with the `combobox` role that opens a list of `ListboxOption` elements. The
+  ref and native button props go to that button.
+- `value` and `onValueChange` control it; `defaultValue` leaves it uncontrolled. `placeholder`
+  shows while nothing is selected.
+- `name` submits the selected value with the surrounding form, and `required` takes part in form
+  validation.
+- `ListboxGroup` gives a set of options a visible label, and `ListboxSeparator` draws a rule
+  between sets.
+- The list opens under the button, as wide as the button, and scrolls when it is taller than the
+  space available.
+
+## Accessibility
+
+- Arrow keys, Home, and End move through the options; Enter and Space select; Escape closes;
+  typing jumps to the option that starts with the typed text.
+- Inside `Field` the button takes the field label, description, and error. Without `Field`, pass
+  `aria-label` or `aria-labelledby`.
+- A disabled option is skipped by the keyboard and announced as unavailable.
+
+## Customization
+
+Target `faber-ui-listbox` (the button), `faber-ui-listbox-icon`, `faber-ui-listbox-content`,
+`faber-ui-listbox-viewport`, `faber-ui-listbox-option`, `faber-ui-listbox-option-indicator`,
+`faber-ui-listbox-group`, `faber-ui-listbox-group-label`, and `faber-ui-listbox-separator`. The
+list is rendered in a portal at the end of the document, so scope those rules globally or by
+theme, not by an ancestor of the button.
+
+## Example
+
+```tsx
+import { Field, Listbox, ListboxGroup, ListboxOption, ListboxSeparator } from '@faber-ui/react';
+
+<Field label="Region">
+  <Listbox name="region" value={region} onValueChange={setRegion} placeholder="Choose a region">
+    <ListboxGroup label="Europe">
+      <ListboxOption value="fra">Frankfurt</ListboxOption>
+      <ListboxOption value="dub">Dublin</ListboxOption>
+    </ListboxGroup>
+    <ListboxSeparator />
+    <ListboxGroup label="Americas">
+      <ListboxOption value="gru">São Paulo</ListboxOption>
+    </ListboxGroup>
+  </Listbox>
+</Field>;
+```
+
+## Boundaries
+
+`Listbox` selects one value and does not filter while typing or accept free text; use
+`Combobox` for a searchable list or for several values, and `Autocomplete` for suggestions on a
+text field.
+
+<Stories includePrimary={false} />

@@ -6,6 +6,10 @@ export const TYPOGRAPHY_SIZES = {
   LARGE: 'large',
   LARGER: 'larger',
   LARGEST: 'largest',
+  /** Fluid sizes for page and section titles. They shrink with the viewport. */
+  DISPLAY_SMALL: 'display-small',
+  DISPLAY_MEDIUM: 'display-medium',
+  DISPLAY_LARGE: 'display-large',
   /** Takes the font size of the surrounding text. */
   INHERIT: 'inherit',
 } as const;

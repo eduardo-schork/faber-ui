@@ -5,7 +5,7 @@ import { TOAST_COLORS } from './toast.constants';
 import { Toast } from './toast.ui';
 
 const meta = {
-  title: 'Atoms/Toast',
+  title: 'Components/Feedback/Toast',
   component: Toast,
   args: {
     children: 'Your changes are live.',

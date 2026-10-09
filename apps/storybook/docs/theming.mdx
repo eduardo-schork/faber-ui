@@ -1,6 +1,8 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Foundations/Theming Guide" />
+import * as GroupStories from '../../../packages/themes/src/stories/themes.stories';
+
+<Meta of={GroupStories} name="Docs" />
 
 # Theming
 
@@ -23,6 +25,14 @@ The packaged themes pair Amethyst primary colors with Obsidian accents. Light mo
 gray neutrals and white surfaces; dark mode uses graphite and gunmetal neutrals with brighter brand
 steps for readable contrast. Brand hues are reserved for actions, focus, and emphasis instead of
 page backgrounds.
+
+Both themes are checked against WCAG 2.2 AA in the test suite: text roles reach 4.5:1 on the
+background and surface roles, text on primary and accent fills reaches 4.5:1 in the rest, hover,
+and pressed states, and `BORDER_STRONG` and `FOCUS_RING` reach 3:1. Text set on a tint of its own color, as in a light `Button`
+or a `Badge`, is mixed toward the text color by `OPACITIES.TEXT_ON_TINT` so it also reaches 4.5:1.
+`BORDER_DEFAULT` is a
+decorative divider and is not meant to mark the edge of a control. A custom theme should keep
+the same pairs readable.
 
 ## React provider
 
@@ -193,3 +203,5 @@ are usually the simpler option.
 - Tokens provide stable component references and fallbacks.
 - Components do not own application-specific brand values.
 - Applications can override semantic variables without using a style-prop system.
+
+<Stories />

@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Progress" />
+import * as ComponentStories from '../../../../packages/react/src/components/progress/progress.stories';
+
+<Meta of={ComponentStories} />
 
 # Progress
 
-[Interactive stories and prop reference](?path=/docs/atoms-progress--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -39,3 +43,5 @@ import { Progress } from '@faber-ui/react/progress';
 ## Boundaries
 
 There is no visible label, percentage text, or circular variant. Compose text beside the bar.
+
+<Stories includePrimary={false} />

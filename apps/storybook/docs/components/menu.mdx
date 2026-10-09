@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Menu" />
+import * as ComponentStories from '../../../../packages/react/src/components/menu/menu.stories';
+
+<Meta of={ComponentStories} />
 
 # Menu
 
-[Interactive stories and prop reference](?path=/docs/molecules-menu--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -46,3 +50,5 @@ import { Button, Menu, MenuItem, MenuSeparator } from '@faber-ui/react';
 
 Submenus, checkbox and radio items, and context menus are not included. Built on Radix Dropdown
 Menu, which is an implementation detail; the content renders in a portal on the document body.
+
+<Stories includePrimary={false} />

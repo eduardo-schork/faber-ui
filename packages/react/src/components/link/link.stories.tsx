@@ -5,7 +5,7 @@ import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '../typography/typography.con
 import { Link } from './link.ui';
 
 const meta = {
-  title: 'Atoms/Link',
+  title: 'Components/Navigation/Link',
   component: Link,
   parameters: { layout: 'centered' },
   args: { children: 'Read the documentation', href: '#documentation' },

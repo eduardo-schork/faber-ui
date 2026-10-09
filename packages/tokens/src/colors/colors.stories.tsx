@@ -9,6 +9,7 @@ import { PALETTE } from './palette';
 
 const meta = {
   title: 'Foundations/Colors',
+  tags: ['autodocs'],
   parameters: {
     layout: 'padded',
   },

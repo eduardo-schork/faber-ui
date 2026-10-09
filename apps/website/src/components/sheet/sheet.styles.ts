@@ -116,14 +116,8 @@ export const BandIntro = styled(Grid)`
   }
 `;
 
-// The doubled ampersand outranks the size attribute selector that Title applies by default.
-export const BandTitle = styled(Title.H2)`
-  && {
-    font-size: clamp(${FONT_SIZES.XXL}, 3.4vw, calc(${FONT_SIZES.XL} * 2));
-    letter-spacing: -0.03em;
-    line-height: 1.08;
-    text-wrap: balance;
-  }
+export const BandTitle = styled(Title.H2).attrs({ size: TYPOGRAPHY_SIZES.DISPLAY_SMALL })`
+  text-wrap: balance;
 `;
 
 export const Lead = styled(Text.Lead)`

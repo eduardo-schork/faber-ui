@@ -19,7 +19,7 @@ const DemoItem = styled.div`
 `;
 
 const meta = {
-  title: 'Atoms/CenterFlex',
+  title: 'Components/Layout/CenterFlex',
   component: CenterFlex,
   parameters: {
     layout: 'padded',

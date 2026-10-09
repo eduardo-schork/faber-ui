@@ -24,6 +24,12 @@ describe('Title', () => {
     }
   });
 
+  it('SHOULD accept a display size without changing the heading level', () => {
+    const { getByRole } = render(<Title.H2 size="display-large">Hero</Title.H2>);
+
+    expect(getByRole('heading', { level: 2 }).getAttribute('data-size')).toBe('display-large');
+  });
+
   it('SHOULD provide the approved visual defaults independently from semantic level', () => {
     const { getByRole } = render(<Title.H1>Page title</Title.H1>);
     const title = getByRole('heading', { level: 1 });

@@ -4,7 +4,7 @@ import { SPACINGS } from '@faber-ui/tokens';
 import { Switch } from './switch.ui';
 
 const meta = {
-  title: 'Atoms/Switch',
+  title: 'Components/Forms/Switch',
   component: Switch,
   parameters: { layout: 'centered' },
   args: { label: 'Enable notifications', name: 'notifications' },

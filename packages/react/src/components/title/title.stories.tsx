@@ -14,7 +14,7 @@ const tones = Object.values(TYPOGRAPHY_TONES);
 const weights = Object.values(TYPOGRAPHY_WEIGHTS);
 
 const meta = {
-  title: 'Atoms/Title',
+  title: 'Components/Typography/Title',
   component: Title.H1,
   parameters: {
     layout: 'padded',
@@ -65,6 +65,16 @@ export const SemanticAndVisualIndependence: TStory = {
       <Title.H3 tone={TYPOGRAPHY_TONES.ACCENT} weight={TYPOGRAPHY_WEIGHTS.BOLD}>
         Semantic H3 with accent styling
       </Title.H3>
+    </div>
+  ),
+};
+
+export const Display: TStory = {
+  render: () => (
+    <div style={{ display: 'grid', gap: SPACINGS.LG }}>
+      <Title.H1 size={TYPOGRAPHY_SIZES.DISPLAY_LARGE}>Display large</Title.H1>
+      <Title.H1 size={TYPOGRAPHY_SIZES.DISPLAY_MEDIUM}>Display medium</Title.H1>
+      <Title.H2 size={TYPOGRAPHY_SIZES.DISPLAY_SMALL}>Display small</Title.H2>
     </div>
   ),
 };

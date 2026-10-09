@@ -5,7 +5,7 @@ import { AVATAR_SIZES } from './avatar.constants';
 import { Avatar } from './avatar.ui';
 
 const meta = {
-  title: 'Atoms/Avatar',
+  title: 'Components/Display/Avatar',
   component: Avatar,
   parameters: { layout: 'centered' },
   args: { alt: 'Eduardo Schork', fallback: 'ES', size: AVATAR_SIZES.MEDIUM },

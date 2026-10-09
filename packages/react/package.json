@@ -226,6 +226,42 @@
       "types": "./dist/components/skip-link/index.d.ts",
       "import": "./dist/skip-link.js"
     },
+    "./color-swatch": {
+      "types": "./dist/components/color-swatch/index.d.ts",
+      "import": "./dist/color-swatch.js"
+    },
+    "./radio-card": {
+      "types": "./dist/components/radio-card/index.d.ts",
+      "import": "./dist/radio-card.js"
+    },
+    "./listbox": {
+      "types": "./dist/components/listbox/index.d.ts",
+      "import": "./dist/listbox.js"
+    },
+    "./combobox": {
+      "types": "./dist/components/combobox/index.d.ts",
+      "import": "./dist/combobox.js"
+    },
+    "./calendar": {
+      "types": "./dist/components/calendar/index.d.ts",
+      "import": "./dist/calendar.js"
+    },
+    "./date-picker": {
+      "types": "./dist/components/date-picker/index.d.ts",
+      "import": "./dist/date-picker.js"
+    },
+    "./file-upload": {
+      "types": "./dist/components/file-upload/index.d.ts",
+      "import": "./dist/file-upload.js"
+    },
+    "./empty-state": {
+      "types": "./dist/components/empty-state/index.d.ts",
+      "import": "./dist/empty-state.js"
+    },
+    "./stat": {
+      "types": "./dist/components/stat/index.d.ts",
+      "import": "./dist/stat.js"
+    },
     "./nav-link": {
       "types": "./dist/components/nav-link/index.d.ts",
       "import": "./dist/nav-link.js"
@@ -256,6 +292,7 @@
     "@faber-ui/tokens": "workspace:*",
     "@radix-ui/react-dropdown-menu": "^2.1.24",
     "@radix-ui/react-popover": "^1.1.23",
+    "@radix-ui/react-select": "^2.3.8",
     "@radix-ui/react-tooltip": "^1.2.16"
   },
   "peerDependencies": {

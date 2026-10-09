@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Box" />
+import * as ComponentStories from '../../../../packages/react/src/components/box/box.stories';
+
+<Meta of={ComponentStories} />
 
 # Box
 
-[Interactive stories and prop reference](?path=/docs/atoms-box--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -42,3 +46,5 @@ import { Box } from '@faber-ui/react/box';
 
 There are no margin, color, or sizing props. Use `Card` for a bordered surface and `Flex` or
 `Grid` when the children need arranging.
+
+<Stories includePrimary={false} />

@@ -1,0 +1,52 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/empty-state/empty-state.stories';
+
+<Meta of={ComponentStories} />
+
+# EmptyState
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `EmptyState` where a list, a table, or a screen has nothing to show yet, to say why and what
+to do next.
+
+## Behavioral contract
+
+- `title` is required and renders as a heading. `description`, `media`, and `actions` are
+  optional and are left out of the markup when not given.
+- Renders the library `VFlex` and forwards its props and ref.
+
+## Accessibility
+
+The media is decorative and hidden from assistive technology. The title is an `h3`; pick the
+surrounding headings so the level fits the page, or compose the parts with another `Title` level.
+
+## Customization
+
+Target `faber-ui-empty-state`, `faber-ui-empty-state-media`, `faber-ui-empty-state-title`,
+`faber-ui-empty-state-description`, and `faber-ui-empty-state-actions`. The parts are exported
+(`EmptyStateRoot`, `EmptyStateMedia`, `EmptyStateTitle`, `EmptyStateDescription`,
+`EmptyStateActions`).
+
+## Example
+
+```tsx
+import { Button, EmptyState } from '@faber-ui/react';
+
+<EmptyState
+  title="No invoices yet"
+  description="Invoices appear here after the first payment."
+  actions={<Button>Create invoice</Button>}
+/>;
+```
+
+## Boundaries
+
+`EmptyState` is not an error message or a loading state; use `Alert` and `Skeleton` for those.
+
+<Stories includePrimary={false} />

@@ -263,6 +263,7 @@ export {
   CONTAINER_SIZES,
   FOCUS_RINGS,
   FONT_FAMILIES,
+  FONT_SIZE_FLUID_RATES,
   FONT_SIZE_SCALE,
   FONT_SIZES,
   FONT_WEIGHT_SCALE,
@@ -376,3 +377,117 @@ export type { TSideNavGroupProps, TSideNavProps } from './components/side-nav';
 export type { TResponsiveValue } from './internal/create-responsive-styles';
 export { AlertDialog } from './components/alert-dialog';
 export type { TAlertDialogProps } from './components/alert-dialog';
+
+export { COLOR_SWATCH_ORIENTATIONS } from './components/color-swatch';
+export {
+  ColorSwatch,
+  ColorSwatchLabel,
+  ColorSwatchRoot,
+  ColorSwatchSample,
+  ColorSwatchValue,
+} from './components/color-swatch';
+export type { TColorSwatchOrientation, TColorSwatchProps } from './components/color-swatch';
+
+export {
+  RadioCard,
+  RadioCardContent,
+  RadioCardDescription,
+  RadioCardInput,
+  RadioCardLabel,
+  RadioCardRoot,
+} from './components/radio-card';
+export type { TRadioCardProps } from './components/radio-card';
+
+export {
+  Listbox,
+  ListboxContent,
+  ListboxGroup,
+  ListboxGroupLabel,
+  ListboxIcon,
+  ListboxOption,
+  ListboxOptionIndicator,
+  ListboxSeparator,
+  ListboxTrigger,
+  ListboxViewport,
+} from './components/listbox';
+export type {
+  TListboxGroupProps,
+  TListboxOptionProps,
+  TListboxProps,
+  TListboxSeparatorProps,
+} from './components/listbox';
+
+export { Combobox } from './components/combobox';
+export {
+  ComboboxChip,
+  ComboboxChipRemove,
+  ComboboxContent,
+  ComboboxControl,
+  ComboboxEmpty,
+  ComboboxIcon,
+  ComboboxInput,
+  ComboboxList,
+  ComboboxOption,
+  ComboboxOptionIndicator,
+} from './components/combobox';
+export type {
+  TComboboxMultipleProps,
+  TComboboxOption,
+  TComboboxProps,
+  TComboboxSingleProps,
+} from './components/combobox';
+
+export { Calendar } from './components/calendar';
+export {
+  CalendarDay,
+  CalendarGrid,
+  CalendarHeader,
+  CalendarNavigation,
+  CalendarRoot,
+  CalendarTitle,
+} from './components/calendar';
+export type { TCalendarProps, TIsoDate } from './components/calendar';
+
+export {
+  DatePicker,
+  DatePickerContent,
+  DatePickerIcon,
+  DatePickerTrigger,
+} from './components/date-picker';
+export type { TDatePickerProps } from './components/date-picker';
+
+export {
+  FileUpload,
+  FileUploadDescription,
+  FileUploadDropzone,
+  FileUploadInput,
+  FileUploadItem,
+  FileUploadItemText,
+  FileUploadLabel,
+  FileUploadList,
+  FileUploadRemove,
+  FileUploadRoot,
+} from './components/file-upload';
+export type { TFileUploadProps } from './components/file-upload';
+
+export {
+  EmptyState,
+  EmptyStateActions,
+  EmptyStateDescription,
+  EmptyStateMedia,
+  EmptyStateRoot,
+  EmptyStateTitle,
+} from './components/empty-state';
+export type { TEmptyStateProps } from './components/empty-state';
+
+export { STAT_TRENDS } from './components/stat';
+export {
+  Stat,
+  StatChange,
+  StatFigure,
+  StatHelper,
+  StatLabel,
+  StatRoot,
+  StatValue,
+} from './components/stat';
+export type { TStatProps, TStatTrend } from './components/stat';

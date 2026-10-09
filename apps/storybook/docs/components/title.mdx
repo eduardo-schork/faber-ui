@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Title" />
+import * as ComponentStories from '../../../../packages/react/src/components/title/title.stories';
+
+<Meta of={ComponentStories} />
 
 # Title
 
-[Interactive stories and prop reference](?path=/docs/atoms-title--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -44,3 +48,5 @@ import { Title, TYPOGRAPHY_SIZES } from '@faber-ui/react';
 
 Title does not infer heading levels from context or provide a polymorphic `as` prop. The caller
 owns the page outline and surrounding layout spacing.
+
+<Stories includePrimary={false} />

@@ -215,6 +215,7 @@ export const TitleBlock = styled(DescriptionList)`
   dd {
     ${captionText}
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     margin: ${SPACINGS.NONE};
     color: ${COLORS.TEXT_PRIMARY};
     font-weight: ${FONT_WEIGHTS.SEMIBOLD};

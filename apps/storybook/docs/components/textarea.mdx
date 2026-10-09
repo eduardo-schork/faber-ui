@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Textarea" />
+import * as ComponentStories from '../../../../packages/react/src/components/textarea/textarea.stories';
+
+<Meta of={ComponentStories} />
 
 # Textarea
 
-[Interactive stories and prop reference](?path=/docs/atoms-textarea--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -43,3 +47,5 @@ import { Field, Textarea } from '@faber-ui/react';
 
 Automatic content-based height growth is not implemented. `Textarea` does not own validation,
 character counting, or form state.
+
+<Stories includePrimary={false} />

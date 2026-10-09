@@ -5,7 +5,7 @@ import { MENU_ALIGNMENTS, MENU_ITEM_COLORS } from './menu.constants';
 import { Menu, MenuItem, MenuLabel, MenuSeparator } from './menu.ui';
 
 const meta = {
-  title: 'Molecules/Menu',
+  title: 'Components/Overlays/Menu',
   component: Menu,
   parameters: { layout: 'centered' },
   args: {

@@ -15,6 +15,7 @@ import {
   ListItem,
   SIZES,
   SPACINGS,
+  TYPOGRAPHY_SIZES,
   Title,
 } from '@faber-ui/react';
 import Link from 'next/link';
@@ -46,13 +47,7 @@ export const HeroCopy = styled(Grid)`
   gap: ${SPACINGS.LG};
 `;
 
-export const HeroTitle = styled(Title.H1)`
-  && {
-    font-size: clamp(calc(${FONT_SIZES.XL} * 2), 7.2vw, calc(${FONT_SIZES.XXXL} * 3));
-    letter-spacing: -0.05em;
-    line-height: 0.96;
-  }
-
+export const HeroTitle = styled(Title.H1).attrs({ size: TYPOGRAPHY_SIZES.DISPLAY_LARGE })`
   span {
     display: block;
     color: ${COLORS.TEXT_SECONDARY};

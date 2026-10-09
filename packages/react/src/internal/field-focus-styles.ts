@@ -9,22 +9,27 @@ export const FIELD_FOCUS_GROWTH = `(${FOCUS_RINGS.FIELD_BORDER_WIDTH} - ${BORDER
  * color, instead of a ring outside the control. The gradient is painted in the border box behind a
  * surface-colored layer that covers the padding box.
  */
+/** The focused look on its own, for a wrapper that marks focus on behalf of the input inside it. */
+export const fieldFocusDeclarations = css`
+  border-width: ${FOCUS_RINGS.FIELD_BORDER_WIDTH};
+  border-color: transparent;
+  outline: none;
+  background-image:
+    linear-gradient(${COLORS.SURFACE_PRIMARY}, ${COLORS.SURFACE_PRIMARY}),
+    linear-gradient(
+      120deg,
+      ${COLORS.PRIMARY_ACTIVE},
+      ${COLORS.PRIMARY},
+      color-mix(in srgb, ${COLORS.PRIMARY} 45%, ${COLORS.SURFACE_PRIMARY}),
+      ${COLORS.PRIMARY}
+    );
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+`;
+
 export const fieldFocusStyles = css`
   &:focus-visible {
-    border-width: ${FOCUS_RINGS.FIELD_BORDER_WIDTH};
-    border-color: transparent;
-    outline: none;
-    background-image:
-      linear-gradient(${COLORS.SURFACE_PRIMARY}, ${COLORS.SURFACE_PRIMARY}),
-      linear-gradient(
-        120deg,
-        ${COLORS.PRIMARY_ACTIVE},
-        ${COLORS.PRIMARY},
-        color-mix(in srgb, ${COLORS.PRIMARY} 45%, ${COLORS.SURFACE_PRIMARY}),
-        ${COLORS.PRIMARY}
-      );
-    background-clip: padding-box, border-box;
-    background-origin: border-box;
+    ${fieldFocusDeclarations}
   }
 
   &[aria-invalid='true']:not(:disabled):focus-visible {

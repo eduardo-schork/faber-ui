@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/AlertDialog" />
+import * as ComponentStories from '../../../../packages/react/src/components/alert-dialog/alert-dialog.stories';
+
+<Meta of={ComponentStories} />
 
 # AlertDialog
 
-[Interactive stories and prop reference](?path=/docs/molecules-alertdialog--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -53,3 +57,5 @@ import { AlertDialog } from '@faber-ui/react/alert-dialog';
 ## Boundaries
 
 There is no third action and no input inside the dialog. Build those from the `Dialog` parts.
+
+<Stories includePrimary={false} />

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs/blocks';
 
-<Meta title="Foundations/Typography Guide" />
+<Meta title="Foundations/Typography" />
 
 # Typography
 
@@ -58,6 +58,9 @@ import { TYPOGRAPHY_SIZES, TYPOGRAPHY_TONES } from '@faber-ui/react';
 ```
 
 - `size`: `smallest`, `smaller`, `small`, `medium`, `large`, `larger`, `largest`, or `inherit`.
+  For page and section titles there are three fluid display sizes, `display-small`,
+  `display-medium`, and `display-large`: each grows with the viewport up to its `FONT_SIZES.DISPLAY_*`
+  token and tightens its letter spacing.
 - `weight`: `regular`, `medium`, `semibold`, `bold`, or `inherit`.
 - `tone`: `primary`, `secondary`, `disabled`, `accent`, or `inherit`.
 - `truncate`: renders a single line with an ellipsis when the container is constrained.

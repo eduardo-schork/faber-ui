@@ -1,0 +1,50 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/color-swatch/color-swatch.stories';
+
+<Meta of={ComponentStories} />
+
+# ColorSwatch
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `ColorSwatch` to show a color next to its name and value: palette documentation, theme
+pickers, and legends.
+
+## Behavioral contract
+
+- `color` accepts any CSS color, gradient, or `var()` reference, so a swatch can follow a theme
+  role such as `COLORS.PRIMARY`.
+- `label` and `value` are optional. With neither, the swatch is only the sample.
+- `orientation` is `horizontal` (a small square beside the text) or `vertical` (a tile above it).
+- Renders the library `HFlex` and forwards its props and ref.
+
+## Accessibility
+
+The sample is decorative and hidden from assistive technology; the label and the value carry the
+meaning. Do not use a swatch without text as the only way to tell two options apart.
+
+## Customization
+
+Target `faber-ui-color-swatch`, `faber-ui-color-swatch-sample`, `faber-ui-color-swatch-label`,
+and `faber-ui-color-swatch-value`. The parts are exported as `ColorSwatchRoot`,
+`ColorSwatchSample`, `ColorSwatchLabel`, and `ColorSwatchValue`.
+
+## Example
+
+```tsx
+import { COLORS, ColorSwatch } from '@faber-ui/react';
+
+<ColorSwatch color={COLORS.PRIMARY} label="PRIMARY" value="--faber-ui-color-primary" />
+<ColorSwatch color="hsl(270 50% 38%)" label="Amethyst 400" orientation="vertical" />;
+```
+
+## Boundaries
+
+`ColorSwatch` displays a color; it does not pick one and is not interactive.
+
+<Stories includePrimary={false} />

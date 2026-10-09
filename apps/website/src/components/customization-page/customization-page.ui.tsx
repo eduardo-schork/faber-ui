@@ -132,6 +132,24 @@ const LEVELS = [
 
 const PART_SETS = [
   {
+    component: 'RadioCard',
+    parts: 'RadioCardRoot, RadioCardInput, RadioCardContent, RadioCardLabel, RadioCardDescription',
+  },
+  {
+    component: 'ColorSwatch',
+    parts: 'ColorSwatchRoot, ColorSwatchSample, ColorSwatchLabel, ColorSwatchValue',
+  },
+  { component: 'Listbox', parts: 'Listbox, ListboxOption, ListboxGroup, ListboxSeparator' },
+  {
+    component: 'EmptyState',
+    parts:
+      'EmptyStateRoot, EmptyStateMedia, EmptyStateTitle, EmptyStateDescription, EmptyStateActions',
+  },
+  {
+    component: 'Stat',
+    parts: 'StatRoot, StatLabel, StatFigure, StatValue, StatChange, StatHelper',
+  },
+  {
     component: 'Dialog',
     parts: 'DialogRoot, DialogHeader, DialogTitle, DialogClose, DialogBody, DialogFooter',
   },

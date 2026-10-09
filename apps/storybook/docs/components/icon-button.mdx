@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/IconButton" />
+import * as ComponentStories from '../../../../packages/react/src/components/icon-button/icon-button.stories';
+
+<Meta of={ComponentStories} />
 
 # IconButton
 
-[Interactive stories and prop reference](?path=/docs/atoms-iconbutton--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -45,3 +49,5 @@ import { IconButton } from '@faber-ui/react/icon-button';
 
 The component does not include an icon library or infer an accessible label from the icon. It is
 an action control, not a toggle; pressed state is reserved for a separate future pattern.
+
+<Stories includePrimary={false} />

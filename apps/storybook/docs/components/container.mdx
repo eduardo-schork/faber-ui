@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Container" />
+import * as ComponentStories from '../../../../packages/react/src/components/container/container.stories';
+
+<Meta of={ComponentStories} />
 
 # Container
 
-[Interactive stories and prop reference](?path=/docs/atoms-container--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -52,3 +56,5 @@ import { Container } from '@faber-ui/react';
 There is no `fullWidth` prop: the narrow-screen base is already full width. Fixed automatic
 minimum widths mean this component is designed for primary page structure, not an arbitrarily
 narrow nested region. The example's `size` prop uses a `CONTAINER_SIZES` key.
+
+<Stories includePrimary={false} />

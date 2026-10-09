@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Divider" />
+import * as ComponentStories from '../../../../packages/react/src/components/divider/divider.stories';
+
+<Meta of={ComponentStories} />
 
 # Divider
 
-[Interactive stories and prop reference](?path=/docs/atoms-divider--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -34,3 +38,5 @@ import { Divider } from '@faber-ui/react/divider';
 
 Spacing around a divider belongs to its parent layout. The component does not render text inside
 the separator.
+
+<Stories includePrimary={false} />

@@ -1,0 +1,74 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/combobox/combobox.stories';
+
+<Meta of={ComponentStories} />
+
+# Combobox
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `Combobox` to choose from a list that is long enough to search, or to choose several values.
+Use `Listbox` for a short list with groups, `Select` when the platform picker is enough, and
+`Autocomplete` when the reader may type a value that is not in the list.
+
+## Behavioral contract
+
+- Renders a text `input` with the `combobox` role inside a frame, and a list of options that opens
+  under it. The ref and native input props go to the input.
+- `options` is an array of `{ value, label, disabled? }`. Typing filters the list by label, without
+  regard to case.
+- Single: `value` is a string and `onValueChange` receives a string. Choosing an option closes the
+  list and shows its label. Dismissing the list restores the label of the current value.
+- `multiple`: `value` is an array and `onValueChange` receives an array. Chosen values appear as
+  chips with a remove button, and the list stays open.
+- `name` submits the value with the form: one hidden field in the single form, one per value with
+  `multiple`.
+- `emptyMessage` is shown when nothing matches.
+
+## Accessibility
+
+- Focus stays in the input; `aria-activedescendant` points at the active option.
+- Arrow keys move through the options and open the list; Home and End jump to the ends; Enter
+  chooses; Escape closes. With `multiple`, Backspace on an empty input removes the last value.
+- Inside `Field` the input takes the field label, description, and error. Without `Field`, pass
+  `aria-label` or `aria-labelledby`.
+- Translate `emptyMessage` and `removeLabel` with the rest of the interface.
+
+## Customization
+
+Target `faber-ui-combobox` (the frame), `faber-ui-combobox-input`, `faber-ui-combobox-icon`,
+`faber-ui-combobox-chip`, `faber-ui-combobox-chip-remove`, `faber-ui-combobox-content`,
+`faber-ui-combobox-list`, `faber-ui-combobox-option`, `faber-ui-combobox-option-indicator`, and
+`faber-ui-combobox-empty`. The list is rendered in a portal at the end of the document, so scope
+those rules globally or by theme.
+
+## Example
+
+```tsx
+import { Combobox, Field } from '@faber-ui/react';
+
+const REGIONS = [
+  { value: 'fra', label: 'Frankfurt' },
+  { value: 'dub', label: 'Dublin' },
+];
+
+<Field label="Region">
+  <Combobox name="region" options={REGIONS} value={region} onValueChange={setRegion} />
+</Field>
+
+<Field label="Replicas">
+  <Combobox multiple options={REGIONS} value={replicas} onValueChange={setReplicas} />
+</Field>;
+```
+
+## Boundaries
+
+`Combobox` filters a list it already has: it does not load options while typing, create new
+values, or virtualize long lists. Option labels are plain text.
+
+<Stories includePrimary={false} />

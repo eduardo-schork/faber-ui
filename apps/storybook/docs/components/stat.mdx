@@ -1,0 +1,47 @@
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
+
+import * as ComponentStories from '../../../../packages/react/src/components/stat/stat.stories';
+
+<Meta of={ComponentStories} />
+
+# Stat
+
+<Primary />
+
+<Controls />
+
+## Purpose and when to use it
+
+Use `Stat` for one number that summarizes something, with its label: a dashboard figure, a total
+at the top of a report.
+
+## Behavioral contract
+
+- `label` and `value` are required. `change` shows how the value moved, and `helper` adds context
+  such as the period.
+- `trend` is `positive`, `negative`, or `neutral` and only sets the color of the change.
+- Renders the library `VFlex` and forwards its props and ref. Format numbers before passing them.
+
+## Accessibility
+
+Color is not the only signal: write the sign or the direction in `change` itself, such as "+12%"
+or "down 3 points".
+
+## Customization
+
+Target `faber-ui-stat`, `faber-ui-stat-label`, `faber-ui-stat-figure`, `faber-ui-stat-value`,
+`faber-ui-stat-change`, and `faber-ui-stat-helper`. The change carries `data-trend`.
+
+## Example
+
+```tsx
+import { Stat } from '@faber-ui/react/stat';
+
+<Stat label="Revenue" value="$48,200" change="+12%" trend="positive" helper="Last 30 days" />;
+```
+
+## Boundaries
+
+`Stat` does not format numbers, animate them, or draw charts.
+
+<Stories includePrimary={false} />

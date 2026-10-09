@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Toast" />
+import * as ComponentStories from '../../../../packages/react/src/components/toast/toast.stories';
+
+<Meta of={ComponentStories} />
 
 # Toast
 
-[Interactive stories and prop reference](?path=/docs/atoms-toast--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -92,3 +96,5 @@ function SaveButton() {
 
 The queue has no pause on hover, swipe to dismiss, or position option. Render `Toast` and
 `ToastViewport` yourself when the queue does not fit.
+
+<Stories includePrimary={false} />

@@ -4,7 +4,7 @@ import { Field } from '../field';
 import { Autocomplete } from './autocomplete.ui';
 
 const meta = {
-  title: 'Atoms/Autocomplete',
+  title: 'Components/Forms/Autocomplete',
   component: Autocomplete,
   args: {
     options: ['Frankfurt', 'Dublin', 'Lisbon', 'São Paulo', 'Washington, D.C.'],

@@ -5,7 +5,7 @@ import { Button } from '../button';
 import { AlertDialog } from './alert-dialog.ui';
 
 const meta = {
-  title: 'Molecules/AlertDialog',
+  title: 'Components/Overlays/AlertDialog',
   component: AlertDialog,
   parameters: { layout: 'centered' },
   args: {

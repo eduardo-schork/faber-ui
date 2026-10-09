@@ -5,7 +5,7 @@ import { ALERT_COLORS } from './alert.constants';
 import { Alert } from './alert.ui';
 
 const meta = {
-  title: 'Atoms/Alert',
+  title: 'Components/Feedback/Alert',
   component: Alert,
   args: {
     children: 'APIs may change before version 1.0.',

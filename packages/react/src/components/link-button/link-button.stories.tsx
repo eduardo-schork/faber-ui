@@ -5,7 +5,7 @@ import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_VARIANTS } from '../button';
 import { LinkButton } from './link-button.ui';
 
 const meta = {
-  title: 'Atoms/LinkButton',
+  title: 'Components/Navigation/LinkButton',
   component: LinkButton,
   parameters: { layout: 'centered' },
   args: {

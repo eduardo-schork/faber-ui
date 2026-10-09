@@ -4,7 +4,7 @@ import { Radio } from '../radio';
 import { RadioGroup } from './radio-group.ui';
 
 const meta = {
-  title: 'Molecules/RadioGroup',
+  title: 'Components/Forms/RadioGroup',
   component: RadioGroup,
   parameters: { layout: 'centered' },
 } satisfies Meta<typeof RadioGroup>;

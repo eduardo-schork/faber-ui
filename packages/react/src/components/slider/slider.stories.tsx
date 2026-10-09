@@ -4,7 +4,7 @@ import { Field } from '../field';
 import { Slider } from './slider.ui';
 
 const meta = {
-  title: 'Atoms/Slider',
+  title: 'Components/Forms/Slider',
   component: Slider,
   args: { 'aria-label': 'Volume', defaultValue: 40, max: 100, min: 0, step: 1 },
 } satisfies Meta<typeof Slider>;

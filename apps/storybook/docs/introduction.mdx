@@ -4,70 +4,34 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Faber UI
 
-Faber UI is a modular, strongly typed design system for React, Next.js, and Vite. This Storybook
-is its living manual: component APIs are generated from source, while these guides explain the
-decisions and contracts shared across components.
+Faber UI is a strongly typed design system for React. Components render the native element you
+would have written by hand, take their look from design tokens, and expose CSS variables and
+stable class names as the way to change them.
 
-The project is public and under active development. The packages are published on npm under the
-`@faber-ui` scope; until 1.0, a minor version may change an API.
+The packages are published on npm under the `@faber-ui` scope. Until 1.0, a minor version may
+change an API.
 
-## What is available
+## Where to start
 
-- Primitive palette tokens and semantic color tokens.
-- Light, dark, and CSS-driven system themes.
-- An opt-in `GlobalStyles` document baseline, installed globally in Storybook.
-- Plus Jakarta Sans Variable distributed as local package assets.
-- Responsive dimensional, typography, border, radius, and motion tokens.
-- Accessible `Button` and `IconButton` atoms, and `LinkButton` and `Link` for navigation.
-- An independent `@faber-ui/icons` package with a first set of outline icons.
-- A native `Input` atom that preserves input attributes, events, and refs.
-- A native `Textarea` atom with rows-based height and vertical resizing.
-- Native `Checkbox`, `Radio`, and `Switch` atoms with inline labels, form props, and validation
-  messages.
-- A native `Select` atom that preserves option children, form props, and refs.
-- A `Field` molecule that associates labels, descriptions, and validation errors with controls.
-- A `RadioGroup` molecule that labels a set of radios with a native `fieldset` and `legend`.
-- A `SegmentedControl` molecule built from native radios.
-- Responsive `Flex`, `HFlex`, and `VFlex` layout atoms with token-aware gaps and optional debug
-  outlines.
-- A responsive page `Container` with automatic breakpoint widths and custom maximum sizes.
-- A constrained `CenterFlex` composition for centering children on both flex axes.
-- Semantic `Text.*` and `Title.*` typography atoms, including inline `Text.Code`.
-- `Divider`, `Badge`, `Avatar`, `Card`, `Table`, and `Alert` display atoms.
-- `Spinner`, `Skeleton`, and `Progress` loading atoms with reduced-motion handling.
-- Native-first `Slider`, `Autocomplete`, `Accordion`, `Breadcrumb`, and `Pagination`.
-- `Tabs`, `Toast`, and a modal `Dialog` and `Drawer` built on the native `dialog` element.
-- `Tooltip`, `Popover`, and `Menu`, with Radix as an internal implementation detail.
-- A `VisuallyHidden` atom for content exposed only to assistive technology.
-- Public `CONSTANT_CASE` objects for closed component options and theme modes.
-- Autodocs, interaction examples, theme previews, and automated accessibility checks.
+- [Getting Started](?path=/docs/introduction-getting-started--docs): install, load the styles,
+  and render the first component.
+- [Components](?path=/docs/components-overview--docs): one guide per component, with its
+  behavior, accessibility notes, and boundaries.
+- [Design Tokens](?path=/docs/foundations-design-tokens--docs) and
+  [Theming](?path=/docs/foundations-theming--docs): the values behind every component and
+  how to replace them.
+- [Composition](?path=/docs/foundations-composition--docs): props, part classes, and
+  components assembled from exported parts.
+- [Forms](?path=/docs/introduction-forms--docs): fields, validation libraries, and translated
+  copy.
 
-## Core principles
+In the sidebar, components are grouped by family. Each one opens on a **Docs** page with a live
+example, its controls, the written guide, and every story.
 
-- Prefer semantic HTML over unnecessary abstractions.
-- Target WCAG 2.2 AA.
-- Provide explicit native props, reliable public types, and correctly forwarded refs.
-- Use semantic tokens and CSS variables as the customization contract.
-- Keep APIs constrained while preserving `className`, `style`, and CSS-variable escape hatches.
-- Keep Radix as an internal implementation detail for complex behavior.
-- Build small, responsive, predictable components documented with realistic examples.
+## Principles
 
-## Documentation map
-
-- **Getting Started** covers styles, fonts, themes, and the first component imports.
-- **Design Tokens** explains the primitive-to-semantic token architecture.
-- **Theming** documents CSS, React provider, system mode, and customization.
-- **Composition** documents props, part classes, tokens, and building components from parts.
-- **Typography** documents semantic `Text.*` and `Title.*` usage.
-- **Forms** documents Input, Textarea, Select, Field, Checkbox, Radio, RadioGroup, Switch,
-  validation libraries, and translated copy.
-- **Components** contains human-readable guides for every implemented React component. Each guide
-  explains purpose, behavior, accessibility, customization, examples, and boundaries.
-- **Atoms**, **Molecules**, and **Organisms** contain interactive component references generated from their
-  stories and types.
-
-## Project status
-
-The foundation is operational and validated through type checking, linting, unit tests, package
-builds, and a static Storybook build. Visual details remain intentionally iterative while the
-component contracts and accessibility behavior stabilize.
+- Prefer semantic HTML over abstractions, and forward native props and refs.
+- Target WCAG 2.2 AA; the packaged themes are tested for contrast.
+- Keep options closed and typed, with `className`, `style`, and CSS variables as escape hatches.
+- Use tokens for every visual decision, so a theme or one variable changes the whole system.
+- Keep third-party primitives an internal detail of the components that need them.

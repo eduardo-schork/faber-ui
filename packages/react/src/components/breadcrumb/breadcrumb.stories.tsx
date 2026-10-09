@@ -4,7 +4,7 @@ import { Link } from '../link';
 import { Breadcrumb, BreadcrumbItem } from './breadcrumb.ui';
 
 const meta = {
-  title: 'Molecules/Breadcrumb',
+  title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
   args: { children: null },
   argTypes: { children: { control: false } },

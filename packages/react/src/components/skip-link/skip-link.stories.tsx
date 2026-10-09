@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SkipLink } from './skip-link.ui';
 
 const meta = {
-  title: 'Atoms/SkipLink',
+  title: 'Components/Navigation/SkipLink',
   component: SkipLink,
   parameters: {
     docs: { description: { component: 'Press Tab inside the preview to reveal the link.' } },

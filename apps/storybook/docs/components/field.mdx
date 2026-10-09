@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Field" />
+import * as ComponentStories from '../../../../packages/react/src/components/field/field.stories';
+
+<Meta of={ComponentStories} />
 
 # Field
 
-[Interactive stories and prop reference](?path=/docs/molecules-field--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -70,3 +74,5 @@ import { FieldDescription, FieldLabel, FieldRoot } from '@faber-ui/react/field';
 `Field` does not validate values or manage form state. Yup, React Hook Form, and i18n systems
 remain application dependencies; pass their current error or translated content as props. A
 separate [Forms](?path=/docs/introduction-forms--docs) guide shows that integration boundary.
+
+<Stories includePrimary={false} />

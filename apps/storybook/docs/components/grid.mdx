@@ -1,10 +1,14 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Controls, Meta, Primary, Stories } from '@storybook/addon-docs/blocks';
 
-<Meta title="Components/Grid" />
+import * as ComponentStories from '../../../../packages/react/src/components/grid/grid.stories';
+
+<Meta of={ComponentStories} />
 
 # Grid
 
-[Interactive stories and prop reference](?path=/docs/atoms-grid--docs)
+<Primary />
+
+<Controls />
 
 ## Purpose and when to use it
 
@@ -50,3 +54,5 @@ import { Grid } from '@faber-ui/react/grid';
 
 There are no row, area, or span props. Set `grid-column` on a child, or write the template in a
 styled wrapper, when a layout needs them.
+
+<Stories includePrimary={false} />

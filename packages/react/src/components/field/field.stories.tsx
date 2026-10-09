@@ -6,7 +6,7 @@ import { INPUT_TYPES, Input } from '../input';
 import { Field } from './field.ui';
 
 const meta = {
-  title: 'Molecules/Field',
+  title: 'Components/Forms/Field',
   component: Field,
   parameters: { layout: 'centered' },
   args: {
